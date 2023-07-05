@@ -1,0 +1,46 @@
+*Pick And Place List
+*Company=
+*Author=
+*eMail=
+*
+*Project=Barramento_EITduino
+*Date=16:37:08
+*CreatedBy=Fritzing 0.9.6b..
+*
+*
+*Coordinates in mm, always center of component
+*Origin 0/0=Lower left corner of PCB
+*Rotation in degree (0-360, math. pos.)
+*
+*No;Value;Package;X;Y;Rotation;Side;Name
+1;;;79.7229;-11.1565;0;Bottom;TXT1
+2;;;11.8269;-87.6712;0;Bottom;TXT1
+3;;;79.8236;-13.8261;0;Bottom;TXT1
+4;;;11.2174;-85.013;0;Bottom;TXT1
+5;;;79.5084;-93.5135;0;Bottom;TXT1
+6;;THT;5.07246;-36.5034;0;Bottom;Sinais
+7;;;10.0409;-20.7828;0;Bottom;TXT1
+8;;;11.5137;-74.6568;0;Bottom;TXT1
+9;;;11.2689;-92.8695;0;Bottom;TXT1
+10;;;10.952;-77.3703;0;Bottom;TXT1
+11;;;11.4398;-2.83887;0;Bottom;TXT1
+12;;;11.4023;-5.61283;0;Bottom;TXT1
+13;;;77.0904;-88.394;0;Bottom;TXT1
+14;;;76.6865;-83.5118;0;Bottom;TXT1
+15;;THT;5.07246;-84.7634;0;Bottom;tensoes
+16;;;78.2072;-85.9223;0;Bottom;TXT1
+17;;;79.6221;-8.68877;0;Bottom;TXT1
+18;;;10.1591;-18.2544;0;Bottom;TXT1
+19;;;76.6289;-81.0928;0;Bottom;TXT1
+20;;THT;85.0825;-50.4734;0;Bottom;Comunicacao
+21;;;79.7229;-16.2941;0;Bottom;TXT1
+22;;;11.1105;-82.4102;0;Bottom;TXT1
+23;;;79.6724;-18.9131;0;Bottom;TXT1
+24;;;12.1154;-15.726;0;Bottom;TXT1
+25;;;11.3375;-10.5399;0;Bottom;TXT1
+26;;;79.8502;-6.09487;0;Bottom;TXT1
+27;;;11.6986;-90.1335;0;Bottom;TXT1
+28;;;77.31;-90.9589;0;Bottom;TXT1
+29;;;12.1625;-13.1329;0;Bottom;TXT1
+30;;;11.4671;-8.07635;0;Bottom;TXT1
+31;;;11.0589;-79.8073;0;Bottom;TXT1

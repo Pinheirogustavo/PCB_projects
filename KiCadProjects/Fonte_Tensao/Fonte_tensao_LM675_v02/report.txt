@@ -1,0 +1,11 @@
+Traçado para '/home/gustavo/Dropbox/KiCadProjects/Fonte_Tensao/Fonte_tensao_LM675_v02/gerbers/Fonte_tensao_LM675-F_Cu.gbr'.
+Traçado para '/home/gustavo/Dropbox/KiCadProjects/Fonte_Tensao/Fonte_tensao_LM675_v02/gerbers/Fonte_tensao_LM675-B_Cu.gbr'.
+Traçado para '/home/gustavo/Dropbox/KiCadProjects/Fonte_Tensao/Fonte_tensao_LM675_v02/gerbers/Fonte_tensao_LM675-F_Paste.gbr'.
+Traçado para '/home/gustavo/Dropbox/KiCadProjects/Fonte_Tensao/Fonte_tensao_LM675_v02/gerbers/Fonte_tensao_LM675-B_Paste.gbr'.
+Traçado para '/home/gustavo/Dropbox/KiCadProjects/Fonte_Tensao/Fonte_tensao_LM675_v02/gerbers/Fonte_tensao_LM675-F_Silkscreen.gbr'.
+Traçado para '/home/gustavo/Dropbox/KiCadProjects/Fonte_Tensao/Fonte_tensao_LM675_v02/gerbers/Fonte_tensao_LM675-B_Silkscreen.gbr'.
+Traçado para '/home/gustavo/Dropbox/KiCadProjects/Fonte_Tensao/Fonte_tensao_LM675_v02/gerbers/Fonte_tensao_LM675-F_Mask.gbr'.
+Traçado para '/home/gustavo/Dropbox/KiCadProjects/Fonte_Tensao/Fonte_tensao_LM675_v02/gerbers/Fonte_tensao_LM675-B_Mask.gbr'.
+Traçado para '/home/gustavo/Dropbox/KiCadProjects/Fonte_Tensao/Fonte_tensao_LM675_v02/gerbers/Fonte_tensao_LM675-Edge_Cuts.gbr'.
+Arquivo de trabalho do Gerber '/home/gustavo/Dropbox/KiCadProjects/Fonte_Tensao/Fonte_tensao_LM675_v02/gerbers/Fonte_tensao_LM675-job.gbrjob' foi criado.
+Informação: Feito.
