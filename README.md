@@ -31,7 +31,8 @@
 - SPI_clk: pino de clock que estabelece o sincronismo da comunicação SPI
 - CS(x): pinos para selecionar o chip desejado (Chip Select)
 > CS (AD9833): seleciona o gerador de sinais AD9833
->  CS (X9c10x): seleciona o potenciometro digital do circuito de controle da corrente
+
+> CS (X9c10x): seleciona o potenciometro digital do circuito de controle da corrente
 
 I2C arduino: https://docs.arduino.cc/learn/communication/wire
 
