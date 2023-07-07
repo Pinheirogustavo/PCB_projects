@@ -2,8 +2,8 @@
 
 Conexões presentes nas barras de pinos:
 
-* Barra "tensoes":
-Earth: Terra virtual implementado com LM675
+** Barra "tensoes":
+* Earth: Terra virtual implementado com LM675
 VCC: +(MaxTensao da fonte utilizada / 2) Tensao NÃO regulada
 VEE:-(MaxTensao da fonte utilizada / 2)  Tensao NÃO regulada
 +9V: regulador 7809
