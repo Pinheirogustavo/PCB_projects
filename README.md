@@ -34,6 +34,7 @@
 >  CS (X9c10x): seleciona o potenciometro digital do circuito de controle da corrente
 
 I2C arduino: https://docs.arduino.cc/learn/communication/wire
+
 SPI arduino https://docs.arduino.cc/learn/communication/spi?_gl=1*1
 
 
