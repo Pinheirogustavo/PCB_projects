@@ -21,7 +21,7 @@
 - Sin1: Sinal alternado 1 gerado por AD9833/9850. Sem amplificação
 - Sin2: Sinal alternado 2 gerado por AD9833/9850. Sem amplificação
 - SinA: Sinal alternado 1 com controle de amplitude (talvez freq e fase)
-- SinA: Sinal alternado 2 com controle de amplitude (talvez freq e fase)
+- SinB: Sinal alternado 2 com controle de amplitude (talvez freq e fase)
 
 ### Barra "comunicacao"
 - SINC: Sinal de sincronismo (ainda a definir)
