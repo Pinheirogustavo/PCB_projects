@@ -1,12 +1,12 @@
 # Gerador de Sinais
 
-### Descrição Geral do projeto
+## Descrição Geral do projeto
 
 Sistema que gera um sinal senoidal com controle de amplitude e frequência.
 
 Estágios: Gerador de sinais &rarr; Filtro  passa-alta &rarr; SinA &rarr; buffer &rarr;  amplificador não-inversor &rarr; Sin1
 
-### Componentes do circuito:
+## Componentes do circuito:
 
 - Arduino nano: controlador do sistema
 - AD9833: gerador de sinais confeccionado em módulo. Gera uma onda senoidal de amplitude fixa de 300mA e offset
@@ -15,7 +15,7 @@ Estágios: Gerador de sinais &rarr; Filtro  passa-alta &rarr; SinA &rarr; buffer
 	>Amplificador 2 é um amplificador não inversor. Vout = (1+pot/R2)*Vin
 - X9c10x: potenciometro digital dedicado ao ganho de sinal
 
-### Estágios do circuito
+## Estágios do circuito
 
 #### Entradas e saídas digitais do arduino nano:
 >D2:  cs (X9X104) - Sinal de Chip Select do potenciômetro digital - Botão 4 (pulldown) "The device is selected when the CS input is LOW." - Pressionar o botão faz o sinal passar de LOW para HIGH. Usado para armazenar o valor de resistência.
@@ -55,7 +55,7 @@ Estágios: Gerador de sinais &rarr; Filtro  passa-alta &rarr; SinA &rarr; buffer
 - Programa baseado em: https://www.electroniclinic.com/ad9833-programmable-waveform-generator-using-arduino/
 - Biblioteca necessária: https://github.com/Billwilliams1952/AD9833-Library-Arduino
 
-#### Esquemático
+## Esquemático
 
 ![Esquemático Gerador de sinais - Kicad](https://github.com/Pinheirogustavo/PCB_projects/blob/main/KiCadProjects/Gerador_sinais/print/Gerador_sinais_esquematico.png)
 
