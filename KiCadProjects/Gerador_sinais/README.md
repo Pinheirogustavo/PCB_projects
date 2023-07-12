@@ -4,7 +4,7 @@
 
 Sistema que gera um sinal senoidal com controle de amplitude e frequência.
 
-Estágios: Gerador de sinais &rarr; Filtro  passa-alta &rarr; SinA &rarr; buffer &rarr;  amplificador não-inversor &rarr; Sin1
+Estágios: Gerador de sinais ( CA@300mV + DC) &rarr; Filtro  passa-alta &rarr; SinA (CA@300mV) &rarr; buffer &rarr;  amplificador não-inversor &rarr; Sin1(CA@300mV-3V)
 
 ## Componentes do circuito:
 
