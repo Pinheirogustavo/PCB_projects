@@ -45,10 +45,14 @@ Estágios: Gerador de sinais &rarr; Filtro  passa-alta &rarr; SinA &rarr; buffer
 
 #### O potenciômetro digital
 
-- Programa de inspiração: https://www.electroniclinic.com/digital-potentiometer-x9c103s-arduino-circuit-and-programming/
+- Programa baseado em: https://www.electroniclinic.com/digital-potentiometer-x9c103s-arduino-circuit-and-programming/
+
+- Pin Descriptions - X9c10x
+
+![Pin Descriptions - X9c10x](https://www.electroniclinic.com/wp-content/uploads/2021/05/Digital-Potentiometer-X9C103s-Mode-selection.jpg)
 
 
 #### O Gerador de sinais
 
-- Programa de inspiração: https://www.electroniclinic.com/ad9833-programmable-waveform-generator-using-arduino/
+- Programa baseado em: https://www.electroniclinic.com/ad9833-programmable-waveform-generator-using-arduino/
 - Biblioteca necessária: https://github.com/Billwilliams1952/AD9833-Library-Arduino
