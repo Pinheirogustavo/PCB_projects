@@ -17,18 +17,18 @@ Estágios: Gerador de sinais &rarr; Filtro  passa-alta &rarr; SinA &rarr; buffer
 
 ### Estágios do circuito
 
-#### Entradas digitais do arduino nano:
->D2:  cs (X9X104) - Sinal de Chip Select do potenciômetro digital - Botão 4 (pulldown)
+#### Entradas e saídas digitais do arduino nano:
+>D2:  cs (X9X104) - Sinal de Chip Select do potenciômetro digital - Botão 4 (pulldown) "The device is selected when the CS input is LOW." - Pressionar o botão faz o sinal passar de LOW para HIGH, armazenando o valor de resistência.
 
 >D4:  cs (AD9833) - Sinal de Chip Select do gerador de sinais
 
->D5:  Up_pot - Aumenta a resistência do potenciômetro (aumenta o ganho do sistema) - Botão 5
+>D5:  Up_pot - Aumenta a resistência do potenciômetro (aumenta o ganho do sistema) - Botão 5 - Pressionar o botão faz com que o sinal de X9c10x_INC altere de HIGH para LOW e o sinal  X9c10x_U/D fique em HIGH
 	
->D6:  Down_pot - Reduz a resistência do potenciômetro (reduz o ganho do sistema) - BOtão 6
+>D6:  Down_pot - Reduz a resistência do potenciômetro (reduz o ganho do sistema) - Botão 6 - Pressionar o botão faz com que o sinal de X9c10x_INC altere de HIGH para LOW e o sinal  X9c10x_U/D fique em LOW
 
->D7:  X9c10x_INC
+>D7:  X9c10x_INC - Saída digital. Responsável pelo disparo do sinal de incremento e decremento da resistência.
 
->D8:  X9c10x_U/D
+>D8:  X9c10x_U/D -  Saída digital. Responsável pela seleção do sinal de incremento ou decremento da resistência.
 
 >D9:  freq+   - Incrementa a frequência do sinal (a definir o tamanho do incremento) - Botão 2
 
@@ -39,6 +39,9 @@ Estágios: Gerador de sinais &rarr; Filtro  passa-alta &rarr; SinA &rarr; buffer
 >D12: S_wave -Seleciona a forma de onda desejada (seno, triangular ou quadrada) - Botão 1
 
 >D13: SPI_clk - Sinal de clock entre o arduino e o gerador de sinais
+
+![Pin Descriptions - X9c10x](https://www.electroniclinic.com/wp-content/uploads/2021/05/Digital-Potentiometer-X9C103s-Mode-selection.jpg)
+
 
 #### O potenciômetro digital
 
