@@ -55,4 +55,9 @@ Estágios: Gerador de sinais &rarr; Filtro  passa-alta &rarr; SinA &rarr; buffer
 - Programa baseado em: https://www.electroniclinic.com/ad9833-programmable-waveform-generator-using-arduino/
 - Biblioteca necessária: https://github.com/Billwilliams1952/AD9833-Library-Arduino
 
+####Esquemático
+
+![Esquemático Gerador de sinais - Kicad](https://github.com/Pinheirogustavo/PCB_projects/blob/main/KiCadProjects/Gerador_sinais/print/Gerador_sinais_esquematico.png)
+
+
 
