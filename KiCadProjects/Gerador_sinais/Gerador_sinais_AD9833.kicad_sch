@@ -5,15 +5,14 @@
   (paper "A4")
 
   (title_block
-    (title "Gerador de sinais AD9833 ganho BIA")
-    (date "2023-04-19")
+    (title "Gerador de sinais AD9833")
+    (date "2023-07-12")
     (rev "v01")
     (company "EITduino")
     (comment 1 "Autor: Gustavo Pinheiro")
     (comment 2 "placa de face simples 90x100 mm")
-    (comment 3 "Gerador de sinais implementado para a balanca de bioimpedancia")
+    (comment 3 "Gerador de sinais")
     (comment 4 "potenciometro digital: x9c104 (100k)")
-    (comment 5 "controle do pot dig: https://drive.google.com/drive/folders/1YxCH3byESSoGbQtQ7U2HApApApZmV-oW")
   )
 
   (lib_symbols
