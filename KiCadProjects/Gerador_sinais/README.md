@@ -40,8 +40,6 @@ Estágios: Gerador de sinais &rarr; Filtro  passa-alta &rarr; SinA &rarr; buffer
 
 >D13: SPI_clk - Sinal de clock entre o arduino e o gerador de sinais
 
-![Pin Descriptions - X9c10x](https://www.electroniclinic.com/wp-content/uploads/2021/05/Digital-Potentiometer-X9C103s-Mode-selection.jpg)
-
 
 #### O potenciômetro digital
 
