@@ -47,7 +47,7 @@ Estágios: Gerador de sinais &rarr; Filtro  passa-alta &rarr; SinA &rarr; buffer
 
 - Pin Descriptions - X9c10x:
 
-![Pin Descriptions - X9c10x](https://www.electroniclinic.com/wp-content/uploads/2021/05/Digital-Potentiometer-X9C103s-Mode-selection.jpg)
+![Pin Descriptions - X9c10x](https://github.com/Pinheirogustavo/PCB_projects/blob/main/KiCadProjects/Gerador_sinais/Datasheets/Digital-Potentiometer-X9C103s-Mode-selection.jpg)
 
 
 #### O Gerador de sinais
