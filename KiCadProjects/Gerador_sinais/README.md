@@ -4,7 +4,7 @@
 
 Sistema que gera um sinal senoidal com controle de amplitude e frequência.
 
-Estágios: Gerador de sinais ( CA@300mV + DC) &rarr; Filtro  passa-alta &rarr; SinA (CA@300mV) &rarr; buffer &rarr;  amplificador não-inversor &rarr; Sin1(CA@300mV-3V)
+Estágios: Gerador de sinais ( CA@300mV + DC) &rarr; Filtro  passa-alta &rarr; SinA (CA@300mV) &rarr; buffer &rarr;  amplificador não-inversor &rarr; Sin1(CA@300mV-3V).
 
 ## Componentes do circuito:
 
@@ -15,16 +15,26 @@ Estágios: Gerador de sinais ( CA@300mV + DC) &rarr; Filtro  passa-alta &rarr; S
 	>Amplificador 2 é um amplificador não inversor. Vout = (1+pot/R2)*Vin
 - X9c10x: potenciometro digital dedicado ao ganho de sinal
 
+
+##Cuidados a serem tomados
+
+Para a comunicação SPI, o dispositivo a ser controlado (Chip Select) é selecionado quando o respectivo pino CS está em LOW. Nunca pode-se permitir que dois dispositivos estejam com CS em LOW ao mesmo tempo. Por isso, no programa é preciso garantir que as operações com o AD9833 (select_wave, freq+ e freq-)  após um delay tragam o sinal do CS(AD9833) para LOW e depois devolvam para HIGH. E que as operações com o X9110X (aumento de R, redução de R, guardar R) após um delay tragam o sinal do CS(X9c10X) para LOW e depois devolvam para HIGH.
+
+Assim, primeiramente o programa deve liberar o AD9833 (gerador de sinais) para ocupar a comunicação SPI, após a geração de sinal, desligar sua comunicação (trazer seu CS para HIGH) e liberar a comunicação SPI para ser requisitada a partir dos botões referentes a cada dispositivo. 
+
 ## Estágios do circuito
 
 #### Entradas e saídas digitais do arduino nano:
->D2:  cs (X9X104) - Sinal de Chip Select do potenciômetro digital - Botão 4 (pulldown) "The device is selected when the CS input is LOW." - Pressionar o botão faz o sinal passar de LOW para HIGH. Usado para armazenar o valor de resistência.
+
+>D2:  cs (X9X104) - Saída digital. Sinal de Chip Select do potenciômetro digital - "The device is selected when the CS input is LOW." 
+
+>D3: storage_R - Usado para armazenar o valor de resistência - Botão 4 - Pressionar o botão faz o sinal X9c10x_INC  ficar em HIGH e o sinal  cs(X9X104) passar de HIGH para LOW e retornar a HIGH
 
 >D4:  cs (AD9833) - Sinal de Chip Select do gerador de sinais
 
->D5:  Up_pot - Aumenta a resistência do potenciômetro (aumenta o ganho do sistema) - Botão 5 - Pressionar o botão faz com que o sinal de X9c10x_INC altere de HIGH para LOW e o sinal  X9c10x_U/D fique em HIGH
-	
->D6:  Down_pot - Reduz a resistência do potenciômetro (reduz o ganho do sistema) - Botão 6 - Pressionar o botão faz com que o sinal de X9c10x_INC altere de HIGH para LOW e o sinal  X9c10x_U/D fique em LOW
+>D5:  Up_pot - Aumenta a resistência do potenciômetro (aumenta o ganho do sistema) - Botão 5 - Pressionar o botão faz com que o sinal de cs(X9X104) passe de HIGH para LOW, que o sinal X9c10x_INC altere de HIGH para LOW e o sinal  X9c10x_U/D fique em HIGH. Ao liberar o botão, o sinal de cs(X9X104) deve retornar para HIGH.
+	 
+>D6:  Down_pot - Reduz a resistência do potenciômetro (reduz o ganho do sistema) - Botão 6 - Pressionar o botão faz com que o sinal de cs(X9X104) passe de HIGH para LOW, X9c10x_INC altere de HIGH para LOW e o sinal  X9c10x_U/D fique em LOW. Ao liberar o botão, o sinal de cs(X9X104) deve retornar para HIGH.
 
 >D7:  X9c10x_INC - Saída digital. Responsável pelo disparo do sinal que habilita o incremento e o decremento da resistência. Alterado pelos sinais em Up_pot/Down_pot.
 
