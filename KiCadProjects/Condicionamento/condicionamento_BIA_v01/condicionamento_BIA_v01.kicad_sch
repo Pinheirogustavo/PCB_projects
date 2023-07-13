@@ -918,58 +918,6 @@
         )
       )
     )
-    (symbol "power:+12V" (power) (pin_names (offset 0)) (in_bom yes) (on_board yes)
-      (property "Reference" "#PWR" (at 0 -3.81 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "Value" "+12V" (at 0 3.556 0)
-        (effects (font (size 1.27 1.27)))
-      )
-      (property "Footprint" "" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "Datasheet" "" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "ki_keywords" "global power" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "ki_description" "Power symbol creates a global label with name \"+12V\"" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (symbol "+12V_0_1"
-        (polyline
-          (pts
-            (xy -0.762 1.27)
-            (xy 0 2.54)
-          )
-          (stroke (width 0) (type default))
-          (fill (type none))
-        )
-        (polyline
-          (pts
-            (xy 0 0)
-            (xy 0 2.54)
-          )
-          (stroke (width 0) (type default))
-          (fill (type none))
-        )
-        (polyline
-          (pts
-            (xy 0 2.54)
-            (xy 0.762 1.27)
-          )
-          (stroke (width 0) (type default))
-          (fill (type none))
-        )
-      )
-      (symbol "+12V_1_1"
-        (pin power_in line (at 0 0 90) (length 0) hide
-          (name "+12V" (effects (font (size 1.27 1.27))))
-          (number "1" (effects (font (size 1.27 1.27))))
-        )
-      )
-    )
     (symbol "power:+3.3V" (power) (pin_names (offset 0)) (in_bom yes) (on_board yes)
       (property "Reference" "#PWR" (at 0 -3.81 0)
         (effects (font (size 1.27 1.27)) hide)
@@ -1126,46 +1074,6 @@
         )
       )
     )
-    (symbol "power:-12V" (power) (pin_names (offset 0)) (in_bom yes) (on_board yes)
-      (property "Reference" "#PWR" (at 0 2.54 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "Value" "-12V" (at 0 3.81 0)
-        (effects (font (size 1.27 1.27)))
-      )
-      (property "Footprint" "" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "Datasheet" "" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "ki_keywords" "global power" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "ki_description" "Power symbol creates a global label with name \"-12V\"" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (symbol "-12V_0_0"
-        (pin power_in line (at 0 0 90) (length 0) hide
-          (name "-12V" (effects (font (size 1.27 1.27))))
-          (number "1" (effects (font (size 1.27 1.27))))
-        )
-      )
-      (symbol "-12V_0_1"
-        (polyline
-          (pts
-            (xy 0 0)
-            (xy 0 1.27)
-            (xy 0.762 1.27)
-            (xy 0 2.54)
-            (xy -0.762 1.27)
-            (xy 0 1.27)
-          )
-          (stroke (width 0) (type default))
-          (fill (type outline))
-        )
-      )
-    )
     (symbol "power:-5V" (power) (pin_names (offset 0)) (in_bom yes) (on_board yes)
       (property "Reference" "#PWR" (at 0 2.54 0)
         (effects (font (size 1.27 1.27)) hide)
@@ -1312,6 +1220,104 @@
         )
       )
     )
+    (symbol "power:VCC" (power) (pin_names (offset 0)) (in_bom yes) (on_board yes)
+      (property "Reference" "#PWR" (at 0 -3.81 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "Value" "VCC" (at 0 3.81 0)
+        (effects (font (size 1.27 1.27)))
+      )
+      (property "Footprint" "" (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "Datasheet" "" (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "ki_keywords" "global power" (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "ki_description" "Power symbol creates a global label with name \"VCC\"" (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (symbol "VCC_0_1"
+        (polyline
+          (pts
+            (xy -0.762 1.27)
+            (xy 0 2.54)
+          )
+          (stroke (width 0) (type default))
+          (fill (type none))
+        )
+        (polyline
+          (pts
+            (xy 0 0)
+            (xy 0 2.54)
+          )
+          (stroke (width 0) (type default))
+          (fill (type none))
+        )
+        (polyline
+          (pts
+            (xy 0 2.54)
+            (xy 0.762 1.27)
+          )
+          (stroke (width 0) (type default))
+          (fill (type none))
+        )
+      )
+      (symbol "VCC_1_1"
+        (pin power_in line (at 0 0 90) (length 0) hide
+          (name "VCC" (effects (font (size 1.27 1.27))))
+          (number "1" (effects (font (size 1.27 1.27))))
+        )
+      )
+    )
+    (symbol "power:VEE" (power) (pin_names (offset 0)) (in_bom yes) (on_board yes)
+      (property "Reference" "#PWR" (at 0 -3.81 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "Value" "VEE" (at 0 3.81 0)
+        (effects (font (size 1.27 1.27)))
+      )
+      (property "Footprint" "" (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "Datasheet" "" (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "ki_keywords" "global power" (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "ki_description" "Power symbol creates a global label with name \"VEE\"" (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (symbol "VEE_0_1"
+        (polyline
+          (pts
+            (xy 0 0)
+            (xy 0 2.54)
+          )
+          (stroke (width 0) (type default))
+          (fill (type none))
+        )
+        (polyline
+          (pts
+            (xy 0.762 1.27)
+            (xy -0.762 1.27)
+            (xy 0 2.54)
+            (xy 0.762 1.27)
+          )
+          (stroke (width 0) (type default))
+          (fill (type outline))
+        )
+      )
+      (symbol "VEE_1_1"
+        (pin power_in line (at 0 0 90) (length 0) hide
+          (name "VEE" (effects (font (size 1.27 1.27))))
+          (number "1" (effects (font (size 1.27 1.27))))
+        )
+      )
+    )
   )
 
   (junction (at 159.385 121.285) (diameter 0) (color 0 0 0 0)
@@ -1407,6 +1413,10 @@
     (stroke (width 0) (type default))
     (uuid 202449e9-ef36-49b7-ba74-8b3157d3eb7a)
   )
+  (wire (pts (xy 74.93 163.195) (xy 74.93 170.18))
+    (stroke (width 0) (type default))
+    (uuid 21c06e74-1793-41b2-9cbe-4ff43f0ed969)
+  )
   (wire (pts (xy 177.8 40.005) (xy 177.8 45.72))
     (stroke (width 0) (type default))
     (uuid 22b2d9f8-1f37-4bc4-bbc3-6d44dbf6e8a6)
@@ -1427,7 +1437,7 @@
     (stroke (width 0) (type default))
     (uuid 2a326e14-631b-4e90-a04c-c53f99374ab6)
   )
-  (wire (pts (xy 118.745 160.655) (xy 118.745 187.325))
+  (wire (pts (xy 118.745 182.245) (xy 118.745 187.325))
     (stroke (width 0) (type default))
     (uuid 2c857335-5f11-4ff2-b610-8a3dcabad98b)
   )
@@ -1471,7 +1481,7 @@
     (stroke (width 0) (type default))
     (uuid 47515dd0-2ae8-462e-b1c8-8a98567d914d)
   )
-  (wire (pts (xy 159.385 126.365) (xy 165.1 126.365))
+  (wire (pts (xy 159.385 126.365) (xy 166.37 126.365))
     (stroke (width 0) (type default))
     (uuid 47758b0f-0433-45dc-997b-e23a11b7cac2)
   )
@@ -1499,7 +1509,7 @@
     (stroke (width 0) (type default))
     (uuid 4f21bab5-17ff-463f-9d8c-44f1f9816856)
   )
-  (wire (pts (xy 121.285 163.195) (xy 121.285 187.325))
+  (wire (pts (xy 121.285 182.245) (xy 121.285 187.325))
     (stroke (width 0) (type default))
     (uuid 4f633041-765b-4fd8-824a-b48a1167c0e1)
   )
@@ -1615,6 +1625,10 @@
     (stroke (width 0) (type default))
     (uuid 92046e51-bf21-463b-b1a0-356f48bfd32e)
   )
+  (wire (pts (xy 77.47 163.195) (xy 77.47 170.18))
+    (stroke (width 0) (type default))
+    (uuid 92b3aa4e-e9b4-47d6-898e-044c77594b7c)
+  )
   (wire (pts (xy 177.165 121.285) (xy 184.15 121.285))
     (stroke (width 0) (type default))
     (uuid 92dabc50-4f28-4b33-a671-6ef4b04cb857)
@@ -1667,6 +1681,10 @@
     (stroke (width 0) (type default))
     (uuid b0ad6150-9c56-4937-8f0c-bffaa371280a)
   )
+  (wire (pts (xy 80.01 163.195) (xy 80.01 170.18))
+    (stroke (width 0) (type default))
+    (uuid b23d6299-cb9a-4edf-8d55-35bbca3d84bc)
+  )
   (wire (pts (xy 119.38 50.8) (xy 119.38 61.595))
     (stroke (width 0) (type default))
     (uuid b3312633-e254-4b3b-b48d-61eaa5ee0727)
@@ -1691,7 +1709,7 @@
     (stroke (width 0) (type default))
     (uuid c00ca3ba-168d-4881-a7ce-90d28ca15581)
   )
-  (wire (pts (xy 165.1 151.13) (xy 165.1 126.365))
+  (wire (pts (xy 166.37 151.13) (xy 166.37 126.365))
     (stroke (width 0) (type default))
     (uuid c104b105-8489-4169-b64f-4e5f34b5ff6c)
   )
@@ -1767,6 +1785,10 @@
     (stroke (width 0) (type default))
     (uuid f085838a-542a-42d4-b6c1-ae8cbd0487f7)
   )
+  (wire (pts (xy 82.55 163.195) (xy 82.55 170.18))
+    (stroke (width 0) (type default))
+    (uuid f7bf4872-ba2c-485b-a18a-9f53d8142d12)
+  )
   (wire (pts (xy 26.67 163.83) (xy 26.67 170.18))
     (stroke (width 0) (type default))
     (uuid f80c572a-5ad9-457e-b23c-945af1b11884)
@@ -1787,6 +1809,13 @@
       (effects (font (size 1.27 1.27)) (justify left) hide)
     )
   )
+  (global_label "E2" (shape input) (at 166.37 151.13 0) (fields_autoplaced)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid 036bee8d-295d-4953-9fe4-1798a6145359)
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 171.7137 151.13 0)
+      (effects (font (size 1.27 1.27)) (justify left) hide)
+    )
+  )
   (global_label "SPI_CIPO" (shape input) (at 169.545 181.61 90) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify left))
     (uuid 0c22339b-b974-4853-b613-3b2d043c43b9)
@@ -1794,10 +1823,45 @@
       (effects (font (size 1.27 1.27)) (justify left) hide)
     )
   )
+  (global_label "Ampl1" (shape input) (at 111.76 75.565 0) (fields_autoplaced)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid 1cb71fec-668b-4737-8b6d-4a2ee0b750da)
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 120.5508 75.565 0)
+      (effects (font (size 1.27 1.27)) (justify left) hide)
+    )
+  )
+  (global_label "E2_condicionado" (shape input) (at 222.885 121.285 0) (fields_autoplaced)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid 1e75e9e8-471f-46ed-bfac-d6e6c4873d5f)
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 241.7751 121.285 0)
+      (effects (font (size 1.27 1.27)) (justify left) hide)
+    )
+  )
+  (global_label "E1_condicionado" (shape input) (at 77.47 163.195 90) (fields_autoplaced)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid 28564a5c-0897-4946-97cd-323f23b79225)
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 77.47 144.3049 90)
+      (effects (font (size 1.27 1.27)) (justify left) hide)
+    )
+  )
   (global_label "SPI_COPI" (shape input) (at 172.085 181.61 90) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify left))
     (uuid 37924b14-6102-45be-a49e-639e97a262d5)
     (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 172.085 170.177 90)
+      (effects (font (size 1.27 1.27)) (justify left) hide)
+    )
+  )
+  (global_label "E1_condicionado" (shape input) (at 223.52 45.72 0) (fields_autoplaced)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid 451b3c22-78fe-45d6-9c82-f5d3d8431b0b)
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 242.4101 45.72 0)
+      (effects (font (size 1.27 1.27)) (justify left) hide)
+    )
+  )
+  (global_label "E2_condicionado" (shape input) (at 74.93 163.195 90) (fields_autoplaced)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid 49c7e9bb-dc79-4140-b6da-8589ce3bb9ae)
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 74.93 144.3049 90)
       (effects (font (size 1.27 1.27)) (justify left) hide)
     )
   )
@@ -1836,6 +1900,13 @@
       (effects (font (size 1.27 1.27)) (justify left) hide)
     )
   )
+  (global_label "E1" (shape input) (at 82.55 163.195 90) (fields_autoplaced)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid 6427fd05-ee9d-4f05-b8f3-bc043534177c)
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 82.55 157.8513 90)
+      (effects (font (size 1.27 1.27)) (justify left) hide)
+    )
+  )
   (global_label "I2" (shape input) (at 31.75 163.83 90) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify left))
     (uuid 6a18ba46-bca3-43bc-bb1a-74ec810acb7c)
@@ -1857,10 +1928,17 @@
       (effects (font (size 1.27 1.27)) (justify left) hide)
     )
   )
-  (global_label "X9x10x_INC" (shape input) (at 121.285 163.195 0) (fields_autoplaced)
+  (global_label "E2" (shape input) (at 80.01 163.195 90) (fields_autoplaced)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid 87773311-5b7d-4f9a-8cfe-9ee2fc06bc7d)
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 80.01 157.8513 90)
+      (effects (font (size 1.27 1.27)) (justify left) hide)
+    )
+  )
+  (global_label "X9x10x_INC" (shape input) (at 121.285 182.245 90) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify left))
     (uuid 888d755c-27eb-46e0-af48-32c243fbb717)
-    (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 135.2579 163.195 0)
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 121.285 168.1927 90)
       (effects (font (size 1.27 1.27)) (justify left) hide)
     )
   )
@@ -1885,11 +1963,32 @@
       (effects (font (size 1.27 1.27)) (justify left) hide)
     )
   )
+  (global_label "Ampl1_medida" (shape input) (at 54.61 43.18 180) (fields_autoplaced)
+    (effects (font (size 1.27 1.27)) (justify right))
+    (uuid 9f865689-694a-451d-bf78-6b27ae7e6f5e)
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 38.0179 43.18 0)
+      (effects (font (size 1.27 1.27)) (justify right) hide)
+    )
+  )
+  (global_label "Ampl1" (shape input) (at 111.125 151.13 0) (fields_autoplaced)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid a50bf54e-9c47-42ff-84ce-1df00b9a227f)
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 119.9158 151.13 0)
+      (effects (font (size 1.27 1.27)) (justify left) hide)
+    )
+  )
   (global_label "SCL3" (shape input) (at 100.965 182.88 90) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify left))
     (uuid b6829adf-15e0-496f-8bc4-10f30407239f)
     (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 100.965 175.2571 90)
       (effects (font (size 1.27 1.27)) (justify left) hide)
+    )
+  )
+  (global_label "Ampl1_medida" (shape input) (at 53.975 118.745 180) (fields_autoplaced)
+    (effects (font (size 1.27 1.27)) (justify right))
+    (uuid c3f10c8a-50fc-44a9-af56-40643d916ba2)
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 37.3829 118.745 0)
+      (effects (font (size 1.27 1.27)) (justify right) hide)
     )
   )
   (global_label "CS (AD9833)" (shape input) (at 164.465 181.61 90) (fields_autoplaced)
@@ -1920,10 +2019,17 @@
       (effects (font (size 1.27 1.27)) (justify left) hide)
     )
   )
-  (global_label "X9x10x_U{slash}D" (shape input) (at 118.745 160.655 0) (fields_autoplaced)
+  (global_label "X9x10x_U{slash}D" (shape input) (at 118.745 182.245 90) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify left))
     (uuid e9768185-3bb5-4a95-a627-4f011dbf2f15)
-    (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 133.4436 160.655 0)
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 118.745 167.467 90)
+      (effects (font (size 1.27 1.27)) (justify left) hide)
+    )
+  )
+  (global_label "E1" (shape input) (at 165.735 75.565 0) (fields_autoplaced)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid fa3b0af1-7639-452a-8929-ebcbcd030973)
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 171.0787 75.565 0)
       (effects (font (size 1.27 1.27)) (justify left) hide)
     )
   )
@@ -1932,35 +2038,6 @@
     (uuid ffe9aee7-f6ab-4732-83a3-82720bef9d15)
     (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 167.005 171.8704 90)
       (effects (font (size 1.27 1.27)) (justify left) hide)
-    )
-  )
-
-  (netclass_flag "" (length 2.54) (shape round) (at 111.125 151.13 180) (fields_autoplaced)
-    (effects (font (size 1.27 1.27)) (justify right bottom))
-    (uuid 409186a8-f0c7-4caf-93ff-880662f72940)
-    (property "Netclass" "AmpI1" (at 111.8235 153.67 0)
-      (effects (font (size 1.27 1.27) italic) (justify left))
-    )
-  )
-  (netclass_flag "" (length 2.54) (shape round) (at 165.1 151.13 180) (fields_autoplaced)
-    (effects (font (size 1.27 1.27)) (justify right bottom))
-    (uuid d85f63f5-0f15-4a82-afac-28a872ec2beb)
-    (property "Netclass" "E2" (at 165.7985 153.67 0)
-      (effects (font (size 1.27 1.27) italic) (justify left))
-    )
-  )
-  (netclass_flag "" (length 2.54) (shape round) (at 165.735 75.565 180) (fields_autoplaced)
-    (effects (font (size 1.27 1.27)) (justify right bottom))
-    (uuid ea755952-a28b-4d32-953b-3cd4bf5676fe)
-    (property "Netclass" "E1" (at 166.4335 78.105 0)
-      (effects (font (size 1.27 1.27) italic) (justify left))
-    )
-  )
-  (netclass_flag "" (length 2.54) (shape round) (at 111.76 75.565 180) (fields_autoplaced)
-    (effects (font (size 1.27 1.27)) (justify right bottom))
-    (uuid ebcfc55c-2b92-48eb-846a-fcc42558f928)
-    (property "Netclass" "AmpI1" (at 112.4585 78.105 0)
-      (effects (font (size 1.27 1.27) italic) (justify left))
     )
   )
 
@@ -1981,7 +2058,7 @@
     )
     (pin "1" (uuid 46c0c4ef-3e65-4d02-812e-75b68009b387))
     (instances
-      (project "Barramento_EITduino"
+      (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR019") (unit 1)
         )
@@ -2007,7 +2084,7 @@
     (pin "1" (uuid 5a74f878-7eac-4b6b-96b4-d77989d854b0))
     (pin "2" (uuid 6c82510c-4aed-4917-a5e6-a9789720d719))
     (instances
-      (project "Barramento_EITduino"
+      (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "R1") (unit 1)
         )
@@ -2033,9 +2110,34 @@
     (pin "1" (uuid 94c72091-bdf8-472c-912c-3c5b5667e30c))
     (pin "2" (uuid c3ab9663-5674-4b87-9dfa-19d23c6474ef))
     (instances
-      (project "Barramento_EITduino"
+      (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "R9") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "power:VCC") (at 31.115 187.96 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no)
+    (uuid 083c1f63-8ef1-4384-bb9c-5004c8a7f995)
+    (property "Reference" "#PWR025" (at 31.115 191.77 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Value" "VCC" (at 31.115 182.88 90)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "" (at 31.115 187.96 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 31.115 187.96 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid 56174d69-f487-443b-bcd9-199b4ec1dd19))
+    (instances
+      (project "condicionamento_BIA_v01"
+        (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
+          (reference "#PWR025") (unit 1)
         )
       )
     )
@@ -2059,9 +2161,34 @@
     (pin "1" (uuid 02def531-19da-4879-8e90-da202322e113))
     (pin "2" (uuid 596df57d-5502-4a2e-9a7a-18052ee99f8f))
     (instances
-      (project "Barramento_EITduino"
+      (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "R2") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "power:VEE") (at 28.575 187.96 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no)
+    (uuid 1a527b69-72c3-49f4-87f8-930ad8f8b539)
+    (property "Reference" "#PWR026" (at 28.575 191.77 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Value" "VEE" (at 28.575 182.88 90)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "" (at 28.575 187.96 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 28.575 187.96 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid ad07918a-0459-47f2-aff6-883a73c0af68))
+    (instances
+      (project "condicionamento_BIA_v01"
+        (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
+          (reference "#PWR026") (unit 1)
         )
       )
     )
@@ -2085,7 +2212,7 @@
     (pin "1" (uuid 3ff2c7d3-c7e0-4d18-bad2-619079227a0b))
     (pin "2" (uuid ef961bee-5c6b-40b2-b566-8c8243b5d887))
     (instances
-      (project "Barramento_EITduino"
+      (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "C4") (unit 1)
         )
@@ -2110,7 +2237,7 @@
     )
     (pin "1" (uuid ff73317b-1c96-41e0-b1aa-9602690773ea))
     (instances
-      (project "Barramento_EITduino"
+      (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR041") (unit 1)
         )
@@ -2142,7 +2269,7 @@
     (pin "7" (uuid 14860475-2f93-42e8-9414-53ec13f87b0f))
     (pin "8" (uuid c8dc43a5-4f48-4b94-94c7-0709d8107a45))
     (instances
-      (project "Barramento_EITduino"
+      (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "U2") (unit 1)
         )
@@ -2168,34 +2295,9 @@
     (pin "1" (uuid dcd916a4-edfd-4d6c-81bd-db878f342e0e))
     (pin "2" (uuid f628fa8b-dcf6-4903-b44b-7d3a06811380))
     (instances
-      (project "Barramento_EITduino"
+      (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "D7") (unit 1)
-        )
-      )
-    )
-  )
-
-  (symbol (lib_id "power:+12V") (at 160.02 104.775 0) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
-    (uuid 22bdbd5e-4be4-4fa5-b7ef-20dde8991fed)
-    (property "Reference" "#PWR013" (at 160.02 108.585 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Value" "+12V" (at 159.385 100.965 90)
-      (effects (font (size 1.27 1.27)) (justify left))
-    )
-    (property "Footprint" "" (at 160.02 104.775 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Datasheet" "" (at 160.02 104.775 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid 1668f386-a8bd-407d-ab51-a5dfba6ad27e))
-    (instances
-      (project "Barramento_EITduino"
-        (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
-          (reference "#PWR013") (unit 1)
         )
       )
     )
@@ -2219,7 +2321,7 @@
     (pin "1" (uuid e6860b0a-b7b0-40d0-892e-0d1e0818b9a1))
     (pin "2" (uuid d56fd920-9fc0-42c0-acb6-c7b105fcf097))
     (instances
-      (project "Barramento_EITduino"
+      (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "D1") (unit 1)
         )
@@ -2245,7 +2347,7 @@
     (pin "1" (uuid b181000d-8e09-4018-99bf-cc708136101a))
     (pin "2" (uuid 9471959d-d869-41d7-aefc-2d4321fe4806))
     (instances
-      (project "Barramento_EITduino"
+      (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "D8") (unit 1)
         )
@@ -2270,7 +2372,7 @@
     )
     (pin "1" (uuid 8d6cb808-28ad-4180-bad2-39ef90bb1bdb))
     (instances
-      (project "Barramento_EITduino"
+      (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR010") (unit 1)
         )
@@ -2295,7 +2397,7 @@
     )
     (pin "1" (uuid 22b80f8e-945d-4223-a0c0-d11c3419695d))
     (instances
-      (project "Barramento_EITduino"
+      (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR015") (unit 1)
         )
@@ -2346,7 +2448,7 @@
     (pin "8" (uuid f05099d5-de8b-40f8-b57e-7ae12a3248a3))
     (pin "9" (uuid 5c6f73b6-7592-44a6-9c2f-3063152c038e))
     (instances
-      (project "Barramento_EITduino"
+      (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "J3") (unit 1)
         )
@@ -2372,7 +2474,7 @@
     (pin "1" (uuid a1536a35-fa3b-49ea-8c6c-0430d6380400))
     (pin "2" (uuid 533d0f2c-af53-4812-bc3b-267e5b85bf4f))
     (instances
-      (project "Barramento_EITduino"
+      (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "R11") (unit 1)
         )
@@ -2398,7 +2500,7 @@
     (pin "1" (uuid 1e0489ea-b858-4c2c-b33a-345b10c2a2bc))
     (pin "2" (uuid 4735779d-59d1-4716-84d3-ee9712d8ce80))
     (instances
-      (project "Barramento_EITduino"
+      (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "D6") (unit 1)
         )
@@ -2424,7 +2526,7 @@
     (pin "1" (uuid 451391dd-f11a-4df6-8945-9b2361a63ae4))
     (pin "2" (uuid 4c5684c5-acaa-40c5-981e-748653fa503b))
     (instances
-      (project "Barramento_EITduino"
+      (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "R8") (unit 1)
         )
@@ -2449,7 +2551,7 @@
     )
     (pin "1" (uuid f3e85b2f-eefa-45b3-bf9a-11f389fb2451))
     (instances
-      (project "Barramento_EITduino"
+      (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR03") (unit 1)
         )
@@ -2474,7 +2576,7 @@
     )
     (pin "1" (uuid 8170b6f2-2cee-4da1-8b6f-d6f2e8c7d362))
     (instances
-      (project "Barramento_EITduino"
+      (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR023") (unit 1)
         )
@@ -2506,7 +2608,7 @@
     (pin "7" (uuid fb3bf86b-880b-4288-b2a2-fa2d100268b2))
     (pin "8" (uuid cd0d7ef7-8e9e-420e-ba7f-614bd76b6bee))
     (instances
-      (project "Barramento_EITduino"
+      (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "J2") (unit 1)
         )
@@ -2531,7 +2633,7 @@
     )
     (pin "1" (uuid 4ba2a840-7f56-4b0b-9ec5-d10372d687d3))
     (instances
-      (project "Barramento_EITduino"
+      (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR02") (unit 1)
         )
@@ -2556,7 +2658,7 @@
     )
     (pin "1" (uuid e76ecc25-7dad-4435-a578-d9e8803dc76b))
     (instances
-      (project "Barramento_EITduino"
+      (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR08") (unit 1)
         )
@@ -2581,7 +2683,7 @@
     )
     (pin "1" (uuid e9b0d2c1-dc22-4a7a-9f85-a7f582490de1))
     (instances
-      (project "Barramento_EITduino"
+      (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR018") (unit 1)
         )
@@ -2607,7 +2709,7 @@
     (pin "1" (uuid 6238e43d-24c8-400f-be2d-69a6f55cd753))
     (pin "2" (uuid 667d66ce-c35e-4ebd-a994-531af95ed345))
     (instances
-      (project "Barramento_EITduino"
+      (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "C7") (unit 1)
         )
@@ -2633,7 +2735,7 @@
     (pin "1" (uuid f1f48f2f-71ae-4375-b11d-4ba0a64bf21a))
     (pin "2" (uuid e0054fb8-d9f6-4949-83b5-91f756861cf5))
     (instances
-      (project "Barramento_EITduino"
+      (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "R4") (unit 1)
         )
@@ -2659,7 +2761,7 @@
     (pin "1" (uuid 49ce117f-1e13-4afd-8cd3-672e09145a7c))
     (pin "2" (uuid 777923a1-55cf-49a5-a2f7-d7baa80b07a3))
     (instances
-      (project "Barramento_EITduino"
+      (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "R5") (unit 1)
         )
@@ -2685,7 +2787,7 @@
     (pin "1" (uuid c17519a2-b910-4111-8af9-bab58e4400de))
     (pin "2" (uuid 7324de30-577b-4f39-a194-f9f115143859))
     (instances
-      (project "Barramento_EITduino"
+      (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "C3") (unit 1)
         )
@@ -2710,7 +2812,7 @@
     )
     (pin "1" (uuid 67a04022-b1cb-4564-b92e-e4d00c82f7eb))
     (instances
-      (project "Barramento_EITduino"
+      (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR020") (unit 1)
         )
@@ -2736,7 +2838,7 @@
     (pin "1" (uuid c149c23f-e77b-4785-aa30-7e21d5543828))
     (pin "2" (uuid c0e56c79-659a-4cf2-8c19-6184d372d0ec))
     (instances
-      (project "Barramento_EITduino"
+      (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "D3") (unit 1)
         )
@@ -2761,7 +2863,7 @@
     )
     (pin "1" (uuid 8b100498-d26b-4816-9d36-be492a2e5493))
     (instances
-      (project "Barramento_EITduino"
+      (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR024") (unit 1)
         )
@@ -2786,7 +2888,7 @@
     )
     (pin "1" (uuid 5fbb5b44-6815-433b-9a5a-4cc41d6f043c))
     (instances
-      (project "Barramento_EITduino"
+      (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR040") (unit 1)
         )
@@ -2794,13 +2896,13 @@
     )
   )
 
-  (symbol (lib_id "power:-12V") (at 118.745 137.16 180) (unit 1)
+  (symbol (lib_id "power:-9V") (at 118.745 137.16 180) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
-    (uuid 72a5a9f9-b69f-435c-912f-07332ba56497)
-    (property "Reference" "#PWR011" (at 118.745 139.7 0)
+    (uuid 72766b8b-28ab-49d7-ba26-2f0597c50956)
+    (property "Reference" "#PWR013" (at 118.745 133.985 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Value" "-12V" (at 118.745 142.24 0)
+    (property "Value" "-9V" (at 118.745 141.605 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Footprint" "" (at 118.745 137.16 0)
@@ -2809,11 +2911,11 @@
     (property "Datasheet" "" (at 118.745 137.16 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 8d4b2120-319d-40d4-b678-551ceb1a60dd))
+    (pin "1" (uuid 44a6400f-5f38-47f9-9e24-9e7c22b9825b))
     (instances
-      (project "Barramento_EITduino"
+      (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
-          (reference "#PWR011") (unit 1)
+          (reference "#PWR013") (unit 1)
         )
       )
     )
@@ -2836,7 +2938,7 @@
     )
     (pin "1" (uuid dc8e606b-56d1-4dd8-8ec6-85f64c62f39d))
     (instances
-      (project "Barramento_EITduino"
+      (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR06") (unit 1)
         )
@@ -2861,9 +2963,34 @@
     )
     (pin "1" (uuid 3013a2ba-4ed7-44f7-94d7-13b36fd37b5f))
     (instances
-      (project "Barramento_EITduino"
+      (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR038") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "power:+9V") (at 160.02 104.775 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 749d5b07-8475-4c35-ae4a-293acbe7988a)
+    (property "Reference" "#PWR012" (at 160.02 108.585 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Value" "+9V" (at 159.385 100.965 90)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Footprint" "" (at 160.02 104.775 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 160.02 104.775 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid 7555b835-5299-474b-bacd-df56f532db7e))
+    (instances
+      (project "condicionamento_BIA_v01"
+        (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
+          (reference "#PWR012") (unit 1)
         )
       )
     )
@@ -2886,7 +3013,7 @@
     )
     (pin "1" (uuid e6963654-f04f-4c80-a4cd-47fc9128697f))
     (instances
-      (project "Barramento_EITduino"
+      (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR09") (unit 1)
         )
@@ -2911,7 +3038,7 @@
     )
     (pin "1" (uuid 826b4d3f-013f-4375-9f7e-71ac877050eb))
     (instances
-      (project "Barramento_EITduino"
+      (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR07") (unit 1)
         )
@@ -2936,7 +3063,7 @@
     )
     (pin "1" (uuid 461b73da-1a5a-4fcc-8488-154c0d15d9b5))
     (instances
-      (project "Barramento_EITduino"
+      (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR034") (unit 1)
         )
@@ -2962,7 +3089,7 @@
     (pin "1" (uuid c11e055b-dd97-462a-b4b1-87c551a77c3f))
     (pin "2" (uuid 6bbb338f-a27f-4832-9eb0-4e279acc7e77))
     (instances
-      (project "Barramento_EITduino"
+      (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "R10") (unit 1)
         )
@@ -2987,9 +3114,59 @@
     )
     (pin "1" (uuid e2d291b2-2095-48f3-8ff2-d855a43116b1))
     (instances
-      (project "Barramento_EITduino"
+      (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR039") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "power:-9V") (at 119.38 61.595 180) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 825956ca-a83d-4b49-85e1-cc6d64ac4519)
+    (property "Reference" "#PWR027" (at 119.38 58.42 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Value" "-9V" (at 119.38 66.04 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "" (at 119.38 61.595 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 119.38 61.595 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid d89cad4d-4aae-4cc9-81a2-c58f9103da8c))
+    (instances
+      (project "condicionamento_BIA_v01"
+        (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
+          (reference "#PWR027") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "power:+9V") (at 160.655 29.21 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 8515f277-cf28-40a9-ab9b-d8a3ad485aae)
+    (property "Reference" "#PWR014" (at 160.655 33.02 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Value" "+9V" (at 160.02 25.4 90)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Footprint" "" (at 160.655 29.21 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 160.655 29.21 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid 5d9fcce2-fd1a-4c38-88fc-04b76d050f02))
+    (instances
+      (project "condicionamento_BIA_v01"
+        (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
+          (reference "#PWR014") (unit 1)
         )
       )
     )
@@ -3046,7 +3223,7 @@
     (pin "8" (uuid 8da8abec-da08-4c93-8613-0430ad19abfb))
     (pin "9" (uuid 13666039-bae3-4523-8b22-1c31a98e837b))
     (instances
-      (project "Barramento_EITduino"
+      (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "J4") (unit 1)
         )
@@ -3071,7 +3248,7 @@
     )
     (pin "1" (uuid 9e3677d3-5748-492b-a930-733dcc845901))
     (instances
-      (project "Barramento_EITduino"
+      (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR022") (unit 1)
         )
@@ -3096,7 +3273,7 @@
     )
     (pin "1" (uuid 1ff5549b-f36c-4fd5-b75c-e0b8b09921e3))
     (instances
-      (project "Barramento_EITduino"
+      (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR05") (unit 1)
         )
@@ -3122,7 +3299,7 @@
     (pin "1" (uuid 2666738c-ae3a-4aed-acee-7b218e6a4993))
     (pin "2" (uuid 0c62a573-6e38-486a-9712-2e13a1491aa9))
     (instances
-      (project "Barramento_EITduino"
+      (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "C1") (unit 1)
         )
@@ -3148,34 +3325,9 @@
     (pin "1" (uuid 01880ff1-e10d-4938-b03c-830fd811acaa))
     (pin "2" (uuid 316c691f-4bbd-4826-a1b5-fec028706b9c))
     (instances
-      (project "Barramento_EITduino"
+      (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "R6") (unit 1)
-        )
-      )
-    )
-  )
-
-  (symbol (lib_id "power:+12V") (at 31.115 187.96 0) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
-    (uuid 94b36e29-7b8d-446e-854a-21c73e80822d)
-    (property "Reference" "#PWR035" (at 31.115 191.77 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Value" "+12V" (at 30.48 184.15 90)
-      (effects (font (size 1.27 1.27)) (justify left))
-    )
-    (property "Footprint" "" (at 31.115 187.96 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Datasheet" "" (at 31.115 187.96 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid eb6c09cc-7035-436e-be0a-1c0f0bb2a225))
-    (instances
-      (project "Barramento_EITduino"
-        (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
-          (reference "#PWR035") (unit 1)
         )
       )
     )
@@ -3199,7 +3351,7 @@
     (pin "1" (uuid f832406f-eb8f-4415-918d-e64fb00c3c27))
     (pin "2" (uuid bc165528-19db-4c64-b050-dccbf6a6add0))
     (instances
-      (project "Barramento_EITduino"
+      (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "R3") (unit 1)
         )
@@ -3231,7 +3383,7 @@
     (pin "7" (uuid d93cf715-0a62-4f79-8d57-853b3d4a1d11))
     (pin "8" (uuid ee3316ca-50de-45b7-944d-4414154bad4b))
     (instances
-      (project "Barramento_EITduino"
+      (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "U1") (unit 1)
         )
@@ -3257,7 +3409,7 @@
     (pin "1" (uuid 70592a03-cc08-4f58-a0f0-f8144bb94042))
     (pin "2" (uuid 09aa6324-31b8-4c49-bcb8-e39d99689153))
     (instances
-      (project "Barramento_EITduino"
+      (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "R7") (unit 1)
         )
@@ -3283,7 +3435,7 @@
     (pin "1" (uuid 19d31119-8720-4c77-9adf-05a2eafe3dc0))
     (pin "2" (uuid 9b8e5e9b-e6fe-436c-a487-950385754d19))
     (instances
-      (project "Barramento_EITduino"
+      (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "D2") (unit 1)
         )
@@ -3308,7 +3460,7 @@
     )
     (pin "1" (uuid b9aac2d7-3c7a-46be-96a1-64d8554bac03))
     (instances
-      (project "Barramento_EITduino"
+      (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR017") (unit 1)
         )
@@ -3333,7 +3485,7 @@
     )
     (pin "1" (uuid ad3a3493-0f25-44f1-b02f-a9ac29ca56ae))
     (instances
-      (project "Barramento_EITduino"
+      (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR037") (unit 1)
         )
@@ -3358,7 +3510,7 @@
     )
     (pin "1" (uuid b817d442-be29-439c-b648-e53b5dc84d18))
     (instances
-      (project "Barramento_EITduino"
+      (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR021") (unit 1)
         )
@@ -3384,7 +3536,7 @@
     (pin "1" (uuid 3d9183cd-465e-4770-93fc-9dd313676730))
     (pin "2" (uuid dc13ead9-26e8-4dc0-9af2-735041934bea))
     (instances
-      (project "Barramento_EITduino"
+      (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "C8") (unit 1)
         )
@@ -3410,7 +3562,7 @@
     (pin "1" (uuid 3719cad7-7395-4fc7-99ca-329926fb8cb4))
     (pin "2" (uuid 70ca74ca-7860-4a8b-9935-454cd65f9be6))
     (instances
-      (project "Barramento_EITduino"
+      (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "D5") (unit 1)
         )
@@ -3435,34 +3587,9 @@
     )
     (pin "1" (uuid f73c66f7-0ddf-4295-800b-6ba55e1147fa))
     (instances
-      (project "Barramento_EITduino"
+      (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR04") (unit 1)
-        )
-      )
-    )
-  )
-
-  (symbol (lib_id "power:-12V") (at 119.38 61.595 180) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
-    (uuid c58e7172-19f3-46ff-80cc-c8e3d866a4d7)
-    (property "Reference" "#PWR012" (at 119.38 64.135 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Value" "-12V" (at 119.38 66.675 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" "" (at 119.38 61.595 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Datasheet" "" (at 119.38 61.595 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid 73024129-39b3-4eb1-9468-1483f332ccfa))
-    (instances
-      (project "Barramento_EITduino"
-        (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
-          (reference "#PWR012") (unit 1)
         )
       )
     )
@@ -3486,7 +3613,7 @@
     (pin "1" (uuid e06edd28-2044-44fb-b0f9-77e070dd8b57))
     (pin "2" (uuid 8bddd70e-b7d7-420f-9fd0-d4371d05253f))
     (instances
-      (project "Barramento_EITduino"
+      (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "C2") (unit 1)
         )
@@ -3512,7 +3639,7 @@
     (pin "1" (uuid 6955738a-d0b9-4c6a-9be0-86919012ba06))
     (pin "2" (uuid 8b735e0e-d9a6-4611-88a1-97d5fdccbb8b))
     (instances
-      (project "Barramento_EITduino"
+      (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "C6") (unit 1)
         )
@@ -3538,7 +3665,7 @@
     (pin "1" (uuid d9ab50ce-bdae-45bf-85b3-765428e243d0))
     (pin "2" (uuid 3abf7633-869c-4b91-9585-05f931429cb6))
     (instances
-      (project "Barramento_EITduino"
+      (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "C5") (unit 1)
         )
@@ -3563,34 +3690,9 @@
     )
     (pin "1" (uuid 253543c5-fb8e-4fad-a7a0-9b3b75554efc))
     (instances
-      (project "Barramento_EITduino"
+      (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR01") (unit 1)
-        )
-      )
-    )
-  )
-
-  (symbol (lib_id "power:-12V") (at 28.575 187.96 0) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
-    (uuid ee81911c-3ca0-4caf-8432-50573d2175ac)
-    (property "Reference" "#PWR036" (at 28.575 185.42 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Value" "-12V" (at 27.94 184.15 90)
-      (effects (font (size 1.27 1.27)) (justify left))
-    )
-    (property "Footprint" "" (at 28.575 187.96 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Datasheet" "" (at 28.575 187.96 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid a010fbb3-7472-4ed2-aa5e-351ad6ecc391))
-    (instances
-      (project "Barramento_EITduino"
-        (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
-          (reference "#PWR036") (unit 1)
         )
       )
     )
@@ -3613,34 +3715,9 @@
     )
     (pin "1" (uuid 1e316127-2774-44e6-9dea-6e80af58e941))
     (instances
-      (project "Barramento_EITduino"
+      (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR016") (unit 1)
-        )
-      )
-    )
-  )
-
-  (symbol (lib_id "power:+12V") (at 160.655 29.21 0) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
-    (uuid f5cc891b-d131-489c-88fa-27adde2cda00)
-    (property "Reference" "#PWR014" (at 160.655 33.02 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Value" "+12V" (at 160.02 25.4 90)
-      (effects (font (size 1.27 1.27)) (justify left))
-    )
-    (property "Footprint" "" (at 160.655 29.21 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Datasheet" "" (at 160.655 29.21 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid c525b0b9-9c82-4683-a444-9be315a6f3d1))
-    (instances
-      (project "Barramento_EITduino"
-        (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
-          (reference "#PWR014") (unit 1)
         )
       )
     )
@@ -3664,7 +3741,7 @@
     (pin "1" (uuid 37967088-9a06-43ed-9f16-b07653b0cd08))
     (pin "2" (uuid 86c6a5c2-253b-496c-bc33-b5c40109f360))
     (instances
-      (project "Barramento_EITduino"
+      (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "R12") (unit 1)
         )
@@ -3690,7 +3767,7 @@
     (pin "1" (uuid 9fa2cf1c-31ef-4868-8754-bcae3dc5e219))
     (pin "2" (uuid f3bfdb15-e4d0-4374-9cf0-5ad82830a1e9))
     (instances
-      (project "Barramento_EITduino"
+      (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "D4") (unit 1)
         )
