@@ -44,7 +44,17 @@ Orientações para layout PCB
 - Usar soquetes para os CIs
 
 ------------------------------------------------------------------------------------------------------------------------------------------
+Alguns footprints de componentes comuns e suas melhores  escolhas (ou até achar algo melhor)
 
+Resistores -  11779 Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal
+Capacitores eletrolíticos - 525 Capacitor_THT:CP_Radial_D5.0mm_P2.50mm
+Diodos -  7485 Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal
+LED - 8642 LED_THT:LED_D5.0mm
+conectores fêmea -  5813/6090 Connector_PinSocket_2.54mm:PinSocket_1xXX_P2.54mm_Vertical
+conectores macho -  4855/5132 Connector_PinHeader_2.54mm:PinHeader_1xXX_P2.54mm_Vertical 
+conector p4 de bateria - 1150 Connector_BarrelJack:BarrelJack_GCT_DCJ200-10-A_Horizontal
+
+------------------------------------------------------------------------------------------------------------------------------------------
 FONTE DE TENSAO
 
 
