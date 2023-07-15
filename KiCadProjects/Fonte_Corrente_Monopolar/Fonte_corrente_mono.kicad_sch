@@ -3227,10 +3227,10 @@
   (symbol (lib_id "Diode:1N5819") (at 229.87 109.855 270) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid acededb6-497e-4716-91f8-efe5969e663a)
-    (property "Reference" "D3" (at 232.41 108.9025 90)
+    (property "Reference" "D1" (at 232.41 108.2675 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "1N5819" (at 232.41 111.4425 90)
+    (property "Value" "1N5819" (at 232.41 110.8075 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Footprint" "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal" (at 225.425 109.855 0)
@@ -3244,7 +3244,7 @@
     (instances
       (project "Fonte_corrente_mono"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
-          (reference "D3") (unit 1)
+          (reference "D1") (unit 1)
         )
       )
     )
@@ -3406,10 +3406,10 @@
   (symbol (lib_id "Diode:1N5819") (at 229.87 128.905 270) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid f8daae1e-f800-4cf9-9857-7ac68adda371)
-    (property "Reference" "D4" (at 233.045 127.9525 90)
+    (property "Reference" "D2" (at 232.41 127.3175 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "1N5819" (at 233.045 130.4925 90)
+    (property "Value" "1N5819" (at 232.41 129.8575 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Footprint" "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal" (at 225.425 128.905 0)
@@ -3423,7 +3423,7 @@
     (instances
       (project "Fonte_corrente_mono"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
-          (reference "D4") (unit 1)
+          (reference "D2") (unit 1)
         )
       )
     )
