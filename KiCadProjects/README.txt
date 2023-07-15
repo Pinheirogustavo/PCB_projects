@@ -55,6 +55,16 @@ conectores macho -  4855/5132 Connector_PinHeader_2.54mm:PinHeader_1xXX_P2.54mm_
 conector p4 de bateria - 1150 Connector_BarrelJack:BarrelJack_GCT_DCJ200-10-A_Horizontal
 
 ------------------------------------------------------------------------------------------------------------------------------------------
+Tamanho de pad de componentes comuns e suas melhores  escolhas (ou até achar algo melhor). O tamanho do furo (0,8mm) não precisa ser configurado agora pois pode ser modificado na hora da produção (FlatCAM).
+
+Resistores -  circular 2,5mm 
+Capacitores eletrolíticos -  	+ circular 2mm	-retangular2x2,5mm
+Diodos -   circular 2,5mm 
+LED - 	+ circular 2mm	-retangular2x2,5mm
+Barra de pinos - circular 2mm
+conector p4 de bateria - oval3x4,2mm retangular4,6x3mm
+
+------------------------------------------------------------------------------------------------------------------------------------------
 FONTE DE TENSAO
 
 
