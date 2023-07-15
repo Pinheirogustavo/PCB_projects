@@ -12,6 +12,7 @@ Estágios monitoramento: Amplificador de Instrumentação &rarr; AmpOp &arrar; c
 
 - Amplificador Operacional Dual AD826/828: Amplificador operacional duplo implementado como buffer na entrada do sistema e de acordo com a arquitetura da fonte Howland aperfeiçoada.
 	>Amplificador 1: buffer.
+	
 	>Amplificador 2: arquitetura da fonte Howland aperfeiçoada.
 - Resistor sentinela: Resistor de baixa resistência em série com a saída da fonte Howland. Implementado para monitorar a corrente gerada.
 - Amplificador de Instrumentação INA: Amplificador de Instrumentação verifica a tensão sobre o resistor sentinela e aplica alto ganho fixo. A tensão de saída é condicionada e indica a amplitude da corrente (Ampl1).  Implementado para monitorar a corrente gerada. 
