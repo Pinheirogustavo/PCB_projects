@@ -38,5 +38,15 @@ Estágios monitoramento: Amplificador de Instrumentação &rarr; AmpOp &arrar; c
 
 ![Fonte de corrente howland aperfeiçoada monopolar - Kicad](https://github.com/Pinheirogustavo/PCB_projects/blob/main/KiCadProjects/Fonte_Corrente_Monopolar/prints/Fonte_corrente_monopolar_esquematico.png)
 
+## PCB
 
+![Fonte de corrente howland aperfeiçoada monopolar PCB - Kicad](https://github.com/Pinheirogustavo/PCB_projects/blob/main/KiCadProjects/Fonte_Corrente_Monopolar/prints/Fonte_corrente_monopolar_esquematico_PCB.png)
+
+## PCB-3D
+
+![Fonte de corrente howland aperfeiçoada monopolar - PCB 3D Kicad](https://github.com/Pinheirogustavo/PCB_projects/blob/main/KiCadProjects/Fonte_Corrente_Monopolar/prints/Fonte_corrente_mono_3D.png)
+
+## PCB máscara
+
+![Fonte de corrente howland aperfeiçoada monopolar - PCB máscara Kicad](https://github.com/Pinheirogustavo/PCB_projects/blob/main/KiCadProjects/Fonte_Corrente_Monopolar/prints/print_legenda.png)
 
