@@ -2453,10 +2453,10 @@
   (symbol (lib_id "AD828AN:AD828AN") (at 118.745 116.84 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 2cf6305e-2100-4b9e-a9e0-b3c862412557)
-    (property "Reference" "U3" (at 139.065 107.95 0)
+    (property "Reference" "U3-cond1" (at 139.065 106.68 0)
       (effects (font (size 1.524 1.524)))
     )
-    (property "Value" "AD828AN" (at 139.065 110.49 0)
+    (property "Value" "AD828AN" (at 139.065 109.22 0)
       (effects (font (size 1.524 1.524)))
     )
     (property "Footprint" "AD828AN:N_8_ADI" (at 118.745 116.84 0)
@@ -2476,7 +2476,7 @@
     (instances
       (project "Fonte_corrente_mono"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
-          (reference "U3") (unit 1)
+          (reference "U3-cond1") (unit 1)
         )
       )
     )
@@ -3017,10 +3017,10 @@
   (symbol (lib_id "2023-04-18_19-29-20:AD828AN") (at 58.42 33.02 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 92eacf60-79b7-4080-8aef-ca73d75a8180)
-    (property "Reference" "U1" (at 78.74 24.13 0)
+    (property "Reference" "U1-howland1" (at 78.74 22.86 0)
       (effects (font (size 1.524 1.524)))
     )
-    (property "Value" "AD828AN" (at 78.74 26.67 0)
+    (property "Value" "AD828AN" (at 78.74 25.4 0)
       (effects (font (size 1.524 1.524)))
     )
     (property "Footprint" "AD828AN:N_8_ADI" (at 58.42 33.02 0)
@@ -3040,7 +3040,7 @@
     (instances
       (project "Fonte_corrente_mono"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
-          (reference "U1") (unit 1)
+          (reference "U1-howland1") (unit 1)
         )
       )
     )
