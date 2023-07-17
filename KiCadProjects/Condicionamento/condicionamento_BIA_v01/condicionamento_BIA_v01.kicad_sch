@@ -2177,7 +2177,7 @@
       (effects (font (size 1.27 1.27)) (justify left) hide)
     )
   )
-  (global_label "nó4" (shape input) (at 173.99 111.76 0) (fields_autoplaced)
+  (global_label "nó3" (shape input) (at 173.99 111.76 0) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify left))
     (uuid ba547897-562c-48ce-998b-e2202a59e7f0)
     (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 180.4033 111.76 0)
