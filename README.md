@@ -16,8 +16,8 @@
 ### Barra "Sinais analogicos"
 - I1: corrente 1 dada pela fonte Howland
 - I2: corrente 2 dada pela fonte Howland (caso bipolar)
-- Ampl1: Tensão de saída do INA que monitora a corrente I1
-- Ampl2: Tensão de saída do INA que monitora a corrente I2
+- Ampl1: Tensão de saída condicionada do INA que monitora a corrente I1
+- Ampl2: Tensão de saída condicionada do INA que monitora a corrente I2
 - Sin1: Sinal alternado 1 gerado por AD9833/9850. Sem amplificação
 - Sin2: Sinal alternado 2 gerado por AD9833/9850. Sem amplificação
 - SinA: Sinal alternado 1 com controle de amplitude (talvez freq e fase)
