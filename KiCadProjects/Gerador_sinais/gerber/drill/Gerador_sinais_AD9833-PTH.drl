@@ -9,7 +9,7 @@ INCH
 ; #@! TA.AperFunction,Plated,PTH,ViaDrill
 T1C0.0315
 ; #@! TA.AperFunction,Plated,PTH,ComponentDrill
-T2C0.0315
+;T2C0.0315
 %
 G90
 G05
@@ -51,7 +51,7 @@ X6.752Y-3.8287
 X6.8307Y-4.0256
 X7.1752Y-4.252
 X7.2244Y-4.7441
-T2
+;T2
 X4.2Y-2.25
 X4.2Y-2.35
 X4.2Y-2.45
