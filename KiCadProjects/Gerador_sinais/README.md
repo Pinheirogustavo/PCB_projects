@@ -70,4 +70,15 @@ Assim, primeiramente o programa deve liberar o AD9833 (gerador de sinais) para o
 ![Esquemático Gerador de sinais - Kicad](https://github.com/Pinheirogustavo/PCB_projects/blob/main/KiCadProjects/Gerador_sinais/print/Gerador_sinais_esquematico.png)
 
 
+## PCB
+
+![Gerador de sinais AD9833 PCB - Kicad](https://github.com/Pinheirogustavo/PCB_projects/blob/main/KiCadProjects/Gerador_sinais/print/Gerador_sinais_AD9833_esquematico.png)
+
+## PCB-3D
+
+![Gerador de sinais AD9833 PCB 3D - Kicad](https://github.com/Pinheirogustavo/PCB_projects/blob/main/KiCadProjects/Gerador_sinais/print/Gerador_sinais_AD9833_PCB_3D.png)
+
+## PCB Máscara
+
+![Gerador de sinais AD9833 PCB Máscara - Kicad](https://github.com/Pinheirogustavo/PCB_projects/blob/main/KiCadProjects/Gerador_sinais/print/Print_mascara.png)
 
