@@ -52,7 +52,7 @@ Trilhas vermelhas: Representam jumpers, estao dispostas na face de cobre superio
 
 ------------------------------------------------------------------------------------------------------------------------------------------
 ## Alguns footprints de componentes comuns 
-##### E suas melhores  escolhas (ou até achar algo melhor)
+#### E suas melhores  escolhas (ou até achar algo melhor)
 
 Resistores -  11779 Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal
 
@@ -70,7 +70,7 @@ conector p4 de bateria - 1150 Connector_BarrelJack:BarrelJack_GCT_DCJ200-10-A_Ho
 
 ------------------------------------------------------------------------------------------------------------------------------------------
 ## Tamanho de pad de componentes comuns 
-##### E suas melhores  escolhas (ou até achar algo melhor). O tamanho do furo (0,8mm) não precisa ser configurado agora pois pode ser modificado na hora da produção (FlatCAM).
+#### E suas melhores  escolhas (ou até achar algo melhor). O tamanho do furo (0,8mm) não precisa ser configurado agora pois pode ser modificado na hora da produção (FlatCAM).
 
 Resistores -  circular 2,5mm 
 
