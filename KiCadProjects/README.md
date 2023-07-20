@@ -42,8 +42,13 @@ Trilhas vermelhas: Representam jumpers, estao dispostas na face de cobre superio
 - Evitar que trilhas de sinais críticos (clock e altas freqüências) fiquem paralelas por muito tempo
 - Evitar ligações diretas entre as entradas de alimentação de Cis
 - Colocar um LED indicando que a placa está energizada
--Colocar pontos de acesso para medir com o osciloscópio
+- Colocar pontos de acesso para medir com o osciloscópio
 - Usar soquetes para os CIs
+
+- Segundo ícone, ao lado do simbolo de disquete. Serve para editar as regras de furos, tamanhos de trilhas... sempre conferir. 
+
+- Ícone de lista. Serve para verificar as regras RDC.
+
 
 ------------------------------------------------------------------------------------------------------------------------------------------
 ## Alguns footprints de componentes comuns 
@@ -80,16 +85,7 @@ Barra de pinos - circular 2mm
 conector p4 de bateria - oval3x4,2mm retangular4,6x3mm
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-### FONTE DE TENSAO
 
 
-- v01;v02 SW1: Botão DPDT com trava para ligar e desligar a fonte. https://www.multcomercial.com.br/chave-push-button-7x7-com-trava.html
-- v03;v04 Chave gangorra kcd1 para ligar e desligar a fonte.
 
-Os reguladores estao localizados na borda da placa, alinhados e igualmente espaçados, sendo possivel utilizar único dissipador
 
-Segundo icone, ao lado do simbolo de disquete. Para editar as regras de furos, tamanhos de trilhas... sempre conferir. 
-
-Icone de lista. Verifica as regras.
-
-------------------------------------------------------------------------------------------------------------------------------------------
