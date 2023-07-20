@@ -1,7 +1,7 @@
-Versao do CAD: KiCad 7.0
+# Versao do CAD: KiCad 7.0
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-Como adicionar bibliotecas
+## Como adicionar bibliotecas
 
 - Bibliotecas prontas da internet (salvar em Projeto Global): https://forum.digikey.com/t/importing-the-digi-key-kicad-library-into-kicad-5-0-0/4075
 	caminho:/PCB_projects/KiCadProjects/libraries/
@@ -19,7 +19,7 @@ Trilhas vermelhas: Representam jumpers, estao dispostas na face de cobre superio
 
 ------------------------------------------------------------------------------------------------------------------------------------------
 
-Regras de layout PCB
+## Regras de layout PCB
 
 - largura da trilha = 50 mils (1,27 mm)
  	O valor mínimo é de 8 mils, mas isso gera uma trilha extremamente fina
@@ -31,7 +31,7 @@ Regras de layout PCB
  
 ------------------------------------------------------------------------------------------------------------------------------------------
 
-Orientações para layout PCB
+## Orientações para layout PCB
 
 - Criar trilhas de alimentação, de terra e de clock.
 - Fazer as trilhas de alimentação com largura maior
@@ -44,7 +44,8 @@ Orientações para layout PCB
 - Usar soquetes para os CIs
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-Alguns footprints de componentes comuns e suas melhores  escolhas (ou até achar algo melhor)
+## Alguns footprints de componentes comuns 
+##### E suas melhores  escolhas (ou até achar algo melhor)
 
 Resistores -  11779 Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal
 Capacitores eletrolíticos - 525 Capacitor_THT:CP_Radial_D5.0mm_P2.50mm
@@ -55,17 +56,23 @@ conectores macho -  4855/5132 Connector_PinHeader_2.54mm:PinHeader_1xXX_P2.54mm_
 conector p4 de bateria - 1150 Connector_BarrelJack:BarrelJack_GCT_DCJ200-10-A_Horizontal
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-Tamanho de pad de componentes comuns e suas melhores  escolhas (ou até achar algo melhor). O tamanho do furo (0,8mm) não precisa ser configurado agora pois pode ser modificado na hora da produção (FlatCAM).
+## Tamanho de pad de componentes comuns 
+##### E suas melhores  escolhas (ou até achar algo melhor). O tamanho do furo (0,8mm) não precisa ser configurado agora pois pode ser modificado na hora da produção (FlatCAM).
 
 Resistores -  circular 2,5mm 
+
 Capacitores eletrolíticos -  	+ circular 2mm	-retangular2x2,5mm
+
 Diodos -   circular 2,5mm 
+
 LED - 	+ circular 2mm	-retangular2x2,5mm
+
 Barra de pinos - circular 2mm
+
 conector p4 de bateria - oval3x4,2mm retangular4,6x3mm
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-FONTE DE TENSAO
+### FONTE DE TENSAO
 
 
 v01;v02 SW1: Botão DPDT com trava para ligar e desligar a fonte. https://www.multcomercial.com.br/chave-push-button-7x7-com-trava.html
