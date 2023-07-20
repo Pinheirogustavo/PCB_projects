@@ -80,5 +80,5 @@ Assim, primeiramente o programa deve liberar o AD9833 (gerador de sinais) para o
 
 ## PCB Máscara
 
-![Gerador de sinais AD9833 PCB Máscara - Kicad](https://github.com/Pinheirogustavo/PCB_projects/blob/main/KiCadProjects/Gerador_sinais/print/Print_mascara.png)
+![Gerador de sinais AD9833 PCB Máscara - Kicad](https://github.com/Pinheirogustavo/PCB_projects/blob/main/KiCadProjects/Gerador_sinais/print/print_mascara.png)
 
