@@ -2,9 +2,9 @@
 
 ## Descrição Geral do projeto
 
-XXX.
+Sistema que a partir de uma fonte de tensão comum gera uma fonte de tensão simétrica com diferentes saídas de tensões reguladas para alimentação de todo o EITduino.
 
-Estágios:
+Estágios: Fonte de tensão comum ($\geqslant$ 24V) &rarr; Terra virtual
 
 ## Componentes do circuito:
 
