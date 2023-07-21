@@ -18,7 +18,7 @@ Estágios: Fonte de tensão comum ($\geqslant$ 24V) &rarr; Terra virtual &rarr; 
 - LM117T-3.3
 	
 	
-##Cuidados a serem tomados
+## Cuidados a serem tomados
 
 Os reguladores da série 78XX podem ser agrupados em um único dissipador, o mesmo vale para os reguladores da série 79XX. Todos os outros dissipadores devem ser mantidos afastados pois suas carcaças não se encontram no mesmo potencial do sistema. 
 
