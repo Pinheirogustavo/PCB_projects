@@ -46,20 +46,5 @@ Reguladores de tensão negativos que também fornecem corrente máxima de 1,5A. 
 Regulador de tensão positivo que  fornece corrente máxima de 800mA. Fornece +3.3V.
 
 
-## Esquemático
 
-![Legenda Esquematico- Kicad](link)
-
-
-## PCB
-
-![Legenda  PCB- Kicad](link)
-
-## PCB-3D
-
-![legenda PCB 3D - Kicad](https://github.com/Pinheirogustavo/PCB_projects/blob/main/KiCadProjects/Gerador_sinais/print/Gerador_sinais_AD9833_PCB_3D.png)
-
-## PCB Máscara
-
-![legenda PCB Máscara - Kicad](link)
 
