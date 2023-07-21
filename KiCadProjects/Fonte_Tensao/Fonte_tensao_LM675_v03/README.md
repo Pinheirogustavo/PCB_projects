@@ -1,36 +1,4 @@
-# Fonte de tensão
-
-## Descrição Geral do projeto
-
-XXX.
-
-Estágios:
-
-## Componentes do circuito:
-
-- xx
-- xx
-	>xx
-	
-##Cuidados a serem tomados
-
-xx
-## Estágios do circuito
-
-#### xx
-
->xx
-
->xx
-
-
-#### xx
-
-- xx
-
-- xx
-
-
+# Fonte de tensão - Versão 03
 
 
 
