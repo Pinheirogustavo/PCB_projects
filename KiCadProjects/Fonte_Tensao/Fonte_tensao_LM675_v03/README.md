@@ -17,5 +17,5 @@
 
 ## PCB Máscara
 
-![legenda PCB Máscara - Kicad](link)
+![legenda PCB Máscara - Kicad](https://github.com/Pinheirogustavo/PCB_projects/blob/main/KiCadProjects/Fonte_Tensao/Fonte_tensao_LM675_v03/print/Fonte_tensao_PCB_Mascara_v03.png)
 
