@@ -16,7 +16,7 @@ Estágios: Gerador de sinais ( CA@300mV + DC) &rarr; Filtro  passa-alta &rarr; S
 - X9c10x: potenciometro digital dedicado ao ganho de sinal
 
 
-##Cuidados a serem tomados
+## Cuidados a serem tomados
 
 Para a comunicação SPI, o dispositivo a ser controlado (Chip Select) é selecionado quando o respectivo pino CS está em LOW. Nunca pode-se permitir que dois dispositivos estejam com CS em LOW ao mesmo tempo. Por isso, no programa é preciso garantir que as operações com o AD9833 (select_wave, freq+ e freq-)  após um delay tragam o sinal do CS(AD9833) para LOW e depois devolvam para HIGH. E que as operações com o X9110X (aumento de R, redução de R, guardar R) após um delay tragam o sinal do CS(X9c10X) para LOW e depois devolvam para HIGH.
 
