@@ -1,0 +1,17 @@
+"Id";"Designador";"Footprint";"Quantidade";"Designação";"Fornecedor e referência";
+1;"U2";"X9c10X_module";1;"X9c10x";;;
+2;"SW3";"SW_BUTT-2";1;"botao_decremento_freq";;;
+3;"C1";"CP_Radial_D5.0mm_P2.50mm";1;"100 nF";;;
+4;"A1";"Arduino_Nano";1;"Arduino_Nano_v3.x";;;
+5;"U1";"N_8_ADI";1;"AD828AN";;;
+6;"SW4";"SW_BUTT-2";1;"botao_save_Rgain";;;
+7;"J4";"PinHeader_1x35_P2.54mm_Vertical";1;"comunicacao / sinais digitais";;;
+8;"SW6";"SW_BUTT-2";1;"botao_diminui_Rgain";;;
+9;"R2";"R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal";1;"2,7k";;;
+10;"J1";"PinHeader_1x08_P2.54mm_Vertical";1;"tensoes";;;
+11;"J3";"PinHeader_1x27_P2.54mm_Vertical";1;"sinais analogicos";;;
+12;"U3";"AD9833_module";1;"AD9833_module";;;
+13;"SW2";"SW_BUTT-2";1;"botao_incremento_freq";;;
+14;"SW1";"SW_BUTT-2";1;"botao_forma_onda";;;
+15;"R1";"R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal";1;"10k";;;
+16;"SW5";"SW_BUTT-2";1;"botao_aumenta_Rgain";;;
