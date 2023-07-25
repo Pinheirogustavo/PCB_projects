@@ -2677,7 +2677,7 @@
     (property "Value" "BluePill_STM32F103C" (at 124.46 50.165 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "BluePill_breakouts:BluePill_STM32F103C" (at 128.27 48.26 0)
+    (property "Footprint" "STM32_Bluepill:BluePill_STM32F103C" (at 128.27 48.26 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "www.rogerclark.net" (at 125.73 49.53 0)
@@ -2768,16 +2768,16 @@
     (property "Value" "SSD1306" (at 161.29 74.93 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "SSD1306:128x64OLED" (at 153.67 67.31 0)
+    (property "Footprint" "OLED_i2c:128x64OLED" (at 153.67 67.31 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "" (at 153.67 67.31 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 0b6fbb91-d14e-4cce-9649-aeaa12320ebb))
-    (pin "2" (uuid b938a80f-d547-476f-9b8c-e13ce97ee080))
-    (pin "3" (uuid b2756cfc-230a-4b9f-8fde-4ae32a4168fd))
-    (pin "4" (uuid 469e36c0-0b7c-4096-9636-cc9b0dad7907))
+    (pin "1" (uuid 5e6c4ab5-af1f-4c6f-8d14-f366bef4969d))
+    (pin "2" (uuid 261ccf7a-2da8-4d1d-a9f8-8d9f91aa1a8f))
+    (pin "3" (uuid dd41dbf8-0edb-49c8-9d96-220731c432cd))
+    (pin "4" (uuid 54d5ba0c-018e-47bd-84a6-2cfe22f1f3ae))
     (instances
       (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
@@ -2906,8 +2906,8 @@
     (property "Datasheet" "http://www.vishay.com/docs/88525/1n5817.pdf" (at 40.64 103.505 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid d4b11f95-b25f-495e-bd37-be5930fa6c5c))
-    (pin "2" (uuid 04db5662-c27f-4dc5-a456-b392efd61e7b))
+    (pin "1" (uuid e087c2fc-184e-402b-9481-58f5426d4456))
+    (pin "2" (uuid 46edba46-eeaa-40a6-8d4c-3b8acced81dd))
     (instances
       (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
@@ -2957,8 +2957,8 @@
     (property "Datasheet" "~" (at 92.71 101.6 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid add055c8-697a-4006-adb7-a16d3f29de0c))
-    (pin "2" (uuid fb43bd12-ec44-4c2d-8cbd-7fc0e4de2491))
+    (pin "1" (uuid b8b9e5f6-c99c-4571-bceb-100749a69f02))
+    (pin "2" (uuid 88afb762-40d7-48f9-9f31-472033c6742a))
     (instances
       (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
@@ -3142,8 +3142,8 @@
     (property "Datasheet" "~" (at 92.71 127.762 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 8f6a6638-533e-46af-81a7-7e897bb69292))
-    (pin "2" (uuid 3668efb4-d1c7-4d1b-adc5-0ef164ebbddd))
+    (pin "1" (uuid 1c291444-5ab2-4d79-bc3c-eb3809945bc1))
+    (pin "2" (uuid 0044d144-9e66-45e8-a7cb-7307191dc11b))
     (instances
       (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
@@ -3268,8 +3268,8 @@
     (property "Datasheet" "~" (at 97.79 113.03 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 232f66e1-3142-470d-96d6-ba5b82ed2fdb))
-    (pin "2" (uuid 7eb25a6c-8597-44cf-9dba-337498a6b6a2))
+    (pin "1" (uuid 93cb7478-997c-4598-9936-a115a4adc541))
+    (pin "2" (uuid 233e3fbc-8512-4a49-b5bd-2eb1bca36ba2))
     (instances
       (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
@@ -3319,8 +3319,8 @@
     (property "Datasheet" "http://www.vishay.com/docs/88525/1n5817.pdf" (at 40.64 122.555 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 0dbdb561-2752-4dc1-9cdc-eb57bc136735))
-    (pin "2" (uuid ede48f79-4b39-4afe-adba-52a534cf2afb))
+    (pin "1" (uuid b1c35ac3-c245-4986-875d-4dd120650169))
+    (pin "2" (uuid 96f53084-aaef-41d9-b990-0e6e36ddd2f9))
     (instances
       (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
@@ -3395,7 +3395,7 @@
     (property "Datasheet" "~" (at 40.64 128.905 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 22fd6d73-9e08-44c6-943c-83510dc0d9a7))
+    (pin "1" (uuid 7a96476d-1cfc-446b-9552-c0cef3a75d8a))
     (instances
       (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
@@ -3586,8 +3586,8 @@
     (property "Datasheet" "~" (at 60.96 113.03 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 86aad727-afca-4b0f-ad3d-9c8f75d502ef))
-    (pin "2" (uuid 6b880b86-d79f-4580-9c26-5e66a674a310))
+    (pin "1" (uuid b39a297d-dc26-4c8d-90ff-453beaabdea4))
+    (pin "2" (uuid 15b83502-3dfe-4aa2-84f7-47a6cb2a1ddc))
     (instances
       (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
@@ -3811,7 +3811,7 @@
     (property "Value" "BluePill_STM32F103C" (at 252.73 48.895 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "BluePill_breakouts:BluePill_STM32F103C" (at 256.54 46.99 0)
+    (property "Footprint" "STM32_Bluepill:BluePill_STM32F103C" (at 256.54 46.99 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "www.rogerclark.net" (at 254 48.26 0)
@@ -3883,7 +3883,7 @@
     (property "Datasheet" "~" (at 52.324 125.476 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 19498ca5-939f-4b13-afe5-052405c89b31))
+    (pin "1" (uuid 071c392d-2eb0-4d7f-8afc-c06e0e37f970))
     (instances
       (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
@@ -3934,8 +3934,8 @@
     (property "Datasheet" "~" (at 52.324 117.856 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 4c8c0dde-eb46-49fd-afa5-6f4f8c3240d0))
-    (pin "2" (uuid 7061607b-498d-4504-b292-5998c285119b))
+    (pin "1" (uuid bbd818f2-197d-4d4b-85e5-189c6a945ca2))
+    (pin "2" (uuid ff7d1538-d7aa-4327-8d5e-e8427bb99b81))
     (instances
       (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
@@ -3960,7 +3960,7 @@
     (property "Datasheet" "~" (at 92.71 134.112 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 4d6eb59a-748a-4df3-9de7-782aff3665f5))
+    (pin "1" (uuid ae95a1ce-2531-4df4-875d-d8292452c748))
     (instances
       (project "condicionamento_BIA_v01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
