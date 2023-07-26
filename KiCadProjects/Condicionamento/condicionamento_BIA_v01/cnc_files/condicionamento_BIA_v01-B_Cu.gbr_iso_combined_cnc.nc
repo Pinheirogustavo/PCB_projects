@@ -6,29 +6,6 @@
 
 (Created on quarta, 26 julho 2023 at 12:06)
 
-(This preprocessor is the default preprocessor used by FlatCAM.)
-(It is made to work with MACH3 compatible motion controllers.)
-
-(TOOL DIAMETER: 0.25 mm)
-(Feedrate_XY: 60.0 mm/min)
-(Feedrate_Z: 60.0 mm/min)
-(Feedrate rapids 1500.0 mm/min)
-
-(Z_Cut: -0.14178 mm)
-(Z_Move: 1.0 mm)
-(Z Start: None mm)
-(Z End: 15.0 mm)
-(X,Y End: None mm)
-(Steps per circle: 64)
-(Preprocessor Geometry: default)
-
-(X range:   -0.1750 ...   85.0303  mm)
-(Y range:   -0.1750 ...   98.8604  mm)
-
-(Spindle Speed: 1000.0 RPM)
-G21
-G90
-G94
 
 G01 F60.00
 
