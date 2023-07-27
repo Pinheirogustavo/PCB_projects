@@ -1,0 +1,18 @@
+"Id";"Designador";"Footprint";"Quantidade";"Designação";"Fornecedor e referência";
+1;"R5,R2,R1,R4";"R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal";4;"100k";;;
+2;"Brd1";"128x64OLED";1;"OLED";;;
+3;"R3,R6";"R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal";2;"220";;;
+4;"D3,D4,D1,D2";"D_DO-41_SOD81_P10.16mm_Horizontal";4;"1N5819";;;
+5;"J6";"PinHeader_1x02_P2.54mm_Vertical";1;"Vmaster";;;
+6;"J4";"PinHeader_1x35_P2.54mm_Vertical";1;"comunicacao / sinais digitais";;;
+7;"J7";"PinHeader_1x02_P2.54mm_Horizontal";1;"Eletrodos";;;
+8;"U2";"BluePill_STM32F103C";1;"BluePill_STM32F103C";;;
+9;"pullupsda1,pullupscl1";"R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal";2;"4k7";;;
+10;"C3,C1";"CP_Radial_D5.0mm_P2.50mm";2;"1 uF";;;
+11;"J2";"PinHeader_1x08_P2.54mm_Vertical";1;"tensoes";;;
+12;"J3";"PinHeader_1x27_P2.54mm_Vertical";1;"sinais analogicos";;;
+13;"J5";"PinHeader_1x04_P2.54mm_Horizontal";1;"sinais_condicionados";;;
+14;"U1";"N_8_ADI";1;"AD828AN";;;
+15;"U3";"BluePill_STM32F103C";1;"BluePill_STM32F103C_master";;;
+16;"J1";"PinHeader_1x03_P2.54mm_Vertical";1;"Vref";;;
+17;"C4,C2";"CP_Radial_D5.0mm_P2.50mm";2;"470 pF";;;
