@@ -27,14 +27,14 @@ Sobre a alimentação dos microcontroladores: O par de pinos "alimentacao_Master
 
 O circuito de condicionamento permite a adequada aquisição de sinal por meio de microcontrolador, garantindo que os sinais aplicados nas entradas do dispositivo não ultrapassem os limites de tensão e corrente suportados, além da adequada amostragem do sinal, por meio de filtro anti-aliasing. Esse circuito emprega o amplificador operacional dual AD826/828, o que permite o condicionamento de dois canais. Os estágios do circuito são: 
 
-> buffer: amplificador operacional no modo seguidor, configuração de alta impedância de entrada que permite o adequado acoplamento entre os estágios do sistema, minimizando a interação entre eles.
+- buffer: amplificador operacional no modo seguidor, configuração de alta impedância de entrada que permite o adequado acoplamento entre os estágios do sistema, minimizando a interação entre eles.
 
-> Offset: estágio que realiza um deslocamento (offset) do sinal de entrada, adequando os sinais alternados de correntes do circuito aos ADCs do microcontrolador, adicionando um sinal DC equivalente ao valor médio do limite de entrada dos ADCS. O valor de Vref deve ser definido pelo operador de acordo com esse limite.
+- Offset: estágio que realiza um deslocamento (offset) do sinal de entrada, adequando os sinais alternados de correntes do circuito aos ADCs do microcontrolador, adicionando um sinal DC equivalente ao valor médio do limite de entrada dos ADCS. O valor de Vref deve ser definido pelo operador de acordo com esse limite.
 
 
-> Diodos de proteção: não permitem que o sinal de entrada ultrapasse  os limites de entrada do conversor ADC. O valor de Vref deve ser definido pelo operador de acordo com esse limite.
+- Diodos de proteção: não permitem que o sinal de entrada ultrapasse  os limites de entrada do conversor ADC. O valor de Vref deve ser definido pelo operador de acordo com esse limite.
 
-> filtro anti-alising: Frequência de corte:
+- filtro anti-alising: Frequência de corte:
 
 $$ F_c = \frac{1}{2*\pi*R*C} = \frac{1}{2*\pi*220*470*10 ^{-12}} = 1,5 MHz $$
 
@@ -48,6 +48,7 @@ Dois microcontroladores são empregados nesse sistema de BIA, permitindo a leitu
 O par de pinos "alimentacao_Master" fornece uma alimentação de +5V quando é fechado. Esse  par de pinos deve permanecer aberto quando o microcontrolador estiver conectado ao computador por meio de cabo USB, pois o pino de 5V do STM32 é diretamente conectada à alimentação fornecida por USB, sem qualquer circuito de proteção.
 
 > ADC1: Pino B0 recebe o sinal de amplitude de corrente AmpI1
+
 > ADC2: Pino B1 recebe o sinal de amplitude de tensão do eletrodo de medição E1.
 
 - STM32 Slave
@@ -55,6 +56,7 @@ O par de pinos "alimentacao_Master" fornece uma alimentação de +5V quando é f
 O microcontrolador está sempre conectado à alimentação de 5V do sistema. Somente conecte esse dispositivo ao computador se o sistema estiver desligado. 
 
 > ADC1: Pino B0 recebe o sinal de amplitude de corrente AmpI1
+
 > ADC2: Pino B1 recebe o sinal de amplitude de tensão do eletrodo de medição E2.
 
 
