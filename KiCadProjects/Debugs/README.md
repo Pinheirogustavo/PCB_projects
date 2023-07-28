@@ -6,7 +6,7 @@
 
 - Canal 3 (azul): sinal de saída do gerador de sinais
  
-- Canal 4 (vermelho): sinal de alimentação na entrada da placa do Gerador de sinais
+- Canal 4 (vermelho): sinal de alimentação na entrada da placa do Gerador de sinais. Alimentação do arduino UNO
 
 #### Modo de aquisição normal
 
