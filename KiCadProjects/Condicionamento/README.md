@@ -1,8 +1,8 @@
-# Fonte de tensão
+# Circuito de condicionamento de sinal 
 
 ## Descrição Geral do projeto
 
-XXX.
+Circuito de condicionamento de sinal para aquisição por microcontrolador.
 
 Estágios:
 
@@ -45,7 +45,7 @@ xx
 
 ## PCB-3D
 
-![legenda PCB 3D - Kicad](https://github.com/Pinheirogustavo/PCB_projects/blob/main/KiCadProjects/Gerador_sinais/print/Gerador_sinais_AD9833_PCB_3D.png)
+![legenda PCB 3D - Kicad](link)
 
 ## PCB Máscara
 
