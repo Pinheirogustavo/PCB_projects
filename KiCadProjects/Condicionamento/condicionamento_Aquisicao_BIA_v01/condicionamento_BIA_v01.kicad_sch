@@ -5,7 +5,7 @@
   (paper "A4")
 
   (title_block
-    (title "Condicionamento 2 canais duplicado")
+    (title "Condicionamento 2 canais ")
     (date "2023-07-17")
     (rev "v01")
     (company "EITduino")
