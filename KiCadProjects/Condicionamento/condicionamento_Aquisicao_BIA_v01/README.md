@@ -36,7 +36,7 @@ O circuito de condicionamento permite a adequada aquisição de sinal por meio d
 
 - filtro anti-alising: Frequência de corte:
 
-$$F_c = \frac{1}{2*\pi*R*C} = \frac{1}{2*\pi*220*470*10 ^{-12}} = 1,5 MHz$$
+$$F_c = \frac{1}{2\cdot\pi\cdotR\cdotC} = \frac{1}{2\cdot\pi\cdot220\cdot470\cdot10 ^{-12}} = 1,5 MHz$$
 
 
 #### Microcontroladores
