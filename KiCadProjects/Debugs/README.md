@@ -1,5 +1,7 @@
 # Debugs Placas EITduino
 
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
 ## gerador de sinais
 
 - Canal 3 (azul): sinal de saída do gerador de sinais
@@ -14,6 +16,7 @@
 
 ![Captura Gerador de sinais - media](https://github.com/Pinheirogustavo/PCB_projects/blob/main/KiCadProjects/Debugs/capturas%20osciloscopio/Gerador_media.png)
 
+-----------------------------------------------------------------------------------------------------------------------------------------------
 
 ![Captura Gerador de sinais - normal](link)
 
