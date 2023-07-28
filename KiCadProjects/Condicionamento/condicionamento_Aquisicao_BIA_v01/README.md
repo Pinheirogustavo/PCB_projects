@@ -34,7 +34,7 @@ O circuito de condicionamento permite a adequada aquisição de sinal por meio d
 
 - Diodos de proteção: não permitem que o sinal de entrada ultrapasse  os limites de entrada do conversor ADC. O valor de Vref deve ser definido pelo operador de acordo com esse limite.
 
-- filtro anti-alising: Frequência de corte$F_c$:
+- filtro anti-alising: Frequência de corte $F_c$:
 
 $$F_c = \frac{1}{2\cdot\pi\cdot R\cdot C} = \frac{1}{2\cdot\pi\cdot220\cdot470\cdot10 ^{-12}} = 1,5 MHz$$
 
