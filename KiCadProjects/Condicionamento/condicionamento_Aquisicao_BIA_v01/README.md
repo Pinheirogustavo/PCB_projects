@@ -62,18 +62,18 @@ O microcontrolador está sempre conectado à alimentação de 5V do sistema. Som
 
 ## Esquemático
 
-![Legenda Esquematico- Kicad](link)
+![Legenda Esquematico- Kicad](https://github.com/Pinheirogustavo/PCB_projects/blob/main/KiCadProjects/Condicionamento/condicionamento_Aquisicao_BIA_v01/prints/Condicionamento_aquisicao_BIA_esquematico.png)
 
 
 ## PCB
 
-![Legenda  PCB- Kicad](link)
+![Legenda  PCB- Kicad](https://github.com/Pinheirogustavo/PCB_projects/blob/main/KiCadProjects/Condicionamento/condicionamento_Aquisicao_BIA_v01/prints/Condicionamento_aquisicao_BIA_PCB.png)
 
 ## PCB-3D
 
-![legenda PCB 3D - Kicad](https://github.com/Pinheirogustavo/PCB_projects/blob/main/KiCadProjects/Gerador_sinais/print/Gerador_sinais_AD9833_PCB_3D.png)
+![legenda PCB 3D - Kicad](link)
 
 ## PCB Máscara
 
-![legenda PCB Máscara - Kicad](link)
+![legenda PCB Máscara - Kicad](https://github.com/Pinheirogustavo/PCB_projects/blob/main/KiCadProjects/Condicionamento/condicionamento_Aquisicao_BIA_v01/prints/Condicionamento_aquisicao_BIA_mascara.png)
 
