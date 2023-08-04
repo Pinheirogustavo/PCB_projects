@@ -1,61 +1,27 @@
 %TF.GenerationSoftware,KiCad,Pcbnew,7.0.5-7.0.5~ubuntu20.04.1*%
-%TF.CreationDate,2023-08-04T14:00:13-03:00*%
+%TF.CreationDate,2023-08-04T14:07:12-03:00*%
 %TF.ProjectId,condicionamento_BIA_v02,636f6e64-6963-4696-9f6e-616d656e746f,v01*%
 %TF.SameCoordinates,Original*%
 %TF.FileFunction,Copper,L1,Top*%
 %TF.FilePolarity,Positive*%
 %FSLAX46Y46*%
 G04 Gerber Fmt 4.6, Leading zero omitted, Abs format (unit mm)*
-G04 Created by KiCad (PCBNEW 7.0.5-7.0.5~ubuntu20.04.1) date 2023-08-04 14:00:13*
+G04 Created by KiCad (PCBNEW 7.0.5-7.0.5~ubuntu20.04.1) date 2023-08-04 14:07:12*
 %MOMM*%
 %LPD*%
 G01*
 G04 APERTURE LIST*
-G04 Aperture macros list*
-%AMOutline5P*
-0 Free polygon, 5 corners , with rotation*
-0 The origin of the aperture is its center*
-0 number of corners: always 5*
-0 $1 to $10 corner X, Y*
-0 $11 Rotation angle, in degrees counterclockwise*
-0 create outline with 5 corners*
-4,1,5,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$1,$2,$11*%
-%AMOutline6P*
-0 Free polygon, 6 corners , with rotation*
-0 The origin of the aperture is its center*
-0 number of corners: always 6*
-0 $1 to $12 corner X, Y*
-0 $13 Rotation angle, in degrees counterclockwise*
-0 create outline with 6 corners*
-4,1,6,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$1,$2,$13*%
-%AMOutline7P*
-0 Free polygon, 7 corners , with rotation*
-0 The origin of the aperture is its center*
-0 number of corners: always 7*
-0 $1 to $14 corner X, Y*
-0 $15 Rotation angle, in degrees counterclockwise*
-0 create outline with 7 corners*
-4,1,7,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$1,$2,$15*%
-%AMOutline8P*
-0 Free polygon, 8 corners , with rotation*
-0 The origin of the aperture is its center*
-0 number of corners: always 8*
-0 $1 to $16 corner X, Y*
-0 $17 Rotation angle, in degrees counterclockwise*
-0 create outline with 8 corners*
-4,1,8,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$1,$2,$17*%
-G04 Aperture macros list end*
 %TA.AperFunction,ComponentPad*%
-%ADD10R,1.700000X1.700000*%
+%ADD10O,1.600000X2.000000*%
 %TD*%
 %TA.AperFunction,ComponentPad*%
-%ADD11O,1.600000X2.000000*%
+%ADD11R,1.500000X2.000000*%
 %TD*%
 %TA.AperFunction,ComponentPad*%
-%ADD12R,1.500000X2.000000*%
+%ADD12O,1.500000X2.000000*%
 %TD*%
 %TA.AperFunction,ComponentPad*%
-%ADD13O,1.500000X2.000000*%
+%ADD13R,1.700000X1.700000*%
 %TD*%
 %TA.AperFunction,ComponentPad*%
 %ADD14O,1.600000X1.600000*%
@@ -88,7 +54,7 @@ G04 Aperture macros list end*
 %ADD23O,1.700000X1.700000*%
 %TD*%
 %TA.AperFunction,ComponentPad*%
-%ADD24Outline5P,-2.000000X0.450000X-1.700000X0.750000X2.000000X0.750000X2.000000X-0.750000X-2.000000X-0.750000X0.000000*%
+%ADD24R,4.000000X1.500000*%
 %TD*%
 %TA.AperFunction,ComponentPad*%
 %ADD25R,1.524000X1.524000*%
@@ -110,27 +76,6 @@ G04 Aperture macros list end*
 %TD*%
 G04 APERTURE END LIST*
 D10*
-%TO.P,J17,1,Pin_1*%
-%TO.N,AmpI1*%
-X183500000Y-53250000D03*
-%TD*%
-%TO.P,J16,1,Pin_1*%
-%TO.N,Amp_E2*%
-X154000000Y-54500000D03*
-%TD*%
-%TO.P,J15,1,Pin_1*%
-%TO.N,AmpI1*%
-X113000000Y-136750000D03*
-%TD*%
-%TO.P,J13,1,Pin_1*%
-%TO.N,Amp_E2*%
-X151500000Y-99500000D03*
-%TD*%
-%TO.P,J12,1,Pin_1*%
-%TO.N,Amp_E1*%
-X111750000Y-95250000D03*
-%TD*%
-D11*
 %TO.P,Brd1,1,GND*%
 %TO.N,Earth*%
 X163780000Y-146600000D03*
@@ -144,19 +89,24 @@ X168860000Y-146600000D03*
 %TO.N,SDA1*%
 X171400000Y-146600000D03*
 %TD*%
-D12*
+D11*
 %TO.P,J5,1,Pin_1*%
 %TO.N,AmpI1*%
 X150320000Y-146400000D03*
 %TO.P,J5,2,Pin_2*%
 X147780000Y-146400000D03*
-D13*
+D12*
 %TO.P,J5,3,Pin_3*%
 %TO.N,Amp_E2*%
 X145240000Y-146400000D03*
 %TO.P,J5,4,Pin_4*%
 %TO.N,Amp_E1*%
 X142700000Y-146400000D03*
+%TD*%
+D13*
+%TO.P,J12,1,Pin_1*%
+%TO.N,Amp_E1*%
+X111750000Y-95250000D03*
 %TD*%
 D14*
 %TO.P,C1,1*%
@@ -172,6 +122,15 @@ X137590000Y-90750000D03*
 %TO.P,D3,2,A*%
 %TO.N,Amp_E2*%
 X147750000Y-90750000D03*
+%TD*%
+D13*
+%TO.P,J15,1,Pin_1*%
+%TO.N,AmpI1*%
+X113000000Y-136750000D03*
+%TD*%
+%TO.P,J13,1,Pin_1*%
+%TO.N,Amp_E2*%
+X151500000Y-99500000D03*
 %TD*%
 D15*
 %TO.P,R4,1*%
@@ -419,7 +378,11 @@ X168590000Y-100890000D03*
 %TO.N,unconnected-(U2-PA13_SWDIO-Pad42)*%
 X171130000Y-100890000D03*
 %TD*%
-D10*
+D13*
+%TO.P,J17,1,Pin_1*%
+%TO.N,AmpI1*%
+X183500000Y-53250000D03*
+%TD*%
 %TO.P,J11,1,Pin_1*%
 %TO.N,n\u00F34*%
 X151000000Y-71500000D03*
@@ -433,7 +396,7 @@ D14*
 %TO.N,Earth*%
 X124540000Y-71000000D03*
 %TD*%
-D10*
+D13*
 %TO.P,J8,1,Pin_1*%
 %TO.N,n\u00F32*%
 X113750000Y-69500000D03*
@@ -478,7 +441,7 @@ X142375113Y-64500000D03*
 %TO.N,n\u00F33*%
 X139875113Y-64500000D03*
 %TD*%
-D10*
+D13*
 %TO.P,J7,1,Pin_1*%
 %TO.N,E1*%
 X131460000Y-54875000D03*
@@ -596,7 +559,7 @@ X106680000Y-144780000D03*
 %TO.N,SinB*%
 X106680000Y-147320000D03*
 %TD*%
-D10*
+D13*
 %TO.P,J10,1,Pin_1*%
 %TO.N,n\u00F33*%
 X138400000Y-56600000D03*
@@ -635,7 +598,7 @@ X136290000Y-64420000D03*
 %TO.N,+9V*%
 X136290000Y-61880000D03*
 %TD*%
-D10*
+D13*
 %TO.P,J9,1,Pin_1*%
 %TO.N,n\u00F31*%
 X126170000Y-56500000D03*
@@ -705,6 +668,11 @@ D14*
 %TO.P,R5,2*%
 %TO.N,Earth*%
 X139860000Y-73500000D03*
+%TD*%
+D13*
+%TO.P,J16,1,Pin_1*%
+%TO.N,Amp_E2*%
+X154000000Y-54500000D03*
 %TD*%
 D17*
 %TO.P,U3,1,VBAT*%
