@@ -7,7 +7,8 @@
 Sistema que a partir de uma fonte de tensão comum gera uma fonte de tensão simétrica com diferentes saídas de tensões reguladas para alimentação de todo o EITduino.
 
 Estágios: Fonte de tensão comum ($\geqslant$ 24V) &rarr; Terra virtual &rarr; saída simétrica não regulada VCC VEE &rarr;
-	> Saídas reguladas simétricas: +9V/-9V ; +5V/-5V
+	> Saídas reguladas simétricas para alimentação analógica: +9V/-9V 
+	> Saídas reguladas; +5V/-5V
 	> Saída regulada:+3.3V
 
 ## Componentes do circuito:
