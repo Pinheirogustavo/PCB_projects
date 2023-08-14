@@ -1,37 +1,19 @@
 # Fonte de tensão
 
-## Descrição Geral do projeto
+## Especificidades da versão
 
-XXX.
+A base do barramento é a 
 
-Estágios:
+[versão 2 do barramento EITduino](https://github.com/Pinheirogustavo/PCB_projects/tree/main/KiCadProjects/Barramento_EITduino/V02)
 
-## Componentes do circuito:
+LED vermelho: indica que uma fonte externa está conectada e acionada.
 
-- xx
-- xx
-	>xx
-	
+LED verde: indica o funcionamento do circuito de terra virtual.
+
+
+
+
 ##Cuidados a serem tomados
-
-xx
-## Estágios do circuito
-
-#### xx
-
->xx
-
->xx
-
-
-#### xx
-
-- xx
-
-- xx
-
-
-
 
 
 ## Esquemático
