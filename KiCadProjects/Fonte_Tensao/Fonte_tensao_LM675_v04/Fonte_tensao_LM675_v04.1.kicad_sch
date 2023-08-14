@@ -12,6 +12,7 @@
     (comment 1 "Autor: Gustavo Pinheiro")
     (comment 2 "projeto com uso de capacitores eletroliticos ")
     (comment 3 "Novo barramento - alteração dos pinos de terra")
+    (comment 4 "placa 90x100 mm")
   )
 
   (lib_symbols
@@ -3208,10 +3209,10 @@
   (symbol (lib_id "Connector_Generic:Conn_01x08") (at 242.57 106.68 270) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 425952a9-8bdb-4b18-87f8-142eba6d0c31)
-    (property "Reference" "J4" (at 241.935 109.22 0)
+    (property "Reference" "J1" (at 241.3 111.76 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "tensoes" (at 232.41 109.855 90)
+    (property "Value" "alimentacao analogica" (at 232.41 109.855 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical" (at 242.57 106.68 0)
@@ -3231,7 +3232,7 @@
     (instances
       (project "Fonte_tensao_LM675_v04.1"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
-          (reference "J4") (unit 1)
+          (reference "J1") (unit 1)
         )
       )
     )
