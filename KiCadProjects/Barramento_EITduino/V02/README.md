@@ -8,4 +8,4 @@
 ![Barramento EITduino V02  preto e branco - Kicad](https://github.com/Pinheirogustavo/PCB_projects/blob/main/KiCadProjects/Barramento_EITduino/V02/print/barramento_v02.png)
 
 
-![Barramento EITduino V02  colorido - Kicad](https://github.com/Pinheirogustavo/PCB_projects/blob/main/KiCadProjects/Barramento_EITduino/V02/print/barramento_v02_colorido.png
+![Barramento EITduino V02  colorido - Kicad](https://github.com/Pinheirogustavo/PCB_projects/blob/main/KiCadProjects/Barramento_EITduino/V02/print/barramento_v02_colorido.png)
