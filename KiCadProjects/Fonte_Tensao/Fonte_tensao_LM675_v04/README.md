@@ -2,9 +2,7 @@
 
 ## Especificidades da versão
 
-A base do barramento é a 
-
-[versão 2 do barramento EITduino](https://github.com/Pinheirogustavo/PCB_projects/tree/main/KiCadProjects/Barramento_EITduino/V02)
+A base do barramento é a  [versão 2 do barramento EITduino](https://github.com/Pinheirogustavo/PCB_projects/tree/main/KiCadProjects/Barramento_EITduino/V02)
 
 LED vermelho: indica que uma fonte externa está conectada e acionada.
 
@@ -13,7 +11,7 @@ LED verde: indica o funcionamento do circuito de terra virtual.
 
 
 
-##Cuidados a serem tomados
+## Cuidados a serem tomados
 
 
 ## Esquemático
