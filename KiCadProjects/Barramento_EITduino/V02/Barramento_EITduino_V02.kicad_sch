@@ -7,11 +7,12 @@
   (title_block
     (title "Fonte de tensao LM675")
     (date "2023-08-14")
-    (rev "v04.1")
+    (rev "v02")
     (company "EITduino")
     (comment 1 "Autor: Gustavo Pinheiro")
-    (comment 2 "projeto com uso de capacitores eletroliticos ")
-    (comment 3 "Novo barramento - alteração dos pinos de terra")
+    (comment 2 "Barramento proposto para uma placa 90x100 mm")
+    (comment 3 "Placa face simples")
+    (comment 4 "Pinos AGND e DGND")
   )
 
   (lib_symbols
