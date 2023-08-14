@@ -72,7 +72,7 @@ conector p4 de bateria - 1150 Connector_BarrelJack:BarrelJack_GCT_DCJ200-10-A_Ho
 ## Tamanho de pad de componentes comuns 
 #### E suas melhores  escolhas (ou até achar algo melhor). O tamanho do furo (0,8mm) não precisa ser configurado agora pois pode ser modificado na hora da produção (FlatCAM).
 
-Resistores -  circular/oval \leq 2,5mm 
+Resistores -  circular/oval $\geqslant$  2,5mm 
 
 Capacitores eletrolíticos -  	+ circular 2mm	-retangular2x2,5mm
 
