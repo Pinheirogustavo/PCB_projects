@@ -1,5 +1,14 @@
 # PCB Projects
 
+## V01
+
+Apresenta um único pino de terra
+
+## V02 
+
+- Apresenta diversos pontos de terras, separados em terras dos sinais analógicos (AGND) e terras dos sinais digitais (DGND).
+- As alimentações dos circuitos analógicos foram separadas das alimentações dos circuitos digitais.
+
 ## Conexões presentes nas barras de pinos
 
 ### "tensoes"
