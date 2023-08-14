@@ -1331,7 +1331,7 @@
   (symbol (lib_id "Connector_Generic:Conn_01x27") (at 49.53 175.26 270) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 2fc9853c-4b12-4e6e-840e-25ef6ff20116)
-    (property "Reference" "J3" (at 49.53 179.07 90)
+    (property "Reference" "J2" (at 49.53 179.07 90)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "sinais analogicos" (at 49.53 179.07 90)
@@ -1373,7 +1373,7 @@
     (instances
       (project "Barramento_EITduino"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
-          (reference "J3") (unit 1)
+          (reference "J2") (unit 1)
         )
       )
     )
@@ -1382,7 +1382,7 @@
   (symbol (lib_id "Connector_Generic:Conn_01x08") (at 26.035 193.04 270) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 425952a9-8bdb-4b18-87f8-142eba6d0c31)
-    (property "Reference" "J2" (at 25.4 195.58 0)
+    (property "Reference" "J1" (at 25.4 195.58 0)
       (effects (font (size 1.27 1.27)) (justify left) hide)
     )
     (property "Value" "tensoes" (at 22.86 195.58 90)
@@ -1405,7 +1405,7 @@
     (instances
       (project "Barramento_EITduino"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
-          (reference "J2") (unit 1)
+          (reference "J1") (unit 1)
         )
       )
     )
@@ -1514,7 +1514,7 @@
   (symbol (lib_id "Connector_Generic:Conn_01x35") (at 131.445 192.405 270) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 868e5c32-0006-4d4c-9998-3262967e2bd8)
-    (property "Reference" "J4" (at 131.445 196.215 90)
+    (property "Reference" "J3" (at 131.445 196.215 90)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "comunicacao / sinais digitais" (at 135.89 195.58 90)
@@ -1564,7 +1564,7 @@
     (instances
       (project "Barramento_EITduino"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
-          (reference "J4") (unit 1)
+          (reference "J3") (unit 1)
         )
       )
     )
