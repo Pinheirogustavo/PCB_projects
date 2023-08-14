@@ -8,7 +8,7 @@ LED vermelho: indica que uma fonte externa está conectada e acionada.
 
 LED verde: indica o funcionamento do circuito de terra virtual.
 
-
+Foram adicionados diversos pinos de terra AGND e DGND em relação às versões anteriores.
 
 
 ## Cuidados a serem tomados
