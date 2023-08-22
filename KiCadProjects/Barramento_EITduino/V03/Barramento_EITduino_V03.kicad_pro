@@ -410,7 +410,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "Barramento_EITduino_V02.kicad_pro",
+    "filename": "Barramento_EITduino_V03.kicad_pro",
     "version": 1
   },
   "net_settings": {
@@ -444,7 +444,7 @@
     "last_paths": {
       "gencad": "",
       "idf": "",
-      "netlist": "",
+      "netlist": "../../../../",
       "specctra_dsn": "",
       "step": "",
       "vrml": ""
