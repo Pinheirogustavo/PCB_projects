@@ -170,7 +170,7 @@
         (effects (font (size 1 1) (thickness 0.15)))
       (tstamp 05bdfc28-25b8-4332-83ef-966cbeacf6b4)
     )
-    (fp_text user "comunicacao" (at 3.264 18.96 90) (layer "F.Fab")
+    (fp_text user "comunicacao / sinais digitais" (at 3.264 18.96 90) (layer "F.Fab")
         (effects (font (size 1 1) (thickness 0.15)))
       (tstamp ec9a830d-e0c6-498f-9e8a-016c1ca2ecc0)
     )
