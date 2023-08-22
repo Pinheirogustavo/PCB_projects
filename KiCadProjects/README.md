@@ -1,13 +1,6 @@
 # Versao do CAD: KiCad 7.0
 
-------------------------------------------------------------------------------------------------------------------------------------------
-## Como adicionar bibliotecas
 
-- Bibliotecas prontas da internet (salvar em Projeto Global): https://forum.digikey.com/t/importing-the-digi-key-kicad-library-into-kicad-5-0-0/4075
-	caminho:/PCB_projects/KiCadProjects/libraries/
-
-- Bibliotecas criadas pelo autor:  Usar o editor de simbolos e de footprint do kicad, salvar em Projeto Global
-	caminho:/PCB_projects/KiCadProjects/libraries/MyCreates
 ------------------------------------------------------------------------------------------------------------------------------------------
 
 Placa 90x100mm face simples
@@ -17,6 +10,22 @@ Trilhas azuis: trilhas dispostas na face de cobre inferior
 Trilhas vermelhas: Representam jumpers, estao dispostas na face de cobre superior
 
 
+------------------------------------------------------------------------------------------------------------------------------------------
+## Criando simbolos, footprint e 3D
+
+Quando criar um novo simbolo procure seguir Reference designator: https://en.wikipedia.org/wiki/Reference_designator
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+
+## Como adicionar bibliotecas
+
+- Bibliotecas prontas da internet (salvar em Projeto Global): https://forum.digikey.com/t/importing-the-digi-key-kicad-library-into-kicad-5-0-0/4075
+	caminho:/PCB_projects/KiCadProjects/libraries/
+
+- Bibliotecas criadas pelo autor:  Usar o editor de simbolos e de footprint do kicad, salvar em Projeto Global
+	caminho:/PCB_projects/KiCadProjects/libraries/MyCreates
+	
 ------------------------------------------------------------------------------------------------------------------------------------------
 
 ## Regras de layout PCB
