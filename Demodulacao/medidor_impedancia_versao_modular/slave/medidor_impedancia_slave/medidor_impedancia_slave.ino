@@ -46,7 +46,7 @@
                                                  // Se 'false', habilita "Regular simultaneous mode". Se 'true', habilita "Fast interleaved mode".
 
 //#define GANHO_CORRENTE 355.0 // para Rg=3,3k e Rs=22ohm -> G = (1+50k/Rg)*Rs
-#define GANHO_CORRENTE 361.0 // para Rg=3,24k e Rs=22ohm -> G = (1+50k/Rg)*Rs   GUSTAVO
+#define GANHO_CORRENTE 163.0 // para Rg=3,27k e Rs=10ohm -> G = (1+50k/Rg)*Rs   GUSTAVO
 
 
 uint32 adcbuf[NUM_SAMPLES_MAX+1];  // buffer to hold samples, ADC1 16bit, ADC2 16 bit
@@ -58,8 +58,8 @@ uint32 adcbuf[NUM_SAMPLES_MAX+1];  // buffer to hold samples, ADC1 16bit, ADC2 1
 // pino B0 (PB0) -> 8 (ADC8)
 // pino B1 (PB1) -> 9 (ADC9)
 // Para "dobrar" taxa de amostragem (FAST_INTERLEAVED true), medir o mesmo canal dos 2 ADCs.
-uint8 ADC1_Sequence[]={8,0,0,0,0,0};   // ADC1 channels sequence, left to right. Unused values must be 0. Note that these are ADC channels, not pins  
-uint8 ADC2_Sequence[]={9,0,0,0,0,0};   // ADC2 channels sequence, left to right. Unused values must be 0
+uint8 ADC1_Sequence[]={9,0,0,0,0,0};   // ADC1 channels sequence, left to right. Unused values must be 0. Note that these are ADC channels, not pins
+uint8 ADC2_Sequence[]={8,0,0,0,0,0};   // ADC2 channels sequence, left to right. Unused values must be 0
 
 char comando;
 int num_samples = 12;
