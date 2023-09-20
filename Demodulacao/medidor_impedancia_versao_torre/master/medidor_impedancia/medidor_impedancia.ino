@@ -33,8 +33,7 @@
 
 #include "stm32_adc_dual_mode.h"
 #include "dft.h"
-#include<Wire_slave.h>
-//#include<SoftWire.h>         
+#include<Wire.h>    
 
 
 #define REFERENCE_VOLTS   3.3                    // fundo de escala do ADC
@@ -46,7 +45,8 @@
                                                  // Se 'false', habilita "Regular simultaneous mode". Se 'true', habilita "Fast interleaved mode".
 
 //#define GANHO_CORRENTE 355.0 // para Rg=3,3k e Rs=22ohm -> G = (1+50k/Rg)*Rs
-#define GANHO_CORRENTE 163.0 // para Rg=3,27k e Rs=10ohm -> G = (1+50k/Rg)*Rs   GUSTAVO
+#define GANHO_CORRENTE 361.0 // para Rg=3,24k e Rs=22ohm -> G = (1+50k/Rg)*Rs   GUSTAVO
+#define RadtoGrau 180/M_PI //GUSTAVO
 
 
 uint32 adcbuf[NUM_SAMPLES_MAX+1];  // buffer to hold samples, ADC1 16bit, ADC2 16 bit
@@ -58,8 +58,8 @@ uint32 adcbuf[NUM_SAMPLES_MAX+1];  // buffer to hold samples, ADC1 16bit, ADC2 1
 // pino B0 (PB0) -> 8 (ADC8)
 // pino B1 (PB1) -> 9 (ADC9)
 // Para "dobrar" taxa de amostragem (FAST_INTERLEAVED true), medir o mesmo canal dos 2 ADCs.
-uint8 ADC1_Sequence[]={9,0,0,0,0,0};   // ADC1 channels sequence, left to right. Unused values must be 0. Note that these are ADC channels, not pins  
-uint8 ADC2_Sequence[]={8,0,0,0,0,0};   // ADC2 channels sequence, left to right. Unused values must be 0
+uint8 ADC1_Sequence[]={8,0,0,0,0,0};   // ADC1 channels sequence, left to right. Unused values must be 0. Note that these are ADC channels, not pins  
+uint8 ADC2_Sequence[]={9,0,0,0,0,0};   // ADC2 channels sequence, left to right. Unused values must be 0
 
 char comando;
 int num_samples = 12;
@@ -76,7 +76,6 @@ union {
     float fase;
   };
 } dado;
-
 
 float modulo_impedancia;
 float fase;
@@ -187,59 +186,75 @@ void calc_impedancia_media(){
 
 ////////////////////////////////////////////////////////////////////////////////////
 void envia_impedancia(){
-  Serial.print("slave Z: ");
+  Serial.print("Z: ");
   Serial.print(modulo_impedancia);
   Serial.print("ohm; fase: ");
   Serial.print(fase*180.0/3.14153);
   Serial.println("graus; ");
 }
 
+////////////////////////////////////////////////////////////////////////////////////
+void envia_impedancias(){
+  Serial.print("Z1: ");
+  Serial.print(modulo_impedancia);
+  Serial.print("ohm; \tfase: ");
+  Serial.print(fase*180.0/3.14153 +4.31);
+  Serial.print("graus; ");
+  Serial.print("\tZ2: ");
+  Serial.print(dado.amplitude);
+  Serial.print("ohm; \tfase: ");
+  Serial.print(dado.fase*180.0/3.14153 +6.5);
+  Serial.println("graus; ");
+  
+  /////////// GUSTAVO /////////////////////////////////////////////////
+  Serial.print("Resistencia do corpo: ");
+  Serial.print(modulo_impedancia*cos(fase+0.07522369) - dado.amplitude*cos(dado.fase +0.113446));
+  Serial.print("ohm; \tReatancia do corpo: ");
+  Serial.print(modulo_impedancia*sin(fase +0.07522369) - dado.amplitude*sin(dado.fase +0.113446));
+  Serial.println("ohm; ");
+  Serial.print("Impedancia do corpo:  |Z| = ");
+  Serial.print( sqrt(pow( (modulo_impedancia*cos(fase +0.07522369) - dado.amplitude*cos(dado.fase +0.113446)) , 2) + pow( (modulo_impedancia*sin(fase +0.07522369) - dado.amplitude*sin(dado.fase +0.113446)) , 2)) );  
+  Serial.print("\tfase = ");
+  Serial.print( atan2( (modulo_impedancia*sin(fase +0.07522369) - dado.amplitude*sin(dado.fase +0.113446)), (modulo_impedancia*cos(fase +0.07522369) - dado.amplitude*cos(dado.fase +0.113446)) )*180.0/3.14153 );
+  Serial.println("graus;");
+  /////////// GUSTAVO /////////////////////////////////////////////////
+}
+
 
 ////////////////////////////////////////////////////////////////////////////////////
-void receiveEvent (int howMany){
-  Serial.print("receiveEvent ");
-  Serial.print(howMany);
-  Serial.print(" ");
-  byte a = Wire.read();                     
-  Serial.print("recebeu ");
-  Serial.println(a);
+void inicia_medicao(){
+  Serial.println("iniciando medicao");
+  Wire.beginTransmission(8);
+  Wire.write(0x07);                        
+  Wire.endTransmission();
+  delay(500);
+  Serial.println("calc_imp");
+  calc_impedancia_media();
+  Serial.println("calc_imp ok");
+}
 
-  if (a == 0x07){
-   Serial.print("Calculando impedancia: ");
-   calc_impedancia_media();
-   dado.amplitude = modulo_impedancia;
-   dado.fase = fase;
-   Serial.print(dado.amplitude);
-   Serial.print("ohm; fase: ");
-   Serial.print(dado.fase);
-   Serial.println("rad");
+
+////////////////////////////////////////////////////////////////////////////////////
+void pega_dado(){
+  Serial.println("request");
+  Wire.requestFrom(8,8);
+  Serial.println("request ok");
+  for (int idx = 0; idx < 8; idx++){
+    dado.bytes[idx] = Wire.read();
   }
-  else{
-   calc_impedancia_media();
-   dado.amplitude = modulo_impedancia;
-   dado.fase = fase;
-    
-  }
+    Serial.println("request fim");
+
+  
 }
 
 ////////////////////////////////////////////////////////////////////////////////////
-void requestEvent(){
-    Serial.print("requestEvent ");
-    for (int idx = 0; idx < 8; idx++){
-      Wire.write(dado.bytes[idx]);
-    }
-    Serial.println("dados enviados");
-}
 
-//            SDA  SCL
-//TwoWire Wire2(PB11, PB10);
 
 ////////////////////////////////////////////////////////////////////////////////////
 void setup() {
   Serial.begin(115200);
-  Wire.begin(8);
-  Wire.onReceive(receiveEvent);
-  Wire.onRequest(requestEvent); 
+  Wire.begin();
+  Wire.setClock(10000);
   set_adc_dual_channel(PRE_SCALER, ADC_SMPR, CHANNELS_PER_ADC, ADC1_Sequence, ADC2_Sequence, FAST_INTERLEAVED);  // initial ADC1 and ADC2 settings
 }
 
@@ -344,6 +359,13 @@ void loop() {
       case 'm':
         calc_impedancia_media();
         envia_impedancia();
+        break;
+
+      case 'n':
+        inicia_medicao();
+        delay(500);
+        pega_dado();
+        envia_impedancias();
         break;
 
       case '+':
