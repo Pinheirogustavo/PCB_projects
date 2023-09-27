@@ -67,7 +67,7 @@ float freq_sinal  = 50000; // 50kHz
 float sample_freq = 600000; // 600kSps
 int pontos_por_ciclo = 12;
 
-float media1, media2, amplit1, amplit2, phase1, phase2, fase1, fase2;
+float media1, media2, amplit1, amplit2, phase1, phase2, fase_canal1, fase_canal2;
 
 union {
   uint8_t bytes[8];

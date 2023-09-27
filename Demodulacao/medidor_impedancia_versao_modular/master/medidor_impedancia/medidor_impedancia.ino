@@ -65,7 +65,7 @@ float freq_sinal  = 50000; // 50kHz
 float sample_freq = 600000; // 600kSps
 int pontos_por_ciclo = 12;
 
-float media1, media2, amplit1, amplit2, phase1, phase2, fase1, fase2;
+float media1, media2, amplit1, amplit2, phase1, phase2, fase_canal1, fase_canal2;
 
 union {
   uint8_t bytes[8];
@@ -196,12 +196,12 @@ void envia_impedancias(){
   Serial.print("Z1: ");
   Serial.print(modulo_impedancia);
   Serial.print(" ohm; \tfase: ");
-  Serial.print((fase-fase1)*180.0/3.14153);
+  Serial.print((fase-fase_canal1)*180.0/3.14153);
   Serial.print(" graus; ");
   Serial.print("\tZ2: ");
   Serial.print(dado.amplitude);
   Serial.print(" ohm; \tfase: ");
-  Serial.print((dado.fase-fase2)*180.0/3.14153);
+  Serial.print((dado.fase-fase_canal2)*180.0/3.14153);
   Serial.println(" graus; ");
   
   /////////// GUSTAVO /////////////////////////////////////////////////
@@ -211,17 +211,10 @@ void envia_impedancias(){
   Serial.print(modulo_impedancia*sin(fase) - dado.amplitude*sin(dado.fase));
   Serial.println("ohm; ");
   Serial.print("Impedancia do corpo:  |Z| = ");
-  Serial.print( sqrt(pow( (modulo_impedancia*cos(fase-fase1) - dado.amplitude*cos(dado.fase-fase2)) , 2) + pow( (modulo_impedancia*sin(fase-fase1) - dado.amplitude*sin(dado.fase-fase2)) , 2)) );
+  Serial.print( sqrt(pow( (modulo_impedancia*cos(fase-fase_canal1) - dado.amplitude*cos(dado.fase-fase_canal2)) , 2) + pow( (modulo_impedancia*sin(fase-fase_canal1) - dado.amplitude*sin(dado.fase-fase_canal2)) , 2)) );
   Serial.print("\tfase = ");
-  Serial.print( (atan2( (modulo_impedancia*sin(fase-fase1) - dado.amplitude*sin(dado.fase-fase2)), (modulo_impedancia*cos(fase-fase1) - dado.amplitude*cos(dado.fase-fase2))) )*180.0/3.14153 );
+  Serial.print( (atan2( (modulo_impedancia*sin(fase-fase_canal1) - dado.amplitude*sin(dado.fase-fase_canal2)), (modulo_impedancia*cos(fase-fase_canal1) - dado.amplitude*cos(dado.fase-fase_canal2))) )*180.0/3.14153 );
   Serial.println(" graus;");
-  /// debug
-  Serial.print("fase Z1(rad): ");
-  Serial.println(fase);
-  Serial.print("fase Z1(grau): ");
-  Serial.println(fase*180.0/3.14153);
-  Serial.print("seno (fase): ");
-  Serial.println(sin(fase));
   /////////// GUSTAVO /////////////////////////////////////////////////
 }
 
@@ -255,9 +248,9 @@ void pega_dado(){
 ////////////////////////////////////////////////////////////////////////////////////
 void calibra(){
   calc_impedancia_media();
-  fase1 = fase;
+  fase_canal1 = fase;
   inicia_medicao();
-  fase2 = dado.fase;
+  fase_canal2 = dado.fase;
 
 }
 
