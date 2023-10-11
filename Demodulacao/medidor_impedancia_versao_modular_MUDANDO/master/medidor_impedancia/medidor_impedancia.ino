@@ -187,7 +187,7 @@ void envia_impedancia(){
   Serial.print("Z: ");
   Serial.print(modulo_impedancia);
   Serial.print(" ohm; fase: ");
-  Serial.print(fase*180.0/3.14153);
+  Serial.print((fase-fase1)*180.0/3.14153);
   Serial.println(" graus; ");
 }
 
