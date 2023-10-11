@@ -2,7 +2,7 @@
  * Biblioteca com funções para cálculo de uma
  * componente da DFT de um sinal qualquer.
  * **********************************************************************/
-
+float fase_tmp;
 
 /* **********************************************************************
  * Calcula o valor médio de um sinal.
