@@ -178,8 +178,7 @@ void calc_impedancia_media(){
     demodula();
     modulo_impedancia += amplit1/(amplit2/GANHO_CORRENTE);
     float fase_tmp = phase1-phase2;
-    if (fase_tmp > 3.141529) fase_tmp -= 2*3.141529;
-    fase += (fase_tmp + 2*3.141529);
+    fase += (fase_tmp + 2*3.141529);    
   }
   modulo_impedancia = modulo_impedancia/100;
   fase = (fase/100) - 2*3.141529;
