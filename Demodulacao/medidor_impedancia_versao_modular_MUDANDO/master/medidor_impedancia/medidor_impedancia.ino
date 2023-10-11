@@ -66,6 +66,7 @@ float sample_freq = 600000; // 600kSps
 int pontos_por_ciclo = 12;
 
 float media1, media2, amplit1, amplit2, phase1, phase2, fase_canal1, fase_canal2;
+int imprime_na_media=0;
 
 union {
   uint8_t bytes[8];
@@ -178,6 +179,11 @@ void calc_impedancia_media(){
     if (fase_tmp > 3.141529) fase_tmp -= 2*3.141529;
     if (fase_tmp <= -3.141529) fase_tmp += 2*3.141529;
     fase += (fase_tmp + 2*3.141529);
+    if(imprime_na_media==1){
+      Serial.print(modulo_impedancia);
+      Serial.print("\t");
+      Serial.println(fase);
+    }
   }
   modulo_impedancia = modulo_impedancia/100;
   fase = (fase/100) - 2*3.141529;
@@ -376,6 +382,11 @@ void loop() {
         envia_impedancias();
         break;
 
+      case 'p':
+        imprime_na_media = 1;
+        calc_impedancia_media();
+        break;
+        
       case '+':
         if(num_samples<=NUM_SAMPLES_MAX-pontos_por_ciclo) num_samples+=pontos_por_ciclo;
         Serial.print("num_samples: ");
