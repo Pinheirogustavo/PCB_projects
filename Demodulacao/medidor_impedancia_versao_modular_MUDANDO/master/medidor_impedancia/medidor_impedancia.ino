@@ -216,7 +216,7 @@ void envia_impedancias(){
   Serial.print(dado.amplitude);
   Serial.print(" ohm; \tfase: ");
   Serial.print((dado.fase-fase_canal2)*180.0/3.14153);
-  Serial.print(" graus; ");
+  Serial.println(" graus; ");
   
   Serial.print("Resistencia_corpo: ");
   Serial.print(modulo_impedancia*cos(fase-fase_canal1) - dado.amplitude*cos(dado.fase-fase_canal1));
@@ -225,6 +225,7 @@ void envia_impedancias(){
   Serial.print(" ohm; ");
   Serial.print("Impedancia_corpo: ");
   Serial.print( sqrt(pow( (modulo_impedancia*cos(fase-fase_canal1) - dado.amplitude*cos(dado.fase-fase_canal2)) , 2) + pow( (modulo_impedancia*sin(fase-fase_canal1) - dado.amplitude*sin(dado.fase-fase_canal2)) , 2)) );
+  Serial.print(" ohm; ");
   Serial.print("\tfase: ");
   Serial.print( (atan2( (modulo_impedancia*sin(fase-fase_canal1) - dado.amplitude*sin(dado.fase-fase_canal2)), (modulo_impedancia*cos(fase-fase_canal1) - dado.amplitude*cos(dado.fase-fase_canal2))) )*180.0/3.14153 );
   Serial.println(" graus;");
