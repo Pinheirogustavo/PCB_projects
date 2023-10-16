@@ -3,7 +3,6 @@
  * componente da DFT de um sinal qualquer.
  * **********************************************************************/
 
-
 /* **********************************************************************
  * Calcula o valor médio de um sinal.
  * Corresponde ao offset no caso de ciclos completos.
@@ -39,5 +38,6 @@ void calc_dft_singfreq(uint16_t *data,float freq, float sample_freq, float media
   }
   amplit = (sqrt(pow(Freal,2)+pow(Fimag,2))/(nreal/2.0))*3.3/4096.0; // cálculo da amplitude
   phase = atan2(Fimag,Freal);                                        // cálculo da fase
-  
+  if (phase > 3.141529) phase -= 2*3.141529;
+  if (phase <= -3.141529) phase += 2*3.141529;
 }
