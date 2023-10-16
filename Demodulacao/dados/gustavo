@@ -1,0 +1,310 @@
+13:00:41.993 -> Z: 834.10 ohm; fase: 13.27 graus; 
+13:00:43.121 -> Z: 840.24 ohm; fase: 13.55 graus; 
+13:00:43.985 -> Z: 833.01 ohm; fase: 13.19 graus; 
+13:00:44.782 -> Z: 834.70 ohm; fase: 13.32 graus; 
+13:00:45.580 -> Z: 835.88 ohm; fase: 13.55 graus; 
+13:00:46.343 -> Z: 835.36 ohm; fase: 13.47 graus; 
+13:00:47.207 -> Z: 832.63 ohm; fase: 13.41 graus; 
+13:00:48.003 -> Z: 839.21 ohm; fase: 13.48 graus; 
+13:00:48.867 -> Z: 834.17 ohm; fase: 13.46 graus; 
+13:00:49.730 -> Z: 839.31 ohm; fase: 13.29 graus; 
+13:00:50.560 -> Z: 838.11 ohm; fase: 13.57 graus; 
+13:00:51.389 -> Z: 838.37 ohm; fase: 13.57 graus; 
+13:00:52.219 -> Z: 836.29 ohm; fase: 13.14 graus; 
+13:00:53.049 -> Z: 842.91 ohm; fase: 13.26 graus; 
+13:00:53.912 -> Z: 847.91 ohm; fase: 13.44 graus; 
+13:00:54.708 -> Z: 841.00 ohm; fase: 13.51 graus; 
+13:00:55.537 -> Z: 842.66 ohm; fase: 13.41 graus; 
+13:00:56.334 -> Z: 839.68 ohm; fase: 13.35 graus; 
+13:00:57.130 -> Z: 840.31 ohm; fase: 13.33 graus; 
+13:00:57.860 -> Z: 840.40 ohm; fase: 13.57 graus; 
+13:00:58.624 -> Z: 846.75 ohm; fase: 13.30 graus; 
+13:00:59.420 -> Z: 844.31 ohm; fase: 13.52 graus; 
+13:01:00.151 -> Z: 845.97 ohm; fase: 13.47 graus; 
+13:01:00.847 -> Z: 846.42 ohm; fase: 13.29 graus; 
+13:01:01.577 -> Z: 844.52 ohm; fase: 13.40 graus; 
+13:01:02.308 -> Z: 843.69 ohm; fase: 13.55 graus; 
+13:01:03.038 -> Z: 847.96 ohm; fase: 13.63 graus; 
+13:01:03.768 -> Z: 849.44 ohm; fase: 13.67 graus; 
+13:01:04.497 -> Z: 846.90 ohm; fase: 13.45 graus; 
+13:01:05.293 -> Z: 849.99 ohm; fase: 13.54 graus; 
+13:01:38.997 -> iniciando medicao
+13:01:39.496 -> calc_imp
+13:01:39.794 -> calc_imp ok
+13:01:40.292 -> request
+13:01:40.292 -> request ok
+13:01:40.292 -> request fim
+13:01:40.292 -> Z1: 853.93 ohm; 	fase: 13.56 graus; 	Z2: 316.07 ohm; 	fase: 21.14 graus; 
+13:01:40.292 -> Resistencia do corpo: 548.38ohm; 	Reatancia do corpo: 56.93ohm; 
+13:01:40.292 -> Impedancia do corpo:  |Z| = 542.24	fase = 9.14 graus;
+13:01:41.353 -> iniciando medicao
+13:01:41.851 -> calc_imp
+13:01:42.150 -> calc_imp ok
+13:01:42.648 -> request
+13:01:42.648 -> request ok
+13:01:42.648 -> request fim
+13:01:42.648 -> Z1: 855.57 ohm; 	fase: 13.59 graus; 	Z2: 313.72 ohm; 	fase: 21.15 graus; 
+13:01:42.648 -> Resistencia do corpo: 551.98ohm; 	Reatancia do corpo: 58.82ohm; 
+13:01:42.648 -> Impedancia do corpo:  |Z| = 546.14	fase = 9.25 graus;
+13:01:43.610 -> iniciando medicao
+13:01:44.108 -> calc_imp
+13:01:44.408 -> calc_imp ok
+13:01:44.906 -> request
+13:01:44.906 -> request ok
+13:01:44.906 -> request fim
+13:01:44.906 -> Z1: 852.79 ohm; 	fase: 13.51 graus; 	Z2: 312.91 ohm; 	fase: 20.98 graus; 
+13:01:44.906 -> Resistencia do corpo: 549.85ohm; 	Reatancia do corpo: 58.23ohm; 
+13:01:44.906 -> Impedancia do corpo:  |Z| = 544.06	fase = 9.22 graus;
+13:01:45.603 -> iniciando medicao
+13:01:46.101 -> calc_imp
+13:01:46.399 -> calc_imp ok
+13:01:46.897 -> request
+13:01:46.897 -> request ok
+13:01:46.897 -> request fim
+13:01:46.897 -> Z1: 853.63 ohm; 	fase: 13.54 graus; 	Z2: 315.20 ohm; 	fase: 20.91 graus; 
+13:01:46.897 -> Resistencia do corpo: 548.35ohm; 	Reatancia do corpo: 58.19ohm; 
+13:01:46.897 -> Impedancia do corpo:  |Z| = 542.55	fase = 9.27 graus;
+13:01:47.527 -> iniciando medicao
+13:01:48.058 -> calc_imp
+13:01:48.324 -> calc_imp ok
+13:01:48.854 -> request
+13:01:48.854 -> request ok
+13:01:48.854 -> request fim
+13:01:48.854 -> Z1: 854.35 ohm; 	fase: 13.60 graus; 	Z2: 313.82 ohm; 	fase: 21.01 graus; 
+13:01:48.854 -> Resistencia do corpo: 550.33ohm; 	Reatancia do corpo: 59.26ohm; 
+13:01:48.854 -> Impedancia do corpo:  |Z| = 544.66	fase = 9.33 graus;
+13:01:49.518 -> iniciando medicao
+13:01:50.016 -> calc_imp
+13:01:50.315 -> calc_imp ok
+13:01:50.813 -> request
+13:01:50.813 -> request ok
+13:01:50.813 -> request fim
+13:01:50.813 -> Z1: 855.63 ohm; 	fase: 13.75 graus; 	Z2: 312.24 ohm; 	fase: 21.10 graus; 
+13:01:50.813 -> Resistencia do corpo: 552.67ohm; 	Reatancia do corpo: 62.07ohm; 
+13:01:50.813 -> Impedancia do corpo:  |Z| = 547.42	fase = 9.56 graus;
+13:01:51.377 -> iniciando medicao
+13:01:51.874 -> calc_imp
+13:01:52.175 -> calc_imp ok
+13:01:52.675 -> request
+13:01:52.675 -> request ok
+13:01:52.675 -> request fim
+13:01:52.675 -> Z1: 855.56 ohm; 	fase: 13.46 graus; 	Z2: 314.96 ohm; 	fase: 21.14 graus; 
+13:01:52.675 -> Resistencia do corpo: 551.29ohm; 	Reatancia do corpo: 56.44ohm; 
+13:01:52.675 -> Impedancia do corpo:  |Z| = 545.05	fase = 9.03 graus;
+13:01:53.339 -> iniciando medicao
+13:01:53.837 -> calc_imp
+13:01:54.136 -> calc_imp ok
+13:01:54.634 -> request
+13:01:54.634 -> request ok
+13:01:54.634 -> request fim
+13:01:54.634 -> Z1: 854.36 ohm; 	fase: 13.72 graus; 	Z2: 314.63 ohm; 	fase: 21.12 graus; 
+13:01:54.634 -> Resistencia do corpo: 549.46ohm; 	Reatancia do corpo: 60.15ohm; 
+13:01:54.634 -> Impedancia do corpo:  |Z| = 543.86	fase = 9.45 graus;
+13:01:55.198 -> iniciando medicao
+13:01:55.696 -> calc_imp
+13:01:55.995 -> calc_imp ok
+13:01:56.493 -> request
+13:01:56.537 -> request ok
+13:01:56.537 -> request fim
+13:01:56.537 -> Z1: 854.94 ohm; 	fase: 13.42 graus; 	Z2: 314.76 ohm; 	fase: 21.07 graus; 
+13:01:56.537 -> Resistencia do corpo: 550.85ohm; 	Reatancia do corpo: 56.08ohm; 
+13:01:56.537 -> Impedancia do corpo:  |Z| = 544.60	fase = 9.00 graus;
+13:01:57.322 -> iniciando medicao
+13:01:57.822 -> calc_imp
+13:01:58.121 -> calc_imp ok
+13:01:58.620 -> request
+13:01:58.620 -> request ok
+13:01:58.620 -> request fim
+13:01:58.620 -> Z1: 854.78 ohm; 	fase: 13.39 graus; 	Z2: 315.04 ohm; 	fase: 20.79 graus; 
+13:01:58.620 -> Resistencia do corpo: 549.84ohm; 	Reatancia do corpo: 56.90ohm; 
+13:01:58.620 -> Impedancia do corpo:  |Z| = 543.88	fase = 9.11 graus;
+13:01:59.217 -> iniciando medicao
+13:01:59.748 -> calc_imp
+13:02:00.013 -> calc_imp ok
+13:02:00.511 -> request
+13:02:00.549 -> request ok
+13:02:00.549 -> request fim
+13:02:00.549 -> Z1: 859.29 ohm; 	fase: 13.62 graus; 	Z2: 314.82 ohm; 	fase: 21.39 graus; 
+13:02:00.549 -> Resistencia do corpo: 555.11ohm; 	Reatancia do corpo: 58.42ohm; 
+13:02:00.549 -> Impedancia do corpo:  |Z| = 549.01	fase = 9.17 graus;
+13:02:01.241 -> iniciando medicao
+13:02:01.739 -> calc_imp
+13:02:02.038 -> calc_imp ok
+13:02:02.536 -> request
+13:02:02.536 -> request ok
+13:02:02.536 -> request fim
+13:02:02.536 -> Z1: 855.57 ohm; 	fase: 13.54 graus; 	Z2: 313.83 ohm; 	fase: 20.99 graus; 
+13:02:02.536 -> Resistencia do corpo: 551.65ohm; 	Reatancia do corpo: 58.83ohm; 
+13:02:02.536 -> Impedancia do corpo:  |Z| = 545.90	fase = 9.26 graus;
+13:02:03.133 -> iniciando medicao
+13:02:03.631 -> calc_imp
+13:02:03.930 -> calc_imp ok
+13:02:04.428 -> request
+13:02:04.467 -> request ok
+13:02:04.467 -> request fim
+13:02:04.467 -> Z1: 856.75 ohm; 	fase: 13.72 graus; 	Z2: 314.23 ohm; 	fase: 21.09 graus; 
+13:02:04.467 -> Resistencia do corpo: 552.05ohm; 	Reatancia do corpo: 61.10ohm; 
+13:02:04.467 -> Impedancia do corpo:  |Z| = 546.60	fase = 9.50 graus;
+13:02:05.291 -> iniciando medicao
+13:02:05.789 -> calc_imp
+13:02:06.087 -> calc_imp ok
+13:02:06.587 -> request
+13:02:06.620 -> request ok
+13:02:06.620 -> request fim
+13:02:06.620 -> Z1: 859.03 ohm; 	fase: 13.60 graus; 	Z2: 314.96 ohm; 	fase: 21.26 graus; 
+13:02:06.620 -> Resistencia do corpo: 554.48ohm; 	Reatancia do corpo: 58.64ohm; 
+13:02:06.620 -> Impedancia do corpo:  |Z| = 548.49	fase = 9.20 graus;
+13:02:07.416 -> iniciando medicao
+13:02:07.914 -> calc_imp
+13:02:08.213 -> calc_imp ok
+13:02:08.711 -> request
+13:02:08.711 -> request ok
+13:02:08.711 -> request fim
+13:02:08.711 -> Z1: 855.53 ohm; 	fase: 13.24 graus; 	Z2: 314.07 ohm; 	fase: 21.08 graus; 
+13:02:08.711 -> Resistencia do corpo: 552.68ohm; 	Reatancia do corpo: 53.91ohm; 
+13:02:08.711 -> Impedancia do corpo:  |Z| = 546.09	fase = 8.74 graus;
+13:02:09.374 -> iniciando medicao
+13:02:09.872 -> calc_imp
+13:02:10.171 -> calc_imp ok
+13:02:10.669 -> request
+13:02:10.702 -> request ok
+13:02:10.702 -> request fim
+13:02:10.702 -> Z1: 853.59 ohm; 	fase: 13.75 graus; 	Z2: 313.90 ohm; 	fase: 21.08 graus; 
+13:02:10.702 -> Resistencia do corpo: 549.14ohm; 	Reatancia do corpo: 60.98ohm; 
+13:02:10.702 -> Impedancia do corpo:  |Z| = 543.72	fase = 9.53 graus;
+13:02:11.233 -> iniciando medicao
+13:02:11.731 -> calc_imp
+13:02:12.030 -> calc_imp ok
+13:02:12.528 -> request
+13:02:12.528 -> request ok
+13:02:12.528 -> request fim
+13:02:12.528 -> Z1: 858.28 ohm; 	fase: 13.59 graus; 	Z2: 314.47 ohm; 	fase: 21.05 graus; 
+13:02:12.528 -> Resistencia do corpo: 553.68ohm; 	Reatancia do corpo: 59.66ohm; 
+13:02:12.528 -> Impedancia do corpo:  |Z| = 547.99	fase = 9.32 graus;
+13:02:13.092 -> iniciando medicao
+13:02:13.623 -> calc_imp
+13:02:13.889 -> calc_imp ok
+13:02:14.386 -> request
+13:02:14.420 -> request ok
+13:02:14.420 -> request fim
+13:02:14.420 -> Z1: 857.52 ohm; 	fase: 13.56 graus; 	Z2: 316.10 ohm; 	fase: 21.11 graus; 
+13:02:14.420 -> Resistencia do corpo: 551.74ohm; 	Reatancia do corpo: 58.04ohm; 
+13:02:14.420 -> Impedancia do corpo:  |Z| = 545.74	fase = 9.20 graus;
+13:02:15.050 -> iniciando medicao
+13:02:15.548 -> calc_imp
+13:02:15.847 -> calc_imp ok
+13:02:16.344 -> request
+13:02:16.344 -> request ok
+13:02:16.344 -> request fim
+13:02:16.344 -> Z1: 855.76 ohm; 	fase: 13.39 graus; 	Z2: 315.35 ohm; 	fase: 21.08 graus; 
+13:02:16.344 -> Resistencia do corpo: 551.22ohm; 	Reatancia do corpo: 55.61ohm; 
+13:02:16.344 -> Impedancia do corpo:  |Z| = 544.88	fase = 8.95 graus;
+13:02:17.011 -> iniciando medicao
+13:02:17.509 -> calc_imp
+13:02:17.807 -> calc_imp ok
+13:02:18.305 -> request
+13:02:18.305 -> request ok
+13:02:18.305 -> request fim
+13:02:18.305 -> Z1: 852.66 ohm; 	fase: 13.73 graus; 	Z2: 316.13 ohm; 	fase: 21.16 graus; 
+13:02:18.305 -> Resistencia do corpo: 546.53ohm; 	Reatancia do corpo: 59.00ohm; 
+13:02:18.305 -> Impedancia do corpo:  |Z| = 540.73	fase = 9.39 graus;
+13:02:18.869 -> iniciando medicao
+13:02:19.367 -> calc_imp
+13:02:19.666 -> calc_imp ok
+13:02:20.164 -> request
+13:02:20.164 -> request ok
+13:02:20.164 -> request fim
+13:02:20.164 -> Z1: 857.47 ohm; 	fase: 13.83 graus; 	Z2: 316.49 ohm; 	fase: 21.08 graus; 
+13:02:20.164 -> Resistencia do corpo: 550.32ohm; 	Reatancia do corpo: 61.87ohm; 
+13:02:20.164 -> Impedancia do corpo:  |Z| = 544.97	fase = 9.63 graus;
+13:02:20.928 -> iniciando medicao
+13:02:21.426 -> calc_imp
+13:02:21.724 -> calc_imp ok
+13:02:22.222 -> request
+13:02:22.222 -> request ok
+13:02:22.222 -> request fim
+13:02:22.222 -> Z1: 859.51 ohm; 	fase: 13.59 graus; 	Z2: 314.62 ohm; 	fase: 20.98 graus; 
+13:02:22.222 -> Resistencia do corpo: 554.58ohm; 	Reatancia do corpo: 60.16ohm; 
+13:02:22.222 -> Impedancia do corpo:  |Z| = 548.99	fase = 9.36 graus;
+13:02:22.820 -> iniciando medicao
+13:02:23.317 -> calc_imp
+13:02:23.616 -> calc_imp ok
+13:02:24.114 -> request
+13:02:24.114 -> request ok
+13:02:24.114 -> request fim
+13:02:24.114 -> Z1: 858.14 ohm; 	fase: 13.77 graus; 	Z2: 316.75 ohm; 	fase: 21.11 graus; 
+13:02:24.114 -> Resistencia do corpo: 551.05ohm; 	Reatancia do corpo: 60.84ohm; 
+13:02:24.114 -> Impedancia do corpo:  |Z| = 545.50	fase = 9.51 graus;
+13:02:24.744 -> iniciando medicao
+13:02:25.242 -> calc_imp
+13:02:25.541 -> calc_imp ok
+13:02:26.039 -> request
+13:02:26.039 -> request ok
+13:02:26.039 -> request fim
+13:02:26.039 -> Z1: 859.12 ohm; 	fase: 13.75 graus; 	Z2: 313.44 ohm; 	fase: 21.08 graus; 
+13:02:26.039 -> Resistencia do corpo: 554.95ohm; 	Reatancia do corpo: 62.41ohm; 
+13:02:26.039 -> Impedancia do corpo:  |Z| = 549.70	fase = 9.57 graus;
+13:02:26.702 -> iniciando medicao
+13:02:27.200 -> calc_imp
+13:02:27.499 -> calc_imp ok
+13:02:27.997 -> request
+13:02:27.997 -> request ok
+13:02:27.997 -> request fim
+13:02:27.997 -> Z1: 857.58 ohm; 	fase: 13.55 graus; 	Z2: 317.44 ohm; 	fase: 20.92 graus; 
+13:02:27.997 -> Resistencia do corpo: 550.17ohm; 	Reatancia do corpo: 58.23ohm; 
+13:02:27.997 -> Impedancia do corpo:  |Z| = 544.29	fase = 9.27 graus;
+13:02:28.595 -> iniciando medicao
+13:02:29.092 -> calc_imp
+13:02:29.391 -> calc_imp ok
+13:02:29.889 -> request
+13:02:29.889 -> request ok
+13:02:29.889 -> request fim
+13:02:29.889 -> Z1: 856.48 ohm; 	fase: 13.59 graus; 	Z2: 313.92 ohm; 	fase: 20.93 graus; 
+13:02:29.889 -> Resistencia do corpo: 552.14ohm; 	Reatancia do corpo: 60.00ohm; 
+13:02:29.889 -> Impedancia do corpo:  |Z| = 546.60	fase = 9.38 graus;
+13:02:30.419 -> iniciando medicao
+13:02:30.917 -> calc_imp
+13:02:31.215 -> calc_imp ok
+13:02:31.713 -> request
+13:02:31.713 -> request ok
+13:02:31.713 -> request fim
+13:02:31.713 -> Z1: 858.03 ohm; 	fase: 13.50 graus; 	Z2: 318.03 ohm; 	fase: 21.04 graus; 
+13:02:31.713 -> Resistencia do corpo: 550.57ohm; 	Reatancia do corpo: 56.68ohm; 
+13:02:31.713 -> Impedancia do corpo:  |Z| = 544.35	fase = 9.10 graus;
+13:02:32.245 -> iniciando medicao
+13:02:32.775 -> calc_imp
+13:02:33.041 -> calc_imp ok
+13:02:33.572 -> request
+13:02:33.572 -> request ok
+13:02:33.572 -> request fim
+13:02:33.572 -> Z1: 852.39 ohm; 	fase: 13.51 graus; 	Z2: 317.16 ohm; 	fase: 21.07 graus; 
+13:02:33.572 -> Resistencia do corpo: 545.90ohm; 	Reatancia do corpo: 55.73ohm; 
+13:02:33.572 -> Impedancia do corpo:  |Z| = 539.60	fase = 9.07 graus;
+13:02:34.136 -> iniciando medicao
+13:02:34.644 -> calc_imp
+13:02:34.943 -> calc_imp ok
+13:02:35.441 -> request
+13:02:35.441 -> request ok
+13:02:35.441 -> request fim
+13:02:35.441 -> Z1: 854.27 ohm; 	fase: 13.61 graus; 	Z2: 316.29 ohm; 	fase: 21.20 graus; 
+13:02:35.441 -> Resistencia do corpo: 548.51ohm; 	Reatancia do corpo: 57.33ohm; 
+13:02:35.441 -> Impedancia do corpo:  |Z| = 542.38	fase = 9.18 graus;
+13:02:36.005 -> iniciando medicao
+13:02:36.503 -> calc_imp
+13:02:36.801 -> calc_imp ok
+13:02:37.299 -> request
+13:02:37.299 -> request ok
+13:02:37.299 -> request fim
+13:02:37.299 -> Z1: 854.23 ohm; 	fase: 14.07 graus; 	Z2: 316.05 ohm; 	fase: 21.27 graus; 
+13:02:37.299 -> Resistencia do corpo: 547.18ohm; 	Reatancia do corpo: 63.85ohm; 
+13:02:37.299 -> Impedancia do corpo:  |Z| = 542.12	fase = 9.88 graus;
+13:02:43.739 -> iniciando medicao
+13:02:44.236 -> calc_imp
+13:02:44.535 -> calc_imp ok
+13:02:45.033 -> request
+13:02:45.033 -> request ok
+13:02:45.033 -> request fim
+13:02:45.033 -> Z1: 856.20 ohm; 	fase: 13.65 graus; 	Z2: 318.40 ohm; 	fase: 21.12 graus; 
+13:02:45.033 -> Resistencia do corpo: 548.12ohm; 	Reatancia do corpo: 57.93ohm; 
+13:02:45.033 -> Impedancia do corpo:  |Z| = 542.08	fase = 9.28 graus;
+
