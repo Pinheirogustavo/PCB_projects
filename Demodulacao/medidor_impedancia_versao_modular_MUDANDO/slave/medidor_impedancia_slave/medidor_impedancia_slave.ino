@@ -176,13 +176,28 @@ void calc_impedancia_media(){
 
   for(int idx = 0; idx < 100; idx++){
     demodula();
-    modulo_impedancia += amplit1/(amplit2/GANHO_CORRENTE);
+    float modulo_impedancia_temp;
+    modulo_impedancia_temp = amplit1/(amplit2/GANHO_CORRENTE);
+    modulo_impedancia += modulo_impedancia_temp;
     float fase_tmp = phase1-phase2;
-    fase += (fase_tmp + 2*3.141529);    
-  }
-  modulo_impedancia = modulo_impedancia/100;
-  fase = (fase/100) - 2*3.141529;
+    if (fase_tmp > 3.141529) fase_tmp -= 2*3.141529;
+    if (fase_tmp <= -3.141529) fase_tmp += 2*3.141529;
+    
+    fase += (fase_tmp + 2*3.141529);
+      /*if(imprime_na_media==1){
+      Serial.print(modulo_impedancia_temp);
+      Serial.print("\t");
+      Serial.print(phase1);
+      Serial.print("\t");
+      Serial.print(phase2);
+      Serial.print("\t");
+      Serial.println(fase_tmp);
+    }*/
+  } 
+    modulo_impedancia = modulo_impedancia/100;
+    fase = (fase/100) - 2*3.141529;
 }
+
 
 ////////////////////////////////////////////////////////////////////////////////////
 void envia_impedancia(){
