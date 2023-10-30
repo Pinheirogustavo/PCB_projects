@@ -209,21 +209,20 @@ void calc_impedancia_media(){
 
 
 void calc_impedancia_media_retangular(){
-  modulo_impedancia = 0;
-  fase = 0;
+
+  float modulo_impedancia_temp, fase_tmp;
 
   for(int idx = 0; idx < 100; idx++){
     demodula();
-    
-    float modulo_impedancia_temp;resistencia_Z2;reatancia_Z2;
-    float fase_tmp = phase1-phase2;
+
+    fase_tmp = phase1-phase2;
     if (fase_tmp > 3.141529) fase_tmp -= 2*3.141529;
     if (fase_tmp <= -3.141529) fase_tmp += 2*3.141529;
-    
+
     modulo_impedancia_temp = amplit1/(amplit2/GANHO_CORRENTE);
-    resistencia_Z2 += modulo_impedancia_temp*cos(fase_tmp-fase_canal1);
-    reatancia_Z2 += modulo_impedancia_temp*sin(fase_tmp-fase_canal1);
-    
+    resistencia_Z2 += modulo_impedancia_temp*cos(fase_tmp-fase_canal2);
+    reatancia_Z2 += modulo_impedancia_temp*sin(fase_tmp-fase_canal2);
+
       if(imprime_na_media==1){
       Serial.print(modulo_impedancia_temp);
       Serial.print("\t");
@@ -232,10 +231,14 @@ void calc_impedancia_media_retangular(){
       Serial.print(phase2);
       Serial.print("\t");
       Serial.println(fase_tmp);
+      Serial.print(resistencia_Z2);
+      Serial.print("\t");
+      Serial.println(reatancia_Z2);
     }
-  } 
+  }
     resistencia_Z2 = resistencia_Z2/100;
     reatancia_Z2 = reatancia_Z2/100;
+    //modulo_impedancia_Z2 = sqrt( (pow(resistencia_Z2),2) + (pow(reatancia_Z2),2);
 }
 
 ////////////////////////////////////////////////////////////////////////////////////
@@ -258,7 +261,7 @@ void receiveEvent (int howMany){
   Serial.println(a);
 
   if (a == 0x07){
-   Serial.print("Calculando impedancia: ");
+   Serial.print("Calculando impedancia[DEBUG]: ");
    calc_impedancia_media();
    dado.amplitude = modulo_impedancia;
    dado.fase = fase;
@@ -266,16 +269,30 @@ void receiveEvent (int howMany){
    Serial.print("ohm; fase: ");
    Serial.print(dado.fase);
    Serial.println("rad");
+
+   Serial.print("Calculando impedancia[VALIDO]: ");
    calc_impedancia_media_retangular
    dado2.resistencia = resistencia_Z2;
    dado2.reatancia = reatancia_Z2;
-   
+  }
+  if (a == 0x08){
+   Serial.print("calibracao iniciada ");
+
+   fase = 0;
+   for(int idx = 0; idx < 100; idx++){
+     float fase_tmp = phase1-phase2;
+     if (fase_tmp > 3.141529) fase_tmp -= 2*3.141529;
+     if (fase_tmp <= -3.141529) fase_tmp += 2*3.141529;
+     fase += (fase_tmp + 2*3.141529);
+   }
+   fase = (fase/100) - 2*3.141529;
+   fase_canal2 = fase;
+   dado.fase = fase;
   }
   else{
    calc_impedancia_media();
    dado.amplitude = modulo_impedancia;
    dado.fase = fase;
-    
   }
 }
 

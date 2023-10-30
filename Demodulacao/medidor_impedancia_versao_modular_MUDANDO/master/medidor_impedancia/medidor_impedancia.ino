@@ -65,7 +65,7 @@ float freq_sinal  = 50000; // 50kHz
 float sample_freq = 600000; // 600kSps
 int pontos_por_ciclo = 12;
 
-float media1, media2, amplit1, amplit2, phase1, phase2, fase_canal1, fase_canal2;
+float media1, media2, amplit1, amplit2, phase1, phase2, fase_canal1, fase_canal2, resistencia_Z1, reatancia_Z1, modulo_impedancia_Z1,resistencia_Z2, reatancia_Z2, modulo_impedancia_Z2;
 int imprime_na_media=0;
 
 union {
@@ -75,6 +75,15 @@ union {
     float fase;
   };
 } dado;
+
+union {
+  uint8_t bytes[8];
+  struct{
+    float resistencia;
+    float reatancia;
+  };
+} dado2;
+
 
 float modulo_impedancia;
 float fase;
@@ -197,14 +206,13 @@ void calc_impedancia_media(){
 }
 
 void calc_impedancia_media_retangular(){
-  modulo_impedancia = 0;
-  fase = 0;
+
+  float modulo_impedancia_temp, fase_tmp;
 
   for(int idx = 0; idx < 100; idx++){
     demodula();
     
-    float modulo_impedancia_temp;resistencia_Z1;reatancia_Z1;
-    float fase_tmp = phase1-phase2;
+    fase_tmp = phase1-phase2;
     if (fase_tmp > 3.141529) fase_tmp -= 2*3.141529;
     if (fase_tmp <= -3.141529) fase_tmp += 2*3.141529;
     
@@ -220,10 +228,14 @@ void calc_impedancia_media_retangular(){
       Serial.print(phase2);
       Serial.print("\t");
       Serial.println(fase_tmp);
+      Serial.print(resistencia_Z1);
+      Serial.print("\t");
+      Serial.println(reatancia_Z1);
     }
   } 
     resistencia_Z1 = resistencia_Z1/100;
     reatancia_Z1 = reatancia_Z1/100;
+    modulo_impedancia_Z1 = sqrt( (pow(resistencia_Z1,2) + pow(reatancia_Z1,2)) );
 }
 
 ////////////////////////////////////////////////////////////////////////////////////
@@ -267,35 +279,33 @@ void envia_impedancias_2(){
   Serial.print("\treatancia_Z1: ");
   Serial.print(reatancia_Z1);
   Serial.print("\timpedancia Z1: ");
-  Serial.println( sqrt( (pow(resistencia_Z1),2) + (pow(reatancia_Z1),2));
+  Serial.println(modulo_impedancia_Z1);
   
   Serial.print("resistencia_Z2: ");
-  Serial.print(resistencia_Z2);
-  Serial.print("\treatancia_Z1: ");
-  Serial.print(reatancia_Z1);
-  Serial.print("\timpedancia Z1: ");
-  Serial.println( sqrt( (pow(resistencia_Z1),2) + (pow(reatancia_Z1),2));
+  Serial.print(dado2.resistencia_Z2);
+  Serial.print("\treatancia_Z2: ");
+  Serial.print(dado2.reatancia_Z2);
+  Serial.print("\timpedancia_Z2: ");
+  Serial.println(sqrt( (pow(dado2.resistencia_Z2,2) + pow(dado2.reatancia_Z2,2)) ) );
+
+
   
-  Serial.print(modulo_impedancia);
-  Serial.print(" ohm; \tfase: ");
-  Serial.print((fase-fase_canal1)*180.0/3.14153);
-  Serial.print(" graus; ");
-  Serial.print("\tZ2: ");
-  Serial.print(dado.amplitude);
-  Serial.print(" ohm; \tfase: ");
-  Serial.print((dado.fase-fase_canal2)*180.0/3.14153);
-  Serial.println(" graus; ");
-  
+  float resistencia_corpo, reatancia_corpo,impedancia_corpo, fase_corpo;
+  resistencia_corpo = resistencia_Z1-resistencia_Z2;
+  reatancia_corpo = reatancia_Z1-reatancia_Z2;
+  fase_corpo = (atan2(reatancia_corpo,resistencia_corpo)**180.0/3.14153;
+  impedancia_corpo = sqrt( (pow(resistencia_corpo,2) + pow(reatancia_corpo,2)) );
+
   Serial.print("Resistencia_corpo: ");
-  Serial.print(modulo_impedancia*cos(fase-fase_canal1) - dado.amplitude*cos(dado.fase-fase_canal1));
+  Serial.print(resistencia_corpo);
   Serial.print(" ohm; \tReatancia_corpo: ");
-  Serial.print(modulo_impedancia*sin(fase-fase_canal1) - dado.amplitude*sin(dado.fase-fase_canal1));
+  Serial.print(reatancia_corpo);
   Serial.print(" ohm; ");
   Serial.print("Impedancia_corpo: ");
-  Serial.print( sqrt(pow( (modulo_impedancia*cos(fase-fase_canal1) - dado.amplitude*cos(dado.fase-fase_canal2)) , 2) + pow( (modulo_impedancia*sin(fase-fase_canal1) - dado.amplitude*sin(dado.fase-fase_canal2)) , 2)) );
+  Serial.print(impedancia_corpo);
   Serial.print(" ohm; ");
   Serial.print("\tfase: ");
-  Serial.print( (atan2( (modulo_impedancia*sin(fase-fase_canal1) - dado.amplitude*sin(dado.fase-fase_canal2)), (modulo_impedancia*cos(fase-fase_canal1) - dado.amplitude*cos(dado.fase-fase_canal2))) )*180.0/3.14153 );
+  Serial.print(fase_corpo);
   Serial.println(" graus;");
 }
 
@@ -325,13 +335,30 @@ void pega_dado(){
 
 ////////////////////////////////////////////////////////////////////////////////////
 void calibra(){
-  calc_impedancia_media();
+
+  fase = 0;
+  for(int idx = 0; idx < 100; idx++){
+    float fase_tmp = phase1-phase2;
+    if (fase_tmp > 3.141529) fase_tmp -= 2*3.141529;
+    if (fase_tmp <= -3.141529) fase_tmp += 2*3.141529;
+    fase += (fase_tmp + 2*3.141529);
+  }
+    fase = (fase/100) - 2*3.141529;
+
   fase_canal1 = fase;
-  inicia_medicao();
+  calibra_slave();
   pega_dado();
   fase_canal2 = dado.fase;
 
 }
+
+void calibra_slave(){
+  Serial.println("iniciando calibracao slave");
+  Wire.beginTransmission(8);
+  Wire.write(0x08);
+  Wire.endTransmission();
+  delay(500);
+  Serial.println("calibrado");
 
 ////////////////////////////////////////////////////////////////////////////////////
 void setup() {
