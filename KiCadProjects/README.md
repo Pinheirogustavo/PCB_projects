@@ -25,6 +25,12 @@ Quando criar um novo simbolo procure seguir Reference designator: https://en.wik
 
 - Bibliotecas criadas pelo autor:  Usar o editor de simbolos e de footprint do kicad, salvar em Projeto Global
 	caminho:/PCB_projects/KiCadProjects/libraries/MyCreates
+
+- Sempre adicione as bibliotecas pelo github e não pela sua máquina local. Exemplo:
+  
+  Errado: /home/name/PCB_projects/KiCadProjects/libraries/MyCreates/AD9833_module.pretty
+  
+  Certo: /home/name/**github**/PCB_projects/KiCadProjects/libraries/MyCreates/AD9833_module.pretty
 	
 ------------------------------------------------------------------------------------------------------------------------------------------
 
