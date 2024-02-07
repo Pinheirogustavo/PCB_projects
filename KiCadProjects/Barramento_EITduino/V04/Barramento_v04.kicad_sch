@@ -5,13 +5,13 @@
   (paper "A4")
 
   (title_block
-    (title "Fonte de tensao LM675")
-    (date "2023-08-14")
-    (rev "v02")
+    (title "Barramento V04")
+    (date "2024-02-05")
+    (rev "v04")
     (company "EITduino")
     (comment 1 "Autor: Gustavo Pinheiro")
     (comment 2 "Barramento proposto para uma placa 90x100 mm")
-    (comment 3 "Placa face simples")
+    (comment 3 "Placa face dupla")
     (comment 4 "Pinos AGND e DGND")
     (comment 5 "capacitor 100nF ceramico")
     (comment 6 "capacitores uF tantalo")
@@ -1441,7 +1441,7 @@
     )
     (pin "1" (uuid c77301c6-6b0b-4b90-aeb4-e5e2fd5710e4))
     (instances
-      (project "Fonte_tensao_LM675_v05"
+      (project "Barramento_v04"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR015") (unit 1)
         )
@@ -1466,7 +1466,7 @@
     )
     (pin "1" (uuid ecbf9e93-5f0f-4b5a-ba57-a0585d8f9adb))
     (instances
-      (project "Fonte_tensao_LM675_v05"
+      (project "Barramento_v04"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR07") (unit 1)
         )
@@ -1491,7 +1491,7 @@
     )
     (pin "1" (uuid c3ccc0d0-9d6b-4b3c-ab92-2b3913c0aac7))
     (instances
-      (project "Fonte_tensao_LM675_v05"
+      (project "Barramento_v04"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR027") (unit 1)
         )
@@ -1516,7 +1516,7 @@
     )
     (pin "1" (uuid 408b7f57-f2bb-4a28-9a7e-9c7b873add29))
     (instances
-      (project "Fonte_tensao_LM675_v05"
+      (project "Barramento_v04"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR0130") (unit 1)
         )
@@ -1541,7 +1541,7 @@
     )
     (pin "1" (uuid ae885176-ebac-4ace-b89c-891da3515ae7))
     (instances
-      (project "Fonte_tensao_LM675_v05"
+      (project "Barramento_v04"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR012") (unit 1)
         )
@@ -1592,7 +1592,7 @@
     (pin "8" (uuid f05099d5-de8b-40f8-b57e-7ae12a3248a3))
     (pin "9" (uuid 5c6f73b6-7592-44a6-9c2f-3063152c038e))
     (instances
-      (project "Fonte_tensao_LM675_v05"
+      (project "Barramento_v04"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "J2") (unit 1)
         )
@@ -1617,7 +1617,7 @@
     )
     (pin "1" (uuid 322f77de-590e-4562-ba8b-792c0b5bd84b))
     (instances
-      (project "Fonte_tensao_LM675_v05"
+      (project "Barramento_v04"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR0123") (unit 1)
         )
@@ -1649,7 +1649,7 @@
     (pin "7" (uuid fb3bf86b-880b-4288-b2a2-fa2d100268b2))
     (pin "8" (uuid cd0d7ef7-8e9e-420e-ba7f-614bd76b6bee))
     (instances
-      (project "Fonte_tensao_LM675_v05"
+      (project "Barramento_v04"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "J1") (unit 1)
         )
@@ -1674,7 +1674,7 @@
     )
     (pin "1" (uuid 8e063145-dcea-4152-8f42-127a031a1684))
     (instances
-      (project "Fonte_tensao_LM675_v05"
+      (project "Barramento_v04"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR06") (unit 1)
         )
@@ -1699,7 +1699,7 @@
     )
     (pin "1" (uuid 6bf3d005-f021-4c72-8c97-2079d3e1beb4))
     (instances
-      (project "Fonte_tensao_LM675_v05"
+      (project "Barramento_v04"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR02") (unit 1)
         )
@@ -1724,7 +1724,7 @@
     )
     (pin "1" (uuid 40f5c6ba-9eaf-46aa-9882-5499a75fd73b))
     (instances
-      (project "Fonte_tensao_LM675_v05"
+      (project "Barramento_v04"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR017") (unit 1)
         )
@@ -1749,7 +1749,7 @@
     )
     (pin "1" (uuid dbceb581-1d16-41fd-b8ec-fe6c5d14438d))
     (instances
-      (project "Fonte_tensao_LM675_v05"
+      (project "Barramento_v04"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR011") (unit 1)
         )
@@ -1774,7 +1774,7 @@
     )
     (pin "1" (uuid 7d295db0-18e4-450e-a232-8f5dd89d2afa))
     (instances
-      (project "Fonte_tensao_LM675_v05"
+      (project "Barramento_v04"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR026") (unit 1)
         )
@@ -1799,7 +1799,7 @@
     )
     (pin "1" (uuid 30890fe9-3794-45d0-a192-2a62b0cb3e2a))
     (instances
-      (project "Fonte_tensao_LM675_v05"
+      (project "Barramento_v04"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR010") (unit 1)
         )
@@ -1824,7 +1824,7 @@
     )
     (pin "1" (uuid 84723c15-4e33-48ea-9fb1-52a2bcd48f8c))
     (instances
-      (project "Fonte_tensao_LM675_v05"
+      (project "Barramento_v04"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR0128") (unit 1)
         )
@@ -1849,7 +1849,7 @@
     )
     (pin "1" (uuid 8d74dad1-f3a6-47bb-846a-095b83e4e16c))
     (instances
-      (project "Fonte_tensao_LM675_v05"
+      (project "Barramento_v04"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR014") (unit 1)
         )
@@ -1874,7 +1874,7 @@
     )
     (pin "1" (uuid 3013a2ba-4ed7-44f7-94d7-13b36fd37b5f))
     (instances
-      (project "Fonte_tensao_LM675_v05"
+      (project "Barramento_v04"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR0127") (unit 1)
         )
@@ -1899,7 +1899,7 @@
     )
     (pin "1" (uuid 461b73da-1a5a-4fcc-8488-154c0d15d9b5))
     (instances
-      (project "Fonte_tensao_LM675_v05"
+      (project "Barramento_v04"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR0125") (unit 1)
         )
@@ -1924,7 +1924,7 @@
     )
     (pin "1" (uuid cf32da61-936e-4859-9e88-c6263ea7bff6))
     (instances
-      (project "Fonte_tensao_LM675_v05"
+      (project "Barramento_v04"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR023") (unit 1)
         )
@@ -1949,7 +1949,7 @@
     )
     (pin "1" (uuid 40fd4d70-72f3-4e40-bc60-f82b48468004))
     (instances
-      (project "Fonte_tensao_LM675_v05"
+      (project "Barramento_v04"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR0129") (unit 1)
         )
@@ -1974,7 +1974,7 @@
     )
     (pin "1" (uuid 8661a338-f012-49ee-8a85-4ce4d80b6a40))
     (instances
-      (project "Fonte_tensao_LM675_v05"
+      (project "Barramento_v04"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR04") (unit 1)
         )
@@ -2033,7 +2033,7 @@
     (pin "8" (uuid ad4cc223-addb-492f-8b95-f2ca2de039ee))
     (pin "9" (uuid 3e8d8628-84d6-488c-886e-29faa571cf30))
     (instances
-      (project "Fonte_tensao_LM675_v05"
+      (project "Barramento_v04"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "J3") (unit 1)
         )
@@ -2058,7 +2058,7 @@
     )
     (pin "1" (uuid ec543eee-9495-4eb1-b40d-dafad205d169))
     (instances
-      (project "Fonte_tensao_LM675_v05"
+      (project "Barramento_v04"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR024") (unit 1)
         )
@@ -2083,7 +2083,7 @@
     )
     (pin "1" (uuid 4e3d2964-73d0-4be8-97c7-a23cc1391711))
     (instances
-      (project "Fonte_tensao_LM675_v05"
+      (project "Barramento_v04"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR01") (unit 1)
         )
@@ -2108,7 +2108,7 @@
     )
     (pin "1" (uuid 9cc4dc32-a53a-4bdd-8068-95217522facf))
     (instances
-      (project "Fonte_tensao_LM675_v05"
+      (project "Barramento_v04"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR03") (unit 1)
         )
@@ -2133,7 +2133,7 @@
     )
     (pin "1" (uuid 78529bf5-73f9-4e4f-8504-3336f106cfa9))
     (instances
-      (project "Fonte_tensao_LM675_v05"
+      (project "Barramento_v04"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR025") (unit 1)
         )
@@ -2158,7 +2158,7 @@
     )
     (pin "1" (uuid 4eb38708-102c-4a00-a3d7-34ccfd91f02e))
     (instances
-      (project "Fonte_tensao_LM675_v05"
+      (project "Barramento_v04"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR013") (unit 1)
         )
@@ -2183,7 +2183,7 @@
     )
     (pin "1" (uuid 4a84fe30-1650-4bd0-b39d-02fb9b97a56f))
     (instances
-      (project "Fonte_tensao_LM675_v05"
+      (project "Barramento_v04"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR0124") (unit 1)
         )
@@ -2208,7 +2208,7 @@
     )
     (pin "1" (uuid ad3a3493-0f25-44f1-b02f-a9ac29ca56ae))
     (instances
-      (project "Fonte_tensao_LM675_v05"
+      (project "Barramento_v04"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR0131") (unit 1)
         )
@@ -2233,7 +2233,7 @@
     )
     (pin "1" (uuid 280f9db7-9906-42d0-a183-c580487817c8))
     (instances
-      (project "Fonte_tensao_LM675_v05"
+      (project "Barramento_v04"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR08") (unit 1)
         )
@@ -2258,7 +2258,7 @@
     )
     (pin "1" (uuid 27db738a-c1b3-4f60-99fa-4073e1975056))
     (instances
-      (project "Fonte_tensao_LM675_v05"
+      (project "Barramento_v04"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR028") (unit 1)
         )
@@ -2283,7 +2283,7 @@
     )
     (pin "1" (uuid 9a5d5c23-1f3c-4eba-b3d3-27f5a921230a))
     (instances
-      (project "Fonte_tensao_LM675_v05"
+      (project "Barramento_v04"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR016") (unit 1)
         )
@@ -2308,7 +2308,7 @@
     )
     (pin "1" (uuid 6aecd5eb-0472-4f71-9c07-f6cada2223d9))
     (instances
-      (project "Fonte_tensao_LM675_v05"
+      (project "Barramento_v04"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR052") (unit 1)
         )
@@ -2333,7 +2333,7 @@
     )
     (pin "1" (uuid b0b773ca-bba5-44cd-9628-2c602f454c39))
     (instances
-      (project "Fonte_tensao_LM675_v05"
+      (project "Barramento_v04"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR05") (unit 1)
         )
@@ -2358,7 +2358,7 @@
     )
     (pin "1" (uuid 435245b2-3b3e-4768-bdd7-8d41b29ce31f))
     (instances
-      (project "Fonte_tensao_LM675_v05"
+      (project "Barramento_v04"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR09") (unit 1)
         )

@@ -6,13 +6,13 @@
 
   (paper "A4")
   (title_block
-    (title "Barramento do EITduino")
-    (date "2023-08-14")
-    (rev "v02")
+    (title "Barramento V04")
+    (date "2024-02-05")
+    (rev "v04")
     (company "EITduino")
     (comment 1 "Autor: Gustavo Pinheiro")
     (comment 2 "Barramento proposto para uma placa 90x100 mm")
-    (comment 3 "placa de face simples")
+    (comment 3 "placa de face dupla")
     (comment 4 "Pinos AGND e DGND")
   )
 
