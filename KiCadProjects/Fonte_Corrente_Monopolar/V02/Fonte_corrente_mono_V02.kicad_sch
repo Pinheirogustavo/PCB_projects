@@ -3511,7 +3511,7 @@
     (property "Reference" "J4" (at 33.909 32.385 90)
       (effects (font (size 1.27 1.27)) (justify left) hide)
     )
-    (property "Value" "Change_signal" (at 43.307 44.577 0)
+    (property "Value" "signal select" (at 43.307 44.577 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" (at 35.179 38.1 0)
