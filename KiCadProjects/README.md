@@ -102,5 +102,11 @@ conector p4 de bateria - oval3x4,2mm retangular4,6x3mm
 ------------------------------------------------------------------------------------------------------------------------------------------
 
 
+## Autoroteamento
+
+- Utilize o plugin Freerouting
+- Antes de tudo sempre realize primeiramente a atualiação da PCB a partir do esquemático e a verifcação das regras de desenho
+- Caso deseje refazer o roteamento, exclua todas as trilhas e vias geradas anteriormente: Editar &rarr; Exclusões globais &rarr; Vias e trilhas/Todas as camadas.
+- Caso tenha criado uma "zona" (linha tracejada) para o plano terra, a remova antes de realizar novo Autoroteamento (Ver mais em: https://www.reddit.com/r/KiCad/comments/5eu7fo/freerouting_left_a_lot_of_grounds_unreachable/)
 
 
