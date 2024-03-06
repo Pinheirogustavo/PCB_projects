@@ -12,8 +12,12 @@ Trilhas vermelhas: Representam jumpers, estao dispostas na face de cobre superio
 
 ------------------------------------------------------------------------------------------------------------------------------------------
 ## Criando simbolos, footprint e 3D
+- Editor de símbolos &rarr; Arquivo &rarr; Nova biblioteca &rarr; Global &rarr;  acesse a pasta de bibliotecas do seu github &rarr; acesse a pasta dos simbolos criados por você &rarr; NOME_SIMBOLO.kicad_sym Salvar. 
+    - clique em "Criar Novo Símbolo (N)"
 
-Quando criar um novo simbolo procure seguir Reference designator: https://en.wikipedia.org/wiki/Reference_designator
+- Quando criar um novo simbolo procure seguir Reference designator: https://en.wikipedia.org/wiki/Reference_designator
+- Sempre utilize pinos passivos
+- Numere os pinos no desenho do símbolo, para que o footprint possa fazer a atribuição correta
 
 ------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -95,7 +99,7 @@ Diodos -   circular 2,5mm
 
 LED - 	+ circular 2mm	-retangular2x2,5mm
 
-Barra de pinos - Oval 2,5 mm X 1,8 mm
+Barra de pinos - Oval 2,5 mm X 1,8 mm ; furo 1,02 mm
 
 conector p4 de bateria - oval3x4,2mm retangular4,6x3mm
 
