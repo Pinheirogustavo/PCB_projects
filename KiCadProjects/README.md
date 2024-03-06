@@ -18,6 +18,7 @@ Trilhas vermelhas: Representam jumpers, estao dispostas na face de cobre superio
 - Quando criar um novo simbolo procure seguir Reference designator: https://en.wikipedia.org/wiki/Reference_designator
 - Sempre utilize pinos passivos
 - Numere os pinos no desenho do símbolo, para que o footprint possa fazer a atribuição correta
+- Nome do simbolo: Duplo clique na area de trabalho &rarr; preencher o campo valor
 
 ------------------------------------------------------------------------------------------------------------------------------------------
 
