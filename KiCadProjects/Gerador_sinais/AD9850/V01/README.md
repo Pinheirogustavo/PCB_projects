@@ -107,6 +107,7 @@ As conexões entre os botoes e o uC são:
 Modelo de componente criado nas dimensões do módulo utilizado.
 
 As conexões entre o módulo e o uC são:
+
 	W_CLK     PC14
 	FQ_UD     PC15
 	DATA      PA0
