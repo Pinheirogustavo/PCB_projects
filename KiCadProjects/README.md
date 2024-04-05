@@ -166,8 +166,11 @@ AD9833
 
 - Resistores 
 > Forma da ilha: Oval
+
 > Tamanho da ilha: 2,0x1,6mm
+
 > Forma do furo: circular
+
 > Diâmetro do furo: 0,8mm
 
 - Capacitores eletrolíticos 
