@@ -194,6 +194,12 @@ AD9833
 > Forma do furo:circular
 > Diâmetro do furo: 1,02
   
+- Chave gangorra
+> Forma da ilha: Retangular
+> Tamanho da ilha: 2,5x7,0mm
+> Forma do furo: oval
+> Diâmetro do furo: 0,8x6,0mm
+
 
 - Conector p4 de bateria 
     - pad1 (vin)
@@ -212,13 +218,6 @@ AD9833
         > Forma do furo: oval
         > Diâmetro do furo: 1,0x3,2mm
         
-- Chave gangorra
-> Forma da ilha: Retangular
-> Tamanho da ilha: 2,5x7,0mm
-> Forma do furo: oval
-> Diâmetro do furo: 0,8x6,0mm
-
-
 
 ## Autoroteamento
 
