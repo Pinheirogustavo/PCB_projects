@@ -230,11 +230,11 @@ AD9833
     - pad1 (vin)
     
         > Forma da ilha: retangular
-	>
+	
         > Tamanho da ilha: 4,6x2,0mm
-	>
+	
         > Forma do furo: oval
-	>
+	
         > Diâmetro do furo: 3,6x1,0mm_P2
         
     - pad2 (vee)
