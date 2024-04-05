@@ -165,10 +165,10 @@ AD9833
 ###### Caso esteja usando a CNC, todos os furos podem ser configurados diretamente no FlatCAM, não sendo necessário defini-los no projeto do Kicad.
 
 - Resistores 
-> Forma da ilha: Oval
-Tamanho da ilha: 2,0x1,6mm
-Forma do furo: circular
-Diâmetro do furo: 0,8mm
+>Forma da ilha: Oval
+>Tamanho da ilha: 2,0x1,6mm
+>Forma do furo: circular
+>Diâmetro do furo: 0,8mm
 
 - Capacitores eletrolíticos 
 > Forma da ilha: oval(+)            retangular(-)
