@@ -175,4 +175,5 @@ Devido o tamanho restrito da placa e o grande número de componentes, foram adot
 
  - Tamanho de trilha: 0,50mm
  - Espaçamento: 0,50mm
+ - Tamnho de via: 1,00mm furo da via: 0,60mm
 
