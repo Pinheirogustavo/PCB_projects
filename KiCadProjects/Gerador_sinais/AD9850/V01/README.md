@@ -107,10 +107,10 @@ As conexões entre os botoes e o uC são:
 Modelo de componente criado nas dimensões do módulo utilizado.
 
 As conexões entre o módulo e o uC são:
-    - W_CLK     PC14
-    - FQ_UD     PC15
-    - DATA      PA0
-    - RESET     PA1
+     W_CLK     PC14
+     FQ_UD     PC15
+     DATA      PA0
+     RESET     PA1
     
 Os sinais senoidais (com offset) fornecidos são: sin_AD1 e sin_AD2
 
