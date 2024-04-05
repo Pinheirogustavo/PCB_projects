@@ -162,8 +162,8 @@ As conexões entre os potenciômetros digitais e o uC são:
     - Pot1_X9c10x_INC       PB11
     
     - Pot2_CS_(X9c104)      PB5
-    - Pot2_X9c10x_U/D       PB4    
-    - Pot2_X9c10x_INC       PB3    
+    - Pot2_X9c10x_U/D       PB4 
+    - Pot2_X9c10x_INC       PB3 
     
 ![Sinais controle potenciômetro digital](https://github.com/Pinheirogustavo/PCB_projects/blob/main/KiCadProjects/Gerador_sinais/Datasheets/Digital-Potentiometer-X9C103s-Mode-selection.jpg)
 
@@ -176,4 +176,9 @@ Devido o tamanho restrito da placa e o grande número de componentes, foram adot
  - Tamanho de trilha: 0,50mm
  - Espaçamento: 0,50mm
  - Tamnho de via: 1,00mm furo da via: 0,60mm
+ - Pads:
+ 	- Resistor: circular 1,6mm furo 0,8mm
+ 	- capacitor: oval 1,8x2,0mm furo 1,1mm
+ 	- Barra de pinos (excerto principais): oval 1,8x2,0mm furo 1,02mm
+ 	- AmpOp: circular 1,6mm furo 0,8mm
 
