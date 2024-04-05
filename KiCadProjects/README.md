@@ -5,13 +5,13 @@
 ------------------------------------------------------------------------------------------------------------------------------------------  
   
 
-Placa 100x100mm face simples  
+Placa 100x100mm face simples
   
 
-Trilhas azuis: trilhas dispostas na face de cobre inferior  
+Trilhas azuis: trilhas dispostas na face de cobre inferior 
   
 
-Trilhas vermelhas: Representam jumpers, estao dispostas na face de cobre superior  
+Trilhas vermelhas: Representam jumpers, estao dispostas na face de cobre superior 
   
   
 
@@ -19,14 +19,14 @@ Trilhas vermelhas: Representam jumpers, estao dispostas na face de cobre superio
 
 ## Criando simbolos, footprint e 3D  
 
-- Editor de símbolos &rarr; Arquivo &rarr; Nova biblioteca &rarr; Global &rarr; acesse a pasta de bibliotecas do seu github &rarr; acesse a pasta dos simbolos criados por você &rarr; NOME_SIMBOLO.kicad_sym Salvar.   
- - clique em "Criar Novo Símbolo (N)"  
+- Editor de símbolos &rarr; Arquivo &rarr; Nova biblioteca &rarr; Global &rarr; acesse a pasta de bibliotecas do seu github &rarr; acesse a pasta dos simbolos criados por você &rarr; NOME_SIMBOLO.kicad_sym Salvar. 
+ - clique em "Criar Novo Símbolo (N)" 
   
 - Quando criar um novo simbolo procure seguir Reference designator: https://en.wikipedia.org/wiki/Reference_designator  
   
-- Sempre utilize pinos passivos  
-- Numere os pinos no desenho do símbolo, para que o footprint possa fazer a atribuição correta  
-- Nome do simbolo: Duplo clique na area de trabalho &rarr; preencher o campo valor  
+- Sempre utilize pinos passivos 
+- Numere os pinos no desenho do símbolo, para que o footprint possa fazer a atribuição correta 
+- Nome do simbolo: Duplo clique na area de trabalho &rarr; preencher o campo valor 
   
 
 ------------------------------------------------------------------------------------------------------------------------------------------  
@@ -99,69 +99,91 @@ Trilhas vermelhas: Representam jumpers, estao dispostas na face de cobre superio
   
 
 Resistor
-    \Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal   
+    
+    Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal   
 
 Capacitor eletrolítico
-    \Capacitor_THT:CP_Radial_D5.0mm_P2.50mm 
+    
+    Capacitor_THT:CP_Radial_D5.0mm_P2.50mm 
 
 Capacitor cerâmico 
+    
     Capacitor_THT:C_Disc_D3.0mm_W1.6mm_P2.50mm
 
 Capacitor tântalo 
+    
     Capacitor_THT:CP_Radial_Tantal_D4.5mm_P2.50mm 
 
 Diodo
+    
     Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal
 
 LED 
+    
     LED_THT:LED_D5.0mm  
 
-conectores fêmea 
+conectores fêmea
+
     Connector_PinSocket_2.54mm:PinSocket_1xXX_P2.54mm_Vertical    
 
 conectores macho 
+   
     Connector_PinHeader_2.54mm:PinHeader_1xXX_P2.54mm_Vertical     
 
 conector p4 de bateria 
+    
     Connector_BarrelJack:BarrelJack_GCT_DCJ200-10-A_Horizontal  
 
 chave gangorra
+    
     Chave_Gangorra:chave gangorra 2 pinos
     
 L7809
+    
     Package_TO_SOT_THT:TO-220-3_Vertical
     
 LM7909
+    
     Package_TO_SOT_THT:TO-220-3_Vertical
     
 LM675
+    
     Package_TO_SOT_THT:TO-220-5_P3.4x3.7mm_StaggerOdd_Lead3.8mm_Vertical
     
 L7805
+    
     Package_TO_SOT_THT:TO-220-3_Vertical
     
 L7905
+    
     Package_TO_SOT_THT:TO-220-3_Vertical
     
 LM1117T-3.3
+    
     Package_TO_SOT_THT:TO-220-3_Vertical
     
 AD9850
+    
     Capacitor_THT:C_Disc_D3.0mm_W1.6mm_P2.50mm
     
 STM32-bluepill
+    
     BluePill_STM32:BluePill_STM32F103C
     
 AD828
+    
     AD828:AD828
     
 Potenciômetro Digital X9c10x
+    
     X9c10X_module:X9c10X_module
     
 Arduino Nano
+    
     Module:Arduino_Nano
     
 AD9833
+    
     AD9833_module:AD9833_module
 
 ------------------------------------------------------------------------------------------------------------------------------------------  
