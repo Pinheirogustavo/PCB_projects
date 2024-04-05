@@ -240,18 +240,21 @@ AD9833
     - pad2 (vee)
     
         > Forma da ilha: Oval
+	
         > Tamanho da ilha: 4,2x2,0mm
+	
         > Forma do furo: oval
+	
         > Diâmetro do furo: 3,2x1,0mm
         
     - pad3
     
         > Forma da ilha: Oval
-	>
+	
         > Tamanho da ilha: 2,0x4,2mm
-	>
+	
         > Forma do furo: oval
-	>
+	
         > Diâmetro do furo: 1,0x3,2mm
         
 
