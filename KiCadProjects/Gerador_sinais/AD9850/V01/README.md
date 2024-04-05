@@ -154,7 +154,7 @@ Amplificador duplo (AD826/828) na forma não inversor para controle do ganho do 
 
 Cada um dos sinais (Sin1 e Sin2) passa por um potenciômetro digital diferente (DIgPot 1 e DigPot2). Ambos estão conectados à entrada não inversora do amplificador. 
 
-Cada potenciômetro digital (DigPot) possui um vetor resistivo de 99 passos. O CI X9c104 possui resistência máxima de 100k \Omega. Ele é controlado por 4 sinais digitais.
+Cada potenciômetro digital (DigPot) possui um vetor resistivo de 99 passos. O CI X9c104 possui resistência máxima de $100k \Omega$. Ele é controlado por 4 sinais digitais.
 
 As conexões entre os potenciômetros digitais e o uC são:
     - Pot1_CS_(X9c104)      PB1
