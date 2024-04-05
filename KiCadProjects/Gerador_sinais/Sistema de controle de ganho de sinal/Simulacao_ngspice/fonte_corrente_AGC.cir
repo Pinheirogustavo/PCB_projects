@@ -1,0 +1,68 @@
+Fonte de corrente com controle automatico de ganho
+
+*-----------------------------Cabecalho-----------------------------*
+*Criador: Gustavo Pinheiro
+*email: gustavo.pinheiro@ufabc.edu.br
+*data: 03/2024
+*objetivo: Realizar o controle do ganho de uma fonte de corrente howland aperfeicoada por meio do 
+*potenciometro digital xxxxxxx
+*-------------------------------------------------------------------------------*
+
+*----------------------Descricao dos modelos utilizados-------------------------*
+* Comando incluir o conteúdo do subcircuito do AD826A:
+*                non-inverting input
+*                |  inverting input
+*                |  |  positive supply
+*                |  |  |  negative supply
+*                |  |  |  |  output
+*                |  |  |  |  |
+*.SUBCKT AD826A  2  1  99 50 46
+.include ad826a.cir
+
+*.model diode_model D
+.include 1N4148.cir;           DIODO DE PEQUENOS SINAIS
+
+*-------------------------------------------------------------------------------*
+
+*-----------------------------Descricao do circuito-----------------------------*
+
+vSinal	vin	GND	AC 0.3V
+VCC     vcc     GND     9V
+VEE     vee     GND     -9V
+C1	vin	v1	1.6u
+R1	v1	GND	10k
+X_U1	v1	v2	vcc	vee	v2	AD826A
+X_U2	v2	vrh	vcc	vee	vout	AD826A
+R2	vout	vrh	10	10k
+Rs	vrh	GND	1k
+
+	
+
+*-------------------------------------------------------------------------------*
+
+
+
+*-----------------------------Parametros de simulacao----------------------------*
+.ac	dec	100	100	10Mega
+*-------------------------------------------------------------------------------*
+
+*-----------------------------Parametros de output----------------------------*
+.control
+	let start_r = 1k
+	let stop_r  = 100k
+	let delta_r = 1k
+
+ 	 let r_act = start_r
+	 while r_act le stop_r
+    		alter Rs r_act
+    		run
+    		let r_act = r_act + delta_r
+    		*plot ac.v(vout)
+  	end
+
+plot ac1.v(vout) ac2.v(vout) ac3.v(vout) ac4.v(vout) ac5.v(vout)
++      ac6.v(vout) ac7.v(vout) ac8.v(vout) ac9.v(vout) ac10.v(vout)  
+.endc
+*-------------------------------------------------------------------------------*
+
+.end
