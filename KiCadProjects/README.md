@@ -99,10 +99,10 @@ Trilhas vermelhas: Representam jumpers, estao dispostas na face de cobre superio
   
 
 Resistor
-    Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal   
+    \Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal   
 
 Capacitor eletrolítico
-    Capacitor_THT:CP_Radial_D5.0mm_P2.50mm 
+    \Capacitor_THT:CP_Radial_D5.0mm_P2.50mm 
 
 Capacitor cerâmico 
     Capacitor_THT:C_Disc_D3.0mm_W1.6mm_P2.50mm
