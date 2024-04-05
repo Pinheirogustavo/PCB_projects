@@ -96,55 +96,133 @@ Trilhas vermelhas: Representam jumpers, estao dispostas na face de cobre superio
 ------------------------------------------------------------------------------------------------------------------------------------------  
 
 ## Alguns footprints de componentes comuns   
-
-#### E suas melhores  escolhas (ou até achar algo melhor)  
   
 
-Resistores -  11779 Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal  
-  
+Resistor
+    Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal   
 
-Capacitores eletrolíticos - 525 Capacitor_THT:CP_Radial_D5.0mm_P2.50mm  
-  
+Capacitor eletrolítico
+    Capacitor_THT:CP_Radial_D5.0mm_P2.50mm 
 
-Diodos -  7485 Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal  
-  
+Capacitor cerâmico 
+    Capacitor_THT:C_Disc_D3.0mm_W1.6mm_P2.50mm
 
-LED - 8642 LED_THT:LED_D5.0mm  
-  
+Capacitor tântalo 
+    Capacitor_THT:CP_Radial_Tantal_D4.5mm_P2.50mm 
 
-conectores fêmea -  5813/6090 Connector_PinSocket_2.54mm:PinSocket_1xXX_P2.54mm_Vertical  
-  
+Diodo
+    Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal
 
-conectores macho -  4855/5132 Connector_PinHeader_2.54mm:PinHeader_1xXX_P2.54mm_Vertical   
-  
+LED 
+    LED_THT:LED_D5.0mm  
 
-conector p4 de bateria - 1150 Connector_BarrelJack:BarrelJack_GCT_DCJ200-10-A_Horizontal  
-  
+conectores fêmea 
+    Connector_PinSocket_2.54mm:PinSocket_1xXX_P2.54mm_Vertical    
+
+conectores macho 
+    Connector_PinHeader_2.54mm:PinHeader_1xXX_P2.54mm_Vertical     
+
+conector p4 de bateria 
+    Connector_BarrelJack:BarrelJack_GCT_DCJ200-10-A_Horizontal  
+
+chave gangorra
+    Chave_Gangorra:chave gangorra 2 pinos
+    
+L7809
+    Package_TO_SOT_THT:TO-220-3_Vertical
+    
+LM7909
+    Package_TO_SOT_THT:TO-220-3_Vertical
+    
+LM675
+    Package_TO_SOT_THT:TO-220-5_P3.4x3.7mm_StaggerOdd_Lead3.8mm_Vertical
+    
+L7805
+    Package_TO_SOT_THT:TO-220-3_Vertical
+    
+L7905
+    Package_TO_SOT_THT:TO-220-3_Vertical
+    
+LM1117T-3.3
+    Package_TO_SOT_THT:TO-220-3_Vertical
+    
+AD9850
+    Capacitor_THT:C_Disc_D3.0mm_W1.6mm_P2.50mm
+    
+STM32-bluepill
+    BluePill_STM32:BluePill_STM32F103C
+    
+AD828
+    AD828:AD828
+    
+Potenciômetro Digital X9c10x
+    X9c10X_module:X9c10X_module
+    
+Arduino Nano
+    Module:Arduino_Nano
+    
+AD9833
+    AD9833_module:AD9833_module
 
 ------------------------------------------------------------------------------------------------------------------------------------------  
 
 ## Tamanho de pad de componentes comuns   
 
-#### E suas melhores  escolhas (ou até achar algo melhor). O tamanho do furo (0,8mm) não precisa ser configurado agora pois pode ser modificado na hora da produção (FlatCAM).  
+###### Caso esteja usando a CNC, todos os furos podem ser configurados diretamente no FlatCAM, não sendo necessário defini-los no projeto do Kicad.
+
+- Resistores 
+> Forma da ilha: Oval
+> Tamanho da ilha: 2,0x1,6mm
+> Forma do furo: circular
+> Diâmetro do furo: 0,8mm
+
+- Capacitores eletrolíticos 
+> Forma da ilha: oval(+)            retangular(-)
+> Tamanho da ilha:2,0x1,6mm(+)      2,0x1,6mm(-)
+> Forma do furo: circular(+)        circular(-)
+> Diâmetro do furo: 0,8mm(+)        0,8mm(-)
+
+- Diodos 
+> Forma da ilha: oval(+)            retangular(-)
+> Tamanho da ilha:2,0x1,6mm(+)      2,0x1,6mm(-)
+> Forma do furo: circular(+)        circular(-)
+> Diâmetro do furo: 0,8mm(+)        0,8mm(-) 
+
+- LED 
+> Forma da ilha: oval(+)            retangular(-)
+> Tamanho da ilha:2,0x1,8mm(+)      1,8x1,8mm(-)
+> Forma do furo: circular(+)        circular(-)
+> Diâmetro do furo: 1,1mm(+)        1,1mm(-) 
+
+- Barra de pinos 
+> Forma da ilha: oval
+> Tamanho da ilha: 2,5x1,8mm
+> Forma do furo:circular
+> Diâmetro do furo: 1,02
   
 
-Resistores -  circular/oval $\geqslant$ 2,5mm   
-  
-
-Capacitores eletrolíticos -  	+ circular 2mm	-retangular2x2,5mm  
-  
-
-Diodos -   circular 2,5mm   
-  
-
-LED - 	+ circular 2mm	-retangular2x2,5mm  
-  
-
-Barra de pinos - Oval 2,5 mm X 1,8 mm ; furo 1,02 mm  
-  
-
-conector p4 de bateria - oval3x4,2mm retangular4,6x3mm  
-  
+- Conector p4 de bateria 
+    - pad1 (vin)
+        > Forma da ilha: retangular
+        > Tamanho da ilha: 4,6x2,0mm
+        > Forma do furo: oval
+        > Diâmetro do furo: 3,6x1,0mm_P2
+    - pad2 (vee)
+        > Forma da ilha: Oval
+        > Tamanho da ilha: 4,2x2,0mm
+        > Forma do furo: oval
+        > Diâmetro do furo: 3,2x1,0mm
+    - pad3
+        > Forma da ilha: Oval
+        > Tamanho da ilha: 2,0x4,2mm
+        > Forma do furo: oval
+        > Diâmetro do furo: 1,0x3,2mm
+        
+- Chave gangorra
+> Forma da ilha: Retangular
+> Tamanho da ilha: 2,5x7,0mm
+> Forma do furo: oval
+> Diâmetro do furo: 0,8x6,0mm
 
 ------------------------------------------------------------------------------------------------------------------------------------------  
   
