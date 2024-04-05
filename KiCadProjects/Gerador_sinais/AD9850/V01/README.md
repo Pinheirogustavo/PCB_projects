@@ -64,9 +64,10 @@ Barra de pinos (encoder ky-040) para encaixe do módulo encoder como o KY-040.
  > O módulo encoder trabalha com cinco pinos. +5V e DNGD para alimentação. Os outros três pinos são sinais digitais (En1, En2 e En3) que enviam dados para o uC.
  
  As conexões entre o encoder e o uC são:
-    - En1       PA15
-    - En2       PB8
-    - En3       PB9
+ 
+	En1       PA15
+	En2       PB8
+	En3       PB9
 
 ###### A3 - Teclado matricial
 
@@ -75,30 +76,33 @@ Barra de pinos (teclado matricial) para conexão do teclado matricial 4x4.
  > São oito pinos de sinais digitais (M1, M2, ... , M8) que enviam dados para o uC.
 
 As conexões entre o teclado e o uC são:
-    - M1        PA2
-    - M2        PA3
-    - M3        PA12
-    - M4        PA11
-    - M5        PA6
-    - M6        PA7
-    - M7        PB0
-    - M8        PB12
+
+	M1        PA2
+	M2        PA3
+	M3        PA12
+	M4        PA11
+	M5        PA6
+	M6        PA7
+	M7        PB0
+	M8        PB12
 
 ###### A4 - botões
 
 Barra de pinos (botoes_selecao) para conexão de 4 botões.
 
  > São quatro pinos para conexão de botões e um pino DGND. Os quatro pinos dos botões são:
-    - Freq +: incrementa a frequência dos sinais gerados
-    - Freq -: decrementa a frequência dos sinais gerados
-    - Up_gain: incrementa a amplitude dos sinais gerados
-    - Down_gain: decrementa a amplitude dos sinais gerados
+ 
+	Freq +: incrementa a frequência dos sinais gerados
+	Freq -: decrementa a frequência dos sinais gerados
+	Up_gain: incrementa a amplitude dos sinais gerados
+	Down_gain: decrementa a amplitude dos sinais gerados
     
 As conexões entre os botoes e o uC são:
-    - Freq+         PB13
-    - Freq-         PB14
-    - Up_gain       PB15
-    - Down_gain     PA8
+
+	Freq+         PB13
+	Freq-         PB14
+	Up_gain       PB15
+	Down_gain     PA8
     
  > Os botões devem ser conectados ao sinal DGND presente na barra de pinos  e nas entradas digitais do uC. Essas entradas devem estar definidas com pullup. 
 
@@ -128,8 +132,9 @@ Entradas Digitais: Ver "Encoder", "Teclado matricial" e "Botões".
 Saídas digitais: Ver "AD9850" e "DigPot1 / DigPot2" em "Ganho programável".
 
 Entradas Analógicas:
-    - PA4       Ampl1 (amplitude da corrente I1 - vinda do barramento principal)
-    - PA5       Ampl2 (amplitude da corrente I2 - vinda do barramento principal)
+
+	PA4       Ampl1 (amplitude da corrente I1 - vinda do barramento principal)
+	PA5       Ampl2 (amplitude da corrente I2 - vinda do barramento principal)
 
 Comunicação I2C: O uC está conectado ao barramento principal de comunicação I2C-1. No primeiro momento essa funcionalidade não é utilizada, mas foi implementada caso optemos por realizar o controle do sinal de excitação por outro uC de outro módulo do projeto. 
 Há resistores pullup (+3.3V) para essa comunicação.
@@ -158,13 +163,14 @@ Cada um dos sinais (Sin1 e Sin2) passa por um potenciômetro digital diferente (
 Cada potenciômetro digital (DigPot) possui um vetor resistivo de 99 passos. O CI X9c104 possui resistência máxima de $100k \Omega$. Ele é controlado por 4 sinais digitais.
 
 As conexões entre os potenciômetros digitais e o uC são:
-    - Pot1_CS_(X9c104)      PB1
-    - Pot1_X9c10x_U/D       PB10
-    - Pot1_X9c10x_INC       PB11
-    
-    - Pot2_CS_(X9c104)      PB5
-    - Pot2_X9c10x_U/D       PB4 
-    - Pot2_X9c10x_INC       PB3 
+
+	Pot1_CS_(X9c104)      PB1
+	Pot1_X9c10x_U/D       PB10
+	Pot1_X9c10x_INC       PB11
+
+	Pot2_CS_(X9c104)      PB5
+	Pot2_X9c10x_U/D       PB4 
+	Pot2_X9c10x_INC       PB3 
     
 ![Sinais controle potenciômetro digital](https://github.com/Pinheirogustavo/PCB_projects/blob/main/KiCadProjects/Gerador_sinais/Datasheets/Digital-Potentiometer-X9C103s-Mode-selection.jpg)
 
