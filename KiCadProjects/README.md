@@ -177,36 +177,51 @@ AD9833
 - Capacitores eletrolíticos 
 
 > Forma da ilha: oval(+)            retangular(-)
+>
 > Tamanho da ilha:2,0x1,6mm(+)      2,0x1,6mm(-)
+>
 > Forma do furo: circular(+)        circular(-)
+>
 > Diâmetro do furo: 0,8mm(+)        0,8mm(-)
 
 - Diodos 
 
 > Forma da ilha: oval(+)            retangular(-)
+>
 > Tamanho da ilha:2,0x1,6mm(+)      2,0x1,6mm(-)
+>
 > Forma do furo: circular(+)        circular(-)
+>
 > Diâmetro do furo: 0,8mm(+)        0,8mm(-) 
 
 - LED 
 
 > Forma da ilha: oval(+)            retangular(-)
+>
 > Tamanho da ilha:2,0x1,8mm(+)      1,8x1,8mm(-)
+>
 > Forma do furo: circular(+)        circular(-)
+>
 > Diâmetro do furo: 1,1mm(+)        1,1mm(-) 
 
 - Barra de pinos 
 
 > Forma da ilha: oval
+>
 > Tamanho da ilha: 2,5x1,8mm
+>
 > Forma do furo:circular
+>
 > Diâmetro do furo: 1,02
   
 - Chave gangorra
 
 > Forma da ilha: Retangular
+>
 > Tamanho da ilha: 2,5x7,0mm
+>
 > Forma do furo: oval
+>
 > Diâmetro do furo: 0,8x6,0mm
 
 
@@ -215,22 +230,31 @@ AD9833
     - pad1 (vin)
     
         > Forma da ilha: retangular
+	>
         > Tamanho da ilha: 4,6x2,0mm
+	>
         > Forma do furo: oval
+	>
         > Diâmetro do furo: 3,6x1,0mm_P2
         
     - pad2 (vee)
     
         > Forma da ilha: Oval
+	>
         > Tamanho da ilha: 4,2x2,0mm
+	>
         > Forma do furo: oval
+	>
         > Diâmetro do furo: 3,2x1,0mm
         
     - pad3
     
         > Forma da ilha: Oval
+	>
         > Tamanho da ilha: 2,0x4,2mm
+	>
         > Forma do furo: oval
+	>
         > Diâmetro do furo: 1,0x3,2mm
         
 
