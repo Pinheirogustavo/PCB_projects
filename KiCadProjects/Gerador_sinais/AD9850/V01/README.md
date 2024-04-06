@@ -50,6 +50,8 @@ Um encoder pode ser implementado para realizar os controles de  frequência e am
 
 ## Descrição do esquemático
 
+![Esquematico](https://github.com/Pinheirogustavo/PCB_projects/blob/main/KiCadProjects/Gerador_sinais/AD9850/V01/prints/Gerador_Sinais_AD9850.jpg)
+
 ###### A1 - Squad Wave
 
 Componentes para filtrar e disponibilisar os dois sinais quadrados.
