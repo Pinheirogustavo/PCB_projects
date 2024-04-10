@@ -3220,7 +3220,7 @@
   (symbol (lib_id "Device:LED") (at 47.625 120.269 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 2850c87f-8478-4958-95c2-e166cb2fb9dc)
-    (property "Reference" "D7" (at 50.8 120.5865 90)
+    (property "Reference" "L3:+5v1" (at 50.8 120.5865 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "LED Green" (at 50.8 123.1265 90)
@@ -3237,7 +3237,7 @@
     (instances
       (project "Fonte_corrente_bipolar_V01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
-          (reference "D7") (unit 1)
+          (reference "L3:+5v1") (unit 1)
         )
       )
     )
@@ -3271,10 +3271,10 @@
   (symbol (lib_id "Device:R") (at 213.868 64.643 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 2b651e41-59d2-4c00-8c7d-f9d4a9f79b8f)
-    (property "Reference" "RganhoINA2" (at 216.408 63.373 0)
+    (property "Reference" "Rganho-I2" (at 215.9 63.373 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "3,3k" (at 216.408 65.913 0)
+    (property "Value" "3,3k" (at 215.9 65.913 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" (at 212.09 64.643 90)
@@ -3288,7 +3288,7 @@
     (instances
       (project "Fonte_corrente_bipolar_V01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
-          (reference "RganhoINA2") (unit 1)
+          (reference "Rganho-I2") (unit 1)
         )
       )
     )
@@ -3329,7 +3329,7 @@
   (symbol (lib_id "Amplifier_Instrumentation:INA128") (at 242.189 36.068 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 2dc83e11-8c4f-47f1-87b5-0c6f687a7039)
-    (property "Reference" "U2" (at 248.793 26.924 0)
+    (property "Reference" "U1-INA-I1" (at 248.793 26.924 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "INA128" (at 248.539 30.226 0)
@@ -3352,7 +3352,7 @@
     (instances
       (project "Fonte_corrente_bipolar_V01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
-          (reference "U2") (unit 1)
+          (reference "U1-INA-I1") (unit 1)
         )
       )
     )
@@ -3408,13 +3408,13 @@
     )
   )
 
-  (symbol (lib_id "Device:C_Polarized_Small_US") (at 238.252 131.572 90) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+  (symbol (lib_id "Device:C_Polarized_Small_US") (at 238.252 131.572 270) (mirror x) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no)
     (uuid 332c73d4-8793-4e77-b6c8-cff7c95d8ff6)
-    (property "Reference" "C3" (at 237.8202 125.857 90)
+    (property "Reference" "C3" (at 238.6838 125.857 90)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Value" "1 uF" (at 237.8202 128.397 90)
+    (property "Value" "1 uF" (at 238.6838 128.397 90)
       (effects (font (size 1.27 1.27)))
     )
     (property "Footprint" "Capacitor_THT:CP_Radial_D5.0mm_P2.50mm" (at 238.252 131.572 0)
@@ -3437,10 +3437,10 @@
   (symbol (lib_id "Device:R") (at 226.314 36.068 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 35d93cfa-d8ca-4f1b-b5bb-4f1d4fe850c7)
-    (property "Reference" "RganhoINA1" (at 228.854 34.798 0)
+    (property "Reference" "Rganho-I1" (at 228.6 34.798 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "3,3k" (at 228.854 37.338 0)
+    (property "Value" "3,3k" (at 228.6 37.338 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" (at 224.536 36.068 90)
@@ -3454,7 +3454,7 @@
     (instances
       (project "Fonte_corrente_bipolar_V01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
-          (reference "RganhoINA1") (unit 1)
+          (reference "Rganho-I1") (unit 1)
         )
       )
     )
@@ -3463,10 +3463,10 @@
   (symbol (lib_id "Device:R") (at 214.249 36.068 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 3ac3fb1f-e0a0-4022-ac0e-d99d1463f78c)
-    (property "Reference" "Rsentinela1" (at 216.154 34.798 0)
+    (property "Reference" "Rsentinela-I1" (at 217.17 34.798 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "10" (at 216.154 37.338 0)
+    (property "Value" "10" (at 217.17 37.338 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" (at 212.471 36.068 90)
@@ -3480,7 +3480,7 @@
     (instances
       (project "Fonte_corrente_bipolar_V01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
-          (reference "Rsentinela1") (unit 1)
+          (reference "Rsentinela-I1") (unit 1)
         )
       )
     )
@@ -3643,7 +3643,7 @@
     (property "Reference" "J5" (at 142.494 62.865 90)
       (effects (font (size 1.27 1.27)) (justify left) hide)
     )
-    (property "Value" "signal select 2" (at 153.416 61.087 90)
+    (property "Value" "SinB | Sin2" (at 153.416 61.087 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" (at 136.779 64.135 0)
@@ -3870,7 +3870,7 @@
   (symbol (lib_id "Device:LED") (at 33.401 120.269 270) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 5cb63797-7054-4d30-afd8-7d6e560ba29b)
-    (property "Reference" "D6" (at 35.56 117.4115 90)
+    (property "Reference" "L2:-9v1" (at 35.56 117.4115 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "LED Red" (at 35.56 119.9515 90)
@@ -3887,7 +3887,7 @@
     (instances
       (project "Fonte_corrente_bipolar_V01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
-          (reference "D6") (unit 1)
+          (reference "L2:-9v1") (unit 1)
         )
       )
     )
@@ -3899,7 +3899,7 @@
     (property "Reference" "J7" (at 197.866 98.044 90)
       (effects (font (size 1.27 1.27)) (justify left) hide)
     )
-    (property "Value" "Vref" (at 201.676 94.234 90)
+    (property "Value" "+3.3V | +5.0V" (at 196.85 93.98 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" (at 203.581 96.774 0)
@@ -4100,7 +4100,7 @@
   (symbol (lib_id "Device:LED") (at 62.103 120.269 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 76cebbec-2cb2-4d5b-943b-30ad364ab3f9)
-    (property "Reference" "D8" (at 66.04 120.5865 90)
+    (property "Reference" "L4:+3.3v1" (at 66.04 120.5865 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "LED Yelow" (at 66.04 123.1265 90)
@@ -4117,7 +4117,7 @@
     (instances
       (project "Fonte_corrente_bipolar_V01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
-          (reference "D8") (unit 1)
+          (reference "L4:+3.3v1") (unit 1)
         )
       )
     )
@@ -4309,7 +4309,7 @@
   (symbol (lib_id "Device:LED") (at 18.161 120.396 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 8338386b-18d6-4d54-a5af-5804ec208655)
-    (property "Reference" "D5" (at 21.59 120.7135 90)
+    (property "Reference" "L1:+9v1" (at 21.59 120.7135 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "LED Blue" (at 21.59 123.2535 90)
@@ -4326,7 +4326,7 @@
     (instances
       (project "Fonte_corrente_bipolar_V01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
-          (reference "D5") (unit 1)
+          (reference "L1:+9v1") (unit 1)
         )
       )
     )
@@ -4521,7 +4521,7 @@
   (symbol (lib_id "Amplifier_Instrumentation:INA128") (at 229.743 64.643 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 9a4239fa-6495-4a1a-870b-5b33c4fabc95)
-    (property "Reference" "U1" (at 236.347 55.499 0)
+    (property "Reference" "U2-INA-I2" (at 236.347 55.499 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "INA128" (at 236.093 58.801 0)
@@ -4544,7 +4544,7 @@
     (instances
       (project "Fonte_corrente_bipolar_V01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
-          (reference "U1") (unit 1)
+          (reference "U2-INA-I2") (unit 1)
         )
       )
     )
@@ -4632,7 +4632,7 @@
     (property "Reference" "J4" (at 25.908 60.071 90)
       (effects (font (size 1.27 1.27)) (justify left) hide)
     )
-    (property "Value" "signal select 1" (at 25.908 69.85 90)
+    (property "Value" "SinA | Sin1" (at 27.94 63.5 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" (at 20.193 61.341 0)
@@ -4707,10 +4707,10 @@
   (symbol (lib_id "Device:R") (at 201.803 64.643 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid a6bd6bd4-7d9a-4c1e-81d9-df0e76f071ee)
-    (property "Reference" "Rsentinela2" (at 203.708 63.373 0)
+    (property "Reference" "Rsentinela-I2" (at 204.47 63.373 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "10" (at 203.708 65.913 0)
+    (property "Value" "10" (at 204.47 65.913 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" (at 200.025 64.643 90)
@@ -4724,7 +4724,7 @@
     (instances
       (project "Fonte_corrente_bipolar_V01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
-          (reference "Rsentinela2") (unit 1)
+          (reference "Rsentinela-I2") (unit 1)
         )
       )
     )
@@ -4934,13 +4934,13 @@
     )
   )
 
-  (symbol (lib_id "Device:C_Polarized_Small_US") (at 167.259 129.54 270) (mirror x) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+  (symbol (lib_id "Device:C_Polarized_Small_US") (at 167.259 129.54 90) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no)
     (uuid beda0ab4-c7a9-435f-8371-97da108a30e2)
-    (property "Reference" "C1" (at 167.6908 123.825 90)
+    (property "Reference" "C1" (at 166.8272 123.825 90)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Value" "1 uF" (at 167.6908 126.365 90)
+    (property "Value" "1 uF" (at 166.8272 126.365 90)
       (effects (font (size 1.27 1.27)))
     )
     (property "Footprint" "Capacitor_THT:CP_Radial_D5.0mm_P2.50mm" (at 167.259 129.54 0)
