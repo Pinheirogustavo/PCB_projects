@@ -34,7 +34,7 @@
 
 > CS (X9c10x): seleciona o potenciometro digital do circuito de controle da corrente
 
-######### comunicação I2C
+###### comunicação I2C
 
 SDA1/SCL1: implementado nos módulos "Gerador de sinais", com resistores pullup (Rp) para dispositivos de 3.3V;
 
