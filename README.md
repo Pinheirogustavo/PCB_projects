@@ -34,6 +34,13 @@
 
 > CS (X9c10x): seleciona o potenciometro digital do circuito de controle da corrente
 
+######### comunicação I2C
+
+SDA1/SCL1: implementado nos módulos "Gerador de sinais", com resistores pullup (Rp) para dispositivos de 3.3V;
+
+SDA2/SCL2: implementado nos módulos "Fonte de corrente", com resistores pullup (Rp) para dispositivos de 5.0V. 
+
+
 I2C arduino: https://docs.arduino.cc/learn/communication/wire
 
 SPI arduino https://docs.arduino.cc/learn/communication/spi?_gl=1*1
