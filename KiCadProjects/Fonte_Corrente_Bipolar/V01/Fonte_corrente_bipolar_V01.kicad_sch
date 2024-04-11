@@ -2062,6 +2062,10 @@
     (stroke (width 0) (type default))
     (uuid 4d76fc14-77fa-4337-9db0-bb14efcfa7d4)
   )
+  (wire (pts (xy 34.29 69.723) (xy 34.29 66.04))
+    (stroke (width 0) (type default))
+    (uuid 4dcca706-c436-44dd-851a-09c5f8c87c11)
+  )
   (wire (pts (xy 214.249 32.258) (xy 214.249 30.988))
     (stroke (width 0) (type default))
     (uuid 5092f7f3-1a7f-499d-99ab-29f826f88b51)
@@ -2234,7 +2238,7 @@
     (stroke (width 0) (type default))
     (uuid 8e7e2b68-63e5-43da-b207-5b67735f14c9)
   )
-  (wire (pts (xy 34.29 66.04) (xy 30.226 66.04))
+  (wire (pts (xy 34.29 69.723) (xy 29.845 69.723))
     (stroke (width 0) (type default))
     (uuid 9164dbc2-97f2-4e38-b7a2-839155f6194f)
   )
@@ -2739,10 +2743,10 @@
       (effects (font (size 1.27 1.27)) (justify left) hide)
     )
   )
-  (global_label "out_corrente_1" (shape input) (at 30.226 66.04 180) (fields_autoplaced)
+  (global_label "out_corrente_1" (shape input) (at 29.845 69.723 180) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify right))
     (uuid a5ee6e2f-8f59-4b05-88fb-584e0e2c3773)
-    (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 13.2105 66.04 0)
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 12.8295 69.723 0)
       (effects (font (size 1.27 1.27)) (justify right) hide)
     )
   )
@@ -3261,7 +3265,7 @@
   (symbol (lib_id "Device:LED") (at 47.625 120.269 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 2850c87f-8478-4958-95c2-e166cb2fb9dc)
-    (property "Reference" "L3:+5v1" (at 50.8 120.5865 90)
+    (property "Reference" "L+5v1" (at 50.8 120.5865 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "LED Green" (at 50.8 123.1265 90)
@@ -3278,7 +3282,7 @@
     (instances
       (project "Fonte_corrente_bipolar_V01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
-          (reference "L3:+5v1") (unit 1)
+          (reference "L+5v1") (unit 1)
         )
       )
     )
@@ -3911,7 +3915,7 @@
   (symbol (lib_id "Device:LED") (at 33.401 120.269 270) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 5cb63797-7054-4d30-afd8-7d6e560ba29b)
-    (property "Reference" "L2:-9v1" (at 35.56 117.4115 90)
+    (property "Reference" "L-9v1" (at 35.56 117.4115 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "LED Red" (at 35.56 119.9515 90)
@@ -3928,7 +3932,7 @@
     (instances
       (project "Fonte_corrente_bipolar_V01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
-          (reference "L2:-9v1") (unit 1)
+          (reference "L-9v1") (unit 1)
         )
       )
     )
@@ -4091,7 +4095,7 @@
   (symbol (lib_id "Device:R") (at 93.726 133.096 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 6da92c79-6296-402c-9cb7-2b128a1a451a)
-    (property "Reference" "R24" (at 94.869 131.445 0)
+    (property "Reference" "RpSDA2" (at 94.869 131.445 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "4k7" (at 94.996 133.604 0)
@@ -4108,7 +4112,7 @@
     (instances
       (project "Fonte_corrente_bipolar_V01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
-          (reference "R24") (unit 1)
+          (reference "RpSDA2") (unit 1)
         )
       )
     )
@@ -4167,7 +4171,7 @@
   (symbol (lib_id "Device:LED") (at 62.103 120.269 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 76cebbec-2cb2-4d5b-943b-30ad364ab3f9)
-    (property "Reference" "L4:+3.3v1" (at 66.04 120.5865 90)
+    (property "Reference" "L+3.3v1" (at 66.04 120.5865 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "LED Yelow" (at 66.04 123.1265 90)
@@ -4184,7 +4188,7 @@
     (instances
       (project "Fonte_corrente_bipolar_V01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
-          (reference "L4:+3.3v1") (unit 1)
+          (reference "L+3.3v1") (unit 1)
         )
       )
     )
@@ -4376,7 +4380,7 @@
   (symbol (lib_id "Device:LED") (at 18.161 120.396 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 8338386b-18d6-4d54-a5af-5804ec208655)
-    (property "Reference" "L1:+9v1" (at 21.59 120.7135 90)
+    (property "Reference" "L+9v1" (at 21.59 120.7135 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "LED Blue" (at 21.59 123.2535 90)
@@ -4393,7 +4397,7 @@
     (instances
       (project "Fonte_corrente_bipolar_V01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
-          (reference "L1:+9v1") (unit 1)
+          (reference "L+9v1") (unit 1)
         )
       )
     )
@@ -4699,7 +4703,7 @@
     (property "Reference" "J4" (at 25.908 60.071 90)
       (effects (font (size 1.27 1.27)) (justify left) hide)
     )
-    (property "Value" "SinA | Sin1" (at 27.94 63.5 90)
+    (property "Value" "SinA | Sin1" (at 25.654 64.262 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" (at 20.193 61.341 0)
@@ -4851,7 +4855,7 @@
   (symbol (lib_id "Device:R") (at 86.741 133.096 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid a923eddc-b110-4193-93b4-f425d7555ed1)
-    (property "Reference" "R23" (at 81.661 131.445 0)
+    (property "Reference" "RpSCL2" (at 78.232 131.191 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "4k7" (at 81.788 133.604 0)
@@ -4868,7 +4872,7 @@
     (instances
       (project "Fonte_corrente_bipolar_V01"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
-          (reference "R23") (unit 1)
+          (reference "RpSCL2") (unit 1)
         )
       )
     )
