@@ -2724,10 +2724,10 @@
   (symbol (lib_id "Device:LED") (at 228.219 155.448 270) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 00f173df-83d0-4551-a00e-e98eeb406036)
-    (property "Reference" "D6" (at 230.378 152.5905 90)
+    (property "Reference" "L-9v1" (at 231.14 152.5905 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "LED - Red" (at 230.378 155.1305 90)
+    (property "Value" "LED - Red" (at 231.14 155.1305 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Footprint" "LED_THT:LED_D5.0mm" (at 228.219 155.448 0)
@@ -2741,7 +2741,7 @@
     (instances
       (project "condicionamento_BIA_v03"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
-          (reference "D6") (unit 1)
+          (reference "L-9v1") (unit 1)
         )
       )
     )
@@ -2779,7 +2779,7 @@
     (property "Reference" "J4" (at 66.929 159.639 90)
       (effects (font (size 1.27 1.27)) (justify left) hide)
     )
-    (property "Value" "Vref" (at 70.739 163.449 90)
+    (property "Value" "+3.3V | +5.0V" (at 65.278 163.576 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" (at 72.644 160.909 0)
@@ -2903,10 +2903,10 @@
   (symbol (lib_id "Device:LED") (at 244.729 155.321 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 19f38d55-7e7e-45cd-8901-f6140f2ecdd0)
-    (property "Reference" "D7" (at 248.158 155.6385 90)
+    (property "Reference" "L+5v1" (at 247.65 155.6385 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Value" "LED - Green" (at 248.158 158.1785 90)
+    (property "Value" "LED - Green" (at 247.65 158.1785 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Footprint" "LED_THT:LED_D5.0mm" (at 244.729 155.321 0)
@@ -2920,7 +2920,7 @@
     (instances
       (project "condicionamento_BIA_v03"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
-          (reference "D7") (unit 1)
+          (reference "L+5v1") (unit 1)
         )
       )
     )
@@ -3147,7 +3147,7 @@
   (symbol (lib_id "SSD1306-128x64_OLED:SSD1306") (at 153.67 73.66 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 2bbfcdb1-c1b5-4d8e-a4ab-afb9317a157b)
-    (property "Reference" "Brd1" (at 161.29 72.39 0)
+    (property "Reference" "display1" (at 161.29 72.39 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "SSD1306" (at 161.29 74.93 0)
@@ -3166,7 +3166,7 @@
     (instances
       (project "condicionamento_BIA_v03"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
-          (reference "Brd1") (unit 1)
+          (reference "display1") (unit 1)
         )
       )
     )
@@ -4168,10 +4168,10 @@
   (symbol (lib_id "AD828AN:AD828AN") (at 129.54 111.76 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid a01c910e-2823-4d1f-a46d-f72d8c43a850)
-    (property "Reference" "U1" (at 149.86 102.87 0)
+    (property "Reference" "U1-Cond1" (at 149.86 101.6 0)
       (effects (font (size 1.524 1.524)))
     )
-    (property "Value" "AD828AN" (at 149.86 105.41 0)
+    (property "Value" "AD828AN" (at 149.86 104.14 0)
       (effects (font (size 1.524 1.524)))
     )
     (property "Footprint" "AD828:AD828" (at 129.54 111.76 0)
@@ -4191,7 +4191,7 @@
     (instances
       (project "condicionamento_BIA_v03"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
-          (reference "U1") (unit 1)
+          (reference "U1-Cond1") (unit 1)
         )
       )
     )
@@ -4426,10 +4426,10 @@
   (symbol (lib_id "Device:LED") (at 263.906 156.083 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid c0e3cc77-321e-4b9f-ad19-41d80248d593)
-    (property "Reference" "D8" (at 267.208 156.4005 90)
+    (property "Reference" "L+3.3v1" (at 267.97 156.4005 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Value" "LED - Yelow" (at 267.208 158.9405 90)
+    (property "Value" "LED - Yelow" (at 267.97 158.9405 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Footprint" "LED_THT:LED_D5.0mm" (at 263.906 156.083 0)
@@ -4443,7 +4443,7 @@
     (instances
       (project "condicionamento_BIA_v03"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
-          (reference "D8") (unit 1)
+          (reference "L+3.3v1") (unit 1)
         )
       )
     )
@@ -4766,10 +4766,10 @@
   (symbol (lib_id "Device:LED") (at 209.677 155.575 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid e2509b09-05e4-438e-aaec-99f175cbb6b4)
-    (property "Reference" "D5" (at 212.979 155.8925 90)
+    (property "Reference" "L+9v1" (at 213.36 155.8925 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Value" "LED - Blue" (at 212.979 158.4325 90)
+    (property "Value" "LED - Blue" (at 213.36 158.4325 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Footprint" "LED_THT:LED_D5.0mm" (at 209.677 155.575 0)
@@ -4783,7 +4783,7 @@
     (instances
       (project "condicionamento_BIA_v03"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
-          (reference "D5") (unit 1)
+          (reference "L+9v1") (unit 1)
         )
       )
     )
@@ -5088,7 +5088,7 @@
     (property "Reference" "J7" (at 69.85 17.78 90)
       (effects (font (size 1.27 1.27)) (justify left) hide)
     )
-    (property "Value" "alimetacao_Master" (at 55.88 21.59 90)
+    (property "Value" "on_uCMaster" (at 55.88 21.59 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" (at 67.31 19.05 0)
