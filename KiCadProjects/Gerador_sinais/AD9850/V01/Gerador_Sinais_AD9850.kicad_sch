@@ -3696,10 +3696,10 @@
   (symbol (lib_id "Device:LED") (at 151.765 157.226 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 0e79c007-3be7-4b90-b0b2-78c4c36fda80)
-    (property "Reference" "D3" (at 154.686 157.5435 90)
+    (property "Reference" "L+5v1" (at 154.94 157.5435 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Value" "LED Green" (at 154.686 160.0835 90)
+    (property "Value" "LED Green" (at 154.94 160.0835 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Footprint" "LED_THT:LED_D5.0mm" (at 151.765 157.226 0)
@@ -3713,7 +3713,7 @@
     (instances
       (project "Gerador_Sinais_AD9850"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
-          (reference "D3") (unit 1)
+          (reference "L+5v1") (unit 1)
         )
       )
     )
@@ -3747,10 +3747,10 @@
   (symbol (lib_id "Device:LED") (at 124.079 156.972 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 11f1fad2-3974-4641-be5e-e253ce573da8)
-    (property "Reference" "D1" (at 127.762 157.2895 90)
+    (property "Reference" "L+9v1" (at 127 157.2895 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Value" "LED Blue" (at 127.762 159.8295 90)
+    (property "Value" "LED Blue" (at 127 159.8295 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Footprint" "LED_THT:LED_D5.0mm" (at 124.079 156.972 0)
@@ -3764,7 +3764,7 @@
     (instances
       (project "Gerador_Sinais_AD9850"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
-          (reference "D1") (unit 1)
+          (reference "L+9v1") (unit 1)
         )
       )
     )
@@ -4024,12 +4024,12 @@
   )
 
   (symbol (lib_id "X9c10X_module:X9c10X_module") (at 174.752 78.359 0) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (in_bom yes) (on_board yes) (dnp no)
     (uuid 26e4f38a-ec0a-48ca-922e-2ac42442e212)
-    (property "Reference" "U5" (at 179.2479 65.659 0)
+    (property "Reference" "U5-DigPot1" (at 182.372 90.932 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "X9c10x" (at 179.2479 68.199 0)
+    (property "Value" "X9c10x" (at 179.4861 66.04 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Footprint" "X9c10X_module:X9c10X_module" (at 176.022 78.359 0)
@@ -4051,7 +4051,7 @@
     (instances
       (project "Gerador_Sinais_AD9850"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
-          (reference "U5") (unit 1)
+          (reference "U5-DigPot1") (unit 1)
         )
       )
     )
@@ -4612,7 +4612,7 @@
   (symbol (lib_id "AD828AN:AD828AN") (at 228.981 141.732 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 591acf87-7112-4337-b6c7-079fd1300853)
-    (property "Reference" "U6" (at 249.301 132.207 0)
+    (property "Reference" "U6-filtro-saida1" (at 249.301 132.207 0)
       (effects (font (size 1.524 1.524)))
     )
     (property "Value" "AD828AN" (at 249.301 134.747 0)
@@ -4635,7 +4635,7 @@
     (instances
       (project "Gerador_Sinais_AD9850"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
-          (reference "U6") (unit 1)
+          (reference "U6-filtro-saida1") (unit 1)
         )
       )
     )
@@ -4871,7 +4871,7 @@
   (symbol (lib_id "AD828AN:AD828AN") (at 195.58 40.259 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 6efa90c1-4475-4720-99ba-8dae2ffc24c8)
-    (property "Reference" "U3" (at 215.9 30.734 0)
+    (property "Reference" "U3-ganho1" (at 215.9 30.734 0)
       (effects (font (size 1.524 1.524)))
     )
     (property "Value" "AD828AN" (at 215.9 33.274 0)
@@ -4894,7 +4894,7 @@
     (instances
       (project "Gerador_Sinais_AD9850"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
-          (reference "U3") (unit 1)
+          (reference "U3-ganho1") (unit 1)
         )
       )
     )
@@ -5354,10 +5354,10 @@
   (symbol (lib_id "Device:LED") (at 138.176 157.353 270) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 891b68af-fe80-41bb-a6a2-4444212a3544)
-    (property "Reference" "D2" (at 141.097 154.4955 90)
+    (property "Reference" "L-9v1" (at 140.97 154.4955 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "LED Red" (at 141.097 157.0355 90)
+    (property "Value" "LED Red" (at 140.97 157.0355 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Footprint" "LED_THT:LED_D5.0mm" (at 138.176 157.353 0)
@@ -5371,7 +5371,7 @@
     (instances
       (project "Gerador_Sinais_AD9850"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
-          (reference "D2") (unit 1)
+          (reference "L-9v1") (unit 1)
         )
       )
     )
@@ -5405,7 +5405,7 @@
   (symbol (lib_id "AD9850_module:AD9850_module") (at 30.861 71.755 0) (mirror y) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 8ee1b18b-9add-451d-84ff-ac2825f923a5)
-    (property "Reference" "U1" (at 14.732 56.515 0)
+    (property "Reference" "U1-AD9850" (at 14.732 56.515 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "AD9850_module" (at 42.672 86.868 0)
@@ -5440,7 +5440,7 @@
     (instances
       (project "Gerador_Sinais_AD9850"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
-          (reference "U1") (unit 1)
+          (reference "U1-AD9850") (unit 1)
         )
       )
     )
@@ -5984,10 +5984,10 @@
   (symbol (lib_id "Device:LED") (at 165.354 157.226 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid c65b1d59-8f21-46c7-ac8d-e5cbc59fa347)
-    (property "Reference" "D4" (at 168.656 157.5435 90)
+    (property "Reference" "L+3.3v1" (at 168.91 157.5435 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Value" "LED - Yelow" (at 168.656 160.0835 90)
+    (property "Value" "LED - Yelow" (at 168.91 160.0835 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Footprint" "LED_THT:LED_D5.0mm" (at 165.354 157.226 0)
@@ -6001,7 +6001,7 @@
     (instances
       (project "Gerador_Sinais_AD9850"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
-          (reference "D4") (unit 1)
+          (reference "L+3.3v1") (unit 1)
         )
       )
     )
@@ -6367,11 +6367,11 @@
   (symbol (lib_id "X9c10X_module:X9c10X_module") (at 260.096 80.899 0) (mirror y) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid f0accb1a-d7d8-4c04-8535-73605954832c)
-    (property "Reference" "U4" (at 255.6001 68.199 0)
-      (effects (font (size 1.27 1.27)) (justify left))
+    (property "Reference" "U4-DigPot2" (at 266.2621 66.04 0)
+      (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Value" "X9c10x" (at 255.6001 70.739 0)
-      (effects (font (size 1.27 1.27)) (justify left))
+    (property "Value" "X9c10x" (at 266.2621 68.58 0)
+      (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Footprint" "X9c10X_module:X9c10X_module" (at 258.826 80.899 0)
       (effects (font (size 1.27 1.27)) hide)
@@ -6392,7 +6392,7 @@
     (instances
       (project "Gerador_Sinais_AD9850"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
-          (reference "U4") (unit 1)
+          (reference "U4-DigPot2") (unit 1)
         )
       )
     )
