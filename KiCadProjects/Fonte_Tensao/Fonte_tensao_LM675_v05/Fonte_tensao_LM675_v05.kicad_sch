@@ -7,14 +7,11 @@
   (title_block
     (title "Fonte de tensao LM675")
     (date "2023-08-14")
-    (rev "v02")
+    (rev "v05")
     (company "EITduino")
     (comment 1 "Autor: Gustavo Pinheiro")
-    (comment 2 "Barramento proposto para uma placa 90x100 mm")
-    (comment 3 "Placa face simples")
+    (comment 2 "Barramento proposto para uma placa face dupla 100x100 mm")
     (comment 4 "Pinos AGND e DGND")
-    (comment 5 "capacitor 100nF ceramico")
-    (comment 6 "capacitores uF tantalo")
   )
 
   (lib_symbols
@@ -2755,7 +2752,7 @@
     (pin "1" (uuid c3844d88-c094-4a7d-a69e-bb98b79f017a))
     (pin "2" (uuid 9fa437e3-3402-4d99-a7bb-0f77dc2e4072))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "R5") (unit 1)
         )
@@ -2780,7 +2777,7 @@
     )
     (pin "1" (uuid 36017740-384f-4bf6-8a09-19204f95eecc))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR048") (unit 1)
         )
@@ -2806,7 +2803,7 @@
     (pin "1" (uuid 5f2fef5f-3997-4839-81b0-d2f3b69b5972))
     (pin "2" (uuid 0fe5a0d3-0bcf-4429-ac80-e5e92f3b51e2))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "C2") (unit 1)
         )
@@ -2831,7 +2828,7 @@
     )
     (pin "1" (uuid 3a9a18ac-2be9-4d81-b04e-b2912906f1de))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR038") (unit 1)
         )
@@ -2857,7 +2854,7 @@
     (pin "1" (uuid 686cdce0-71ee-4855-9de4-03fd020cfa02))
     (pin "2" (uuid 3a1e48e7-6f7a-458d-8b18-0eae25c16d33))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "C11") (unit 1)
         )
@@ -2882,7 +2879,7 @@
     )
     (pin "1" (uuid af990cd5-2581-4c16-894b-ab0f1a9ce588))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR045") (unit 1)
         )
@@ -2907,7 +2904,7 @@
     )
     (pin "1" (uuid f9c62e60-bd10-4d96-a93e-262818afb433))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR020") (unit 1)
         )
@@ -2933,7 +2930,7 @@
     (pin "1" (uuid a5e7190a-f2d2-4237-b7f4-03f63038a805))
     (pin "2" (uuid 5b02cf18-ecfd-4d78-b176-799fbb4e0c58))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "R7") (unit 1)
         )
@@ -2958,7 +2955,7 @@
     )
     (pin "1" (uuid c77301c6-6b0b-4b90-aeb4-e5e2fd5710e4))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR015") (unit 1)
         )
@@ -2984,7 +2981,7 @@
     (pin "1" (uuid 730c5ecd-3808-41af-b6e1-4df82e6f5b1f))
     (pin "2" (uuid f0803362-2e5c-4c1c-8131-0b01dd450e63))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "C3") (unit 1)
         )
@@ -3013,7 +3010,7 @@
     (pin "4" (uuid e8883e18-1eaa-4cda-9aac-0fbffe2cbc14))
     (pin "5" (uuid fd802a4d-79e5-48bb-bfcb-2f316a3dfe9a))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "U3") (unit 1)
         )
@@ -3039,7 +3036,7 @@
     (pin "1" (uuid d1a52962-fffb-4b0e-8988-b1c0ac8115fb))
     (pin "2" (uuid b5259a90-465d-4c9a-b380-e24db8dc1ce7))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "R3") (unit 1)
         )
@@ -3064,7 +3061,7 @@
     )
     (pin "1" (uuid ecbf9e93-5f0f-4b5a-ba57-a0585d8f9adb))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR07") (unit 1)
         )
@@ -3090,7 +3087,7 @@
     (pin "1" (uuid 0fa97482-3287-45ac-b9dc-3a02cfdea9f7))
     (pin "2" (uuid 50be28fb-6cf7-45fb-8153-a978d358c63d))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "R2") (unit 1)
         )
@@ -3115,7 +3112,7 @@
     )
     (pin "1" (uuid c3ccc0d0-9d6b-4b3c-ab92-2b3913c0aac7))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR027") (unit 1)
         )
@@ -3140,7 +3137,7 @@
     )
     (pin "1" (uuid 408b7f57-f2bb-4a28-9a7e-9c7b873add29))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR0130") (unit 1)
         )
@@ -3166,7 +3163,7 @@
     (pin "1" (uuid 504e9a2f-38e0-48cd-8218-fa3376f83aa2))
     (pin "2" (uuid 328634de-33b2-4118-bec2-d010eb7d63d0))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "C10") (unit 1)
         )
@@ -3193,7 +3190,7 @@
     (pin "2" (uuid 83e6f00c-e723-4f41-912f-fe5c2f434cef))
     (pin "3" (uuid cf7c54fb-6e7f-4846-be55-920ed872b123))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "U2") (unit 1)
         )
@@ -3218,7 +3215,7 @@
     )
     (pin "1" (uuid 60f9bea3-1057-4a74-88f8-7978800772dc))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR022") (unit 1)
         )
@@ -3244,7 +3241,7 @@
     (pin "1" (uuid 54ddedf4-166e-406b-94ae-70b5f39e646f))
     (pin "2" (uuid f032ce89-7e6d-4f0a-8689-8c795b5f1f37))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "D3") (unit 1)
         )
@@ -3269,7 +3266,7 @@
     )
     (pin "1" (uuid c89d5f95-e6ff-4ad4-9657-9a677a544925))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR039") (unit 1)
         )
@@ -3294,7 +3291,7 @@
     )
     (pin "1" (uuid 73795051-695c-42b1-8063-f5a882a745e8))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR044") (unit 1)
         )
@@ -3320,7 +3317,7 @@
     (pin "1" (uuid 1891a310-b235-4174-8d0f-d8dd4d5e9224))
     (pin "2" (uuid e48d9c85-dc12-4a38-84f7-c9c99dd125be))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "C1") (unit 1)
         )
@@ -3345,7 +3342,7 @@
     )
     (pin "1" (uuid ae885176-ebac-4ace-b89c-891da3515ae7))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR012") (unit 1)
         )
@@ -3372,7 +3369,7 @@
     (pin "2" (uuid 6fc744df-151d-44a3-9780-552ada326818))
     (pin "3" (uuid 79d0d0a9-3101-47ee-8a3c-bb96d5170863))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "U4") (unit 1)
         )
@@ -3423,7 +3420,7 @@
     (pin "8" (uuid f05099d5-de8b-40f8-b57e-7ae12a3248a3))
     (pin "9" (uuid 5c6f73b6-7592-44a6-9c2f-3063152c038e))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "J2") (unit 1)
         )
@@ -3448,7 +3445,7 @@
     )
     (pin "1" (uuid d18055a9-7637-49d1-be0c-32d382e4d4b6))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR050") (unit 1)
         )
@@ -3473,7 +3470,7 @@
     )
     (pin "1" (uuid 322f77de-590e-4562-ba8b-792c0b5bd84b))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR0123") (unit 1)
         )
@@ -3505,7 +3502,7 @@
     (pin "7" (uuid fb3bf86b-880b-4288-b2a2-fa2d100268b2))
     (pin "8" (uuid cd0d7ef7-8e9e-420e-ba7f-614bd76b6bee))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "J1") (unit 1)
         )
@@ -3530,7 +3527,7 @@
     )
     (pin "1" (uuid 87638042-448a-403d-862d-b9caa91a1600))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR042") (unit 1)
         )
@@ -3555,7 +3552,7 @@
     )
     (pin "1" (uuid c615fa90-6db2-404d-99d5-ab0ee33aa07e))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR051") (unit 1)
         )
@@ -3580,7 +3577,7 @@
     )
     (pin "1" (uuid 8e063145-dcea-4152-8f42-127a031a1684))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR06") (unit 1)
         )
@@ -3605,7 +3602,7 @@
     )
     (pin "1" (uuid 95ebd317-76fd-4ac2-a4b2-170d115b560d))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR037") (unit 1)
         )
@@ -3630,7 +3627,7 @@
     )
     (pin "1" (uuid 9584633a-5ff0-476a-ab7a-4c9862d14b48))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR032") (unit 1)
         )
@@ -3655,7 +3652,7 @@
     )
     (pin "1" (uuid 6bf3d005-f021-4c72-8c97-2079d3e1beb4))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR02") (unit 1)
         )
@@ -3681,7 +3678,7 @@
     (pin "1" (uuid 6f006842-f2d4-4ba2-8f07-078fd001e2b9))
     (pin "2" (uuid 380f8e09-bc75-4d35-9b2c-03ffec1da288))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "SW_kcd1") (unit 1)
         )
@@ -3706,7 +3703,7 @@
     )
     (pin "1" (uuid c6f15625-4501-497b-bce1-248b369bc390))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR036") (unit 1)
         )
@@ -3731,7 +3728,7 @@
     )
     (pin "1" (uuid 75c9c536-6581-4882-8a80-38fe60d80d0f))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR021") (unit 1)
         )
@@ -3758,7 +3755,7 @@
     (pin "2" (uuid a8f7b6cb-6096-4bae-a4d6-8cc1824574e9))
     (pin "3" (uuid 7e86c2f1-92ee-4770-b1e7-19b14fbb6980))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "U6") (unit 1)
         )
@@ -3783,7 +3780,7 @@
     )
     (pin "1" (uuid 40f5c6ba-9eaf-46aa-9882-5499a75fd73b))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR017") (unit 1)
         )
@@ -3809,7 +3806,7 @@
     (pin "1" (uuid 95ea0a22-fb37-46e8-87b5-89eb29031de4))
     (pin "2" (uuid 7f0a6897-5796-4cd3-a80d-ff0b2b9bba36))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "C9") (unit 1)
         )
@@ -3834,7 +3831,7 @@
     )
     (pin "1" (uuid dbceb581-1d16-41fd-b8ec-fe6c5d14438d))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR011") (unit 1)
         )
@@ -3859,7 +3856,7 @@
     )
     (pin "1" (uuid 7d295db0-18e4-450e-a232-8f5dd89d2afa))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR026") (unit 1)
         )
@@ -3884,7 +3881,7 @@
     )
     (pin "1" (uuid 30890fe9-3794-45d0-a192-2a62b0cb3e2a))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR010") (unit 1)
         )
@@ -3909,7 +3906,7 @@
     )
     (pin "1" (uuid 423055e6-bc87-48c5-b05d-a864db1d3c93))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR040") (unit 1)
         )
@@ -3934,7 +3931,7 @@
     )
     (pin "1" (uuid 84723c15-4e33-48ea-9fb1-52a2bcd48f8c))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR0128") (unit 1)
         )
@@ -3959,7 +3956,7 @@
     )
     (pin "1" (uuid 8d74dad1-f3a6-47bb-846a-095b83e4e16c))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR014") (unit 1)
         )
@@ -3984,7 +3981,7 @@
     )
     (pin "1" (uuid 98f30ff6-c972-407a-b4e1-481b54778ac7))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR030") (unit 1)
         )
@@ -4010,7 +4007,7 @@
     (pin "1" (uuid 63ef57cb-4585-4cae-add0-37ec7744f59a))
     (pin "2" (uuid da7ff7cd-53bf-4be1-8bd0-2d07939603f2))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "R6") (unit 1)
         )
@@ -4035,7 +4032,7 @@
     )
     (pin "1" (uuid 3013a2ba-4ed7-44f7-94d7-13b36fd37b5f))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR0127") (unit 1)
         )
@@ -4060,7 +4057,7 @@
     )
     (pin "1" (uuid 13ad30ad-efdb-45da-b8d3-3921c5ba1724))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR043") (unit 1)
         )
@@ -4085,7 +4082,7 @@
     )
     (pin "1" (uuid 461b73da-1a5a-4fcc-8488-154c0d15d9b5))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR0125") (unit 1)
         )
@@ -4110,7 +4107,7 @@
     )
     (pin "1" (uuid cf32da61-936e-4859-9e88-c6263ea7bff6))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR023") (unit 1)
         )
@@ -4135,7 +4132,7 @@
     )
     (pin "1" (uuid fc9174fe-65b8-479b-8403-a56fb6e3b896))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR041") (unit 1)
         )
@@ -4160,7 +4157,7 @@
     )
     (pin "1" (uuid 40fd4d70-72f3-4e40-bc60-f82b48468004))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR0129") (unit 1)
         )
@@ -4185,7 +4182,7 @@
     )
     (pin "1" (uuid 8661a338-f012-49ee-8a85-4ce4d80b6a40))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR04") (unit 1)
         )
@@ -4244,7 +4241,7 @@
     (pin "8" (uuid ad4cc223-addb-492f-8b95-f2ca2de039ee))
     (pin "9" (uuid 3e8d8628-84d6-488c-886e-29faa571cf30))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "J3") (unit 1)
         )
@@ -4270,7 +4267,7 @@
     (pin "1" (uuid d44ef6a0-b9b5-428c-9494-cb8e8b2eedf3))
     (pin "2" (uuid 508d7030-4dbc-4790-8aab-a6a65b4ec4e2))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "C8") (unit 1)
         )
@@ -4295,7 +4292,7 @@
     )
     (pin "1" (uuid ec543eee-9495-4eb1-b40d-dafad205d169))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR024") (unit 1)
         )
@@ -4320,7 +4317,7 @@
     )
     (pin "1" (uuid 4e3d2964-73d0-4be8-97c7-a23cc1391711))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR01") (unit 1)
         )
@@ -4346,7 +4343,7 @@
     (pin "1" (uuid 233ae3d1-777a-4ed5-b291-2cb4160b286f))
     (pin "2" (uuid bec26b47-e625-4bb1-bb12-42c463a201ed))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "D2") (unit 1)
         )
@@ -4371,7 +4368,7 @@
     )
     (pin "1" (uuid b5149dae-185b-48b5-9b23-56129dc9a4b4))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR018") (unit 1)
         )
@@ -4396,7 +4393,7 @@
     )
     (pin "1" (uuid 9cc4dc32-a53a-4bdd-8068-95217522facf))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR03") (unit 1)
         )
@@ -4421,7 +4418,7 @@
     )
     (pin "1" (uuid 03686a35-b860-4a8b-805e-1ad8173f1972))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR047") (unit 1)
         )
@@ -4446,7 +4443,7 @@
     )
     (pin "1" (uuid 78529bf5-73f9-4e4f-8504-3336f106cfa9))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR025") (unit 1)
         )
@@ -4473,7 +4470,7 @@
     (pin "2" (uuid 1f55c73b-1c76-4dfd-a7d2-b6611750aaf5))
     (pin "3" (uuid 7d7b2d1f-9ee5-4cf8-8951-5c5543886d20))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "U5") (unit 1)
         )
@@ -4498,7 +4495,7 @@
     )
     (pin "1" (uuid 4eb38708-102c-4a00-a3d7-34ccfd91f02e))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR013") (unit 1)
         )
@@ -4523,7 +4520,7 @@
     )
     (pin "1" (uuid 4a84fe30-1650-4bd0-b39d-02fb9b97a56f))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR0124") (unit 1)
         )
@@ -4549,7 +4546,7 @@
     (pin "1" (uuid 0e3caca2-866f-495c-bd68-1610de579ede))
     (pin "2" (uuid 4bf0af96-f637-4a00-bd69-bd0012bb2a9d))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "C7") (unit 1)
         )
@@ -4574,7 +4571,7 @@
     )
     (pin "1" (uuid ad3a3493-0f25-44f1-b02f-a9ac29ca56ae))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR0131") (unit 1)
         )
@@ -4600,7 +4597,7 @@
     (pin "1" (uuid 256c5f8e-e3b3-47e4-8ae9-16d2510017d1))
     (pin "2" (uuid 35428330-0f6f-49cc-920b-b361e2c5d853))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "J4") (unit 1)
         )
@@ -4625,7 +4622,7 @@
     )
     (pin "1" (uuid d5fab998-96d4-44f6-9f5c-23249c9ab1cf))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR046") (unit 1)
         )
@@ -4651,7 +4648,7 @@
     (pin "1" (uuid f43aab24-a783-42c7-aaca-11518c66e430))
     (pin "2" (uuid 00709108-0ad9-43de-96d7-7b9678e34402))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "C5") (unit 1)
         )
@@ -4676,7 +4673,7 @@
     )
     (pin "1" (uuid e08c928c-a6bd-4d1d-a5aa-01ae69f575c7))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR031") (unit 1)
         )
@@ -4701,7 +4698,7 @@
     )
     (pin "1" (uuid 9987ff32-7caa-4ac3-9dee-12a7e8620b0b))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR029") (unit 1)
         )
@@ -4726,7 +4723,7 @@
     )
     (pin "1" (uuid 280f9db7-9906-42d0-a183-c580487817c8))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR08") (unit 1)
         )
@@ -4751,7 +4748,7 @@
     )
     (pin "1" (uuid 27db738a-c1b3-4f60-99fa-4073e1975056))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR028") (unit 1)
         )
@@ -4778,7 +4775,7 @@
     (pin "2" (uuid f08bb976-dfaa-46e9-866c-185c69fcae33))
     (pin "3" (uuid 407114fe-6a8c-4316-b904-89c41142ff12))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "U1") (unit 1)
         )
@@ -4803,7 +4800,7 @@
     )
     (pin "1" (uuid 1a69b71e-8ea5-4acb-b491-4feec01d149b))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR019") (unit 1)
         )
@@ -4829,7 +4826,7 @@
     (pin "1" (uuid 1f8ea8e8-2d01-40c3-8853-77aaccbc196c))
     (pin "2" (uuid d38df77c-722d-4b27-bb7e-96c29791fb08))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "green1") (unit 1)
         )
@@ -4855,7 +4852,7 @@
     (pin "1" (uuid 2ad725a0-8c96-4670-b0bf-e51de966f7bb))
     (pin "2" (uuid da78bed6-16da-481f-8f91-bc73c221ea69))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "D1") (unit 1)
         )
@@ -4881,7 +4878,7 @@
     (pin "1" (uuid ec92229b-58f0-45a6-9390-276752bde2ae))
     (pin "2" (uuid 10ab8477-09b9-4a69-8e37-67d4e93bae2c))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "C12") (unit 1)
         )
@@ -4906,7 +4903,7 @@
     )
     (pin "1" (uuid 9a5d5c23-1f3c-4eba-b3d3-27f5a921230a))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR016") (unit 1)
         )
@@ -4931,7 +4928,7 @@
     )
     (pin "1" (uuid caa1ad36-60aa-4fde-bf9a-877bd393676c))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR034") (unit 1)
         )
@@ -4956,7 +4953,7 @@
     )
     (pin "1" (uuid 9d7e80e0-8fa6-4f40-b06b-457b3a5df778))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR033") (unit 1)
         )
@@ -4982,7 +4979,7 @@
     (pin "1" (uuid e4d8b182-7d21-4f06-995f-6b2a62cbc4ee))
     (pin "2" (uuid 507d3501-a7ec-4a98-86cd-ba18be7d1f77))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "R4") (unit 1)
         )
@@ -5007,7 +5004,7 @@
     )
     (pin "1" (uuid d2cc1f44-bef3-481e-b74d-e305f6bb971c))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR049") (unit 1)
         )
@@ -5032,7 +5029,7 @@
     )
     (pin "1" (uuid 6aecd5eb-0472-4f71-9c07-f6cada2223d9))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR052") (unit 1)
         )
@@ -5058,7 +5055,7 @@
     (pin "1" (uuid f473db6e-04fa-4464-9337-864e867893fc))
     (pin "2" (uuid 40233384-bc16-4a66-ab90-9b01aa739f3d))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "R1") (unit 1)
         )
@@ -5083,7 +5080,7 @@
     )
     (pin "1" (uuid b0b773ca-bba5-44cd-9628-2c602f454c39))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR05") (unit 1)
         )
@@ -5109,7 +5106,7 @@
     (pin "1" (uuid cbd10449-29df-4410-8044-12893d1d8b78))
     (pin "2" (uuid ebc78449-a971-4825-b16e-449d08bd7347))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "red1") (unit 1)
         )
@@ -5135,7 +5132,7 @@
     (pin "1" (uuid 345a885f-058e-48fe-b1fb-79c27c979733))
     (pin "2" (uuid 197dc503-96cd-4403-aba0-fe05e9fe6d37))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "D4") (unit 1)
         )
@@ -5161,7 +5158,7 @@
     (pin "1" (uuid fdc6f6f0-42e9-4c86-bb71-18398408496e))
     (pin "2" (uuid 0cacff50-8de9-4ec3-92e4-42776478c22b))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "C4") (unit 1)
         )
@@ -5186,7 +5183,7 @@
     )
     (pin "1" (uuid 435245b2-3b3e-4768-bdd7-8d41b29ce31f))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR09") (unit 1)
         )
@@ -5211,7 +5208,7 @@
     )
     (pin "1" (uuid 09bba4c1-3784-4992-9fdc-8160df763d67))
     (instances
-      (project "Fonte_tensao_LM675_v05_planoterra"
+      (project "Fonte_tensao_LM675_v05"
         (path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
           (reference "#PWR035") (unit 1)
         )
