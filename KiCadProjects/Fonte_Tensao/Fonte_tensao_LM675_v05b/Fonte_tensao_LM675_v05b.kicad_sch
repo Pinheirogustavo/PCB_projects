@@ -6,15 +6,13 @@
 
   (title_block
     (title "Fonte de tensao LM675")
-    (date "2023-08-14")
-    (rev "v02")
+    (date "2024-06-06")
+    (rev "v05b")
     (company "EITduino")
     (comment 1 "Autor: Gustavo Pinheiro")
-    (comment 2 "Barramento proposto para uma placa 90x100 mm")
-    (comment 3 "Placa face simples")
+    (comment 2 "Barramento proposto para uma placa 100x100 mm")
+    (comment 3 "Placa face dupla")
     (comment 4 "Pinos AGND e DGND")
-    (comment 5 "capacitor 100nF ceramico")
-    (comment 6 "capacitores uF tantalo")
   )
 
   (lib_symbols
