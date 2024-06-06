@@ -6,14 +6,13 @@
 
   (title_block
     (title "Gerador de sinais AD9833")
-    (date "2023-07-12")
+    (date "2024-06-06")
     (rev "v02")
     (company "EITduino")
     (comment 1 "Autor: Gustavo Pinheiro")
-    (comment 2 "placa de face simples 90x100 mm")
-    (comment 3 "Gerador de sinais")
-    (comment 4 "potenciometro digital: x9c104 (100k)")
-    (comment 5 "Baseado no barramento V04")
+    (comment 2 "placa dupla 100x100 mm")
+    (comment 3 "potenciometro digital: x9c104 (100k)")
+    (comment 4 "Baseado no barramento V04")
   )
 
   (lib_symbols
