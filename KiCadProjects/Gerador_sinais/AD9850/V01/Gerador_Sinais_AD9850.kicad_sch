@@ -7,12 +7,12 @@
   (title_block
     (title "Gerador de sinais AD9850")
     (date "2024-02-05")
-    (rev "v02")
+    (rev "v01")
     (company "EITduino")
     (comment 1 "Autor: Gustavo Pinheiro")
     (comment 2 "Placa face dupla 100x100 mm")
     (comment 3 "potenciometro digital: x9c104 (100k)")
-    (comment 4 "Baseado no barramento V05")
+    (comment 4 "Baseado no barramento V04")
   )
 
   (lib_symbols
