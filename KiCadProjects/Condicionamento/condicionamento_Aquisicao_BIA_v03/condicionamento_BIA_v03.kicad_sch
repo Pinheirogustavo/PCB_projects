@@ -5,13 +5,14 @@
   (paper "A4")
 
   (title_block
-    (title "Condicionamento e aquisicao 2 canais ")
-    (date "2023-07-17")
+    (title "Condicionamento BIA")
+    (date "2024-06-06")
     (rev "v03")
     (company "EITduino")
     (comment 1 "Autor: Gustavo Pinheiro")
-    (comment 2 "placa face dupla 90x100 mm")
+    (comment 2 "placa face dupla 100x100 mm")
     (comment 3 "Barramento V04")
+    (comment 4 "Condicionamento e aquisicao 2 canais ")
   )
 
   (lib_symbols
