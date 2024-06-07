@@ -10,9 +10,8 @@
     (rev "v01")
     (company "EITduino")
     (comment 1 "Autor: Gustavo Pinheiro")
-    (comment 2 "Placa de face dupla 100x100 mm")
+    (comment 2 "Howland aperfeicoada")
     (comment 3 "Barramento V04")
-    (comment 4 "Howland aperfeicoada")
   )
 
   (lib_symbols

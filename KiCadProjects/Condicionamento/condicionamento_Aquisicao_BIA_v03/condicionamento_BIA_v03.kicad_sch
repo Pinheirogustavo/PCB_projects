@@ -10,9 +10,8 @@
     (rev "v03")
     (company "EITduino")
     (comment 1 "Autor: Gustavo Pinheiro")
-    (comment 2 "placa face dupla 100x100 mm")
+    (comment 2 "Condicionamento e aquisicao 2 canais ")
     (comment 3 "Barramento V04")
-    (comment 4 "Condicionamento e aquisicao 2 canais ")
   )
 
   (lib_symbols

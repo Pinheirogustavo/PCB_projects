@@ -10,9 +10,8 @@
     (rev "v02")
     (company "EITduino")
     (comment 1 "Autor: Gustavo Pinheiro")
-    (comment 2 "placa dupla 100x100 mm")
+    (comment 2 "Baseado no barramento V04")
     (comment 3 "potenciometro digital: x9c104 (100k)")
-    (comment 4 "Baseado no barramento V04")
   )
 
   (lib_symbols
