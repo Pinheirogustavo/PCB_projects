@@ -10,9 +10,8 @@
     (rev "v05b")
     (company "EITduino")
     (comment 1 "Autor: Gustavo Pinheiro")
-    (comment 2 "Barramento proposto para uma placa 100x100 mm")
-    (comment 3 "Placa face dupla")
-    (comment 4 "Pinos AGND e DGND")
+    (comment 2 "Pinos AGND e DGND")
+    (comment 3 "Barramento V04")
   )
 
   (lib_symbols
