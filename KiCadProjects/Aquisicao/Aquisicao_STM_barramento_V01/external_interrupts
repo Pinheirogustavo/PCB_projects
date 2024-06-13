@@ -1,0 +1,19 @@
+- How to Use Interrupts in STM32F103C8
+
+https://circuitdigest.com/microcontroller-projects/how-to-use-interrupts-in-stm32f103c8
+
+- Lesson 2: STM32 External GPIO Interrupts
+
+https://github.com/dekuNukem/STM32_tutorials/blob/master/lesson2_external_interrupt/README.md
+
+ - External Interrupt arduino
+ 
+https://www.arduino.cc/reference/en/language/functions/external-interrupts/attachinterrupt/
+
+- STM32F103 datasheet
+
+https://www.st.com/resource/en/datasheet/stm32f103c8.pdf
+
+-LER
+
+https://forum.arduino.cc/t/how-can-use-the-interrupts-with-stm32-bluepill/660373/11
