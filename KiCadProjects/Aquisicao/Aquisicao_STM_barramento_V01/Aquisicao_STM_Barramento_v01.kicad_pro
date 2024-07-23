@@ -112,7 +112,7 @@
       "rules": {
         "max_error": 0.005,
         "min_clearance": 0.5,
-        "min_connection": 1.27,
+        "min_connection": 0.5,
         "min_copper_edge_clearance": 0.5,
         "min_hole_clearance": 0.5,
         "min_hole_to_hole": 0.5,
@@ -123,7 +123,7 @@
         "min_text_height": 0.7999999999999999,
         "min_text_thickness": 0.08,
         "min_through_hole_diameter": 0.06,
-        "min_track_width": 1.27,
+        "min_track_width": 0.5,
         "min_via_annular_width": 0.06,
         "min_via_diameter": 0.06,
         "solder_mask_clearance": 0.0,
@@ -410,7 +410,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "Fonte_tensao_LM675_v05.kicad_pro",
+    "filename": "Aquisicao_STM_Barramento_v01.kicad_pro",
     "version": 1
   },
   "net_settings": {
@@ -427,8 +427,8 @@
         "name": "Default",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "schematic_color": "rgba(0, 0, 0, 0.000)",
-        "track_width": 1.27,
-        "via_diameter": 1.8,
+        "track_width": 0.5,
+        "via_diameter": 1.6,
         "via_drill": 0.8,
         "wire_width": 6
       }
