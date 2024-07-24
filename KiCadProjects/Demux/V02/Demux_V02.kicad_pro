@@ -410,7 +410,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "Demux_V01.kicad_pro",
+    "filename": "Demux_V02.kicad_pro",
     "version": 1
   },
   "net_settings": {
@@ -485,7 +485,7 @@
       "workbook_filename": ""
     },
     "page_layout_descr_file": "",
-    "plot_directory": "print/",
+    "plot_directory": "../../../../../Área de Trabalho/",
     "spice_adjust_passive_values": false,
     "spice_current_sheet_as_root": false,
     "spice_external_command": "spice \"%I\"",
