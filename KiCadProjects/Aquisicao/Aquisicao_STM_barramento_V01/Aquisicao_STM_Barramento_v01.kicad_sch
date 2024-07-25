@@ -5,16 +5,13 @@
   (paper "A4")
 
   (title_block
-    (title "Barramento V04")
-    (date "2024-02-05")
-    (rev "v04")
-    (company "EITduino")
+    (title "Placa de aquisicao STM32Bluepill")
+    (date "2024-07-25")
+    (rev "V01")
     (comment 1 "Autor: Gustavo Pinheiro")
-    (comment 2 "Barramento proposto para uma placa 90x100 mm")
-    (comment 3 "Placa face dupla")
-    (comment 4 "Pinos AGND e DGND")
-    (comment 5 "capacitor 100nF ceramico")
-    (comment 6 "capacitores uF tantalo")
+    (comment 2 "Baseado no barramento V04")
+    (comment 3 "Atenção: os sinais sinc_A , sinc_B e sinc_C foram adicionados ao barramento principal")
+    (comment 4 "4 Canais + amplitude de corrente ou 8 canais")
   )
 
   (lib_symbols
