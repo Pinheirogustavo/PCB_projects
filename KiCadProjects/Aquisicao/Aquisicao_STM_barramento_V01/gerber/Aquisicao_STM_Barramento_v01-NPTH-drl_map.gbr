@@ -1,12 +1,12 @@
-%TF.GenerationSoftware,KiCad,Pcbnew,7.0.10-7.0.10~ubuntu20.04.1*%
-%TF.CreationDate,2024-07-24T18:33:02-03:00*%
-%TF.ProjectId,Aquisicao_STM_Barramento_v01,41717569-7369-4636-916f-5f53544d5f42,v04*%
+%TF.GenerationSoftware,KiCad,Pcbnew,7.0.11-7.0.11~ubuntu22.04.1*%
+%TF.CreationDate,2024-07-25T22:25:18-03:00*%
+%TF.ProjectId,Aquisicao_STM_Barramento_v01,41717569-7369-4636-916f-5f53544d5f42,V01*%
 %TF.SameCoordinates,Original*%
 %TF.FileFunction,Drillmap*%
 %TF.FilePolarity,Positive*%
 %FSLAX45Y45*%
 G04 Gerber Fmt 4.5, Leading zero omitted, Abs format (unit mm)*
-G04 Created by KiCad (PCBNEW 7.0.10-7.0.10~ubuntu20.04.1) date 2024-07-24 18:33:02*
+G04 Created by KiCad (PCBNEW 7.0.11-7.0.11~ubuntu22.04.1) date 2024-07-25 22:25:18*
 %MOMM*%
 %LPD*%
 G01*
