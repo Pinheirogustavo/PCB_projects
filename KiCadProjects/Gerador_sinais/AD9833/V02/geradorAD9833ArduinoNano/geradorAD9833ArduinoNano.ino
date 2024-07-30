@@ -11,7 +11,7 @@
         //   Phase - 0 to 360 degress (this is only useful if it is 'relative' to some other signal
         //                             such as the phase difference between REG0 and REG1).
 
-#define FNC_PIN 9       // Can be any digital IO pin
+#define FNC_PIN 4       // Can be any digital IO pin
 AD9833 gen(FNC_PIN);       // Defaults to 25MHz internal reference frequency
 
 void setup() {
@@ -25,7 +25,7 @@ void setup() {
    //   Phase - 0 to 360 degress (this is only useful if it is 'relative' to some other signal
    //           such as the phase difference between REG0 and REG1).
    // In ApplySignal, if Phase is not given, it defaults to 0.
-   gen.ApplySignal(SINE_WAVE,REG0,125000);
+   gen.ApplySignal(SINE_WAVE,REG0,50000);
    gen.EnableOutput(true);   // Turn ON the output - it defaults to OFF
    // There should be a 50 kHz square wave on the PGA output of the AD9833
 }
