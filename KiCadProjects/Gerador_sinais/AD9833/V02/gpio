@@ -1,0 +1,17 @@
+uC STM32
+//label     componente      pinoSMT
+    - entradas digitais
+        - Down_gain     botao               D6
+        - Up_gain       botao/encoder       D5
+        - freq- / En1   botao/encoder       D10
+        - freq+ / En2   botao/encoder       D9
+        - S_wave / En3  botao/encoder       D12
+    
+    
+    -saidas digitais
+        - SPI_clk  (AD9833)     SCLK-Module     D13
+        - SPI_COPI  (AD9833)    SDATA-Module    D11
+        - X9c10x_U/D            U/D-DigPot1     D8
+        - X9c10x_INC            INC-DigPot1     D7
+        - CS (AD9833)           FSYNC-Module    D4
+        - CS (X9c104)           CS-DigPot1      D2
