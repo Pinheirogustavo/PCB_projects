@@ -1,0 +1,46 @@
+uC STM32
+
+
+    - entradas digitais
+//label     componente      pinSMT
+        - Down_gain	botao		A8            
+        - Up_gain	botao      	B15
+        - freq-	botao      	B14
+        - freq+	botao       	B13
+        - M1		teclado	A2
+        - M2		teclado	A3		
+        - M3		teclado	A12
+        - M4		teclado	A11
+        - M5		teclado	A6
+        - M6		teclado	A7
+        - M7		teclado	B0
+        - M8		teclado	B12
+        - En1		encoder	A15
+        - En2		encoder	B8
+        - En3		encoder	B9
+    
+    
+    -saidas digitais
+//label define	pinSTM
+        - clk(AD9850)	W_CLK		PC14
+        - UD		FQ_UD		PC15
+        - Serial_data	DATA		PA0
+        - reset	RESET		PA1	
+  
+//label pinDigPot	pinSTM        
+        - Pot1_CS_(X9c104)	CS(DigPot1)	PB1		
+        - Pot1_X9c10x_U/D	U/D(DigPot1)	PB10
+        - Pot1_X9c10x_INC	INC(DigPot1)	PB11
+        
+        - Pot2_CS_(X9c104)	CS(DigPot2)	PB5		
+        - Pot2_X9c10x_U/D	U/D(DigPot2)	PB4
+        - Pot2_X9c10x_INC	INC(DigPot2)	PB3
+        
+    -entradas analogicas
+    	- Ampl1 amplitude I1
+    	- Ampl2 amplitude I2
+    	
+    -comunicacao
+    	-I2C	SDA1	PB7
+    	- I2C	SCL1	PB6
+    	
