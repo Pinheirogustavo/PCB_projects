@@ -25,7 +25,7 @@ uC STM32
         - clk(AD9850)	W_CLK		PC14
         - UD		FQ_UD		PC15
         - Serial_data	DATA		PA0
-        - reset	RESET		PA1	
+        - reset		RESET		PA1	
   
 //label pinDigPot	pinSTM        
         - Pot1_CS_(X9c104)	CS(DigPot1)	PB1		
