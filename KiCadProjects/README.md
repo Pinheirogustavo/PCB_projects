@@ -1,6 +1,18 @@
 # Versao do CAD: KiCad 7.0    
 
-Placa 100x100mm face dupla 
+Placa 900x100mm face dupla
+
+## Dicas gerais de uso do KiCad
+
+- Os projetos desenvolvidos na versão Kicad 7.0 não são compatíveis com versões mais recentes.
+
+- Sempre que for alterar um projeto abra o "arquivo_pro" específico, não o arquivo geral "KiCadProjects.kicad_pro".
+
+- Ao realizar alguma modificação de projeto elétrico (não somente design), Faça a alteração no arquivo esquemático "arquivo_sch" e depois altere o arquivo de design "arquivo_pcb" por meio da ferramenta de "atualize a PCI com as alterações feitas no esquema - F8" (símbolo no painel superior). Modificações realizadas no sentido contrário não são atualizadas no esquema e assim sua placa confeccionada não irá corresponder ao projeto elétrico criado.
+
+- Um bom tutorial em vídeo pode ser encontrado na playlist: <https://youtube.com/playlist?list=PL3bNyZYHcRSUhUXUt51W6nKvxx2ORvUQB&si=-wXaexDJ6YDI0aJu>
+
+- Ao criar os seus esquemas tente separar cada estágio ou módulo e evite realizar ligações diretas de "wire", pois isso irá deixar a leitura mais confusa. Ao invés disso, utilize "rótulos globais" (Ctrl L / etiqueta no painel direito), que funcionam como conectores e ainda indicam os nós dos circuitos.
 
 ## Criando simbolos, footprint e 3D  
 
@@ -30,23 +42,39 @@ Placa 100x100mm face dupla
  Certo: /home/name/**github**/PCB_projects/KiCadProjects/libraries/MyCreates/AD9833_module.pretty 
     
 
-## Algumas das regras de layout PCB  
-  
+## Algumas das regras de layout PCB  - Fabricação JLCPCB
 
-- Largura da trilha (default) = 50 mils (1,27 mm) 
-  
- O valor mínimo é de 5 mils, mas isso gera uma trilha extremamente fina 
-  
-- Espaçamento entre trilhas  e entre trilhas e furos(default) = 50 mils (1,27 mm) 
-  
- O valor mínimo é de 8 mils, mas isso gera  trilhas muito próximas 
-  
-- Para produção na CNC: O grid deve ser maior que o diâmetro da fresa utilizada (>0,2mm) 
-- Definir o algoritmo de auto-roteamento no CAD como “Grid Router” ou "Freerouting" (precisa adicionar plugin) 
-- Definir o diâmetro do contorno em 0,5mm 
-  
+#### Todas as regras e restrições para a produção pela Jlcpcb devem ser conferidas em: <https://jlcpcb.com/capabilities/pcb-capabilities>
 
-#### Todas as regras e restrições para a produção pela Jlcpcb devem ser conferidas em: <https://jlcpcb.com/capabilities/pcb-capabilities>  
+- largura dos segmentos de linha de corte ( Edge.cuts): 0.15 mm
+  
+- Tamanho de via: 0.30mm - 6.30mm diâmetro interno. Diâmetro externo deve ser no mínimo 0.20mm maior que o interno.
+
+- Largura da trilha: mínimo de 0.16 mm (6.5 mils)
+
+- Espaçamento entre trilhas: mínimo de 0.10 mm (4 mils)
+
+- Espaçamento entre trilha e borda da via: mínimo de 0.10 mm (4 mils)
+
+- Serigrafia: Largura mínima da linha de 0.16 mm (6 mils) e altura mínima do texto de 1.00 mm (40 mils).
+    - Preferencialmente manter a proporção 1:6.
+
+
+##### Todas essas restrições podem ser definidas por meio das "Regras de desenho" do Kicad.
+
+ Símbolo de engrenagem (segundo no painel superior_ &rarr; Regras de desenho &rarr; tamanhos pré-definidos.
+    - Permite estabelecer tamanhos de vias e trilhas que serão seguidas em todo o desenho.
+
+ Símbolo de engrenagem (segundo no painel superior_ &rarr; Regras de desenho &rarr; restrições.
+    - Permite estabalecer regras que se violadas serão indicadas pelo verificador de regras de desenho.
+
+  Símbolo de engrenagem (segundo no painel superior_ &rarr; Texto & gráfico.
+    - Permite estabelecer tamanho de Serigrafia que será seguido em todo o desenho.
+
+##### Sempre execute o "Verificador de regras de desenho (símbolo de lista no painel superior) antes de gerar os arquivos para confecção.
+
+
+- Extra: para produção na CNC - O grid deve ser maior que o diâmetro da fresa utilizada (>0,2mm).
     
  
 
@@ -264,3 +292,56 @@ AD9833
 -   Antes de tudo sempre realize primeiramente a atualiação da PCB a partir do esquemático e a verifcação das regras de desenho
 -   Caso deseje refazer o roteamento, exclua todas as trilhas e vias geradas anteriormente: Editar → Exclusões globais → Vias e trilhas/Todas as camadas.
 -   Caso tenha criado uma “zona” (linha tracejada) para o plano terra, a remova antes de realizar novo Autoroteamento (Ver mais em:  [https://www.reddit.com/r/KiCad/comments/5eu7fo/freerouting_left_a_lot_of_grounds_unreachable/](https://www.reddit.com/r/KiCad/comments/5eu7fo/freerouting_left_a_lot_of_grounds_unreachable/))
+
+
+## Envio para produção no JLCPCB
+
+#### Todas as orientações para a produção pela Jlcpcb a partir do Kicad 7.0 devem ser conferidas em: <https://jlcpcb.com/help/article/how-to-generate-gerber-and-drill-files-in-kicad-7>
+
+Em resumo, você deve gerar 3 tipos de arquivos: Gerber, de perfuração (drill) e o mapeamento do projeto.
+
+- Gerar arquivos Gerber: Files &rarr; Fabrication outputs &rarr; Gerbers (.gbr)
+    As seguintes camadas devem ser selecionadas:
+
+        F.Cu
+
+        F.Paste
+
+        F.Silks
+
+        F.Mask
+
+        B.Cu
+
+        B.Paste
+
+        B.Silks
+
+        B.Mask
+
+        Edge.Cuts
+
+![Camadas para gerber JLCPCB - Kicad](https://jlcpcb.com//msgCustomerMessage/downloadMessageFile?fileUploadAccessId=83e4748f5273428da8a1f52c1008fe4b)
+
+
+- Para gerar os arquivos de furo clique em "generate drill files" e siga as instruções:
+
+
+![Furos para JLCPCB - Kicad](https://jlcpcb.com//msgCustomerMessage/downloadMessageFile?fileUploadAccessId=83e4748f5273428da8a1f52c1008fe4b)
+
+- Gere o arquivo de mapeamento clicando em "generate Map file".
+
+- Todos os arquivos devem ser salvos em única pasta.
+
+- Ao final a pasta deve conter 13 arquivos que são enviados para produção em .ZIP ou .RAR a partir da página inicial da fabricante.
+
+
+#### Como produzir placas pequenas de modo repetido (Painel)
+
+O tamanho mínimo das placas confeccionadas na JLCPCB é de 100x100mm. Caso a placa produzida seja menor, é possível copiar o design dentro de uma área definida. Há dois modos de realizar isso:
+
+- Por meio do próprio site de encomenda do circuito. Em "PCB Specifications" selecione "Panel by JLCPCB". Ele irá captar as dimensões das linhas de "Edge.cuts" do projeto e assim você só precisa selecionar o número de linhas e colunas com repetição do projeto.
+
+- Manualmente: Há um plugin, "Kikit", que auxilia esse trabalho. Uma vez instalado o circuito pode ser repetido por n linhas e m colunas com o uso da ferramenta "Kikit: Panelize PCB".
+
+###### No momento de escrita desse tutorial não havia diferença de preço entre os modos de "panelização".
