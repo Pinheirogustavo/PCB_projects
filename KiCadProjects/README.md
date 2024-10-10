@@ -32,14 +32,30 @@ Placa 900x100mm face dupla
 - Bibliotecas prontas da internet (salvar em Projeto Global): https://forum.digikey.com/t/importing-the-digi-key-kicad-library-into-kicad-5-0-0/4075 
  caminho:/PCB_projects/KiCadProjects/libraries/ 
   
-- Bibliotecas criadas pelo autor:  Usar o editor de simbolos e de footprint do kicad, salvar em Projeto Global 
- caminho:/PCB_projects/KiCadProjects/libraries/MyCreates 
+- Bibliotecas criadas pelo autor:  Usar o editor de simbolos e de footprint do kicad, salvar em Projeto Global.
+
+    Caminho:/PCB_projects/KiCadProjects/libraries/MyCreates
+
+    Já criados símbolos e footprints dos seguintes componentes:
+
+
+        Módulo do gerador AD9833
+
+        Módulo do gerador AD9850
+
+        Módulo do Potenciômetro digital X9c10x
+
+        Chave gangorra
+
   
 - Sempre adicione as bibliotecas pelo github e não pela sua máquina local. Exemplo: 
     
  Errado: /home/name/PCB_projects/KiCadProjects/libraries/MyCreates/AD9833_module.pretty 
     
  Certo: /home/name/**github**/PCB_projects/KiCadProjects/libraries/MyCreates/AD9833_module.pretty 
+
+
+ ###### Há nesse tutorial uma lista de footprints para os componentes mais comuns entre os circuitos. Utilize essa lista para garantir que haja espaço adequado a esses componentes em sua placa.
     
 
 ## Algumas das regras de layout PCB  - Fabricação JLCPCB
