@@ -321,13 +321,13 @@ Em resumo, você deve gerar 3 tipos de arquivos: Gerber, de perfuração (drill)
 
         Edge.Cuts
 
-![Camadas para gerber JLCPCB - Kicad](https://jlcpcb.com//msgCustomerMessage/downloadMessageFile?fileUploadAccessId=83e4748f5273428da8a1f52c1008fe4b)
+![Camadas para gerber JLCPCB - Kicad](https://github.com/Pinheirogustavo/PCB_projects/blob/main/KiCadProjects/Imagens_tutorial/help2.png)
 
 
 - Para gerar os arquivos de furo clique em "generate drill files" e siga as instruções:
 
 
-![Furos para JLCPCB - Kicad](https://jlcpcb.com//msgCustomerMessage/downloadMessageFile?fileUploadAccessId=83e4748f5273428da8a1f52c1008fe4b)
+![Furos para JLCPCB - Kicad](https://github.com/Pinheirogustavo/PCB_projects/blob/main/KiCadProjects/Imagens_tutorial/help3.png)
 
 - Gere o arquivo de mapeamento clicando em "generate Map file".
 
