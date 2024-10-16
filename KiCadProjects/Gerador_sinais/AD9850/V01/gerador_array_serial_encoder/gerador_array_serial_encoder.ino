@@ -41,19 +41,40 @@ digitalWrite(inc_outPin, HIGH);
 digitalWrite(ud_outPin, HIGH);
 digitalWrite(cs_digpot1, LOW);
 
-//-----------------------------------------DigiPot-------------------------------------//
+//-----------------------------------------DigiPot1-------------------------------------//
+
+// Saidas digitais
+#define inc_outPin PB11 // INC(DigPot1)
+#define ud_outPin PB10  // U/D(DigPot1)
+#define cs_digpot1 PB1   // CS do DigPot 1, usado para salvar a ultima resistencia obtida
+
+const int loopPeriod = 50;  
+char comando;
+
+void setup() {
+  Serial.begin(115200);
+
+  ad9850_setup(); 
+  ad9850_sendFrequency(freq_sinal);
+  
+pinMode(inc_outPin, OUTPUT);
+pinMode(ud_outPin, OUTPUT);
+pinMode(cs_digpot1, OUTPUT);
+
+digitalWrite(inc_outPin, HIGH);
+digitalWrite(ud_outPin, HIGH);
+digitalWrite(cs_digpot1, LOW);
 
 }
   
 void loop() {
-
 
   if(Serial.available()){
     comando = Serial.read();
 
     switch (comando) {
 
-      case '+':
+      case '+': // incrementa o vetor de frequencias
         if (freq_sinal < 1000000){
           freq_sinal = freq[i+1];
           i = i+1;
@@ -61,7 +82,7 @@ void loop() {
         }
         break;     
 
-      case '-':
+      case '-': // decrementa o vetor de frequencias
         if (freq_sinal > 100){
           freq_sinal = freq[i-1];
           i = i-1;
@@ -70,7 +91,6 @@ void loop() {
         break; 
         
         
-//-----------------------------------------DigiPot-------------------------------------//
       case 'd': // diminui a amplitude do sinal (wiper up)
         digitalWrite(ud_outPin, HIGH);
         delay(loopPeriod);
@@ -95,11 +115,10 @@ void loop() {
         delay(loopPeriod);
         digitalWrite(cs_digpot1, LOW);
         break;  
-//-----------------------------------------DigiPot-------------------------------------//
 
-        default:
-          break;
+    default:
+        break;
           
-        }
+    }
   }        
 }
