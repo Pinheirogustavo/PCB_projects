@@ -40,6 +40,61 @@ byte comando = 0;
 
 long int contador = 0;
 
+
+//// ACIONAR X ELETRODO IN
+void seleciona_canal_in(int canal){
+  //canais iniciam no num 0
+  int A = bitRead(canal,0); //LSB canal
+  int B = bitRead(canal,1);
+  int C = bitRead(canal,2);
+  int D = bitRead(canal,3);
+  int E = bitRead(canal,4); //MSB canal
+
+  if (canal<8){
+    digitalWrite(Enable_A1,0);
+  } else if(canal<16){
+    //digitalWrite(Enable_A1,0);
+    digitalWrite(Enable_A2,0);
+  } else if(canal<24){
+    //digitalWrite(Enable_A1,0);
+    //digitalWrite(Enable_A2,0);
+    digitalWrite(Enable_A3,0);
+  } else if(canal<32){
+    //digitalWrite(Enable_A1,0);
+    //digitalWrite(Enable_A2,0);
+    //digitalWrite(Enable_A3,0);
+    digitalWrite(Enable_A4,0);
+  }
+
+  digitalWrite(A_S0, A);
+  digitalWrite(A_S1, B);
+  digitalWrite(A_S2, C);
+  digitalWrite(A_S3, D);
+  digitalWrite(A_S4, E);
+}
+//// ACIONAR X ELETRODO IN
+
+//// ACIONAR X ELETRODO OUT
+void seleciona_canal_in(int canal){
+  int A = bitRead(canal,0); //LSB canal
+  int B = bitRead(canal,1);
+  int C = bitRead(canal,2);
+  int D = bitRead(canal,3);
+  int E = bitRead(canal,4); //MSB canal
+
+  if (canal<8){
+    digitalWrite(Enable_B1,0)
+  }
+
+  digitalWrite(B_S0, A);
+  digitalWrite(B_S1, B);
+  digitalWrite(B_S2, C);
+  digitalWrite(B_S3, D);
+  digitalWrite(B_S4, E);
+}
+//// ACIONAR X ELETRODO OUT
+
+
 void liga_canal(int canal){
   switch (canal) {
     case 0:
@@ -184,18 +239,44 @@ void liga_canal(int canal){
 
 void configura_pinos_mux(){
   // Variaveis de seleção do Mux
-  pinMode(S0, OUTPUT); 
-  pinMode(S1, OUTPUT);
-  pinMode(S2, OUTPUT);
-  pinMode(S3, OUTPUT);
-  pinMode(S4, OUTPUT); 
+  //IN
+  pinMode(A_S0, OUTPUT); 
+  pinMode(A_S1, OUTPUT);
+  pinMode(A_S2, OUTPUT);
+  pinMode(A_S3, OUTPUT);
+  pinMode(A_S4, OUTPUT); 
+  //OUT
+  pinMode(B_S0, OUTPUT); 
+  pinMode(B_S1, OUTPUT);
+  pinMode(B_S2, OUTPUT);
+  pinMode(B_S3, OUTPUT);
+  pinMode(B_S4, OUTPUT);
   
-  //  Variaveis de Habilitação do MUX (Nivel logico baixo)
-  pinMode(MUX1, OUTPUT); // MUX 1 "Eletrodo 1 a 8"
-  pinMode(MUX2, OUTPUT); // MUX 2 "Eletrodo 9 a 16"
-  pinMode(MUX3, OUTPUT); //MUX 3 'Eletrodo 17 a 24"
-  pinMode(MUX4, OUTPUT); // MUX 4 "Eletrodo 25 a 32"
-  pinMode(MUX5, OUTPUT); // MUX 5 " Seleção do MUX
+  //  Variaveis de Habilitação do MUX IN (Nivel logico baixo)
+  pinMode(Enable_A1, OUTPUT); // MUX 1 "Eletrodo 1 a 8"
+  pinMode(Enable_A2, OUTPUT); // MUX 2 "Eletrodo 9 a 16"
+  pinMode(Enable_A3, OUTPUT); //MUX 3 'Eletrodo 17 a 24"
+  pinMode(Enable_A4, OUTPUT); // MUX 4 "Eletrodo 25 a 32"
+  pinMode(Enable_A, OUTPUT); // MUX 5 " Seleção do MUX
+
+  digitalWrite(Enable_A1, 1); // MUX 1 inicia desabilitado
+  digitalWrite(Enable_A2, 1); // MUX 2 inicia desabilitado
+  digitalWrite(Enable_A3, 1); // MUX 3 inicia desabilitado
+  digitalWrite(Enable_A4, 1); // MUX 4 inicia desabilitado
+  digitalWrite(Enable_A, 0); //  MUX 5 sempre habilitado
+
+  //  Variaveis de Habilitação do MUX OUT (Nivel logico baixo)
+  pinMode(Enable_B1, OUTPUT); // MUX 1 "Eletrodo 1 a 8"
+  pinMode(Enable_B2, OUTPUT); // MUX 2 "Eletrodo 9 a 16"
+  pinMode(Enable_B3, OUTPUT); //MUX 3 'Eletrodo 17 a 24"
+  pinMode(Enable_B4, OUTPUT); // MUX 4 "Eletrodo 25 a 32"
+  pinMode(Enable_B, OUTPUT); // MUX 5 " Seleção do MUX
+
+  digitalWrite(Enable_B1, 1); // MUX 1 inicia desabilitado
+  digitalWrite(Enable_B2, 1); // MUX 2 inicia desabilitado
+  digitalWrite(Enable_B3, 1); // MUX 3 inicia desabilitado
+  digitalWrite(Enable_B4, 1); // MUX 4 inicia desabilitado
+  digitalWrite(Enable_B, 0); //  MUX 5 sempre habilitado
 }
 
 void dadorecebido(int howmany){
