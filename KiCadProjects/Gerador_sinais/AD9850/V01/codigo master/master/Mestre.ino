@@ -3,7 +3,8 @@
 #define NUM_ELETRODOS 8
 byte num_eletrodos_usados = NUM_ELETRODOS; // mudar para: int num_eletrodos_usados = NUM_ELETRODOS
 
-#define GANHO_CORRENTE (1000.0/(47*2.8)) // Para corrente em mA (R_sent = 47ohm; G_ina = 2.8)
+//#define GANHO_CORRENTE (1000.0/(47*2.8)) // Para corrente em mA (R_sent = 47ohm; G_ina = 2.8)
+#define GANHO_CORRENTE 162.0; // para Rg=3,29k e Rs=10ohm -> G = (1+50k/Rg)*Rs;
 int tempo_demodulacao = 2; // tempo em ms que demora a leitura e demodulacao
 
 byte pula = 1;

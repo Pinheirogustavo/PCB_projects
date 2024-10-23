@@ -40,6 +40,8 @@ byte comando = 0;
 
 long int contador = 0;
 
+/*
+TRECHO QUE SUBISTITUI O switch/case (func liga_canal) PARA SELECIONAR OS CANAIS IN/OUT
 
 //// ACIONAR X ELETRODO IN
 void seleciona_canal_in(int canal){
@@ -50,16 +52,16 @@ void seleciona_canal_in(int canal){
   int D = bitRead(canal,3);
   int E = bitRead(canal,4); //MSB canal
 
-  if (canal<8){
+  if (canal<8){ // liga apenas o mux A1
     digitalWrite(Enable_A1,0);
-  } else if(canal<16){
+  } else if(canal<16){ //liga apenas o mux A2
     //digitalWrite(Enable_A1,0);
     digitalWrite(Enable_A2,0);
-  } else if(canal<24){
+  } else if(canal<24){ //liga apenas o mux A3
     //digitalWrite(Enable_A1,0);
     //digitalWrite(Enable_A2,0);
     digitalWrite(Enable_A3,0);
-  } else if(canal<32){
+  } else if(canal<32){ //liga apenas o mux A4
     //digitalWrite(Enable_A1,0);
     //digitalWrite(Enable_A2,0);
     //digitalWrite(Enable_A3,0);
@@ -72,19 +74,31 @@ void seleciona_canal_in(int canal){
   digitalWrite(A_S3, D);
   digitalWrite(A_S4, E);
 }
-//// ACIONAR X ELETRODO IN
 
 //// ACIONAR X ELETRODO OUT
-void seleciona_canal_in(int canal){
+void seleciona_canal_out(int canal){
   int A = bitRead(canal,0); //LSB canal
   int B = bitRead(canal,1);
   int C = bitRead(canal,2);
   int D = bitRead(canal,3);
   int E = bitRead(canal,4); //MSB canal
 
-  if (canal<8){
-    digitalWrite(Enable_B1,0)
-  }
+  if (canal<8){ //liga apenas o mux B1
+      digitalWrite(Enable_B1,0);
+    } else if(canal<16){ //liga apenas o mux B2
+      //digitalWrite(Enable_A1,0);
+      digitalWrite(Enable_B2,0);
+    } else if(canal<24){ //liga apenas o mux B3
+      //digitalWrite(Enable_A1,0);
+      //digitalWrite(Enable_A2,0);
+      digitalWrite(Enable_B3,0);
+    } else if(canal<32){ //liga apenas o mux B4
+      //digitalWrite(Enable_A1,0);
+      //digitalWrite(Enable_A2,0);
+      //digitalWrite(Enable_A3,0);
+      digitalWrite(Enable_B,0);
+    }
+
 
   digitalWrite(B_S0, A);
   digitalWrite(B_S1, B);
@@ -92,8 +106,8 @@ void seleciona_canal_in(int canal){
   digitalWrite(B_S3, D);
   digitalWrite(B_S4, E);
 }
-//// ACIONAR X ELETRODO OUT
 
+ */
 
 void liga_canal(int canal){
   switch (canal) {
@@ -282,7 +296,22 @@ void configura_pinos_mux(){
 void dadorecebido(int howmany){
   comando = Wire.read();  
   if(comando == 0) comando = 0xFF;
+  configura_pinos_mux(); //chama a funcao para desligar todos os mux entre cada comando
 }
+
+/*
+ *substitui a func dadorecebido() para receber dois bytes do master, sendo o numero do canal in e o do canal out
+
+ void dadorecebido(int howmany){
+  //comando = Wire.read();
+  int eletrodo_in = Wire.read();
+  int eletrodo_out = Wire.read();
+  //if(comando == 0) comando = 0xFF;
+  if(eletrodo_in == 0) eletrodo_in = 0xFF;
+  if(eletrodo_out == 0) eletrodo_out = 0xFF;
+  configura_pinos_mux(); //chama a funcao para desligar todos os mux entre cada comando
+}
+ */
 
 void processacomando(){
   contador = 0;
@@ -290,6 +319,19 @@ void processacomando(){
   else liga_canal(0);
   comando = 0;
 }
+
+/*
+void processacomando(){
+  contador = 0;
+  if(eletrodo_in < 0xFF) seleciona_canal_in(eletrodo_in);
+  else seleciona_canal_in(0);
+  eletrodo_in = 0;
+  if(eletrodo_out < 0xFF) seleciona_canal_out(eletrodo_out);
+  else seleciona_canal_out(0);
+  eletrodo_out = 0;
+}
+ */
+
 
 void setup() {
   Wire.begin(MEU_ENDERECO); //Endereço do MUX
@@ -302,6 +344,7 @@ void setup() {
 void loop() {
   contador = contador+1;
   if(comando!=0) processacomando();
+  //if(eletrodo_in!=0) processacomando(); substituicao da variavel 'comando' pela variavel 'eletrodo_in'
   if(contador>10000) digitalWrite(LED, HIGH); // Verificação de funcionamento
   else digitalWrite(LED, LOW); // Verificação de funcionamento
 }

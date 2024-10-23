@@ -33,14 +33,15 @@
 
 #define MEU_ENDERECO 0X51
 
-int npontos_base, n_pontos_mult;
+int npontos_base; //
+int n_pontos_mult;//
 
 const float referenceVolts= 3.3;
 float sample_freq =  (72e6 / 6.0 / 20.0); // = 600kHz
 float freq_sinal = 50000;  // 50kHz
-float phase1, phase2, amplitude1, amplitude2;
+float phase1, phase2, amplitude1, amplitude2; //phase1: phase2: amplitude1: amplitude2:
 int NUM_SAMPLES = 24;      // number of samples for each ADCx. Each channel will be sampled NUM_SAMPLES/CHANNELS_PER_ADC
-byte comando = 0;
+byte comando = 0; //entrada do i2c
 boolean mediu = false;
 
 typedef union{
@@ -68,14 +69,32 @@ uint16_t datav2[NUM_SAMPLES_MAX+1];
 // pino B0 (PB0) -> 8 (ADC8)
 // pino B1 (PB1) -> 9 (ADC9)
 // Para "dobrar" taxa de amostragem (FAST_INTERLEAVED true), medir o mesmo canal dos 2 ADCs.
-uint8 ADC1_Sequence[]={8,0,0,0,0,0};   // ADC1 channels sequence, left to right. Unused values must be 0. Note that these are ADC channels, not pins  
-uint8 ADC2_Sequence[]={9,0,0,0,0,0};   // ADC2 channels sequence, left to right. Unused values must be 0
+
+//uint8 ADC1_Sequence[]={8,0,0,0,0,0};   // ADC1 channels sequence, left to right. Unused values must be 0. Note that these are ADC /channels, not pins
+//uint8 ADC2_Sequence[]={9,0,0,0,0,0};   // ADC2 channels sequence, left to right. Unused values must be 0
+
+// CASO 1: lê canal X e amplitude I1
+/*  uint8 ADC1_Sequence[]={0,0,0,0,0,0}; //PA0 sign_C1
+ *  uint8 ADC2_Sequence[]={1,0,0,0,0,0}; //PA1 Ampl1
+ */
+
+// CASO 2: lê canal X e canal Y
+/*  uint8 ADC1_Sequence[]={0,0,0,0,0,0}; //PA0 sign_Cn
+ *  uint8 ADC2_Sequence[]={8,0,0,0,0,0}; //PB0 sign_Cn+4
+ */
+
+// CASO 3: lê canal X e amplitude I2
+/*  uint8 ADC1_Sequence[]={0,0,0,0,0,0}; //PA0 sign_Cn
+ *  uint8 ADC2_Sequence[]={8,0,0,0,0,0}; //PA4 Ampl2
+ */
 
 void dadorecebido(int howmany){
+  //recebe comando do master pelo i2c
   comando = Wire.read();   
 }
 
 void dadopedido(){
+  // Envia para o master os dados amplitude(amplitude1) e fase(phase2-phase1)
   if(mediu){
     for(int i=0;i<(NUM_SAMPLES);i++){
       binaryFloat amplitude, fase;
@@ -92,6 +111,7 @@ void dadopedido(){
 }
 
 void processacomando(){
+  //Define a frequencia do sinal lido e o n de amostras - em funcao do comando recebido do master
   switch (comando) {
     case 1: // 200Khz 6 pontos (6 pts = 2 ciclos)
       freq_sinal = 200000;
@@ -142,6 +162,8 @@ void processacomando(){
 }
 
 void mede_ADC(){
+  //Realiza a medicao das amplitudes vistas nos ADCs e calcula sinais medios;
+  //retorna o calculo de amplitude e fase
   digitalWrite(LED, LOW); // Verificação de funcionamento
   // medindo valores:
   start_convertion_dual_channel(adcbuf, NUM_SAMPLES);
@@ -175,7 +197,7 @@ void setup() {
   Wire.onReceive(dadorecebido);    // register event
   Wire.onRequest(dadopedido);      // dado solicitado
   
-  //Serial.begin(115200); // só usar para debigar...
+  //Serial.begin(115200); // só usar para debugar...
   set_adc_dual_channel(PRE_SCALER, ADC_SMPR, CHANNELS_PER_ADC, ADC1_Sequence, ADC2_Sequence, FAST_INTERLEAVED);  // initial ADC1 and ADC2 settings
 
    pinMode(LED, OUTPUT); // LED para verificação de funcionamento do eletrodo
