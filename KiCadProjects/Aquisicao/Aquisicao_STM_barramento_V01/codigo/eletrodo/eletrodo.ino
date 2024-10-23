@@ -33,6 +33,17 @@
 
 #define MEU_ENDERECO 0X51
 
+//#define comfase
+
+
+#if defined comfase
+       //
+#else
+       //
+#endif
+
+
+
 int npontos_base; //
 int n_pontos_mult;//
 
@@ -74,9 +85,9 @@ uint16_t datav2[NUM_SAMPLES_MAX+1];
 //uint8 ADC2_Sequence[]={9,0,0,0,0,0};   // ADC2 channels sequence, left to right. Unused values must be 0
 
 // CASO 1: lê canal X e amplitude I1
-/*  uint8 ADC1_Sequence[]={0,0,0,0,0,0}; //PA0 sign_C1
- *  uint8 ADC2_Sequence[]={1,0,0,0,0,0}; //PA1 Ampl1
- */
+uint8 ADC1_Sequence[]={0,0,0,0,0,0}; //PA0 sign_C1
+uint8 ADC2_Sequence[]={1,0,0,0,0,0}; //PA1 Ampl1
+
 
 // CASO 2: lê canal X e canal Y
 /*  uint8 ADC1_Sequence[]={0,0,0,0,0,0}; //PA0 sign_Cn

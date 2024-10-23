@@ -40,7 +40,7 @@ byte comando = 0;
 
 long int contador = 0;
 
-
+/*
 TRECHO QUE SUBISTITUI O switch/case (func liga_canal) PARA SELECIONAR OS CANAIS IN/OUT
 
 //// ACIONAR X ELETRODO IN
@@ -107,7 +107,7 @@ void seleciona_canal_out(int canal){
   digitalWrite(B_S4, E);
 }
 
-/*
+ */
 
 void liga_canal(int canal){
   switch (canal) {
@@ -251,8 +251,6 @@ void liga_canal(int canal){
    }
 }
 
-*/
-
 void configura_pinos_mux(){
   // Variaveis de seleção do Mux
   //IN
@@ -298,7 +296,7 @@ void configura_pinos_mux(){
 void dadorecebido(int howmany){
   comando = Wire.read();  
   if(comando == 0) comando = 0xFF;
-  //configura_pinos_mux(); //chama a funcao para desligar todos os mux entre cada comando
+  configura_pinos_mux(); //chama a funcao para desligar todos os mux entre cada comando
 }
 
 /*
@@ -315,28 +313,24 @@ void dadorecebido(int howmany){
 }
  */
 
-
-/*
 void processacomando(){
   contador = 0;
   if(comando < 0xFF) liga_canal(comando);
   else liga_canal(0);
   comando = 0;
 }
-*/
 
-
+/*
 void processacomando(){
   contador = 0;
-  if(comando < 0x7F) seleciona_canal_in(comando);
-  else if (comando > 0x7F && comando < 0xFF )seleciona_canal_out(comando);
-       else{
-        seleciona_canal_in(0);
-        seleciona_canal_in(0);
-       }
-  comando = 0;
+  if(eletrodo_in < 0xFF) seleciona_canal_in(eletrodo_in);
+  else seleciona_canal_in(0);
+  eletrodo_in = 0;
+  if(eletrodo_out < 0xFF) seleciona_canal_out(eletrodo_out);
+  else seleciona_canal_out(0);
+  eletrodo_out = 0;
 }
-
+ */
 
 
 void setup() {
