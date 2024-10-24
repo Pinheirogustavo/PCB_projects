@@ -41,7 +41,7 @@ byte comando = 0;
 long int contador = 0;
 
 
-TRECHO QUE SUBISTITUI O switch/case (func liga_canal) PARA SELECIONAR OS CANAIS IN/OUT
+//TRECHO QUE SUBISTITUI O switch/case (func liga_canal) PARA SELECIONAR OS CANAIS IN/OUT
 
 //// ACIONAR X ELETRODO IN
 void seleciona_canal_in(int canal){
@@ -332,7 +332,7 @@ void processacomando(){
   else if (comando > 0x7F && comando < 0xFF )seleciona_canal_out(comando);
        else{
         seleciona_canal_in(0);
-        seleciona_canal_in(0);
+        seleciona_canal_out(0);
        }
   comando = 0;
 }
@@ -344,7 +344,9 @@ void setup() {
   Wire.onReceive(dadorecebido);    // register event
   pinMode(LED, OUTPUT);
   configura_pinos_mux();
-  liga_canal(0);
+  //liga_canal(0);
+  seleciona_canal_in(0);
+  seleciona_canal_out(0);
 }
 
 void loop() {
