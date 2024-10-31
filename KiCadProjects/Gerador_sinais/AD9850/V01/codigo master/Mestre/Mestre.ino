@@ -1,3 +1,4 @@
+
 #include <Wire.h>
 
 #define NUM_ELETRODOS 8
@@ -33,8 +34,9 @@ float ampli_corrente[NUM_ELETRODOS], fase_corrente[NUM_ELETRODOS];
 
 void envia_comando_todos(byte comando){
   for (byte n = 0; n < num_eletrodos_usados; n++) wire_envia_byte(0X51+n,comando); // envia para eletrodos
-  wire_envia_byte(0X40,comando); // Envia para gerador de onda
+  //wire_envia_byte(0X40,comando); // Envia para gerador de onda
 }
+
 
 
 void imprime_uma_medida(float m1, float m2){
@@ -243,7 +245,20 @@ void processacomandoserial(){
       wire_envia_byte(0X61, 2);
       Serial.println("Injetando nos eletrodos 1 e 2");      
       break;
-     
+
+
+    //// DEBUG MUX
+    case 'd':
+      wire_envia_byte(0X60, 1);
+      Serial.println("DEBUG Injetando no eletrodo 1");
+      break;
+
+    case 'D':
+    wire_envia_byte(0X60, 129);
+      Serial.println("DEBUG Drenando no eletrodo 2");
+      break;
+
+   //// DEBUG MUX
     case 'b': // altear mux para padrão de injeção 2-3
       wire_envia_byte(0X60, 2);
       wire_envia_byte(0X61, 3);

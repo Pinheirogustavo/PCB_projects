@@ -275,11 +275,11 @@ void configura_pinos_mux(){
   pinMode(Enable_A4, OUTPUT); // MUX 4 "Eletrodo 25 a 32"
   pinMode(Enable_A, OUTPUT); // MUX 5 " Seleção do MUX
 
-  digitalWrite(Enable_A1, 1); // MUX 1 inicia desabilitado
-  digitalWrite(Enable_A2, 1); // MUX 2 inicia desabilitado
-  digitalWrite(Enable_A3, 1); // MUX 3 inicia desabilitado
-  digitalWrite(Enable_A4, 1); // MUX 4 inicia desabilitado
-  digitalWrite(Enable_A, 0); //  MUX 5 sempre habilitado
+  digitalWrite(Enable_A1, HIGH); // MUX 1 inicia desabilitado
+  digitalWrite(Enable_A2, HIGH); // MUX 2 inicia desabilitado
+  digitalWrite(Enable_A3, HIGH); // MUX 3 inicia desabilitado
+  digitalWrite(Enable_A4, HIGH); // MUX 4 inicia desabilitado
+  digitalWrite(Enable_A, LOW); //  MUX 5 sempre habilitado
 
   //  Variaveis de Habilitação do MUX OUT (Nivel logico baixo)
   pinMode(Enable_B1, OUTPUT); // MUX 1 "Eletrodo 1 a 8"
@@ -288,11 +288,11 @@ void configura_pinos_mux(){
   pinMode(Enable_B4, OUTPUT); // MUX 4 "Eletrodo 25 a 32"
   pinMode(Enable_B, OUTPUT); // MUX 5 " Seleção do MUX
 
-  digitalWrite(Enable_B1, 1); // MUX 1 inicia desabilitado
-  digitalWrite(Enable_B2, 1); // MUX 2 inicia desabilitado
-  digitalWrite(Enable_B3, 1); // MUX 3 inicia desabilitado
-  digitalWrite(Enable_B4, 1); // MUX 4 inicia desabilitado
-  digitalWrite(Enable_B, 0); //  MUX 5 sempre habilitado
+  digitalWrite(Enable_B1, HIGH); // MUX 1 inicia desabilitado
+  digitalWrite(Enable_B2, HIGH); // MUX 2 inicia desabilitado
+  digitalWrite(Enable_B3, HIGH); // MUX 3 inicia desabilitado
+  digitalWrite(Enable_B4, HIGH); // MUX 4 inicia desabilitado
+  digitalWrite(Enable_B, LOW); //  MUX 5 sempre habilitado
 }
 
 void dadorecebido(int howmany){
@@ -329,11 +329,14 @@ void processacomando(){
 void processacomando(){
   contador = 0;
   if(comando < 0x7F) seleciona_canal_in(comando);
-  else if (comando > 0x7F && comando < 0xFF )seleciona_canal_out(comando);
-       else{
-        seleciona_canal_in(0);
-        seleciona_canal_out(0);
-       }
+  else if (comando > 0x7F && comando < 0xFF ){
+          comando = comando-0x7F;
+          seleciona_canal_out(comando);
+      }
+      else{
+      seleciona_canal_in(0);
+      seleciona_canal_out(0);
+      }
   comando = 0;
 }
 
@@ -343,10 +346,11 @@ void setup() {
   Wire.begin(MEU_ENDERECO); //Endereço do MUX
   Wire.onReceive(dadorecebido);    // register event
   pinMode(LED, OUTPUT);
+  delay (3000);
   configura_pinos_mux();
   //liga_canal(0);
-  seleciona_canal_in(0);
-  seleciona_canal_out(0);
+  //seleciona_canal_in(0);
+  //seleciona_canal_out(0);
 }
 
 void loop() {
