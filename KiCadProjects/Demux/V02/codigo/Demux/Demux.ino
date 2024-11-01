@@ -52,6 +52,13 @@ void seleciona_canal_in(int canal){
   int D = bitRead(canal,3);
   int E = bitRead(canal,4); //MSB canal
 
+
+  digitalWrite(A_S0, A);
+  digitalWrite(A_S1, B);
+  digitalWrite(A_S2, C);
+  digitalWrite(A_S3, D);
+  digitalWrite(A_S4, E);
+
   if (canal<8){ // liga apenas o mux A1
       digitalWrite(Enable_A1,0);
   } else if(canal<16){ //liga apenas o mux A2
@@ -68,11 +75,7 @@ void seleciona_canal_in(int canal){
       digitalWrite(Enable_A4,0);
 }
 
-  digitalWrite(A_S0, A);
-  digitalWrite(A_S1, B);
-  digitalWrite(A_S2, C);
-  digitalWrite(A_S3, D);
-  digitalWrite(A_S4, E);
+
 }
 
 //// ACIONAR X ELETRODO OUT
