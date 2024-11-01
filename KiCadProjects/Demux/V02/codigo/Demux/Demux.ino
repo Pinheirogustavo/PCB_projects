@@ -2,7 +2,7 @@
 
 #include <Wire_slave.h>
 
-#define MEU_ENDERECO 0x60
+#define MEU_ENDERECO 0x60 //define endereco i2c do uC que controla o grupo de muxs
 
 
 //Sinais de selecao dos mux que controlam a injecao de corrente
@@ -34,7 +34,7 @@
 #define Enable_B3 PB10
 #define Enable_B4 PB11
 
-#define LED PC13
+#define LED PC13 //Led verde do uC stm32, usado para indicar determinadas acoes do uC
 
 byte comando = 0;
 
@@ -53,20 +53,20 @@ void seleciona_canal_in(int canal){
   int E = bitRead(canal,4); //MSB canal
 
   if (canal<8){ // liga apenas o mux A1
-    digitalWrite(Enable_A1,0);
+      digitalWrite(Enable_A1,0);
   } else if(canal<16){ //liga apenas o mux A2
-    //digitalWrite(Enable_A1,0);
-    digitalWrite(Enable_A2,0);
+      //digitalWrite(Enable_A1,0);
+      digitalWrite(Enable_A2,0);
   } else if(canal<24){ //liga apenas o mux A3
-    //digitalWrite(Enable_A1,0);
-    //digitalWrite(Enable_A2,0);
-    digitalWrite(Enable_A3,0);
+      //digitalWrite(Enable_A1,0);
+      //digitalWrite(Enable_A2,0);
+      digitalWrite(Enable_A3,0);
   } else if(canal<32){ //liga apenas o mux A4
-    //digitalWrite(Enable_A1,0);
-    //digitalWrite(Enable_A2,0);
-    //digitalWrite(Enable_A3,0);
-    digitalWrite(Enable_A4,0);
-  }
+      //digitalWrite(Enable_A1,0);
+      //digitalWrite(Enable_A2,0);
+      //digitalWrite(Enable_A3,0);
+      digitalWrite(Enable_A4,0);
+}
 
   digitalWrite(A_S0, A);
   digitalWrite(A_S1, B);
@@ -86,16 +86,10 @@ void seleciona_canal_out(int canal){
   if (canal<8){ //liga apenas o mux B1
       digitalWrite(Enable_B1,0);
     } else if(canal<16){ //liga apenas o mux B2
-      //digitalWrite(Enable_A1,0);
       digitalWrite(Enable_B2,0);
     } else if(canal<24){ //liga apenas o mux B3
-      //digitalWrite(Enable_A1,0);
-      //digitalWrite(Enable_A2,0);
       digitalWrite(Enable_B3,0);
     } else if(canal<32){ //liga apenas o mux B4
-      //digitalWrite(Enable_A1,0);
-      //digitalWrite(Enable_A2,0);
-      //digitalWrite(Enable_A3,0);
       digitalWrite(Enable_B,0);
     }
 
@@ -253,7 +247,7 @@ void liga_canal(int canal){
 
 */
 
-void configura_pinos_mux(){
+void configura_pinos_mux(){ //funcao define os pinos e estados dos sinais de controle dos mux; desativa todos
   // Variaveis de seleção do Mux
   //IN
   pinMode(A_S0, OUTPUT); 
@@ -269,36 +263,36 @@ void configura_pinos_mux(){
   pinMode(B_S4, OUTPUT);
   
   //  Variaveis de Habilitação do MUX IN (Nivel logico baixo)
-  pinMode(Enable_A1, OUTPUT); // MUX 1 "Eletrodo 1 a 8"
-  pinMode(Enable_A2, OUTPUT); // MUX 2 "Eletrodo 9 a 16"
-  pinMode(Enable_A3, OUTPUT); //MUX 3 'Eletrodo 17 a 24"
-  pinMode(Enable_A4, OUTPUT); // MUX 4 "Eletrodo 25 a 32"
-  pinMode(Enable_A, OUTPUT); // MUX 5 " Seleção do MUX
+  pinMode(Enable_A1, OUTPUT); //  MUX 1 "Eletrodo 0 a 7"
+  pinMode(Enable_A2, OUTPUT); //  MUX 2 "Eletrodo 8 a 15"
+  pinMode(Enable_A3, OUTPUT); //  MUX 3 "Eletrodo 16 a 23"
+  pinMode(Enable_A4, OUTPUT); //  MUX 4 "Eletrodo 24 a 31"
+  pinMode(Enable_A, OUTPUT);  //  MUX 5  primeiro da cascata
 
-  digitalWrite(Enable_A1, HIGH); // MUX 1 inicia desabilitado
-  digitalWrite(Enable_A2, HIGH); // MUX 2 inicia desabilitado
-  digitalWrite(Enable_A3, HIGH); // MUX 3 inicia desabilitado
-  digitalWrite(Enable_A4, HIGH); // MUX 4 inicia desabilitado
-  digitalWrite(Enable_A, LOW); //  MUX 5 sempre habilitado
+  digitalWrite(Enable_A1, HIGH);  // MUX 1 inicia desabilitado
+  digitalWrite(Enable_A2, HIGH);  // MUX 2 inicia desabilitado
+  digitalWrite(Enable_A3, HIGH);  // MUX 3 inicia desabilitado
+  digitalWrite(Enable_A4, HIGH);  // MUX 4 inicia desabilitado
+  digitalWrite(Enable_A, LOW);    // MUX 5 sempre habilitado
 
   //  Variaveis de Habilitação do MUX OUT (Nivel logico baixo)
-  pinMode(Enable_B1, OUTPUT); // MUX 1 "Eletrodo 1 a 8"
-  pinMode(Enable_B2, OUTPUT); // MUX 2 "Eletrodo 9 a 16"
-  pinMode(Enable_B3, OUTPUT); //MUX 3 'Eletrodo 17 a 24"
-  pinMode(Enable_B4, OUTPUT); // MUX 4 "Eletrodo 25 a 32"
-  pinMode(Enable_B, OUTPUT); // MUX 5 " Seleção do MUX
+  pinMode(Enable_B1, OUTPUT); //  MUX 1 "Eletrodo 0 a 7"
+  pinMode(Enable_B2, OUTPUT); //  MUX 2 "Eletrodo 8 a 15"
+  pinMode(Enable_B3, OUTPUT); //  MUX 3 "Eletrodo 16 a 23"
+  pinMode(Enable_B4, OUTPUT); //  MUX 4 "Eletrodo 24 a 31"
+  pinMode(Enable_B, OUTPUT);  //  MUX 5  primeiro da cascata
 
-  digitalWrite(Enable_B1, HIGH); // MUX 1 inicia desabilitado
-  digitalWrite(Enable_B2, HIGH); // MUX 2 inicia desabilitado
-  digitalWrite(Enable_B3, HIGH); // MUX 3 inicia desabilitado
-  digitalWrite(Enable_B4, HIGH); // MUX 4 inicia desabilitado
-  digitalWrite(Enable_B, LOW); //  MUX 5 sempre habilitado
+  digitalWrite(Enable_B1, HIGH);  // MUX 1 inicia desabilitado
+  digitalWrite(Enable_B2, HIGH);  // MUX 2 inicia desabilitado
+  digitalWrite(Enable_B3, HIGH);  // MUX 3 inicia desabilitado
+  digitalWrite(Enable_B4, HIGH);  // MUX 4 inicia desabilitado
+  digitalWrite(Enable_B, LOW);    //  MUX 5  primeiro da cascata
 }
 
 void dadorecebido(int howmany){
   comando = Wire.read();  
   if(comando == 0) comando = 0xFF;
-  //configura_pinos_mux(); //chama a funcao para desligar todos os mux entre cada comando
+  configura_pinos_mux(); //chama a funcao para desligar todos os mux entre cada comando; depois implementar: nova funcao que apenas desabilita os muxs
 }
 
 /*
@@ -329,14 +323,11 @@ void processacomando(){
 void processacomando(){
   contador = 0;
   if(comando < 0x7F) seleciona_canal_in(comando);
-  else if (comando > 0x7F && comando < 0xFF ){
+  if (comando > 0x7F && comando < 0xFF ){
           comando = comando-0x7F;
           seleciona_canal_out(comando);
-      }
-      else{
-      seleciona_canal_in(0);
-      seleciona_canal_out(0);
-      }
+  }
+
   comando = 0;
 }
 
@@ -348,15 +339,12 @@ void setup() {
   pinMode(LED, OUTPUT);
   delay (3000);
   configura_pinos_mux();
-  //liga_canal(0);
-  //seleciona_canal_in(0);
-  //seleciona_canal_out(0);
+
 }
 
 void loop() {
   contador = contador+1;
   if(comando!=0) processacomando();
-  //if(eletrodo_in!=0) processacomando(); substituicao da variavel 'comando' pela variavel 'eletrodo_in'
   if(contador>10000) digitalWrite(LED, HIGH); // Verificação de funcionamento
   else digitalWrite(LED, LOW); // Verificação de funcionamento
 }
