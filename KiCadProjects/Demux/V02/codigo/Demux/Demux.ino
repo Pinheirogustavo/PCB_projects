@@ -62,16 +62,10 @@ void seleciona_canal_in(int canal){
   if (canal<8){ // liga apenas o mux A1
       digitalWrite(Enable_A1,0);
   } else if(canal<16){ //liga apenas o mux A2
-      //digitalWrite(Enable_A1,0);
       digitalWrite(Enable_A2,0);
   } else if(canal<24){ //liga apenas o mux A3
-      //digitalWrite(Enable_A1,0);
-      //digitalWrite(Enable_A2,0);
       digitalWrite(Enable_A3,0);
   } else if(canal<32){ //liga apenas o mux A4
-      //digitalWrite(Enable_A1,0);
-      //digitalWrite(Enable_A2,0);
-      //digitalWrite(Enable_A3,0);
       digitalWrite(Enable_A4,0);
   }
 }

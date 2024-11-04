@@ -32,13 +32,16 @@ float fases_frame[NUM_ELETRODOS*NUM_ELETRODOS];
 
 float ampli_corrente[NUM_ELETRODOS], fase_corrente[NUM_ELETRODOS];
 
+//funcao para enviar o mesmo comando para todos perifericos de um mesmo conjunto (eletrodos, gerador, mux)
 void envia_comando_todos(byte comando){
   for (byte n = 0; n < num_eletrodos_usados; n++) wire_envia_byte(0X51+n,comando); // envia para eletrodos
   //wire_envia_byte(0X40,comando); // Envia para gerador de onda
+  //wire_envia_byte(0X60,comando); // Envia para controlador do mux
 }
 
-
-
+//imprime os valores de duas medidas, m1 e m2:
+  //m1: ???
+  //m2: ???
 void imprime_uma_medida(float m1, float m2){
   Serial.print("(");
   Serial.print(m1,3);
@@ -54,20 +57,21 @@ void imprime_uma_medida_limpa(float m1, float m2){
   Serial.print("\t");  
 }
 
-// avisando aos eletodos para iniciar nova leitura
+// avisa aos eletrodos para iniciar nova leitura. Envia comando 'i' para todos os uC dos eletrodos
+  //i: inicia_leitura_eletrodos();
 void inicia_leitura_eletrodos(){
   for (byte n = 0; n < num_eletrodos_usados; n++) wire_envia_byte(0X51+n,'i');
 }
 
-// Configurando os muxs e avisando aos eletodos para iniciar nova leitura
+// altera a injecao de corrente percorrendo todos os eletrodos; realiza medida de amp e fase a cada iteracao
 void inicia_leitura_um_frame(byte padrao){
   for (byte n = 0; n < num_eletrodos_usados; n++){ 
-    // Passo 1: Ajusta os mux
+    // Passo 1: define as saidas acionadas pelos muxs com base no num de eletrodos usados e padrao de injecao
     wire_envia_byte(0X60, 1 + n);
     wire_envia_byte(0X61, 1 + ( (n+padrao)%num_eletrodos_usados) );
 
     // Passo 2: Dispara leitura nos eletrodos
-    envia_comando_todos('i');
+    envia_comando_todos('i'); // i:inicia_leitura_eletrodos();
 
     // Passo 3: Aguarda a leitura e a demodulação
     delay(tempo_demodulacao); // deixar o menor possível que nunca dê erro
@@ -83,6 +87,7 @@ void inicia_leitura_um_frame(byte padrao){
   }
 }
 
+// pega a amplitude e fase da corrente monitorada no ina???
 void pega_leitura_de_um_eletrodo(byte endereco, float *amplitude, float *fase){
   Wire.requestFrom(endereco, 8);
 
@@ -95,6 +100,7 @@ void pega_leitura_de_um_eletrodo(byte endereco, float *amplitude, float *fase){
   *fase = fase_lida.floatingPoint;
 }
 
+//retorna arrays de amplitude e fase lidas sequencialmente em todos os eletrodos
 void pega_leitura_eletrodos(){
   for (byte n = 0; n < num_eletrodos_usados; n++){
     float ampl, pha;
@@ -104,52 +110,14 @@ void pega_leitura_eletrodos(){
   } 
 }
 
-void setup()
-{ 
-  Wire.begin(); // join i2c bus (address optional for master)
-  delay(300);  // aguarda 300ms para os slaves ligarem
-  wire_envia_byte(0X40,1); // Inciando gerador em 200kHz
-  n_pontos_base = 3;
-  n_pontos_mult = 2;
-  tempo_demodulacao = 2;
-  Serial.begin(115200);
-}
 
-void loop()
-{
-  if (Serial.available() > 0) {
-    processacomandoserial();
-  }
-  if(flag_leitura_continua){
-      inicia_leitura_um_frame(pula);
-      for (byte n = 0; n < num_eletrodos_usados*num_eletrodos_usados; n++){
-        imprime_uma_medida(amplitudes_frame[n],fases_frame[n]);
-      }
-      for (byte n = 0; n < num_eletrodos_usados; n++){
-        imprime_uma_medida(ampli_corrente[n],fase_corrente[n]);    
-      }
-      Serial.println();
-  }
-  if(flag_leitura_continua_limpa){
-      inicia_leitura_um_frame(pula);
-      for (byte n1 = 0; n1 < num_eletrodos_usados; n1++){
-        for (byte n2 = 0; n2 < num_eletrodos_usados; n2++){
-          byte n = n1*num_eletrodos_usados + n2;
-          if(flag_envia_impedancia){
-            imprime_uma_medida_limpa(amplitudes_frame[n]/ampli_corrente[n1],fases_frame[n]-fase_corrente[n1]);
-          }
-          else{
-            imprime_uma_medida_limpa(amplitudes_frame[n],fases_frame[n]);
-          }
-        }
-      }
-      for (byte n = 0; n < num_eletrodos_usados; n++){
-        imprime_uma_medida_limpa(ampli_corrente[n],fase_corrente[n]);    
-      }
-      Serial.println();
-  }
-}
-
+// A partir de um comando serial assume determinado fluxo de execucao, relacionados a:
+  //frequencia do sinal de excitacao
+  //tempo de demodulacao
+  //iniciar medidas dos eletrodos
+  //imprimir medidas dos eletrodos
+  //pegar frame e imprimir matriz ???
+  //alterar padrao de injecao
 void processacomandoserial(){
   int comandoserial = Serial.read();
    
@@ -161,6 +129,7 @@ void processacomandoserial(){
       tempo_demodulacao = 2;
       Serial.print("200Khz 6 pontos (6 pts = 2 ciclos) e tempo de demod = ");
       Serial.println(tempo_demodulacao);
+      //ad9850_sendFrequency(200000);
       break;
    
     case '2': // 125Khz 24 pontos (24pts = 5 ciclos)
@@ -170,6 +139,7 @@ void processacomandoserial(){
       tempo_demodulacao = 10;
       Serial.print("125Khz 24 pontos (24pts = 5 ciclos) e tempo de demod = ");
       Serial.println(tempo_demodulacao);
+      //ad9850_sendFrequency(125000);
       break;
    
     case '3': // 100Khz 12 pontos (12 pts = 2 ciclos)
@@ -179,6 +149,7 @@ void processacomandoserial(){
       tempo_demodulacao = 5;
       Serial.print("100Khz 12 pontos (12 pts = 2 ciclos) e tempo de demod = ");
       Serial.println(tempo_demodulacao);
+      //ad9850_sendFrequency(100000);
       break;
     
     case '4': // 50Khz 24 pontos (24 pts = 2 ciclos)
@@ -188,6 +159,7 @@ void processacomandoserial(){
       tempo_demodulacao = 10;
       Serial.print("50Khz 24 pontos (24 pts = 2 ciclos) e tempo de demod = ");
       Serial.println(tempo_demodulacao);
+      //ad9850_sendFrequency(50000);
       break; 
       
     case '-': // diminui tempo para medida e demodulação
@@ -348,8 +320,60 @@ void processacomandoserial(){
   }
 }
 
+// funcao para enviar um byte (com) a determinado periferico(endereco)
 void wire_envia_byte(byte endereco, byte com) {
     Wire.beginTransmission(endereco);
     Wire.write(com);
     Wire.endTransmission();    
 }
+
+
+void setup(){
+  Wire.begin(); // join i2c bus (address optional for master)
+  delay(300);  // aguarda 300ms para os slaves ligarem
+  wire_envia_byte(0X40,1); // Inciando gerador em 200kHz
+  n_pontos_base = 3;
+  n_pontos_mult = 2;
+  tempo_demodulacao = 2;
+  Serial.begin(115200);
+}
+
+void loop(){
+  if (Serial.available() > 0) {
+    processacomandoserial();
+  }
+  if(flag_leitura_continua){
+      inicia_leitura_um_frame(pula);
+      for (byte n = 0; n < num_eletrodos_usados*num_eletrodos_usados; n++){
+        imprime_uma_medida(amplitudes_frame[n],fases_frame[n]);
+      }
+      for (byte n = 0; n < num_eletrodos_usados; n++){
+        imprime_uma_medida(ampli_corrente[n],fase_corrente[n]);
+      }
+      Serial.println();
+  }
+  if(flag_leitura_continua_limpa){
+      inicia_leitura_um_frame(pula);
+      for (byte n1 = 0; n1 < num_eletrodos_usados; n1++){
+        for (byte n2 = 0; n2 < num_eletrodos_usados; n2++){
+          byte n = n1*num_eletrodos_usados + n2;
+          if(flag_envia_impedancia){
+            imprime_uma_medida_limpa(amplitudes_frame[n]/ampli_corrente[n1],fases_frame[n]-fase_corrente[n1]);
+          }
+          else{
+            imprime_uma_medida_limpa(amplitudes_frame[n],fases_frame[n]);
+          }
+        }
+      }
+      for (byte n = 0; n < num_eletrodos_usados; n++){
+        imprime_uma_medida_limpa(ampli_corrente[n],fase_corrente[n]);
+      }
+      Serial.println();
+  }
+}
+
+/* ACRESCIMO DA PARTE DO GERADOR
+ *
+ *
+ */
+
