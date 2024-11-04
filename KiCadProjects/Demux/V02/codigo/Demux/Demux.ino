@@ -42,10 +42,9 @@ byte comando = 0;
 long int contador = 0;
 
 
-//TRECHO QUE SUBISTITUI O switch/case (func liga_canal) PARA SELECIONAR OS CANAIS IN/OUT
 
 
-
+/*
 void testa(){
   for(int iii=1;iii<30;iii++){
     delay(50);
@@ -62,6 +61,7 @@ void testa(){
     digitalWrite(A_S4, 1); // B9
   }
 }
+*/
 
 //// ACIONAR X ELETRODO IN
 void seleciona_canal_in(int canal){
@@ -133,152 +133,6 @@ void seleciona_canal_out(int canal){
     }
 }
 
-/*
-
-void liga_canal(int canal){
-  switch (canal) {
-    case 0:
-      //Todos os eletrodos desligados
-      digitalWrite(MUX1, HIGH);   
-      digitalWrite(MUX2, HIGH);   
-      digitalWrite(MUX3, HIGH);   
-      digitalWrite(MUX4, HIGH);   
-      digitalWrite(MUX5, HIGH);
-  
-      digitalWrite(S0, LOW);   
-      digitalWrite(S1, LOW);   
-      digitalWrite(S2, LOW);   
-      digitalWrite(S3, LOW);   
-      digitalWrite(S4, LOW);
-      break;
-    
-    case 1: 
-      //Eletrodo_01
-      digitalWrite(MUX1, LOW);   
-      digitalWrite(MUX2, HIGH);   
-      digitalWrite(MUX3, HIGH);   
-      digitalWrite(MUX4, HIGH);   
-      digitalWrite(MUX5, LOW);
-  
-      digitalWrite(S0, LOW);   
-      digitalWrite(S1, LOW);   
-      digitalWrite(S2, LOW);   
-      digitalWrite(S3, LOW);   
-      digitalWrite(S4, LOW);
-      break;
-   
-    case 2: 
-      //Eletrodo_02
-      digitalWrite(MUX1, LOW);   
-      digitalWrite(MUX2, HIGH);   
-      digitalWrite(MUX3, HIGH);   
-      digitalWrite(MUX4, HIGH);   
-      digitalWrite(MUX5, LOW);
-    
-      digitalWrite(S0, HIGH);   
-      digitalWrite(S1, LOW);   
-      digitalWrite(S2, LOW);   
-      digitalWrite(S3, LOW);   
-      digitalWrite(S4, LOW);
-      break;
-   
-    case 3: 
-      //Eletrodo_03
-      digitalWrite(MUX1, LOW);   
-      digitalWrite(MUX2, HIGH);   
-      digitalWrite(MUX3, HIGH);   
-      digitalWrite(MUX4, HIGH);   
-      digitalWrite(MUX5, LOW);
-      
-      digitalWrite(S0, LOW);   
-      digitalWrite(S1, HIGH);   
-      digitalWrite(S2, LOW);   
-      digitalWrite(S3, LOW);   
-      digitalWrite(S4, LOW); 
-      break;
-    
-    case 4:
-      //Eletrodo_04
-      digitalWrite(MUX1, LOW);   
-      digitalWrite(MUX2, HIGH);   
-      digitalWrite(MUX3, HIGH);   
-      digitalWrite(MUX4, HIGH);   
-      digitalWrite(MUX5, LOW);
-    
-      digitalWrite(S0, HIGH);   
-      digitalWrite(S1, HIGH);   
-      digitalWrite(S2, LOW);   
-      digitalWrite(S3, LOW);   
-      digitalWrite(S4, LOW); 
-      break; 
-      
-    case 5: 
-      //Eletrodo_05
-      digitalWrite(MUX1, LOW);   
-      digitalWrite(MUX2, HIGH);   
-      digitalWrite(MUX3, HIGH);   
-      digitalWrite(MUX4, HIGH);   
-      digitalWrite(MUX5, LOW);
-      
-      digitalWrite(S0, LOW);   
-      digitalWrite(S1, LOW);   
-      digitalWrite(S2, HIGH);   
-      digitalWrite(S3, LOW);   
-      digitalWrite(S4, LOW);
-      break; 
-
-    case 6:
-      //Eletrodo_06
-      digitalWrite(MUX1, LOW);   
-      digitalWrite(MUX2, HIGH);   
-      digitalWrite(MUX3, HIGH);   
-      digitalWrite(MUX4, HIGH);   
-      digitalWrite(MUX5, LOW);
-    
-      digitalWrite(S0, HIGH);   
-      digitalWrite(S1, LOW);   
-      digitalWrite(S2, HIGH);   
-      digitalWrite(S3, LOW);   
-      digitalWrite(S4, LOW); 
-      break;
-    
-    case 7:
-      //Eletrodo_07  
-      digitalWrite(MUX1, LOW);   
-      digitalWrite(MUX2, HIGH);   
-      digitalWrite(MUX3, HIGH);   
-      digitalWrite(MUX4, HIGH);   
-      digitalWrite(MUX5, LOW);
-    
-      digitalWrite(S0, LOW);   
-      digitalWrite(S1, HIGH);   
-      digitalWrite(S2, HIGH);   
-      digitalWrite(S3, LOW);   
-      digitalWrite(S4, LOW); 
-      break;
-    
-    case 8:
-      //Eletrodo_08
-      digitalWrite(MUX1, LOW);   
-      digitalWrite(MUX2, HIGH);   
-      digitalWrite(MUX3, HIGH);   
-      digitalWrite(MUX4, HIGH);   
-      digitalWrite(MUX5, LOW);
-     
-      digitalWrite(S0, HIGH);   
-      digitalWrite(S1, HIGH);   
-      digitalWrite(S2, HIGH);   
-      digitalWrite(S3, LOW);   
-      digitalWrite(S4, LOW); 
-      break; 
-    
-    default:
-      break;
-   }
-}
-
-*/
-
 void configura_pinos_mux(){ //funcao define os pinos e estados dos sinais de controle dos mux; desativa todos
   // Variaveis de seleção do Mux
   //IN current
@@ -328,31 +182,6 @@ void dadorecebido(int howmany){
   configura_pinos_mux(); //chama a funcao para desligar todos os mux entre cada comando; depois implementar: nova funcao que apenas desabilita os muxs
 }
 
-/*
- *substitui a func dadorecebido() para receber dois bytes do master, sendo o numero do canal in e o do canal out
-
- void dadorecebido(int howmany){
-  //comando = Wire.read();
-  int eletrodo_in = Wire.read();
-  int eletrodo_out = Wire.read();
-  //if(comando == 0) comando = 0xFF;
-  if(eletrodo_in == 0) eletrodo_in = 0xFF;
-  if(eletrodo_out == 0) eletrodo_out = 0xFF;
-  configura_pinos_mux(); //chama a funcao para desligar todos os mux entre cada comando
-}
- */
-
-
-/*
-void processacomando(){
-  contador = 0;
-  if(comando < 0xFF) liga_canal(comando);
-  else liga_canal(0);
-  comando = 0;
-}
-*/
-
-
 void processacomando(){
   //avalia o comando recebido pelo i2c
     //se 'comando' entre 0 e 127 -> indica o eletrodo de injecao de corrente
@@ -368,10 +197,8 @@ void processacomando(){
   comando = 0;
 }
 
-
-
 void setup() {
-  disableDebugPorts();// permite utilizar os pinos B4, B5 e A15 como GPIO, mover BOOT0 para 1 para poder gravar
+  disableDebugPorts();// permite utilizar os pinos B3, B4 e A15 como GPIO, mover BOOT0 para 1 para poder gravar
   Wire.begin(MEU_ENDERECO); //Endereço do MUX
   Wire.onReceive(dadorecebido);    // chama uma funcao qualquer quando algum dado eh recebido pelo i2c
   pinMode(LED, OUTPUT);
@@ -382,6 +209,14 @@ void setup() {
   Serial.println("Demux ok");
 }
 
+/* Sobre habilitar os pinos B3, B4 e A15 para uso como GPIO:
+ * Os pinos B3(JTDI), B4(JTDO) e A15(JTRST) da placa STM32 estão definidos como funcao Control e estao relacionados com testes e depuracao d uC e a placa. Por isso estao sempre em sinal alto, mesmo que você defina esses pinos como saida e envie um sinal baixo.
+ * Para poder utilizar esses pinos como saidas digitais, eh preciso adicionar a funcao 'disableDebugPorts()' na funcao setup.
+ * Para conseguir gravar seu programa por meio do stlink, eh preciso alterar o BOOT0 para 1. Caso contrario, a ide ira retornar uma mensagem de erro relacionada com a identificacao do chip.
+ * Para acessar o monitor serial da placa, eh preciso retornar o BOOT0 para 0.
+ *
+ *  help disableDebugPorts: Disable the JTAG and Serial Wire (SW) debug ports.You can call this function in order to use the JTAG and SW debug pins as ordinary GPIOs. http://docs.leaflabs.com/static.leaflabs.com/pub/leaflabs/maple-docs/0.0.10/lang/api/disabledebugports.html
+ */
 
 
 void loop() {
