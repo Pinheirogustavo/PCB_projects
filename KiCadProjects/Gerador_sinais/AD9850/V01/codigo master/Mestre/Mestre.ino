@@ -247,7 +247,7 @@ void processacomandoserial(){
       break;
 
 
-    //// DEBUG MUX
+    //// DEBUG MUX inicio
     case 'd':
       wire_envia_byte(0X60, 1);
       Serial.println("DEBUG Injetando no eletrodo 1");
@@ -258,7 +258,7 @@ void processacomandoserial(){
       Serial.println("DEBUG Drenando no eletrodo 2");
       break;
 
-   //// DEBUG MUX
+   //// DEBUG MUX fim
     case 'b': // altear mux para padrão de injeção 2-3
       wire_envia_byte(0X60, 2);
       wire_envia_byte(0X61, 3);

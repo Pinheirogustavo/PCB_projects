@@ -73,9 +73,7 @@ void seleciona_canal_in(int canal){
       //digitalWrite(Enable_A2,0);
       //digitalWrite(Enable_A3,0);
       digitalWrite(Enable_A4,0);
-}
-
-
+  }
 }
 
 //// ACIONAR X ELETRODO OUT
@@ -86,6 +84,12 @@ void seleciona_canal_out(int canal){
   int D = bitRead(canal,3);
   int E = bitRead(canal,4); //MSB canal
 
+  digitalWrite(B_S0, A);
+  digitalWrite(B_S1, B);
+  digitalWrite(B_S2, C);
+  digitalWrite(B_S3, D);
+  digitalWrite(B_S4, E);
+
   if (canal<8){ //liga apenas o mux B1
       digitalWrite(Enable_B1,0);
     } else if(canal<16){ //liga apenas o mux B2
@@ -95,13 +99,6 @@ void seleciona_canal_out(int canal){
     } else if(canal<32){ //liga apenas o mux B4
       digitalWrite(Enable_B,0);
     }
-
-
-  digitalWrite(B_S0, A);
-  digitalWrite(B_S1, B);
-  digitalWrite(B_S2, C);
-  digitalWrite(B_S3, D);
-  digitalWrite(B_S4, E);
 }
 
 /*
@@ -252,13 +249,13 @@ void liga_canal(int canal){
 
 void configura_pinos_mux(){ //funcao define os pinos e estados dos sinais de controle dos mux; desativa todos
   // Variaveis de seleção do Mux
-  //IN
+  //IN current
   pinMode(A_S0, OUTPUT); 
   pinMode(A_S1, OUTPUT);
   pinMode(A_S2, OUTPUT);
   pinMode(A_S3, OUTPUT);
   pinMode(A_S4, OUTPUT); 
-  //OUT
+  //OUT current
   pinMode(B_S0, OUTPUT); 
   pinMode(B_S1, OUTPUT);
   pinMode(B_S2, OUTPUT);
@@ -324,13 +321,15 @@ void processacomando(){
 
 
 void processacomando(){
+  //avalia o comando recebido pelo i2c
+    //se 'comando' entre 0 e 126 -> indica o eletrodo de injecao de corrente
+    //se 'comando' entre 127 e 254 -> indica o eletrodo de drenagem de corrente
   contador = 0;
   if(comando < 0x7F) seleciona_canal_in(comando);
-  if (comando > 0x7F && comando < 0xFF ){
+  if (comando >= 0x7F && comando < 0xFF ){
           comando = comando-0x7F;
           seleciona_canal_out(comando);
   }
-
   comando = 0;
 }
 
@@ -338,7 +337,7 @@ void processacomando(){
 
 void setup() {
   Wire.begin(MEU_ENDERECO); //Endereço do MUX
-  Wire.onReceive(dadorecebido);    // register event
+  Wire.onReceive(dadorecebido);    // chama uma funcao qualquer quando algum dado eh recebido pelo i2c
   pinMode(LED, OUTPUT);
   delay (3000);
   configura_pinos_mux();
