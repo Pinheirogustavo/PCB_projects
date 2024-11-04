@@ -1,5 +1,6 @@
 
 #include <Wire.h>
+#include "ad9850.h"
 
 #define NUM_ELETRODOS 8
 byte num_eletrodos_usados = NUM_ELETRODOS; // mudar para: int num_eletrodos_usados = NUM_ELETRODOS
@@ -129,7 +130,7 @@ void processacomandoserial(){
       tempo_demodulacao = 2;
       Serial.print("200Khz 6 pontos (6 pts = 2 ciclos) e tempo de demod = ");
       Serial.println(tempo_demodulacao);
-      //ad9850_sendFrequency(200000);
+      ad9850_sendFrequency(200000);
       break;
    
     case '2': // 125Khz 24 pontos (24pts = 5 ciclos)
@@ -139,7 +140,7 @@ void processacomandoserial(){
       tempo_demodulacao = 10;
       Serial.print("125Khz 24 pontos (24pts = 5 ciclos) e tempo de demod = ");
       Serial.println(tempo_demodulacao);
-      //ad9850_sendFrequency(125000);
+      ad9850_sendFrequency(125000);
       break;
    
     case '3': // 100Khz 12 pontos (12 pts = 2 ciclos)
@@ -149,7 +150,7 @@ void processacomandoserial(){
       tempo_demodulacao = 5;
       Serial.print("100Khz 12 pontos (12 pts = 2 ciclos) e tempo de demod = ");
       Serial.println(tempo_demodulacao);
-      //ad9850_sendFrequency(100000);
+      ad9850_sendFrequency(100000);
       break;
     
     case '4': // 50Khz 24 pontos (24 pts = 2 ciclos)
@@ -159,7 +160,7 @@ void processacomandoserial(){
       tempo_demodulacao = 10;
       Serial.print("50Khz 24 pontos (24 pts = 2 ciclos) e tempo de demod = ");
       Serial.println(tempo_demodulacao);
-      //ad9850_sendFrequency(50000);
+      ad9850_sendFrequency(50000);
       break; 
       
     case '-': // diminui tempo para medida e demodulação
@@ -378,4 +379,3 @@ void loop(){
  * }
  *
  */
-

@@ -6,7 +6,7 @@
  * A diminuicao da amplitude do sinal eh feita pelo caracter "d" 
  */
 #include "ad9850.h"
-#include "gerador.h"
+//#include "gerador.h"
 
 //#include<Wire.h>    
 
