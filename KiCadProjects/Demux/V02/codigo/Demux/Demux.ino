@@ -1,6 +1,7 @@
 //Baseado em: https://github.com/Silvio8989/Equipamento-de-tomografia-por-impedancia-eletrica-escalavel-e-de-baixo-custo-para-uso-didatico/tree/main/C%C3%B3digos/Seguidor/Mux_Entrada/Mux_Entrada.ino
 
 #include <Wire_slave.h>
+//#include <stm32f1xx_hal_rcc.h>
 
 #define MEU_ENDERECO 0x60 //define endereco i2c do uC que controla o grupo de muxs
 
@@ -43,21 +44,50 @@ long int contador = 0;
 
 //TRECHO QUE SUBISTITUI O switch/case (func liga_canal) PARA SELECIONAR OS CANAIS IN/OUT
 
+
+
+void testa(){
+  for(int iii=1;iii<30;iii++){
+    delay(50);
+    digitalWrite(A_S0, 0); // B5
+    digitalWrite(A_S1, 0); // B4
+    digitalWrite(A_S2, 0); // B3
+    digitalWrite(A_S3, 0); // A15
+    digitalWrite(A_S4, 0); // B9
+    delay(50);
+    digitalWrite(A_S0, 1); // B5
+    digitalWrite(A_S1, 1); // B4
+    digitalWrite(A_S2, 1); // B3
+    digitalWrite(A_S3, 1); // A15
+    digitalWrite(A_S4, 1); // B9
+  }
+}
+
 //// ACIONAR X ELETRODO IN
 void seleciona_canal_in(int canal){
   //canais iniciam no num 0
-  int A = bitRead(canal,0); //LSB canal
-  int B = bitRead(canal,1);
-  int C = bitRead(canal,2);
-  int D = bitRead(canal,3);
-  int E = bitRead(canal,4); //MSB canal
+  byte A = bitRead(canal,0); //LSB canal
+  byte B = bitRead(canal,1);
+  byte C = bitRead(canal,2);
+  byte D = bitRead(canal,3);
+  byte E = bitRead(canal,4); //MSB canal
+
+  Serial.print("canal ");
+  Serial.println(canal);
+  Serial.print(A);
+  Serial.print(B);
+  Serial.print(C);
+  Serial.print(D);
+  Serial.println(E);
+
+  //testa();
 
 
-  digitalWrite(A_S0, A);
-  digitalWrite(A_S1, B);
-  digitalWrite(A_S2, C);
-  digitalWrite(A_S3, D);
-  digitalWrite(A_S4, E);
+  digitalWrite(A_S0, A); // B5
+  digitalWrite(A_S1, B); // B4
+  digitalWrite(A_S2, C); // B3
+  digitalWrite(A_S3, D); // A15
+  digitalWrite(A_S4, E); // B9
 
   if (canal<8){ // liga apenas o mux A1
       digitalWrite(Enable_A1,0);
@@ -77,6 +107,14 @@ void seleciona_canal_out(int canal){
   int C = bitRead(canal,2);
   int D = bitRead(canal,3);
   int E = bitRead(canal,4); //MSB canal
+
+  Serial.print("canal ");
+  Serial.println(canal);
+  Serial.print(A);
+  Serial.print(B);
+  Serial.print(C);
+  Serial.print(D);
+  Serial.println(E);
 
   digitalWrite(B_S0, A);
   digitalWrite(B_S1, B);
@@ -281,6 +319,7 @@ void configura_pinos_mux(){ //funcao define os pinos e estados dos sinais de con
   digitalWrite(Enable_B3, HIGH);  // MUX 3 inicia desabilitado
   digitalWrite(Enable_B4, HIGH);  // MUX 4 inicia desabilitado
   digitalWrite(Enable_B, LOW);    //  MUX 5  primeiro da cascata
+
 }
 
 void dadorecebido(int howmany){
@@ -332,13 +371,18 @@ void processacomando(){
 
 
 void setup() {
+  disableDebugPorts();// permite utilizar os pinos B4, B5 e A15 como GPIO, mover BOOT0 para 1 para poder gravar
   Wire.begin(MEU_ENDERECO); //Endereço do MUX
   Wire.onReceive(dadorecebido);    // chama uma funcao qualquer quando algum dado eh recebido pelo i2c
   pinMode(LED, OUTPUT);
   delay (3000);
+  digitalWrite(LED, HIGH);
   configura_pinos_mux();
-
+  Serial.begin(115200);
+  Serial.println("Demux ok");
 }
+
+
 
 void loop() {
   contador = contador+1;
