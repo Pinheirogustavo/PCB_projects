@@ -316,12 +316,14 @@ void processacomando(){
 
 void processacomando(){
   //avalia o comando recebido pelo i2c
-    //se 'comando' entre 0 e 126 -> indica o eletrodo de injecao de corrente
-    //se 'comando' entre 127 e 254 -> indica o eletrodo de drenagem de corrente
+    //se 'comando' entre 0 e 127 -> indica o eletrodo de injecao de corrente
+    //se 'comando' entre 127 e 255 -> indica o eletrodo de drenagem de corrente
   contador = 0;
-  if(comando < 0x7F) seleciona_canal_in(comando);
-  if (comando >= 0x7F && comando < 0xFF ){
-          comando = comando-0x7F;
+  Serial.print("recebi comando "); //debug
+  Serial.println(comando, HEX);  //debug
+  if(comando <= 0x7F) seleciona_canal_in(comando);
+  if (comando > 0x7F && comando < 0xFF ){
+          comando = comando-0x80;
           seleciona_canal_out(comando);
   }
   comando = 0;

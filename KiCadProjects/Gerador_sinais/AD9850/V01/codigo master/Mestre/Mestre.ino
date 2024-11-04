@@ -226,7 +226,7 @@ void processacomandoserial(){
       break;
 
     case 'D':
-    wire_envia_byte(0X60, 129);
+    wire_envia_byte(0X60, 0X80+2);
       Serial.println("DEBUG Drenando no eletrodo 2");
       break;
 
@@ -373,7 +373,9 @@ void loop(){
 }
 
 /* ACRESCIMO DA PARTE DO GERADOR
+ *void monitora_corrente(){
  *
+ * }
  *
  */
 
