@@ -90,6 +90,15 @@ void seleciona_canal_in(int canal){
   byte E = bitRead(canal,4); //MSB canal
 
 
+
+
+  Serial.print("canal ");
+  Serial.println(canal);
+  Serial.print(A);
+  Serial.print(B);
+  Serial.print(C);
+  Serial.print(D);
+  Serial.println(E);
   //testa();
 
 
@@ -117,6 +126,15 @@ void seleciona_canal_out(int canal){
   int C = bitRead(canal,2);
   int D = bitRead(canal,3);
   int E = bitRead(canal,4); //MSB canal
+
+  
+  Serial.print("canal ");
+  Serial.println(canal);
+  Serial.print(A);
+  Serial.print(B);
+  Serial.print(C);
+  Serial.print(D);
+  Serial.println(E);
 
   digitalWrite(B_S0, A);
   digitalWrite(B_S1, B);

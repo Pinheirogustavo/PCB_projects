@@ -6,10 +6,10 @@
 #define MEU_ENDERECO 0x60 //define endereco i2c do uC que controla o grupo de muxs
 #define LED PC13 //Led verde do uC stm32, usado para indicar determinadas acoes do uC
 
-byte comando = 0;
+byte comando = 0, comando_in = 0, comando_out = 0;
 long int contador = 0;
 
-#define debug
+//#define debug
 
 #if defined debug
 
@@ -79,12 +79,26 @@ void processacomando(){
   contador = 0;
   Serial.print("recebi comando "); //debug
   Serial.println(comando, HEX);  //debug
-  if(comando <= 0x7F) seleciona_canal_in(comando);
-  if (comando > 0x7F && comando < 0xFF ){
-          comando = comando-0x80;
-          seleciona_canal_out(comando);
+  if(comando <= 0x7F){
+    comando_in = comando;
+    seleciona_canal_in(comando_in);
   }
-//  comando = 0;
+  if (comando > 0x7F && comando < 0xFF ){ //Fluxo de execucao quando eletrodo de drenagem
+    comando_out = comando-0x80;
+      if (comando_out != comando_in) seleciona_canal_out(comando_out);
+      else{ //se o eletrodo de drenagem for o mesmo da injecao, a drenagem ocorre no eletrodo seguinte
+        comando_out = comando_out+1;
+        seleciona_canal_out(comando_out);
+          for(int i=1;i<1800;i++){
+            //sendo o eletrodo de drenagem igual ao da injecao, o led do uC pisca por 2.5 min para avisar o usuario
+            digitalWrite(LED, HIGH);
+            delay(50);
+            digitalWrite(LED, LOW);
+            delay(50);
+          }
+      }
+  }
+  comando = -1;
 }
 
 void setup() {
@@ -109,7 +123,7 @@ void setup() {
 
 void loop() {
   contador = contador+1;
-  if(comando!=0) processacomando();
+  if(comando!=-1) processacomando();
   if(contador>10000) digitalWrite(LED, HIGH); // Verificação de funcionamento
   else digitalWrite(LED, LOW); // Verificação de funcionamento
 }
