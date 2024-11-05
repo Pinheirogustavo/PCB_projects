@@ -1,6 +1,7 @@
 //Baseado em: https://github.com/Silvio8989/Equipamento-de-tomografia-por-impedancia-eletrica-escalavel-e-de-baixo-custo-para-uso-didatico/tree/main/C%C3%B3digos/Seguidor/Mux_Entrada/Mux_Entrada.ino
 
 #include <Wire_slave.h>
+#include "demux.h"
 
 #define MEU_ENDERECO 0x60 //define endereco i2c do uC que controla o grupo de muxs
 #define LED PC13 //Led verde do uC stm32, usado para indicar determinadas acoes do uC
