@@ -227,7 +227,7 @@ void processacomandoserial(){
       break;
 
     case 'D':
-    wire_envia_byte(0X60, 0X80+2);
+    wire_envia_byte(0X60, 0X80+1);
       Serial.println("DEBUG Drenando no eletrodo 2");
       break;
 
