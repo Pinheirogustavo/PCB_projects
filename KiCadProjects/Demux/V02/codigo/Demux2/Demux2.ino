@@ -9,7 +9,7 @@
 byte comando = 0;
 long int contador = 0;
 
-//#define debug
+#define debug
 
 #if defined debug
 
@@ -32,6 +32,7 @@ void testa(){
 
 void imprime_canais(){
   if(comando <= 0x7F){
+    seleciona_canal_in(comando);
     Serial.print("input current ");
     Serial.print("channel ");
     Serial.println(comando);
@@ -44,6 +45,7 @@ void imprime_canais(){
 
   if (comando > 0x7F && comando < 0xFF ){
     comando = comando-0x80;
+    seleciona_canal_out(comando);
     Serial.print("Output current ");
     Serial.print("channel ");
     Serial.println(comando);
@@ -56,7 +58,7 @@ void imprime_canais(){
 }
 
 testa();
-imprime_canais();
+//imprime_canais();
 
 #else
        //
