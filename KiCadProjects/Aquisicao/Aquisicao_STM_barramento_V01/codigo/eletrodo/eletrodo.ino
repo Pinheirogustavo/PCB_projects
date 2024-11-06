@@ -52,6 +52,7 @@ float sample_freq =  (72e6 / 6.0 / 20.0); // = 600kHz
 float freq_sinal = 50000;  // 50kHz
 float phase1, phase2, amplitude1, amplitude2; //phase1: phase2: amplitude1: amplitude2:
 int NUM_SAMPLES = 24;      // number of samples for each ADCx. Each channel will be sampled NUM_SAMPLES/CHANNELS_PER_ADC
+//NUM_SAMPLES precisa apenas ser iniciada????????? pode ser qualquer valor??????????
 byte comando = 0; //entrada do i2c
 boolean mediu = false;
 
@@ -99,6 +100,93 @@ uint8 ADC2_Sequence[]={1,0,0,0,0,0}; //PA1 Ampl1
  *  uint8 ADC2_Sequence[]={8,0,0,0,0,0}; //PA4 Ampl2
  */
 
+
+void mede_ADC(){
+  //Realiza a medicao das amplitudes vistas nos ADCs e calcula sinais medios;
+  //retorna o calculo de amplitude e fase
+  digitalWrite(LED, LOW); // Verificação de funcionamento
+  // medindo valores:
+  start_convertion_dual_channel(adcbuf, NUM_SAMPLES);
+  wait_convertion_dual_channel();
+
+  // separando valores lidos nos 2 ADCs:
+  for(int i=0;i<(NUM_SAMPLES);i++) {
+    datav1[i] = ((adcbuf[i] & 0xFFFF0000) >>16);
+    datav2[i] = (adcbuf[i] & 0xFFFF);
+  }
+
+  // calculando amplitudes e fases
+  float media1 = sinal_medio (datav1, NUM_SAMPLES);
+  phase1 = 0;
+  amplitude1 =   calc_dft_singfreq(datav1, freq_sinal, sample_freq, media1, 10000, NUM_SAMPLES, &phase1);
+  //calc_dft_singfreq(datav1, freq_sinal, sample_freq, media1, 10000, NUM_SAMPLES, &phase1);
+    //verificar essa funcao no programa TG, pois retornava amplitude e fase
+
+  float media2 = sinal_medio (datav2, NUM_SAMPLES);
+  phase2 = 0;
+  amplitude2 =   calc_dft_singfreq(datav2, freq_sinal, sample_freq, media2, 10000, NUM_SAMPLES, &phase2);
+
+  mediu = true;
+  digitalWrite(LED, HIGH); // Verificação de funcionamento
+}
+
+void processacomando(){
+  //Define a frequencia do sinal lido e o n de amostras - em funcao do comando recebido do master
+  switch (comando) {
+    case 1: // 200Khz 6 pontos (6 pts = 2 ciclos)
+      freq_sinal = 200000;
+      npontos_base = 3; // sample_freq/freq_sinal
+      n_pontos_mult = 2;
+      NUM_SAMPLES = npontos_base*n_pontos_mult;
+      break;
+
+    case 2: // 125Khz 24 pontos (24pts = 5 ciclos)
+      freq_sinal = 125000;
+      npontos_base = 24;  // (sample_freq/freq_sinal)*5
+      n_pontos_mult = 1;
+      NUM_SAMPLES = npontos_base*n_pontos_mult;
+      break;
+
+    case 3: // 100Khz 12 pontos (12 pts = 2 ciclos)
+      freq_sinal = 100000;
+      npontos_base = 6; // sample_freq/freq_sinal
+      n_pontos_mult = 2;
+      NUM_SAMPLES = npontos_base*n_pontos_mult;
+      break;
+
+    case 4: // 50Khz 24 pontos (24 pts = 20 ciclos)
+      freq_sinal = 50000;
+      npontos_base = 12; //(sample_freq/freq_sinal)*10
+      n_pontos_mult = 2;
+      NUM_SAMPLES = npontos_base*n_pontos_mult;
+      break;
+
+    case 'i': // inicializa as medidas dos eletrodos
+      mede_ADC();
+      break;
+
+    case 't': // decrementa o numero de pontos amostrados (diminui o fator de multiplicacao de ciclos amostrados)
+      n_pontos_mult = n_pontos_mult-1;
+      NUM_SAMPLES = npontos_base*n_pontos_mult;
+      // Como garanto que nao ultrapasso o limite NUM_SAMPLES_MAX ????????????????
+      //Serial.print("num_samples: ");
+      //Serial.println(NUM_SAMPLES);
+      break;
+
+    case 'y': // incrementa o numero de pontos amostrados (aumenta o fator de multiplicacao de ciclos amostrados)
+      n_pontos_mult = n_pontos_mult+1;
+      NUM_SAMPLES = npontos_base*n_pontos_mult;
+      // Como garanto que nao multiplico por zero ????????????????
+      //Serial.print("num_samples: ");
+      //Serial.println(NUM_SAMPLES);
+      break;
+
+    default:
+      break;
+  }
+  comando = 0;
+}
+
 void dadorecebido(int howmany){
   //recebe comando do master pelo i2c
   comando = Wire.read();   
@@ -121,92 +209,11 @@ void dadopedido(){
   }
 }
 
-void processacomando(){
-  //Define a frequencia do sinal lido e o n de amostras - em funcao do comando recebido do master
-  switch (comando) {
-    case 1: // 200Khz 6 pontos (6 pts = 2 ciclos)
-      freq_sinal = 200000;
-      npontos_base = 3;
-      n_pontos_mult = 2;
-      NUM_SAMPLES = npontos_base*n_pontos_mult;
-      break;
-   
-    case 2: // 125Khz 24 pontos (24pts = 5 ciclos)
-      freq_sinal = 125000;
-      npontos_base = 24;
-      n_pontos_mult = 1;
-      NUM_SAMPLES = npontos_base*n_pontos_mult;
-      break;
-   
-    case 3: // 100Khz 12 pontos (12 pts = 2 ciclos)
-      freq_sinal = 100000;
-      npontos_base = 6;
-      n_pontos_mult = 2;
-      NUM_SAMPLES = npontos_base*n_pontos_mult;
-      break;
-    
-    case 4: // 50Khz 24 pontos (24 pts = 2 ciclos)
-      freq_sinal = 50000;
-      npontos_base = 12;
-      n_pontos_mult = 2;
-      NUM_SAMPLES = npontos_base*n_pontos_mult;
-      break; 
-      
-    case 'i': // realiza medidas
-      mede_ADC();
-      break; 
-      
-    case 't': // realiza medidas
-      n_pontos_mult = n_pontos_mult-1;
-      NUM_SAMPLES = npontos_base*n_pontos_mult;
-      break; 
-      
-    case 'y': // realiza medidas
-      n_pontos_mult = n_pontos_mult+1;
-      NUM_SAMPLES = npontos_base*n_pontos_mult;
-      break; 
-      
-    default:
-      break;
-  }
-  comando = 0;
-}
-
-void mede_ADC(){
-  //Realiza a medicao das amplitudes vistas nos ADCs e calcula sinais medios;
-  //retorna o calculo de amplitude e fase
-  digitalWrite(LED, LOW); // Verificação de funcionamento
-  // medindo valores:
-  start_convertion_dual_channel(adcbuf, NUM_SAMPLES);
-  wait_convertion_dual_channel();
-
-  // separando valores lidos nos 2 ADCs:
-  for(int i=0;i<(NUM_SAMPLES);i++) {
-    datav1[i] = ((adcbuf[i] & 0xFFFF0000) >>16);
-    datav2[i] = (adcbuf[i] & 0xFFFF);
-  }
-
-  // calculando amplitudes e fases
-  float media1 = sinal_medio (datav1, NUM_SAMPLES);
-  phase1 = 0;
-  amplitude1 =   calc_dft_singfreq(datav1, freq_sinal, sample_freq, media1, 10000, NUM_SAMPLES, &phase1);
-  
-  float media2 = sinal_medio (datav2, NUM_SAMPLES);
-  phase2 = 0;
-  amplitude2 =   calc_dft_singfreq(datav2, freq_sinal, sample_freq, media2, 10000, NUM_SAMPLES, &phase2);
-
-  mediu = true;
-  digitalWrite(LED, HIGH); // Verificação de funcionamento
-}
-
-
-
-
 ////////////////////////////////////////////////////////////////////////////////////
 void setup() {
   Wire.begin(MEU_ENDERECO);                // join i2c bus with address 
-  Wire.onReceive(dadorecebido);    // register event
-  Wire.onRequest(dadopedido);      // dado solicitado
+  Wire.onReceive(dadorecebido);    // argumento: funcao a ser chamada quando o periferico receber dado
+  Wire.onRequest(dadopedido);      // argumento: funcao a ser chamada quando o controlador solicitar dados
   
   //Serial.begin(115200); // só usar para debugar...
   set_adc_dual_channel(PRE_SCALER, ADC_SMPR, CHANNELS_PER_ADC, ADC1_Sequence, ADC2_Sequence, FAST_INTERLEAVED);  // initial ADC1 and ADC2 settings
