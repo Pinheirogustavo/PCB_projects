@@ -154,9 +154,9 @@ void processacomando(){
       NUM_SAMPLES = npontos_base*n_pontos_mult;
       break;
 
-    case 4: // 50Khz 24 pontos (24 pts = 20 ciclos)
+    case 4: // 50Khz 24 pontos (24 pts = 2 ciclos)
       freq_sinal = 50000;
-      npontos_base = 12; //(sample_freq/freq_sinal)*10
+      npontos_base = 12; //sample_freq/freq_sinal
       n_pontos_mult = 2;
       NUM_SAMPLES = npontos_base*n_pontos_mult;
       break;
