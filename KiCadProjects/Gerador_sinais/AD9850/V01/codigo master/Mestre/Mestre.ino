@@ -339,27 +339,30 @@ void processacomandoserial(){
 // Saidas digitais
       case 'L': // diminui a amplitude do sinal (wiper up)
         digitalWrite(ud_outPin, HIGH);
-        delay(loopPeriod);
+        delay(50);
         digitalWrite(inc_outPin, LOW);
-        delay(loopPeriod);
+        delay(50);
         digitalWrite(inc_outPin, HIGH);
-        delay(loopPeriod);
+        delay(50);
+        Serial.println("Diminui amplitude do sinal");
         break;
 
       case 'U': // aumenta a amplitude do sinal (wiper down)
         digitalWrite(ud_outPin, LOW);
-        delay(loopPeriod);
+        delay(50);
         digitalWrite(inc_outPin, LOW);
-        delay(loopPeriod);
+        delay(50);
         digitalWrite(inc_outPin, HIGH);
-        delay(loopPeriod);
+        delay(50);
         digitalWrite(ud_outPin, HIGH);
+        Serial.println("Aumenta amplitude do sinal");
         break;
 
       case 'S': // Salva a resistencia
         digitalWrite(cs_digpot1, HIGH);
-        delay(loopPeriod);
+        delay(50);
         digitalWrite(cs_digpot1, LOW);
+        Serial.println("Salva a amplitude do sinal");
         break;
 ////////////////////////////////////////////////////////////////
 
@@ -386,6 +389,7 @@ void setup(){
   tempo_demodulacao = 2;
   Serial.begin(115200);
 
+  ad9850_setup(); 
   ////////////DIGPOT - Controle da amplitude do sinal ////////////
 // Saidas digitais
 pinMode(inc_outPin, OUTPUT);
