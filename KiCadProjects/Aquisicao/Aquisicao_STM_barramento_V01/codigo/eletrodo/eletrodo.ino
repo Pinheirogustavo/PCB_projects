@@ -161,6 +161,13 @@ void processacomando(){
       NUM_SAMPLES = npontos_base*n_pontos_mult;
       break;
 
+       case 5: // 5Khz 240 pontos (240 pts = 2 ciclos)
+      freq_sinal = 5000;
+      npontos_base = 120; //sample_freq/freq_sinal
+      n_pontos_mult = 2;
+      NUM_SAMPLES = npontos_base*n_pontos_mult;
+      break;
+
     case 'i': // inicializa as medidas dos eletrodos
       mede_ADC();
       break;

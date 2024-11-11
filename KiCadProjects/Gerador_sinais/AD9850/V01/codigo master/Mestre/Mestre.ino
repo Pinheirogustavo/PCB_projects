@@ -2,6 +2,14 @@
 #include <Wire.h>
 #include "ad9850.h"
 
+
+////////////DIGPOT - Controle da amplitude do sinal ////////////
+// Saidas digitais
+#define inc_outPin PB11 // INC(DigPot1)
+#define ud_outPin PB10  // U/D(DigPot1)
+#define cs_digpot1 PB1   // CS do DigPot 1, usado para salvar a ultima resistencia obtida
+////////////////////////////////////////////////////////////////
+
 #define NUM_ELETRODOS 8
 byte num_eletrodos_usados = NUM_ELETRODOS; // mudar para: int num_eletrodos_usados = NUM_ELETRODOS
 
@@ -162,6 +170,16 @@ void processacomandoserial(){
       Serial.println(tempo_demodulacao);
       ad9850_sendFrequency(50000);
       break; 
+
+    case '5': // 5Khz 120 pontos (240 pts = 2 ciclos)
+      envia_comando_todos(4);
+      n_pontos_base = 120;
+      n_pontos_mult = 2;
+      tempo_demodulacao = 10;
+      Serial.print("5Khz 240 pontos (240 pts = 2 ciclos) e tempo de demod = ");
+      Serial.println(tempo_demodulacao);
+      ad9850_sendFrequency(5000);
+      break;
       
     case '-': // diminui tempo para medida e demodulação
       tempo_demodulacao = tempo_demodulacao - 1;
@@ -315,7 +333,37 @@ void processacomandoserial(){
       Serial.print("; tempo_demodulacao = ");
       Serial.println(tempo_demodulacao);
       break;
-      
+
+
+      ////////////DIGPOT - Controle da amplitude do sinal ////////////
+// Saidas digitais
+      case 'L': // diminui a amplitude do sinal (wiper up)
+        digitalWrite(ud_outPin, HIGH);
+        delay(loopPeriod);
+        digitalWrite(inc_outPin, LOW);
+        delay(loopPeriod);
+        digitalWrite(inc_outPin, HIGH);
+        delay(loopPeriod);
+        break;
+
+      case 'U': // aumenta a amplitude do sinal (wiper down)
+        digitalWrite(ud_outPin, LOW);
+        delay(loopPeriod);
+        digitalWrite(inc_outPin, LOW);
+        delay(loopPeriod);
+        digitalWrite(inc_outPin, HIGH);
+        delay(loopPeriod);
+        digitalWrite(ud_outPin, HIGH);
+        break;
+
+      case 'S': // Salva a resistencia
+        digitalWrite(cs_digpot1, HIGH);
+        delay(loopPeriod);
+        digitalWrite(cs_digpot1, LOW);
+        break;
+////////////////////////////////////////////////////////////////
+
+
     default:
       break;
   }
@@ -337,6 +385,17 @@ void setup(){
   n_pontos_mult = 2;
   tempo_demodulacao = 2;
   Serial.begin(115200);
+
+  ////////////DIGPOT - Controle da amplitude do sinal ////////////
+// Saidas digitais
+pinMode(inc_outPin, OUTPUT);
+pinMode(ud_outPin, OUTPUT);
+pinMode(cs_digpot1, OUTPUT);
+
+digitalWrite(inc_outPin, HIGH);
+digitalWrite(ud_outPin, HIGH);
+digitalWrite(cs_digpot1, LOW);
+  ///////////////////////////////////////////////////////////////
 }
 
 void loop(){
