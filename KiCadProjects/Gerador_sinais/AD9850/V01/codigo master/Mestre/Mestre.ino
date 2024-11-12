@@ -1,4 +1,5 @@
 
+
 #include <Wire.h>
 #include "ad9850.h"
 
@@ -8,6 +9,7 @@
 #define inc_outPin PB11 // INC(DigPot1)
 #define ud_outPin PB10  // U/D(DigPot1)
 #define cs_digpot1 PB1   // CS do DigPot 1, usado para salvar a ultima resistencia obtida
+const int loopPeriod = 50;  
 ////////////////////////////////////////////////////////////////
 
 #define NUM_ELETRODOS 8
@@ -245,7 +247,7 @@ void processacomandoserial(){
       break;
 
     case 'D':
-    wire_envia_byte(0X60, 0X80+1);
+    wire_envia_byte(0X60, 0X80+2);
       Serial.println("DEBUG Drenando no eletrodo 2");
       break;
 
@@ -339,30 +341,27 @@ void processacomandoserial(){
 // Saidas digitais
       case 'L': // diminui a amplitude do sinal (wiper up)
         digitalWrite(ud_outPin, HIGH);
-        delay(50);
+        delay(loopPeriod);
         digitalWrite(inc_outPin, LOW);
-        delay(50);
+        delay(loopPeriod);
         digitalWrite(inc_outPin, HIGH);
-        delay(50);
-        Serial.println("Diminui amplitude do sinal");
+        delay(loopPeriod);
         break;
 
       case 'U': // aumenta a amplitude do sinal (wiper down)
         digitalWrite(ud_outPin, LOW);
-        delay(50);
+        delay(loopPeriod);
         digitalWrite(inc_outPin, LOW);
-        delay(50);
+        delay(loopPeriod);
         digitalWrite(inc_outPin, HIGH);
-        delay(50);
+        delay(loopPeriod);
         digitalWrite(ud_outPin, HIGH);
-        Serial.println("Aumenta amplitude do sinal");
         break;
 
       case 'S': // Salva a resistencia
         digitalWrite(cs_digpot1, HIGH);
-        delay(50);
+        delay(loopPeriod);
         digitalWrite(cs_digpot1, LOW);
-        Serial.println("Salva a amplitude do sinal");
         break;
 ////////////////////////////////////////////////////////////////
 
@@ -389,8 +388,8 @@ void setup(){
   tempo_demodulacao = 2;
   Serial.begin(115200);
 
-  ad9850_setup(); 
-  ////////////DIGPOT - Controle da amplitude do sinal ////////////
+ad9850_setup();
+////////////DIGPOT - Controle da amplitude do sinal ////////////
 // Saidas digitais
 pinMode(inc_outPin, OUTPUT);
 pinMode(ud_outPin, OUTPUT);
