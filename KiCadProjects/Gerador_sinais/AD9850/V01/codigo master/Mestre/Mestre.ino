@@ -380,13 +380,14 @@ void wire_envia_byte(byte endereco, byte com) {
 
 
 void setup(){
+  disableDebugPorts();// permite utilizar os pinos B3, B4 e A15 como GPIO, mover BOOT0 para 1 para poder gravar
   Wire.begin(); // join i2c bus (address optional for master)
   delay(300);  // aguarda 300ms para os slaves ligarem
   wire_envia_byte(0X40,1); // Inciando gerador em 200kHz
   n_pontos_base = 3;
   n_pontos_mult = 2;
   tempo_demodulacao = 2;
-  Serial.begin(115200);
+  Serial.begin(9600);
 
 ad9850_setup();
 ////////////DIGPOT - Controle da amplitude do sinal ////////////
