@@ -184,7 +184,7 @@ void prepara_mux_out(){
 void dadorecebido(int howmany){
   comando = Wire.read();  
   if(comando == 0) comando = 0xFF;
-  //configura_pinos_mux(); //chama a funcao para desligar todos os mux entre cada comando; depois implementar: nova funcao que apenas desabilita os muxs
+  configura_pinos_mux(); //chama a funcao para desligar todos os mux entre cada comando; depois implementar: nova funcao que apenas desabilita os muxs
 }
 
 void processacomando(){
@@ -210,7 +210,7 @@ void setup() {
   delay (3000);
   digitalWrite(LED, HIGH);
   configura_pinos_mux();
-  Serial.begin(115200);
+  Serial.begin(9600);
   Serial.println("Demux ok");
 }
 
