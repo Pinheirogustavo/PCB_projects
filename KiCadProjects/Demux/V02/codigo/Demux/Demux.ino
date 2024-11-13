@@ -65,6 +65,7 @@ void testa(){
 
 //// ACIONAR X ELETRODO IN
 void seleciona_canal_in(int canal){
+  prepara_mux_in();
   //canais iniciam no num 0
   byte A = bitRead(canal,0); //LSB canal
   byte B = bitRead(canal,1);
@@ -102,6 +103,8 @@ void seleciona_canal_in(int canal){
 
 //// ACIONAR X ELETRODO OUT
 void seleciona_canal_out(int canal){
+  prepara_mux_out();
+  //canais iniciam no num 0
   int A = bitRead(canal,0); //LSB canal
   int B = bitRead(canal,1);
   int C = bitRead(canal,2);
@@ -147,39 +150,41 @@ void configura_pinos_mux(){ //funcao define os pinos e estados dos sinais de con
   pinMode(B_S2, OUTPUT);
   pinMode(B_S3, OUTPUT);
   pinMode(B_S4, OUTPUT);
-  
+
   //  Variaveis de Habilitação do MUX IN (Nivel logico baixo)
   pinMode(Enable_A1, OUTPUT); //  MUX 1 "Eletrodo 0 a 7"
   pinMode(Enable_A2, OUTPUT); //  MUX 2 "Eletrodo 8 a 15"
   pinMode(Enable_A3, OUTPUT); //  MUX 3 "Eletrodo 16 a 23"
   pinMode(Enable_A4, OUTPUT); //  MUX 4 "Eletrodo 24 a 31"
   pinMode(Enable_A, OUTPUT);  //  MUX 5  primeiro da cascata
-
-  digitalWrite(Enable_A1, HIGH);  // MUX 1 inicia desabilitado
-  digitalWrite(Enable_A2, HIGH);  // MUX 2 inicia desabilitado
-  digitalWrite(Enable_A3, HIGH);  // MUX 3 inicia desabilitado
-  digitalWrite(Enable_A4, HIGH);  // MUX 4 inicia desabilitado
-  digitalWrite(Enable_A, LOW);    // MUX 5 sempre habilitado
-
   //  Variaveis de Habilitação do MUX OUT (Nivel logico baixo)
   pinMode(Enable_B1, OUTPUT); //  MUX 1 "Eletrodo 0 a 7"
   pinMode(Enable_B2, OUTPUT); //  MUX 2 "Eletrodo 8 a 15"
   pinMode(Enable_B3, OUTPUT); //  MUX 3 "Eletrodo 16 a 23"
   pinMode(Enable_B4, OUTPUT); //  MUX 4 "Eletrodo 24 a 31"
   pinMode(Enable_B, OUTPUT);  //  MUX 5  primeiro da cascata
+}
 
+void prepara_mux_in(){
+  digitalWrite(Enable_A1, HIGH);  // MUX 1 inicia desabilitado
+  digitalWrite(Enable_A2, HIGH);  // MUX 2 inicia desabilitado
+  digitalWrite(Enable_A3, HIGH);  // MUX 3 inicia desabilitado
+  digitalWrite(Enable_A4, HIGH);  // MUX 4 inicia desabilitado
+  digitalWrite(Enable_A, LOW);    // MUX 5 sempre habilitado
+}
+
+void prepara_mux_out(){
   digitalWrite(Enable_B1, HIGH);  // MUX 1 inicia desabilitado
   digitalWrite(Enable_B2, HIGH);  // MUX 2 inicia desabilitado
   digitalWrite(Enable_B3, HIGH);  // MUX 3 inicia desabilitado
   digitalWrite(Enable_B4, HIGH);  // MUX 4 inicia desabilitado
   digitalWrite(Enable_B, LOW);    //  MUX 5  primeiro da cascata
-
 }
 
 void dadorecebido(int howmany){
   comando = Wire.read();  
   if(comando == 0) comando = 0xFF;
-  configura_pinos_mux(); //chama a funcao para desligar todos os mux entre cada comando; depois implementar: nova funcao que apenas desabilita os muxs
+  //configura_pinos_mux(); //chama a funcao para desligar todos os mux entre cada comando; depois implementar: nova funcao que apenas desabilita os muxs
 }
 
 void processacomando(){
