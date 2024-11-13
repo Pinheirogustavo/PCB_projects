@@ -44,13 +44,14 @@
 
 
 
-int npontos_base; //
-int n_pontos_mult;//
+int npontos_base; // menor mutiplo inteiro de 'sample_freq/freq_sinal'.
+//Define a quantidade minima de pontos para reconstruir o menor numero possivel de ciclos do sinal.
+int n_pontos_mult;// fator multiplicador de 'npontos_base'. Permite adquirir mais ciclos do sinal.
 
 const float referenceVolts= 3.3;
 float sample_freq =  (72e6 / 6.0 / 20.0); // = 600kHz
 float freq_sinal = 50000;  // 50kHz
-float phase1, phase2, amplitude1, amplitude2; //phase1: phase2: amplitude1: amplitude2:
+float phase1, phase2, amplit1, amplit2; //phase1: phase2: amplit1: amplit2:
 int NUM_SAMPLES = 24;      // number of samples for each ADCx. Each channel will be sampled NUM_SAMPLES/CHANNELS_PER_ADC
 //NUM_SAMPLES precisa apenas ser iniciada????????? pode ser qualquer valor??????????
 byte comando = 0; //entrada do i2c
@@ -86,7 +87,7 @@ uint16_t datav2[NUM_SAMPLES_MAX+1];
 //uint8 ADC2_Sequence[]={9,0,0,0,0,0};   // ADC2 channels sequence, left to right. Unused values must be 0
 
 // CASO 1: lê canal X e amplitude I1
-uint8 ADC1_Sequence[]={0,0,0,0,0,0}; //PA0 sign_C1
+uint8 ADC1_Sequence[]={0,0,0,0,0,0}; //PA0 sign_Cn
 uint8 ADC2_Sequence[]={1,0,0,0,0,0}; //PA1 Ampl1
 
 
@@ -118,13 +119,15 @@ void mede_ADC(){
   // calculando amplitudes e fases
   float media1 = sinal_medio (datav1, NUM_SAMPLES);
   phase1 = 0;
-  amplitude1 =   calc_dft_singfreq(datav1, freq_sinal, sample_freq, media1, 10000, NUM_SAMPLES, &phase1);
-  //calc_dft_singfreq(datav1, freq_sinal, sample_freq, media1, 10000, NUM_SAMPLES, &phase1);
+  amplit1 =   calc_dft_singfreq(datav1, freq_sinal, sample_freq, media1, 10000, NUM_SAMPLES, &phase1);
+  //calc_dft_singfreq(datav1, freq_sinal, sample_freq, media1, amplit1, phase1, 1000, NUM_SAMPLES);
     //verificar essa funcao no programa TG, pois retornava amplitude e fase
 
   float media2 = sinal_medio (datav2, NUM_SAMPLES);
   phase2 = 0;
-  amplitude2 =   calc_dft_singfreq(datav2, freq_sinal, sample_freq, media2, 10000, NUM_SAMPLES, &phase2);
+  amplit2 =   calc_dft_singfreq(datav2, freq_sinal, sample_freq, media2, 10000, NUM_SAMPLES, &phase2);
+  //calc_dft_singfreq(datav2, freq_sinal, sample_freq, media2, amplit2, phase2, 1000, NUM_SAMPLES);
+    //verificar essa funcao no programa TG, pois retornava amplitude e fase
 
   mediu = true;
   digitalWrite(LED, HIGH); // Verificação de funcionamento
@@ -200,11 +203,11 @@ void dadorecebido(int howmany){
 }
 
 void dadopedido(){
-  // Envia para o master os dados amplitude(amplitude1) e fase(phase2-phase1)
+  // Envia para o master os dados amplitude(amplit1) e fase(phase2-phase1)
   if(mediu){
     for(int i=0;i<(NUM_SAMPLES);i++){
       binaryFloat amplitude, fase;
-      amplitude.floatingPoint = amplitude1;
+      amplitude.floatingPoint = amplit1;
       Wire.write(amplitude.binary, 4);
       fase.floatingPoint = phase2-phase1;
       Wire.write(fase.binary, 4);
