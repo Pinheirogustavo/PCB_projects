@@ -119,14 +119,14 @@ void mede_ADC(){
   // calculando amplitudes e fases
   float media1 = sinal_medio (datav1, NUM_SAMPLES);
   phase1 = 0;
-  amplit1 =   calc_dft_singfreq(datav1, freq_sinal, sample_freq, media1, 10000, NUM_SAMPLES, &phase1);
-  //calc_dft_singfreq(datav1, freq_sinal, sample_freq, media1, amplit1, phase1, 1000, NUM_SAMPLES);
+ // amplit1 =   calc_dft_singfreq(datav1, freq_sinal, sample_freq, media1, 10000, NUM_SAMPLES, &phase1);
+  calc_dft_singfreq(datav1, freq_sinal, sample_freq, media1, amplit1, phase1, 1000, NUM_SAMPLES);
     //verificar essa funcao no programa TG, pois retornava amplitude e fase
 
   float media2 = sinal_medio (datav2, NUM_SAMPLES);
   phase2 = 0;
-  amplit2 =   calc_dft_singfreq(datav2, freq_sinal, sample_freq, media2, 10000, NUM_SAMPLES, &phase2);
-  //calc_dft_singfreq(datav2, freq_sinal, sample_freq, media2, amplit2, phase2, 1000, NUM_SAMPLES);
+//  amplit2 =   calc_dft_singfreq(datav2, freq_sinal, sample_freq, media2, 10000, NUM_SAMPLES, &phase2);
+  calc_dft_singfreq(datav2, freq_sinal, sample_freq, media2, amplit2, phase2, 1000, NUM_SAMPLES);
     //verificar essa funcao no programa TG, pois retornava amplitude e fase
 
   mediu = true;
