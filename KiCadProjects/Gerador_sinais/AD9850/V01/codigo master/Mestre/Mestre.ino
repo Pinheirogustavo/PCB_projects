@@ -9,14 +9,16 @@
 #define inc_outPin PB11 // INC(DigPot1)
 #define ud_outPin PB10  // U/D(DigPot1)
 #define cs_digpot1 PB1   // CS do DigPot 1, usado para salvar a ultima resistencia obtida
+
 const int loopPeriod = 50;  
 ////////////////////////////////////////////////////////////////
 
-#define NUM_ELETRODOS 8
+#define NUM_ELETRODOS 4 
 byte num_eletrodos_usados = NUM_ELETRODOS; // mudar para: int num_eletrodos_usados = NUM_ELETRODOS
 
 //#define GANHO_CORRENTE (1000.0/(47*2.8)) // Para corrente em mA (R_sent = 47ohm; G_ina = 2.8)
-#define GANHO_CORRENTE 162.0; // para Rg=3,29k e Rs=10ohm -> G = (1+50k/Rg)*Rs;
+#define GANHO_CORRENTE (1000.0/(10*16.2)) // Para corrente em mA (R_sent = 10ohm; G_ina = 1+(50k/3,29k) )
+  // Vina= Vrs.G --> Vrs = Vina/G ; I = Vrs/rs --> I = Vina/(G.rs)
 int tempo_demodulacao = 2; // tempo em ms que demora a leitura e demodulacao
 
 byte pula = 1;
@@ -35,8 +37,8 @@ typedef union{
 } binaryFloat;
 
 
-float amplitudes[NUM_ELETRODOS];
-float fases[NUM_ELETRODOS];
+float amplitudes[NUM_ELETRODOS]; //vetor de amplitudes vistas pelos eletrodos
+float fases[NUM_ELETRODOS];      //vetor de fases (em relacao a ?????) vistas pelos eletrodos
 
 float amplitudes_frame[NUM_ELETRODOS*NUM_ELETRODOS];
 float fases_frame[NUM_ELETRODOS*NUM_ELETRODOS];
@@ -47,7 +49,7 @@ float ampli_corrente[NUM_ELETRODOS], fase_corrente[NUM_ELETRODOS];
 void envia_comando_todos(byte comando){
   for (byte n = 0; n < num_eletrodos_usados; n++) wire_envia_byte(0X51+n,comando); // envia para eletrodos
   //wire_envia_byte(0X40,comando); // Envia para gerador de onda
-  //wire_envia_byte(0X60,comando); // Envia para controlador do mux
+  wire_envia_byte(0X60,comando); // Envia para controlador do mux
 }
 
 //imprime os valores de duas medidas, m1 e m2:
@@ -233,14 +235,8 @@ void processacomandoserial(){
       Serial.println(" [mA]"); 
       break;
 
-    case 'a': // altear mux para padrão de injeção 1-2
-      wire_envia_byte(0X60, 1);
-      wire_envia_byte(0X61, 2);
-      Serial.println("Injetando nos eletrodos 1 e 2");      
-      break;
 
-
-    //// DEBUG MUX inicio
+      //// DEBUG MUX inicio
     case 'd':
       wire_envia_byte(0X60, 1);
       Serial.println("DEBUG Injetando no eletrodo 1");
@@ -250,18 +246,39 @@ void processacomandoserial(){
     wire_envia_byte(0X60, 0X80+2);
       Serial.println("DEBUG Drenando no eletrodo 2");
       break;
-
    //// DEBUG MUX fim
-    case 'b': // altear mux para padrão de injeção 2-3
-      wire_envia_byte(0X60, 2);
-      wire_envia_byte(0X61, 3);
-      Serial.println("Injetando nos eletrodos 2 e 3");      
+
+    case 'a':
+      /*  //altear mux para padrão de injeção 1-2
+          //wire_envia_byte(0X60, 1);
+          //wire_envia_byte(0X61, 2);
+          //Serial.println("Injetando nos eletrodos 1 e 2"); */
+      //altear mux para padrão de injeção 0-1
+      wire_envia_byte(0X60, 0);
+      wire_envia_byte(0X60, 0X80+1);
+      Serial.println("Injetando nos eletrodos 0 e 1");
       break;
 
-    case 'c': // altear mux para padrão de injeção 3-4
-      wire_envia_byte(0X60, 3);
-      wire_envia_byte(0X61, 4);
-      Serial.println("Injetando nos eletrodos 3 e 4");      
+    case 'b':
+      /*  // altear mux para padrão de injeção 2-3
+          //wire_envia_byte(0X60, 2);
+          //wire_envia_byte(0X61, 3);
+          //Serial.println("Injetando nos eletrodos 2 e 3");*/
+      // altear mux para padrão de injeção 1-2
+      wire_envia_byte(0X60, 1);
+      wire_envia_byte(0X60, 0X80+2);
+      Serial.println("Injetando nos eletrodos 1 e 2");
+      break;
+
+    case 'c':
+      /*  // altear mux para padrão de injeção 3-4
+          //wire_envia_byte(0X60, 3);
+          //wire_envia_byte(0X61, 4);
+          //Serial.println("Injetando nos eletrodos 3 e 4");*/
+      // altear mux para padrão de injeção 2-3
+      wire_envia_byte(0X60, 2);
+      wire_envia_byte(0X60, 0X80+3);
+      Serial.println("Injetando nos eletrodos 2 e 3");
       break;
 
     case 'j': // leitura continua dividindo pela corrente (envia impedancias)
@@ -383,10 +400,10 @@ void setup(){
   disableDebugPorts();// permite utilizar os pinos B3, B4 e A15 como GPIO, mover BOOT0 para 1 para poder gravar
   Wire.begin(); // join i2c bus (address optional for master)
   delay(300);  // aguarda 300ms para os slaves ligarem
-  wire_envia_byte(0X40,1); // Inciando gerador em 200kHz
-  n_pontos_base = 3;
-  n_pontos_mult = 2;
-  tempo_demodulacao = 2;
+  //wire_envia_byte(0X40,1); // Inciando gerador em 200kHz
+  n_pontos_base = 3; // por que iniciar essas variaveis com estes valores ??????
+  n_pontos_mult = 2;  // por que iniciar essas variaveis com estes valores ??????
+  tempo_demodulacao = 2;  // por que iniciar essas variaveis com estes valores ??????
   Serial.begin(9600);
 
 ad9850_setup();
@@ -435,10 +452,3 @@ void loop(){
       Serial.println();
   }
 }
-
-/* ACRESCIMO DA PARTE DO GERADOR
- *void monitora_corrente(){
- *
- * }
- *
- */
