@@ -1,17 +1,7 @@
 
-
 #include <Wire.h>
 #include "ad9850.h"
 
-
-////////////DIGPOT - Controle da amplitude do sinal ////////////
-// Saidas digitais
-#define inc_outPin PB11 // INC(DigPot1)
-#define ud_outPin PB10  // U/D(DigPot1)
-#define cs_digpot1 PB1   // CS do DigPot 1, usado para salvar a ultima resistencia obtida
-
-const int loopPeriod = 50;  
-////////////////////////////////////////////////////////////////
 
 #define NUM_ELETRODOS 4 
 byte num_eletrodos_usados = NUM_ELETRODOS; // mudar para: int num_eletrodos_usados = NUM_ELETRODOS
@@ -19,14 +9,12 @@ byte num_eletrodos_usados = NUM_ELETRODOS; // mudar para: int num_eletrodos_usad
 //#define GANHO_CORRENTE (1000.0/(47*2.8)) // Para corrente em mA (R_sent = 47ohm; G_ina = 2.8)
 #define GANHO_CORRENTE (1000.0/(10*16.2)) // Para corrente em mA (R_sent = 10ohm; G_ina = 1+(50k/3,29k) )
   // Vina= Vrs.G --> Vrs = Vina/G ; I = Vrs/rs --> I = Vina/(G.rs)
+
 int tempo_demodulacao = 2; // tempo em ms que demora a leitura e demodulacao
-
 byte pula = 1;
-
 byte flag_leitura_continua = false;
 byte flag_leitura_continua_limpa = false;
 byte flag_envia_impedancia = false;
-
 
 #define NUM_SAMPLES_MAX   500
 int n_pontos_base, n_pontos_mult;
@@ -35,7 +23,6 @@ typedef union{
   float floatingPoint;
   byte binary[4];
 } binaryFloat;
-
 
 float amplitudes[NUM_ELETRODOS]; //vetor de amplitudes vistas pelos eletrodos
 float fases[NUM_ELETRODOS];      //vetor de fases (em relacao a ?????) vistas pelos eletrodos
@@ -50,24 +37,6 @@ void envia_comando_todos(byte comando){
   for (byte n = 0; n < num_eletrodos_usados; n++) wire_envia_byte(0X51+n,comando); // envia para eletrodos
   //wire_envia_byte(0X40,comando); // Envia para gerador de onda
   wire_envia_byte(0X60,comando); // Envia para controlador do mux
-}
-
-//imprime os valores de duas medidas, m1 e m2:
-  //m1: ???
-  //m2: ???
-void imprime_uma_medida(float m1, float m2){
-  Serial.print("(");
-  Serial.print(m1,3);
-  Serial.print(";");
-  Serial.print(m2,3);
-  Serial.print(")\t");  
-}
-
-void imprime_uma_medida_limpa(float m1, float m2){
-  Serial.print(m1,3);
-  Serial.print("\t");
-  Serial.print(m2,3);
-  Serial.print("\t");  
 }
 
 // avisa aos eletrodos para iniciar nova leitura. Envia comando 'i' para todos os uC dos eletrodos
@@ -98,19 +67,6 @@ void inicia_leitura_um_frame(byte padrao){
       fases_frame[m+(n*num_eletrodos_usados)] = fases[m];
     }
   }
-}
-
-// pega a amplitude e fase da corrente monitorada no ina???
-void pega_leitura_de_um_eletrodo(byte endereco, float *amplitude, float *fase){
-  Wire.requestFrom(endereco, 8);
-
-  binaryFloat amplitude_lida, fase_lida;
-  for(byte idx = 0; idx < 4; idx++) amplitude_lida.binary[idx] = Wire.read();
-  
-  for(byte idx = 0; idx < 4; idx++) fase_lida.binary[idx] = Wire.read();
-
-  *amplitude = amplitude_lida.floatingPoint;
-  *fase = fase_lida.floatingPoint;
 }
 
 //retorna arrays de amplitude e fase lidas sequencialmente em todos os eletrodos
