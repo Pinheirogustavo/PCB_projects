@@ -191,16 +191,6 @@ void processacomando(){
       //Serial.println(NUM_SAMPLES);
       break;
 
-    case 'h':
-      Serial.print("adc1 :");
-      Serial.println(datav1);
-      delay(10);
-      Serial.print("adc2 :");
-      Serial.println(datav2);
-      delay(10);
-      Serial.print("frequencia :");
-      Serial.println(freq_sinal);
-
     default:
       break;
   }
