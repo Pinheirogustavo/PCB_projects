@@ -382,7 +382,10 @@ void processacomandoserial(){
         break;
 ////////////////////////////////////////////////////////////////
 
-
+      case 'h':
+        envia_comando_todos('h');
+        break;
+        
     default:
       break;
   }
