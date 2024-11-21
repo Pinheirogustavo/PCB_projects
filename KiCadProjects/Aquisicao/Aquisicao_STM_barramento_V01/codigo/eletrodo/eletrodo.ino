@@ -30,6 +30,9 @@
 #include <Wire_slave.h>
 #include "stm32_adc_dual_mode.h"
 #include "dft.h"
+#include "serial_debug.h"
+
+
 
 #define MEU_ENDERECO 0X51
 
