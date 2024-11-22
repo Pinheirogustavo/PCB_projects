@@ -176,7 +176,7 @@ void processacomandoserial(){
       break; 
 
     case '5': // 5Khz 120 pontos (240 pts = 2 ciclos)
-      envia_comando_todos(4);
+      envia_comando_todos(5);
       n_pontos_base = 120;
       n_pontos_mult = 2;
       tempo_demodulacao = 10;

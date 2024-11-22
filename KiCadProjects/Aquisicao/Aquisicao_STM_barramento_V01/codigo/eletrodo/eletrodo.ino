@@ -30,11 +30,10 @@
 #include <Wire_slave.h>
 #include "stm32_adc_dual_mode.h"
 #include "dft.h"
-#include "serial_debug.h"
 
 
 
-#define MEU_ENDERECO 0X51
+#define MEU_ENDERECO 0X54
 
 //#define comfase
 
@@ -139,6 +138,28 @@ void mede_ADC(){
 void processacomando(){
   //Define a frequencia do sinal lido e o n de amostras - em funcao do comando recebido do master
   switch (comando) {
+
+    case 'h':
+      Serial.print("adc1: ");
+        for(int i=0;i<(NUM_SAMPLES);i++) {
+          Serial.print(datav1[i]);
+          Serial.print("\t");        
+        }
+      Serial.println();
+  
+      Serial.print("adc2: ");
+        for(int i=0;i<(NUM_SAMPLES);i++) {
+          Serial.print(datav2[i]);
+          Serial.print("\t");        
+        }
+      Serial.println();
+  
+      Serial.print("sample freq:  ");
+      Serial.println(sample_freq);
+      Serial.print(" freq sinal:  ");
+      Serial.println(freq_sinal);
+      break;
+    
     case 1: // 200Khz 6 pontos (6 pts = 2 ciclos)
       freq_sinal = 200000;
       npontos_base = 3; // sample_freq/freq_sinal
@@ -202,7 +223,12 @@ void processacomando(){
 
 void dadorecebido(int howmany){
   //recebe comando do master pelo i2c
-  comando = Wire.read();   
+  comando = Wire.read();  
+     digitalWrite(LED, HIGH); // Verificação de funcionamento
+     delay(1000);
+     digitalWrite(LED, LOW); // Verificação de funcionamento 
+     Serial.print("recebi comando "); //debug
+     Serial.println(comando, HEX);  //debug
 }
 
 void dadopedido(){
@@ -227,12 +253,13 @@ void setup() {
   Wire.begin(MEU_ENDERECO);                // join i2c bus with address 
   Wire.onReceive(dadorecebido);    // argumento: funcao a ser chamada quando o periferico receber dado
   Wire.onRequest(dadopedido);      // argumento: funcao a ser chamada quando o controlador solicitar dados
-  
-  //Serial.begin(115200); // só usar para debugar...
+
+  pinMode(LED, OUTPUT); // LED para verificação de funcionamento do eletrodo
+   //digitalWrite(LED, HIGH); // Verificação de funcionamento
+  Serial.begin(9600); // só usar para debugar...
   set_adc_dual_channel(PRE_SCALER, ADC_SMPR, CHANNELS_PER_ADC, ADC1_Sequence, ADC2_Sequence, FAST_INTERLEAVED);  // initial ADC1 and ADC2 settings
 
-   pinMode(LED, OUTPUT); // LED para verificação de funcionamento do eletrodo
-   digitalWrite(LED, HIGH); // Verificação de funcionamento
+   
    
 }
 
