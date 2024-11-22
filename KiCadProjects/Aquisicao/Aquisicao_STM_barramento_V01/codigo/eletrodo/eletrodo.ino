@@ -33,7 +33,7 @@
 
 
 
-#define MEU_ENDERECO 0X54
+#define MEU_ENDERECO 0X51
 
 //#define comfase
 
@@ -140,6 +140,8 @@ void processacomando(){
   switch (comando) {
 
     case 'h':
+
+      /*
       Serial.print("adc1: ");
         for(int i=0;i<(NUM_SAMPLES);i++) {
           Serial.print(datav1[i]);
@@ -159,7 +161,30 @@ void processacomando(){
       Serial.print(" freq sinal:  ");
       Serial.println(freq_sinal);
       break;
-    
+      */
+
+      // imprimindo valores lidos:
+      for(int i=0;i<(num_samples);i++) {
+        float volts= ((adcbuf[i] & 0xFFFF) / 4095.0)* REFERENCE_VOLTS;
+        float voltss=  (((adcbuf[i] & 0xFFFF0000) >>16) / 4095.0)* REFERENCE_VOLTS;
+
+        if(FAST_INTERLEAVED){ // Fast interleaved mode
+          /*Serial.print("ADC:");
+          Serial.println(voltss); //ADC2 é convertido primeiro... Ver [2], pág 10.
+          Serial.print("ADC:");
+          Serial.println(volts);*/
+        }
+        else{ // Regular simultaneous mode
+          Serial.print("C1:");
+          Serial.print(1000.0*volts);
+          Serial.print("\tC2:");
+          Serial.println(1000.0*voltss);
+        }
+      }
+      Serial.println();
+      break;
+
+
     case 1: // 200Khz 6 pontos (6 pts = 2 ciclos)
       freq_sinal = 200000;
       npontos_base = 3; // sample_freq/freq_sinal
