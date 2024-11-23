@@ -114,13 +114,14 @@ void mede_ADC(){
 
   // separando valores lidos nos 2 ADCs:
   for(int i=0;i<(NUM_SAMPLES);i++) {
-    datav1[i] = ((adcbuf[i] & 0xFFFF0000) >>16);
-    datav2[i] = (adcbuf[i] & 0xFFFF);
+    //datav1[i] = ((adcbuf[i] & 0xFFFF0000) >>16);
+    //datav2[i] = (adcbuf[i] & 0xFFFF);
+    datav2[i] = ((adcbuf[i] & 0xFFFF0000) >>16);
   }
 
   // calculando amplitudes e fases
   float media1 = sinal_medio (datav1, NUM_SAMPLES);
-  phase1 = 0;
+  phase1 = 0, amplit1=0;
  // amplit1 =   calc_dft_singfreq(datav1, freq_sinal, sample_freq, media1, 10000, NUM_SAMPLES, &phase1);
   calc_dft_singfreq(datav1, freq_sinal, sample_freq, media1, amplit1, phase1, 1000, NUM_SAMPLES);
     //verificar essa funcao no programa TG, pois retornava amplitude e fase
@@ -139,7 +140,7 @@ void processacomando(){
   //Define a frequencia do sinal lido e o n de amostras - em funcao do comando recebido do master
   switch (comando) {
 
-    case 'h':
+    case 'P':
 
       /*
       Serial.print("adc1: ");
@@ -164,9 +165,9 @@ void processacomando(){
       */
 
       // imprimindo valores lidos:
-      for(int i=0;i<(num_samples);i++) {
-        float volts= ((adcbuf[i] & 0xFFFF) / 4095.0)* REFERENCE_VOLTS;
-        float voltss=  (((adcbuf[i] & 0xFFFF0000) >>16) / 4095.0)* REFERENCE_VOLTS;
+      for(int i=0;i<(NUM_SAMPLES);i++) {
+        float volts= ((adcbuf[i] & 0xFFFF) / 4095.0)* referenceVolts;
+        float voltss=  (((adcbuf[i] & 0xFFFF0000) >>16) / 4095.0)* referenceVolts;
 
         if(FAST_INTERLEAVED){ // Fast interleaved mode
           /*Serial.print("ADC:");
@@ -175,10 +176,14 @@ void processacomando(){
           Serial.println(volts);*/
         }
         else{ // Regular simultaneous mode
-          Serial.print("C1:");
-          Serial.print(1000.0*volts);
-          Serial.print("\tC2:");
-          Serial.println(1000.0*voltss);
+          Serial.print("adc1:");
+          Serial.print(volts);
+          Serial.print("\tadc2:");
+          Serial.print(voltss);
+          Serial.print("\tamplitude 1: ");
+          Serial.print(amplit1);
+          Serial.print("\tfase (2-1): ");
+          Serial.println(phase2-phase1);
         }
       }
       Serial.println();

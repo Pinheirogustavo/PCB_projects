@@ -382,8 +382,8 @@ void processacomandoserial(){
         break;
 ////////////////////////////////////////////////////////////////
 
-      case 'h':
-        envia_comando_todos('h');
+      case 'P':
+        envia_comando_todos('P');
         break;
         
     default:
