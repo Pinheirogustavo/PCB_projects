@@ -33,14 +33,16 @@ circuito de controle de ganho - Digpot X9c10x
 vSinal  vin     GND     AC 0.5V
 VCC     vcc     GND     9V
 VEE     vee     GND     -9V
-C1      no2     no1      1.6u
-R1      no2     GND     10k
+C1      no2     no1      100n
+R1      no2     GND     160k
 X_U1    GND     vrh     vcc     vee     no1     AD826A
-X_U2    out     no2     vcc     vee     out     AD826A
+X_U2    no2     out     vcc     vee     out     AD826A
 Rf      no1     vrh     51k
 Rs      vrh     vin     1k
 
 Cf      vrh     GND    100n
+
+Rcarga  out     GND     1k
 
 Cl1     vin     GND     10p
 Cl2     vrh     GND     10p
@@ -61,16 +63,17 @@ Cw      vrh     GND     25p
         let r_act = start_r
         while r_act le stop_r
     	        alter Rs r_act
+    	        alter Rcarga r_act
                 run
                 let r_act = r_act + delta_r
                 *plot ac.v(vout)
         end
 
-*plot v(vin) ac1.v(out) ac2.v(out) ac3.v(out) ac4.v(out) ac5.v(out)
-*+      ac6.v(out) ac7.v(out) ac8.v(out) ac9.v(out) ac10.v(out) 
+plot v(vin) ac1.v(out) ac2.v(out) ac3.v(out) ac4.v(out) ac5.v(out)
++      ac6.v(out) ac7.v(out) ac8.v(out) ac9.v(out) ac10.v(out) 
 
-plot v(vin) db(ac1.v(no2)) db(ac2.v(no2)) db(ac3.v(no2)) db(ac4.v(no2)) db(ac5.v(no2))
-+      db(ac6.v(no2)) db(ac7.v(no2)) db(ac8.v(no2)) db(ac9.v(no2)) db(ac10.v(no2))   
+plot v(vin) db(ac1.v(no1)) db(ac2.v(no1)) db(ac3.v(no1)) db(ac4.v(no1)) db(ac5.v(no1))
++      db(ac6.v(no1)) db(ac7.v(no1)) db(ac8.v(no1)) db(ac9.v(no1)) db(ac10.v(no1))   
 .endc
 *-------------------------------------------------------------------------------*
 
