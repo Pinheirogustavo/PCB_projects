@@ -1,0 +1,72 @@
+circuito de controle de ganho - chave
+
+*-----------------------------Cabecalho-----------------------------*
+*Criador: Gustavo Pinheiro
+*email: gustavo.pinheiro@ufabc.edu.br
+*data: 11/2024
+*objetivo: Verificar o funcionamento do circuito de controle de ganho com uso de chave digital.
+* O sinal a ser amplificado eh conectado a um Amplificador não-inversor, com o resistor de
+*feedback sendo "Rf". Ja o resistor Rs num conjunto de resistores em paralelo, para controlar o ganho da saida.
+*-------------------------------------------------------------------------------*
+
+*----------------------Descricao dos modelos utilizados-------------------------*
+* Comando incluir o conteúdo do subcircuito do AD826A:
+*                non-inverting input
+*                |  inverting input
+*                |  |  positive supply
+*                |  |  |  negative supply
+*                |  |  |  |  output
+*                |  |  |  |  |
+*.SUBCKT AD826A  2  1  99 50 46
+.include ad826a.cir
+
+*.model diode_model D
+.include 1N4148.cir;           diodo de pequenos sinais
+*-------------------------------------------------------------------------------*
+
+
+*-----------------------------Descricao do circuito-----------------------------*
+*.param A=0.3 f=250k T={1/f}
+
+*vSinal  vin     GND     sin(0 A f)
+vSinal  vin     GND     AC 0.5V
+VCC     vcc     GND     9V
+VEE     vee     GND     -9V
+*Cx      no2     no1      100n
+*Rx      no2     GND     510
+X_U1    GND     vrh     vcc     vee     no1     AD826A
+X_U2    no2     out     vcc     vee     out     AD826A
+Rin      vrh     vin     1k
+
+
+R0      vrh     tmp1     300
+R1      tmp1    tmp2     620
+R2      tmp2    tmp3     1.3k
+R3      tmp3    tmp4     5.1k
+R4      tmp4    no1     10k
+*C1      tmp1    tmp2    5p
+*C2      tmp2    tmp3    5p
+*C3      tmp3    tmp4    5p
+*C4      tmp4    no1     5p
+*Raux1   tmp1    tmp2    1 ; resistores auxiliares Raux, para corrigir o erro "Singular matrix warning", gerado por
+*Raux2   tmp2    tmp3    1   ; um nó de impedância infinita (por exemplo, uma conexão em série de dois capacitores)
+*Raux3   tmp3    tmp4    1       ;https://electronics.stackexchange.com/questions/361906/singular-matrix-warning
+*Raux4   tmp4    no1     1
+
+
+
+Rcarga  out     GND     1k
+
+
+*-------------------------------------------------------------------------------*
+
+
+*-----------------------------Parametros de simulacao----------------------------*
+.ac     dec     100     100     10Mega
+*-------------------------------------------------------------------------------*
+
+*-----------------------------Parametros de output----------------------------*
+
+*-------------------------------------------------------------------------------*
+
+.end
