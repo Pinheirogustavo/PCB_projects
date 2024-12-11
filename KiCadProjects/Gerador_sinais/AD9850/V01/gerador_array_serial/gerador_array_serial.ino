@@ -64,7 +64,8 @@ void loop() {
           freq_sinal = freq[i+1];
           i = i+1;
           ad9850_sendFrequency(freq_sinal);
-          Serial.println("Incremento do sinal");
+          delay(loopPeriod);
+          Serial.print("Incremento do sinal\t");
           Serial.print("frequencia: ");
           Serial.println(freq_sinal);
         } else Serial.println("frequencia maxima atingida");
@@ -75,7 +76,8 @@ void loop() {
           freq_sinal = freq[i-1];
           i = i-1;
           ad9850_sendFrequency(freq_sinal);
-          Serial.println("Decremento do sinal");
+          delay(loopPeriod);
+          Serial.print("Decremento do sinal\t");
           Serial.print("frequencia: ");
           Serial.println(freq_sinal);
         }
@@ -84,18 +86,20 @@ void loop() {
         
         
       case 'd': // diminui a amplitude do sinal (wiper up)
-        if (Rs>0){
+        if (Rs<100){
           diminui_ganho();
-          Rs = Rs-1;
+          Rs = Rs+1;
+          Serial.print("Decremento da amplitude do sinal\t");
           Serial.print("valor do digpot Rs(kOhm): ");
           Serial.println(Rs);
         } else Serial.println("ganho minimo atingido");
         break;     
         
       case 'u': // aumenta a amplitude do sinal (wiper down)
-        if (Rs<100){
+        if (Rs>0){
           aumenta_ganho();
-          Rs = Rs+1;
+          Rs = Rs-1;
+          Serial.print("Incremento da amplitude do sinal\t ");
           Serial.print("valor do digpot Rs(kOhm): ");
           Serial.println(Rs);
         }else Serial.println("ganho maximo atingido");
@@ -105,6 +109,23 @@ void loop() {
         delay(loopPeriod);
         digitalWrite(cs_digpot1, LOW);
         break;  
+
+      case 'x':
+        Serial.println("Configurando ganho minimo...");
+        ganho_minimo();
+        break;
+
+      case 'y':
+        Serial.println("Configurando ganho maximo...");
+        ganho_maximo();
+        break;
+
+      case 'p':
+        Serial.print("valor de Rs: ");
+        Serial.println(Rs);
+        Serial.print("Frequencia atual: ");
+        Serial.println(freq_sinal);
+        break;
 
     default:
         break;
@@ -119,10 +140,10 @@ void inicia_digpot(){
         diminui_ganho();
   }
   Serial.println("ganho minimo atingido");
-  Rs = 0;
+  Rs = 100;
 }
 
-void aumenta_ganho(){
+void aumenta_ganho(){ //wiper down
   digitalWrite(ud_outPin, LOW);
   delay(loopPeriod);
   digitalWrite(inc_outPin, LOW);
@@ -134,11 +155,27 @@ void aumenta_ganho(){
 }
 
 
-void diminui_ganho(){
+void diminui_ganho(){ //wiper up
   digitalWrite(ud_outPin, HIGH);
   delay(loopPeriod);
   digitalWrite(inc_outPin, LOW);
   delay(loopPeriod);
   digitalWrite(inc_outPin, HIGH);
   delay(loopPeriod);
+}
+
+void ganho_minimo(){
+ while (Rs<100){
+  diminui_ganho();
+    Rs=Rs+1;
+ } 
+ Serial.println("ganho minimo atingido");  
+}
+
+void ganho_maximo(){
+ while (Rs>0){
+  aumenta_ganho();
+  Rs=Rs-1;
+ } 
+ Serial.println("ganho maximo atingido");  
 }
