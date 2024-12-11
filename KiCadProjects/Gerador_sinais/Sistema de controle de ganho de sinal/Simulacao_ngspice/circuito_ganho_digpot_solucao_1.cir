@@ -1,0 +1,81 @@
+circuito de controle de ganho - Digpot X9c10x
+
+*-----------------------------Cabecalho-----------------------------*
+*Criador: Gustavo Pinheiro
+*email: gustavo.pinheiro@ufabc.edu.br
+*data: 11/2024
+*objetivo: Verificar o funcionamento do circuito de controle de ganho com uso do potenciômetro digital  X9c10x.
+* O sinal a ser amplificado eh conectado a um Amplificador não-inversor, com o resistor de
+*feedback sendo "Rf". Ja o resistor Rs varia entre 1k e 100k ohms, sendo o digipot, para controlar o ganho da saida.
+*Os capacitores Cl e Cw correspondem ao modelo spice do digpot x9c104
+*-------------------------------------------------------------------------------*
+
+*----------------------Descricao dos modelos utilizados-------------------------*
+* Comando incluir o conteúdo do subcircuito do AD826A:
+*                non-inverting input
+*                |  inverting input
+*                |  |  positive supply
+*                |  |  |  negative supply
+*                |  |  |  |  output
+*                |  |  |  |  |
+*.SUBCKT AD826A  2  1  99 50 46
+.include ad826a.cir
+
+*.model diode_model D
+.include 1N4148.cir;           diodo de pequenos sinais
+*-------------------------------------------------------------------------------*
+
+
+*-----------------------------Descricao do circuito-----------------------------*
+*.param A=0.3 f=250k T={1/f}
+
+*vSinal  vin     GND     sin(0 A f)
+vSinal  vin     GND     AC 0.5V
+VCC     vcc     GND     9V
+VEE     vee     GND     -9V
+*C1      no2     no1      100n
+*R1      no2     GND     160k
+X_U1    GND     vrh     vcc     vee     no1     AD826A
+X_U2    no1     out     vcc     vee     out     AD826A
+Rf      no1     vrh     51k
+Rs      tmp1     vin     1k
+
+Cf      vrh     tmp1    100n
+
+Rcarga  out     GND     1k
+
+Cl1     vin     GND     10p
+Cl2     vrh     GND     10p
+Cw      vrh     GND     25p
+*-------------------------------------------------------------------------------*
+
+
+*-----------------------------Parametros de simulacao----------------------------*
+.ac     dec     100     100     10Mega
+*-------------------------------------------------------------------------------*
+
+*-----------------------------Parametros de output----------------------------*
+.control
+destroy all
+        let start_r = 1k
+        let stop_r  = 100k
+        let delta_r = 1k
+
+        let r_act = start_r
+        while r_act le stop_r
+    	        alter Rs r_act
+    	        alter Rcarga r_act
+                run
+                let r_act = r_act + delta_r
+                *plot ac.v(vout)
+        end
+
+plot v(vin) ac1.v(out) ac2.v(out) ac3.v(out) ac4.v(out) ac5.v(out)
++      ac6.v(out) ac7.v(out) ac8.v(out) ac9.v(out) ac10.v(out)
+
+plot v(vin) db(ac1.v(no1)) db(ac2.v(no1)) db(ac3.v(no1)) db(ac4.v(no1)) db(ac5.v(no1))
++      db(ac6.v(no1)) db(ac7.v(no1)) db(ac8.v(no1)) db(ac9.v(no1)) db(ac10.v(no1))
+.endc
+*-------------------------------------------------------------------------------*
+
+.end
