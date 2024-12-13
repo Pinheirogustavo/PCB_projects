@@ -28,29 +28,26 @@ vetor_tensao_plot = vetor_tensao.*1000; %vetor de tensoes em mV
 Ts = abs(vetor_tempo(11)-vetor_tempo(10)); %periodo de amostragem
 Fs = 1/Ts; %frequencia de amostragem
 
-L = length(vetor_tensao);
+L = length(vetor_tensao); %tamanho do vetor de tensoes
 
-%%%%%%%%%%% plot %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%% plot dos dados %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 figure(1); %figura 1
 
 plot(vetor_tempo_plot,vetor_tensao_plot)
 set(gca,'FontSize',16)
-%axis([0 N_pre*Ts])
 xlabel('t(us)','FontSize',18)
 ylabel('amplitude(mV)','FontSize',18)
 title('Ruido proviniente do circuito de ganho baseado em digpot')
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% FFT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-%%%%%%%%%%%%%%%%%%%FFT%%%%%%%%%%%%%%%%%%
-
-Y = fft(vetor_tensao);
+Y = fft(vetor_tensao); %computes the discrete Fourier transform of vetor_tensao
 
 figure(2); %figura 2
 
 plot(Fs/L*(0:L-1),abs(Y),"LineWidth",3)
-title("Complex Magnitude of fft Spectrum")
+title("Magnitude complexa do espectro da fft")
 xlabel("f (Hz)")
 ylabel("|fft(X)|")
 
