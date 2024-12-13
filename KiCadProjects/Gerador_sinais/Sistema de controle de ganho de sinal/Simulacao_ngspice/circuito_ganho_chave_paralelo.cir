@@ -45,15 +45,15 @@ R2      tmp2    no1     390
 R3      tmp3    no1     100
 R4      tmp4    no1     51
 
-C1      tmp_1     tmp1    5p
-C2      tmp_2     tmp2    5p
-C3      tmp_3     tmp3    5p
-C4      tmp_4     tmp4    5p
+C1      GND     tmp1    5p
+C2      GND     tmp2    5p
+C3      GND     tmp3    5p
+C4      GND     tmp4    5p
 
-Raux1   vrh     tmp_1    1 ; resistores auxiliares Raux, para corrigir o erro "Singular matrix warning", gerado por
-Raux2   vrh     tmp_2    1   ; um nó de impedância infinita (por exemplo, uma conexão em série de dois capacitores)
-Raux3   vrh     tmp_3    1       ;https://electronics.stackexchange.com/questions/361906/singular-matrix-warning
-Raux4   vrh     tmp_4    1
+Raux1   vrh     tmp1    180 ; resistores auxiliares Raux, para corrigir o erro "Singular matrix warning", gerado por
+Raux2   vrh     tmp2    180   ; um nó de impedância infinita (por exemplo, uma conexão em série de dois capacitores)
+Raux3   vrh     tmp3    180     ;https://electronics.stackexchange.com/questions/361906/singular-matrix-warning
+Raux4   vrh     tmp4    180
 
 
 Rcarga  out     GND     1k

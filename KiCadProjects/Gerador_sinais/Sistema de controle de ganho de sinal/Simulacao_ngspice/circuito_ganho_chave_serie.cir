@@ -39,21 +39,21 @@ X_U2    GND     vrh     vcc     vee     out     AD826A
 Rin     vrh     no1     1k
 
 
-R0       tmp1    vrh      300
-R1      tmp2    tmp1     620
-R2      tmp3    tmp2     1.3k
+R0      tmp1    vrh      300
+*R1      tmp2    tmp1     620
+*R2      tmp3    tmp2     1.3k
 R3      tmp4    tmp3     5.1k
-R4      out     tmp4     10k
+*R4      out     tmp4     10k
 
-C1      tmp_1    tmp1    5p
-C2      tmp_2    tmp2    5p
-C3      tmp_3    tmp3    5p
-C4      tmp_4    tmp4    5p
+C1      tmp1    GND    5p
+C2      tmp2    GND    5p
+C3      tmp3    GND    5p
+C4      tmp4    GND    5p
 
-Raux1   tmp2    tmp_1    125 ; resistores auxiliares Raux, para corrigir o erro "Singular matrix warning", gerado por
-Raux2   tmp3    tmp_2    125   ; um nó de impedância infinita (por exemplo, uma conexão em série de dois capacitores)
-Raux3   tmp4    tmp_3    125      ;https://electronics.stackexchange.com/questions/361906/singular-matrix-warning
-Raux4   out     tmp_4    125
+*Raux1   tmp2    tmp1    180 ; resistores auxiliares Raux, para corrigir o erro "Singular matrix warning", gerado por
+*Raux2   tmp3    tmp2    180   ; um nó de impedância infinita (por exemplo, uma conexão em série de dois capacitores)
+Raux3   tmp4    tmp3    180      ;https://electronics.stackexchange.com/questions/361906/singular-matrix-warning
+*Raux4   out     tmp4    180
 
 
 
