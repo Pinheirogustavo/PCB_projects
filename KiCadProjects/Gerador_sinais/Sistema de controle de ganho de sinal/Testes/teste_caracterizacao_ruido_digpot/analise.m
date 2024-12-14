@@ -15,7 +15,7 @@ pkg load control; pkg load signal;  %carrega pacotes
 
 
 
-dados_original = csvread('1.csv',2,0); %abre o arquivo de dados csv
+dados_original = csvread('dados.csv',2,0); %abre o arquivo de dados csv
                                         %pula as duas primeiras linhas (cabecalho)
 
 vetor_tempo = dados_original(:,1);  %vetor de tempo (coluna 1 dos dados)
@@ -34,6 +34,7 @@ L = length(vetor_tensao); %tamanho do vetor de tensoes
 
 figure(1); %figura 1
 
+subplot(5,1,1);
 plot(vetor_tempo_plot,vetor_tensao_plot)
 set(gca,'FontSize',16)
 xlabel('t(us)','FontSize',18)
@@ -44,43 +45,40 @@ title('Ruido proviniente do circuito de ganho baseado em digpot')
 
 Y = fft(vetor_tensao); %computes the discrete Fourier transform of vetor_tensao
 
-figure(2); %figura 2
-
+%plot magnitude fft
+subplot(5,1,2);
 plot(Fs/L*(0:L-1),abs(Y),"LineWidth",3)
 title("Magnitude complexa do espectro da fft")
 xlabel("f (Hz)")
 ylabel("|fft(X)|")
 
-figure(3); %figura 3
-
+%plot espectro fft
+subplot(5,1,3);
 plot(Fs/L*(-L/2:L/2-1),abs(fftshift(Y)),"LineWidth",3)
 title("fft Spectrum in the Positive and Negative Frequencies")
 xlabel("f (Hz)")
-ylabel("|fft(X)|")
+ylabel("|fft(sinal)|")
 
 
 
-%%%%%
-
+%plot freqs fft
 P2 = abs(Y/L);
 P1 = P2(1:L/2+1);
-P1 = P2(1:L/2+1).*1000;       %em mX
+P1 = P2(1:L/2+1).*1000;       %em mX;
 P1(2:end-1) = 2*P1(2:end-1);
 
+subplot(5,1,4);
 
-figure(4);
-
+%plot picos
 f = Fs/L*(0:(L/2));
 plot(f,P1,"LineWidth",3)
 title("Single-Sided Amplitude Spectrum of X(t)")
 xlabel("f (Hz)")
-ylabel("|P1(f)|")
+ylabel("|sinal|")
 
 axis([0 3e6])
 
 MinPeakHeight=0.001.*1000;
-
-
 
 [pks,locs] = findpeaks(P1,"MinPeakHeight",MinPeakHeight);
     %{
@@ -89,14 +87,14 @@ MinPeakHeight=0.001.*1000;
     do que 2 segundos
     %}
 
-figure(5);
-%plot(f,P1,f(locs),pks, "o" )
+subplot(5,1,5);
+
 plot(f,P1 )
 hold on
 
 title("Single-Sided Amplitude Spectrum of X(t)")
 xlabel("f (Hz)")
-ylabel("|P1(f)|")
+ylabel("|sinal|")
 
  idx = length(pks);
  for i = 1:idx
@@ -112,9 +110,7 @@ legend(legends) % Display all the legend texts.
 axis([0 3e6])
 
 hold off
- %pico1 = f(locs(1))/1000 %kHz
 
+print -dpdfwrite 'ruido.pdf' "-S1500,6000" "-F:5"
 
-
- %legend(['pico 1: ', num2str(pico1), ' - kHz '],'Location','north')
 
