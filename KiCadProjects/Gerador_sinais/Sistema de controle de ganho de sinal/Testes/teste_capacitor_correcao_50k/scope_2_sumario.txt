@@ -1,0 +1,15 @@
+tensao pico a pico(V): 4.497487
+amplitude do sinal(V): 2.248744
+tensao RMS(V): 1.298189
+tensao maxima(V): 2.090854
+tensao minima(V): -2.406633
+tensao media(V): -0.184083
+Componentes presentes significativas (20@amplitudeMaxima): 
+frequencia (kHz): 50.000000
+amplitude (V): 1.803724
+frequencia (kHz): 100.000000
+amplitude (V): 0.054493
+frequencia (kHz): 150.000000
+amplitude (V): 0.186740
+frequencia (kHz): 250.000000
+amplitude (V): 0.057081

@@ -1,0 +1,4 @@
+capacitor (no_vrh gnd): 6.8n
+Digipot: variando entre os pontos 100 e 70
+AmpOp: TL072
+sinal: 50 kHz
