@@ -40,7 +40,7 @@ X_U2    no1     out     vcc     vee     out     AD826A
 Rf      no1     vrh     18k
 Rs      vrh     vin     1k
 
-Cf      vrh     GND    100n
+Cf      vrh     GND    6.8n
 
 Rcarga  out     GND     1k
 
