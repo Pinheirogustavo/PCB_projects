@@ -1,9 +1,9 @@
-function  [] = plot_dados_completo()
+function  [] = plot_analise_grafica_completa()
   %help of function
 
   predefinicoes;
 
-  [dados_original,vetor_tempo,vetor_tempo_plot,vetor_tensao,vetor_tensao_plot,Ts,Fs,L,MinPeakHeight] = abre_dados;
+  [dados_original,vetor_tempo,vetor_tempo_plot,vetor_tensao,vetor_tensao_plot,Ts,Fs,L,MinPeakHeight,nome_arquivo] = abre_dados;
 
     figure(1); %figura 1
 
@@ -76,6 +76,7 @@ function  [] = plot_dados_completo()
 
     hold off
 
-    print -dpdfwrite 'dados_originais_fft.pdf' "-S1500,5000" "-F:5"
+    nome_arquivo = strcat(nome_arquivo,'_plot_analise_grafica_completa.pdf');
+    print(nome_arquivo,"-S1500,1500","-F:5")
 
 end

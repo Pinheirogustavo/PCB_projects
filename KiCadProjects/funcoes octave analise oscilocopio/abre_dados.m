@@ -1,8 +1,9 @@
-function  [dados_original,vetor_tempo,vetor_tempo_plot,vetor_tensao,vetor_tensao_plot,Ts,Fs,L,MinPeakHeight] = abre_dados()
+function  [dados_original,vetor_tempo,vetor_tempo_plot,vetor_tensao,vetor_tensao_plot,Ts,Fs,L,MinPeakHeight,nome_arquivo] = abre_dados()
   %help of function
 
   prompt = 'Digite o nome do arquivo de dados: ';
   arquivo = input(prompt,'s');
+  nome_arquivo = arquivo;     %retorna o nome do arquivo de dados em stg para as funcoes de plot
   arquivo = strcat(arquivo,'.csv');
   cabecalho = input('Digite o numero de linhas de cabecalho do aquivo: ');
 

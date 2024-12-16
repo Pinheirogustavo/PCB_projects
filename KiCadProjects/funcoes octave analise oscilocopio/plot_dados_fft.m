@@ -3,7 +3,7 @@ function  [] = plot_dados_fft()
 
   predefinicoes;
 
-  [dados_original,vetor_tempo,vetor_tempo_plot,vetor_tensao,vetor_tensao_plot,Ts,Fs,L,MinPeakHeight] = abre_dados;
+  [dados_original,vetor_tempo,vetor_tempo_plot,vetor_tensao,vetor_tensao_plot,Ts,Fs,L,MinPeakHeight,nome_arquivo] = abre_dados;
 
   Y = fft(vetor_tensao); %computes the discrete Fourier transform of vetor_tensao
 
@@ -65,7 +65,8 @@ function  [] = plot_dados_fft()
 
     hold off
 
-    print -dpdfwrite 'dados_fft.pdf' "-S1500,1500" "-F:5"
+    nome_arquivo = strcat(nome_arquivo,'_plot_fft.pdf');
+    print(nome_arquivo,"-S1500,1500","-F:5");
 
 end
 
