@@ -57,7 +57,7 @@ function  [] = plot_dados_fft()
 
     legend(legends) % Display all the legend texts.
 
-    x_limit = floor(log(abs(f(locs(i))))./log(10)); %devolve a ordem da frequencia
+    x_limit = ceil(log(abs(f(locs(i))))./log(10)); %devolve a ordem da frequencia
                                                      %do ultimo pico observado
     axis([0 f(locs(i))+10^(x_limit) ]) %forca o eixo 'x' a ficar uma ordem de
                                         %grandeza acima do ultimo pico
