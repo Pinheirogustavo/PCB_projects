@@ -12,7 +12,7 @@ function  [] = plot_analise_grafica_completa()
     set(gca,'FontSize',16)
     xlabel('t(us)','FontSize',18)
     ylabel('amplitude(mV)','FontSize',18)
-    title('Ruido proviniente do circuito de ganho baseado em digpot')
+    title(['Sinal - ',nome_arquivo])
 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% FFT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -21,14 +21,14 @@ function  [] = plot_analise_grafica_completa()
     %plot magnitude fft
     subplot(4,1,2);
     plot(Fs/L*(0:L-1),abs(Y),"LineWidth",3)
-    title("Magnitude complexa do espectro da fft")
+    title(["Magnitude complexa do espectro da fft - ", nome_arquivo])
     xlabel("f (Hz)")
     ylabel("|fft(X)|")
 
     %plot espectro fft
     subplot(4,1,3);
     plot(Fs/L*(-L/2:L/2-1),abs(fftshift(Y)),"LineWidth",3)
-    title("fft Spectrum in the Positive and Negative Frequencies")
+    title(["fft Spectrum in the Positive and Negative Frequencies - ", nome_arquivo])
     xlabel("f (Hz)")
     ylabel("|fft(sinal)|")
 
@@ -53,7 +53,7 @@ function  [] = plot_analise_grafica_completa()
     plot(f,P1 )
     hold on
 
-    title("Single-Sided Amplitude Spectrum of X(t)")
+    title(["Single-Sided Amplitude Spectrum of X(t) - ", nome_arquivo])
     xlabel("f (Hz)")
     ylabel("|sinal|(mV)")
 

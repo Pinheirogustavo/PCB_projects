@@ -10,14 +10,14 @@ function  [] = plot_dados_fft()
     %plot magnitude fft
     subplot(3,1,1);
     plot(Fs/L*(0:L-1),abs(Y),"LineWidth",3)
-    title("Magnitude complexa do espectro da fft")
+    title(["Magnitude complexa do espectro da fft - ", nome_arquivo])
     xlabel("f (Hz)")
     ylabel("|fft(X)|")
 
     %plot espectro fft
     subplot(3,1,2);
     plot(Fs/L*(-L/2:L/2-1),abs(fftshift(Y)),"LineWidth",3)
-    title("fft Spectrum in the Positive and Negative Frequencies")
+    title(["fft Spectrum in the Positive and Negative Frequencies - ", nome_arquivo])
     xlabel("f (Hz)")
     ylabel("|fft(sinal)|")
 
@@ -42,7 +42,7 @@ function  [] = plot_dados_fft()
     plot(f,P1 )
     hold on
 
-    title("Single-Sided Amplitude Spectrum of X(t)")
+    title(["Single-Sided Amplitude Spectrum of X(t) - ", nome_arquivo])
     xlabel("f (Hz)")
     ylabel("|sinal|(mV)")
 
