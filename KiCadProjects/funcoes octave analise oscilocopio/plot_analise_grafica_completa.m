@@ -1,14 +1,28 @@
 function  [] = plot_analise_grafica_completa()
-  %help of function
+  %[] = plot_analise_grafica_completa()
+  %
+  %funcao 'plot_analise_grafica_completa': plota todos os canais obtidos por osciloscopio e a fft do canal desejado.
+    %
+    % Gera um arquivo 'nome_do_arquivo_plot_analise_grafica_completa.pdf' com os graficos dos canais capturados por osciloscopio e da fft do canal desejado.
+    %
+    %Retorna: nada.
+    %%%%
+    %%%%
+    %%%%
+    #Autor: Gustavo Pinheiro
+    #email: gustavo.pinheiro.ebm@gmail.com / gustavopinheirozz@gmail.com
+    #versao octave: 8.0
 
   predefinicoes;
 
   [dados_original,vetor_tempo,vetor_tempo_plot,vetor_tensao,vetor_tensao_plot,Ts,Fs,L,MinPeakHeight,nome_arquivo] = abre_dados;
 
+ canal = input('Digite o numero do canal a ser analisado: ');
+
     figure(1); %figura 1
 
     subplot(4,1,1);
-    plot(vetor_tempo_plot,vetor_tensao_plot) %tempo em us ; tensoes em mV
+    plot(vetor_tempo_plot,vetor_tensao_plot(:,canal)) %tempo em us ; tensoes em mV
     set(gca,'FontSize',16)
     xlabel('t(us)','FontSize',18)
     ylabel('amplitude(mV)','FontSize',18)
@@ -16,7 +30,7 @@ function  [] = plot_analise_grafica_completa()
 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% FFT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-    Y = fft(vetor_tensao); %computes the discrete Fourier transform of vetor_tensao
+    Y = fft(vetor_tensao(:,canal)); %computes the discrete Fourier transform of vetor_tensao
 
     %plot magnitude fft
     subplot(4,1,2);

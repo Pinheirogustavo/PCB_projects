@@ -1,11 +1,25 @@
 function  [] = plot_dados_fft()
-  %help of function
+  %[] = plot_dados_fft()
+  %
+  %funcao 'plot_dados_fft': plota a fft do canal desejado a partir dos dados obtidos por osciloscopio.
+    %
+    % Gera um arquivo 'nome_do_arquivo_plot_fft.pdf' com a fft do canal desejado capturado por osciloscopio.
+    %
+    %Retorna: nada.
+    %%%%
+    %%%%
+    %%%%
+    #Autor: Gustavo Pinheiro
+    #email: gustavo.pinheiro.ebm@gmail.com / gustavopinheirozz@gmail.com
+    #versao octave: 8.0
 
   predefinicoes;
 
   [dados_original,vetor_tempo,vetor_tempo_plot,vetor_tensao,vetor_tensao_plot,Ts,Fs,L,MinPeakHeight,nome_arquivo] = abre_dados;
 
-  Y = fft(vetor_tensao); %computes the discrete Fourier transform of vetor_tensao
+  canal = input('Digite o numero do canal a ser analisado: ');
+
+  Y = fft(vetor_tensao(:,canal)); %computes the discrete Fourier transform of vetor_tensao
 
     %plot magnitude fft
     subplot(3,1,1);

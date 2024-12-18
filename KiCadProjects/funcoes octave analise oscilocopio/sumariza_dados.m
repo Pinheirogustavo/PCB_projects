@@ -1,9 +1,36 @@
 function  [] = sumariza_dados()
-  %help of function
+%[] = sumariza_dados()
+  %
+  %funcao 'sumariza_dados': permite obter sumario dos dados obtidos por osciloscopio.
+  %
+  %Retorna: nada.
+  %
+  %Exibe no prompt de comando os seguintes dados do canal desejado:
+    % - Tensao pico a pico (V);
+    % - Amplitude do sinal(V);
+    % - Tensao RMS(V);
+    % - Tensao maxima(V);
+    % - Tensao minima(V);
+    % - Tensao media(V);
+    % - Em relacao aos picos da fft considerados na analise (>20% tensao maxima):
+          % - Amplitude(V) e frequencia(kHz).
+    %
+    % Gera um arquivo 'nome_do_arquivo_sumario.txt' com todos os dados exibidos no prompt de comando.
+  %
+  %ATENCAO: O arquivo .txt gerado adiciona novos dados abaixo dos ja existentes
+  %no arquivo .txt presente no mesmo diretorio.
+   %%%%
+    %%%%
+    %%%%
+    #Autor: Gustavo Pinheiro
+    #email: gustavo.pinheiro.ebm@gmail.com / gustavopinheirozz@gmail.com
+    #versao octave: 8.0
 
   predefinicoes;
 
   [dados_original,vetor_tempo,vetor_tempo_plot,vetor_tensao,vetor_tensao_plot,Ts,Fs,L,MinPeakHeight,nome_arquivo] = abre_dados;
+
+canal = input('Digite o numero do canal a ser analisado: ');
 
 nome_txt = strcat(nome_arquivo,'_sumario.txt'); %comandos para salvar txt
 diary(nome_txt)                                 %com os resultados sumarizados
@@ -12,31 +39,31 @@ diary on
 %%%%%%%%%%%%%%%%%%%%%%%%% Tensao pico a pico%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %PeakToPeak_Amplitude = max(abs(dados_original))*2 - mean(dados_original)*2
-pico_a_pico = peak2peak(dados_original);
-fprintf('tensao pico a pico(V): %f\n', pico_a_pico(2));
+pico_a_pico = peak2peak(vetor_tensao(:,canal));
+fprintf('tensao pico a pico(V): %f\n', pico_a_pico);
 
 %%%%%%%%%%%%%%%%%%%%%%%%% amplitude %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-fprintf('amplitude do sinal(V): %f\n', pico_a_pico(2)/2);
+fprintf('amplitude do sinal(V): %f\n', pico_a_pico/2);
 
 %%%%%%%%%%%%%%%%%%%%%%%%% Tensao rms%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-RMS_Amplitude = sqrt(mean(dados_original.^2));
-fprintf('tensao RMS(V): %f\n', RMS_Amplitude(2));
+RMS_Amplitude = sqrt(mean(vetor_tensao(:,canal).^2));
+fprintf('tensao RMS(V): %f\n', RMS_Amplitude);
 
 %%%%%%%%%%%%%%%%%%%%%%%%% maximo %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-maximo = max(dados_original);
-fprintf('tensao maxima(V): %f\n', maximo(2));
+maximo = max(vetor_tensao(:,canal));
+fprintf('tensao maxima(V): %f\n', maximo);
 
 %%%%%%%%%%%%%%%%%%%%%%%%% minimo %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-minimo = min(dados_original);
-fprintf('tensao minima(V): %f\n', minimo(2));
+minimo = min(vetor_tensao(:,canal));
+fprintf('tensao minima(V): %f\n', minimo);
 %%%%%%%%%%%%%%%%%%%%%%%%% media %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-media = mean(dados_original);
-fprintf('tensao media(V): %f\n', media(2));
+media = mean(vetor_tensao(:,canal));
+fprintf('tensao media(V): %f\n', media);
 
 %%%%%%%%%%%%%%%%%%%%%%%%% frequencias presentes %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  Y = fft(vetor_tensao); %computes the discrete Fourier transform of vetor_tensao
+  Y = fft(vetor_tensao(:,canal)); %computes the discrete Fourier transform of vetor_tensao
 
     P2 = abs(Y/L);
     P1 = P2(1:L/2+1);
@@ -45,7 +72,7 @@ fprintf('tensao media(V): %f\n', media(2));
 
     f = Fs/L*(0:(L/2));
 
-    MinPeakHeight=(0.02*maximo(2)).*1000; %tamanho minimo para o pico ser detectado
+    MinPeakHeight=(0.02*maximo).*1000; %tamanho minimo para o pico ser detectado
                                               %(20% tensao maxima)
     [pks,locs] = findpeaks(P1,"MinPeakHeight",MinPeakHeight);
         %{
