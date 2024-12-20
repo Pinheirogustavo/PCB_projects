@@ -72,8 +72,6 @@ fprintf('tensao media(V): %f\n', media);
 
     f = Fs/L*(0:(L/2));
 
-    MinPeakHeight=(0.02*maximo).*1000; %tamanho minimo para o pico ser detectado
-                                              %(20% tensao maxima)
     [pks,locs] = findpeaks(P1,"MinPeakHeight",MinPeakHeight);
         %{
         retorna os picos (pks) e suas posicoes (locs) do sinal

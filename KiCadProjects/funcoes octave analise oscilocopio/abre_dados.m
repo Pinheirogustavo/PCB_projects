@@ -54,7 +54,7 @@ function  [dados_original,vetor_tempo,vetor_tempo_plot,vetor_tensao,vetor_tensao
 
   %%% predifinicoes para fft
   maximo = max(dados_original);
-  MinPeakHeight=(0.02*maximo(2)).*1000; %tamanho minimo para o pico de frequencia
+  MinPeakHeight=(0.2*maximo(2)).*1000; %tamanho minimo para o pico de frequencia
                                           %(componente) ser detectado
                                             %(20% tensao maxima)
 
