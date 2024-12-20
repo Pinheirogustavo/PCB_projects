@@ -8,7 +8,7 @@
 #include "ad9850.h"
 #include "gerador.h"
 
-#include "Arduino.h"
+//#include "Arduino.h"
 #include "X9C10X.h"
 
 X9C10X pot(100000);  //  100 KΩ  (ALT-234)
@@ -84,6 +84,7 @@ void loop() {
 
       case 'p':
         printa_dados();
+        Serial.println(pot.getPosition());
         break;
 
     default:
