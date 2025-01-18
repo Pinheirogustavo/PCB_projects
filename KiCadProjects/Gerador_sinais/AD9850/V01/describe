@@ -1,0 +1,4 @@
+- Codigo Master:
+- Gerador Array Serial: codigo basico para a placa Ad9850 V01, acrescido de um trecho de debug para tentar solucionar o problema de descaracterizacao com sinal (solucao atualmente implementada é de limitar o ganho em uma faixa de apenas 10 passos, sempre alterando a frequencia de sinal antes de alterar o ganho)
+- Gerador Array Serial Backup: codigo basico para controle da placa de gerador de sinais AD9850 V01, com bibliotecas implementadas
+- Gerador Array Serial encoder:
