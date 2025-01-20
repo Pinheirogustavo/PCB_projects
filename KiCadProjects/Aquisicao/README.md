@@ -18,11 +18,13 @@ VCC (barramento) &rarr; 5V (StepDown) &rarr; 3V (regulador) &rarr; entrada 3.3V 
 As entradas analógicas fixas de cada módulo são:
 
 > PA1 - Amplitude da corrente I1 (Ampl1)
+
 > PA4 - Amplitude da corrente I2 (Ampl2)
 
 As entradas analógicas de cada módulo referentos aos canais externos são:
 
 > PA0 - Canal X (sign_Cx)
+
 > PB0 - Canal X+4 (sign_Cx+4)
 
     Estes canais externos não estão implementados no barramento, mas sim por conectores de pinos horizontais laterais identificados por "sign_C" (elementos J4 e J5).
@@ -30,13 +32,17 @@ As entradas analógicas de cada módulo referentos aos canais externos são:
 As conexões de comunicação de cada módulo são (I2C):
 
 > PB6 - SCL1 (3.3V)
+
 > PB7 - SDA1 (3.3V)
 
 As entradas digitais reservadas para sinais de sincronismo são:
 
 > PA5 - SINC_A
+
 > PA6 - SINC_B
+
 > PA7 - SINC_C
+
 > PB1 - SINCD
 
 Assim, a ideia é que a placa opere em dois modos:
