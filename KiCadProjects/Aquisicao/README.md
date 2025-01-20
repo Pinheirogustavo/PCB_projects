@@ -29,7 +29,7 @@ As entradas analógicas de cada módulo referentos aos canais externos são:
 
 ```mermaid
 graph TD
-A[Estes canais externos não estão implementados no barramento, mas sim por conectores de pinos horizontais laterais identificados por 'sign_C' (elementos J4 e J5).]
+A[Estes canais externos não estão implementados no barramento, mas sim por conectores de pinos horizontais laterais identificados por 'sign_C_' (elementos J4 e J5).]
 ```
 
 As conexões de comunicação de cada módulo são (I2C):
