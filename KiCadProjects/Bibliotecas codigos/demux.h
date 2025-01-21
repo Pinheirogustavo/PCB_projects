@@ -1,5 +1,5 @@
 /*
- * Funções para uso da placa demux "Aquisicao.V01" de 16 canais do tomografo
+ * Funções para uso da placa demux "Demux.V02" de 16 canais do tomografo
  * Autor: Gustavo Pinheiro
  */
 
