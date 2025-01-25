@@ -29,21 +29,21 @@ circuito de controle de ganho - chave
 *.param A=0.3 f=250k T={1/f}
 
 *vSinal  vin     GND     sin(0 A f)
-vSinal  vin     GND     AC 0.5V
+vSinal  vin     GND     AC 0.001V
 VCC     vcc     GND     9V
 VEE     vee     GND     -9V
 *Cx      out     no2      100n
 *Rx      out     GND     510
 X_U1    vin     no1     vcc     vee     no1     AD826A
 X_U2    GND     vrh     vcc     vee     out     AD826A
-Rf      out     vrh     510
+Rf      out     vrh     1Mega
 
 
-R0      vrh     no1     2k
-R1      tmp1    no1     800
-R2      tmp2    no1     390
-R3      tmp3    no1     100
-R4      tmp4    no1     51
+R0      vrh     no1     20k
+R1      tmp1    no1     1Mega
+R2      tmp2    no1     47k
+R3      tmp3    no1     1k
+R4      tmp4    no1     470
 
 C1      GND     tmp1    5p
 C2      GND     tmp2    5p
