@@ -21,7 +21,7 @@ function  [] = plot_analise_grafica_completa()
 
     figure(1); %figura 1
 
-    subplot(4,1,1);
+    subplot(2,1,1);
     plot(vetor_tempo_plot,vetor_tensao_plot(:,canal)) %tempo em us ; tensoes em mV
     set(gca,'FontSize',16)
     xlabel('t(us)','FontSize',18)
@@ -32,6 +32,7 @@ function  [] = plot_analise_grafica_completa()
 
     Y = fft(vetor_tensao(:,canal)); %computes the discrete Fourier transform of vetor_tensao
 
+    %{
     %plot magnitude fft
     subplot(4,1,2);
     plot(Fs/L*(0:L-1),abs(Y),"LineWidth",3)
@@ -45,6 +46,7 @@ function  [] = plot_analise_grafica_completa()
     title(["fft Spectrum in the Positive and Negative Frequencies - ", nome_arquivo])
     xlabel("f (Hz)")
     ylabel("|fft(sinal)|")
+%}
 
     %plot freqs fft e picos
     P2 = abs(Y/L);
@@ -62,12 +64,14 @@ function  [] = plot_analise_grafica_completa()
         do que 2 segundos
         %}
 
-    subplot(4,1,4);
+    subplot(2,1,2);
 
     plot(f,P1 )
     hold on
 
-    title(["Single-Sided Amplitude Spectrum of X(t) - ", nome_arquivo])
+    %title(["Single-Sided Amplitude Spectrum of X(t) - ", nome_arquivo])
+    title(["Espectro de amplitudes unilateral X(t) - ", nome_arquivo])
+
     xlabel("f (Hz)")
     ylabel("|sinal|(mV)")
 
@@ -86,12 +90,14 @@ function  [] = plot_analise_grafica_completa()
                                                      %do ultimo pico observado
     axis([0 f(locs(i))+10^(x_limit) ]) %forca o eixo 'x' a ficar uma ordem de
                                         %grandeza acima do ultimo pico
-
+    grid on;
 
     hold off
 
     nome_arquivo = strcat(nome_arquivo,'_plot_analise_grafica_completa.pdf');
-    print(nome_arquivo,"-S1500,1500","-F:10")
-    %F:?? : tamanho da fonte usada
+    print(nome_arquivo,"-S850,450","-F:10")
+        %F:?? : tamanho da fonte usada
+
+
 
 end

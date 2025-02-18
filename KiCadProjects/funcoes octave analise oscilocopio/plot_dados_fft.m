@@ -80,7 +80,10 @@ function  [] = plot_dados_fft()
     hold off
 
     nome_arquivo = strcat(nome_arquivo,'_plot_fft.pdf');
-    print(nome_arquivo,"-S1500,1500","-F:5");
+    print(nome_arquivo,"-S1500,1500","-F:10");
+        %F:?? : tamanho da fonte usada
+
+
 
 end
 

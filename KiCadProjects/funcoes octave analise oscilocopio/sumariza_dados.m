@@ -12,7 +12,7 @@ function  [] = sumariza_dados()
     % - Tensao maxima(V);
     % - Tensao minima(V);
     % - Tensao media(V);
-    % - Em relacao aos picos da fft considerados na analise (>20% tensao maxima):
+    % - Em relacao aos picos da fft considerados na analise (>2% tensao maxima):
           % - Amplitude(V) e frequencia(kHz).
     %
     % Gera um arquivo 'nome_do_arquivo_sumario.txt' com todos os dados exibidos no prompt de comando.
@@ -79,7 +79,7 @@ fprintf('tensao media(V): %f\n', media);
         do que 2 segundos
         %}
 
-    fprintf('Componentes presentes significativas (20@amplitudeMaxima): \n');
+    fprintf('Componentes presentes significativas (2@amplitudeMaxima): \n');
 
      idx = length(pks);
      for i = 1:idx
