@@ -2,6 +2,7 @@
 
 #include <Wire.h>
 #include "ad9850.h"
+#include "gerador.h"
 
 #define NUM_ELETRODOS 4 
 byte num_eletrodos_usados = NUM_ELETRODOS; // mudar para: int num_eletrodos_usados = NUM_ELETRODOS
