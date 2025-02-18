@@ -12,7 +12,7 @@ function  [dados_original,vetor_tempo,vetor_tempo_plot,vetor_tensao,vetor_tensao
     % -Ts: periodo de amostragem;
     % -Fs: frequencia de amostragem;
     % -L: tamanho do vetor de tensoes;
-    % -MinPeakHeight: tamanho minimo para o pico de frequencia (componente) ser detectado (20% tensao maxima);
+    % -MinPeakHeight: tamanho minimo para o pico de frequencia (componente) ser detectado (2% tensao maxima);
     % -nome_arquivo: nome com o qual o arquivo de dados foi salvo.
     %
     %Restricoes para o nome do arquivo:
@@ -54,9 +54,9 @@ function  [dados_original,vetor_tempo,vetor_tempo_plot,vetor_tensao,vetor_tensao
 
   %%% predifinicoes para fft
   maximo = max(dados_original);
-  MinPeakHeight=(0.2*maximo(2)).*1000; %tamanho minimo para o pico de frequencia
+  MinPeakHeight=(0.02*maximo(2)).*1000; %tamanho minimo para o pico de frequencia
                                           %(componente) ser detectado
-                                            %(20% tensao maxima)
+                                            %(2% tensao maxima)
 
 end
 
