@@ -33,6 +33,24 @@
 #define Enable_B4 PB11
 
 
+// Funcao que desliga todos os mux's relacionados com a injecao de corrente
+void prepara_mux_in(){
+  digitalWrite(Enable_A1, HIGH);  // MUX 1  desabilitado
+  digitalWrite(Enable_A2, HIGH);  // MUX 2  desabilitado
+  digitalWrite(Enable_A3, HIGH);  // MUX 3  desabilitado
+  digitalWrite(Enable_A4, HIGH);  // MUX 4  desabilitado
+  digitalWrite(Enable_A, LOW);    // MUX 5  habilitado, primeiro da cascata
+}
+
+// Funcao que desliga todos os mux's relacionados com a drenagem de corrente
+void prepara_mux_out(){
+  digitalWrite(Enable_B1, HIGH);  // MUX 1  desabilitado
+  digitalWrite(Enable_B2, HIGH);  // MUX 2  desabilitado
+  digitalWrite(Enable_B3, HIGH);  // MUX 3  desabilitado
+  digitalWrite(Enable_B4, HIGH);  // MUX 4  desabilitado
+  digitalWrite(Enable_B, LOW);    // MUX 5 habilitado, primeiro da cascata
+}
+
 // Funcao para acionar determinado eletrodo de injecao de corrente
     //A partir do numero desse eletrodo (0-127)
 void seleciona_canal_in(int canal){
@@ -133,22 +151,4 @@ void configura_pinos_mux(){
   pinMode(Enable_B3, OUTPUT); //  MUX 3 "Eletrodo 16 a 23"
   pinMode(Enable_B4, OUTPUT); //  MUX 4 "Eletrodo 24 a 31"
   pinMode(Enable_B, OUTPUT);  //  MUX 5  primeiro da cascata
-}
-
-// Funcao que desliga todos os mux's relacionados com a injecao de corrente
-void prepara_mux_in(){
-  digitalWrite(Enable_A1, HIGH);  // MUX 1  desabilitado
-  digitalWrite(Enable_A2, HIGH);  // MUX 2  desabilitado
-  digitalWrite(Enable_A3, HIGH);  // MUX 3  desabilitado
-  digitalWrite(Enable_A4, HIGH);  // MUX 4  desabilitado
-  digitalWrite(Enable_A, LOW);    // MUX 5  habilitado, primeiro da cascata
-}
-
-// Funcao que desliga todos os mux's relacionados com a drenagem de corrente
-void prepara_mux_out(){
-  digitalWrite(Enable_B1, HIGH);  // MUX 1  desabilitado
-  digitalWrite(Enable_B2, HIGH);  // MUX 2  desabilitado
-  digitalWrite(Enable_B3, HIGH);  // MUX 3  desabilitado
-  digitalWrite(Enable_B4, HIGH);  // MUX 4  desabilitado
-  digitalWrite(Enable_B, LOW);    // MUX 5 habilitado, primeiro da cascata
 }
