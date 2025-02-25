@@ -23,7 +23,8 @@ void setup() {
 
   ad9850_setup(); 
   ad9850_sendFrequency(freq_sinal);
-  gerador_setup();  
+  gerador_setup();
+
   delay(1000);
 
   Serial.println("Configuracao encerrada");

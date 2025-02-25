@@ -3,16 +3,6 @@
 #include <Wire.h>
 #include "ad9850.h"
 
-
-////////////DIGPOT - Controle da amplitude do sinal ////////////
-// Saidas digitais
-#define inc_outPin PB11 // INC(DigPot1)
-#define ud_outPin PB10  // U/D(DigPot1)
-#define cs_digpot1 PB1   // CS do DigPot 1, usado para salvar a ultima resistencia obtida
-
-const int loopPeriod = 50;  
-////////////////////////////////////////////////////////////////
-
 #define NUM_ELETRODOS 4 
 byte num_eletrodos_usados = NUM_ELETRODOS; // mudar para: int num_eletrodos_usados = NUM_ELETRODOS
 
@@ -135,6 +125,8 @@ void processacomandoserial(){
   int comandoserial = Serial.read();
    
    switch (comandoserial) {
+
+//////////////////////////////////// Selecao de frequencias ////////////////////////////////////
     case '1': // 200Khz 6 pontos (6 pts = 2 ciclos)
       envia_comando_todos(1);
       n_pontos_base = 3;
@@ -184,7 +176,9 @@ void processacomandoserial(){
       Serial.println(tempo_demodulacao);
       ad9850_sendFrequency(5000);
       break;
-      
+////-----------------------------------------------------------------------------------------------------////
+
+////////////////////////////////////////// parametros de demodulacao ////////////////////////////////////////
     case '-': // diminui tempo para medida e demodulação
       tempo_demodulacao = tempo_demodulacao - 1;
       Serial.print("Tempo de demodulacao = ");
@@ -196,47 +190,44 @@ void processacomandoserial(){
       Serial.print("Tempo de demodulacao = ");
       Serial.println(tempo_demodulacao);
       break; 
-      
-    case 'i': // inicia medidas nos eletrodos
-      inicia_leitura_eletrodos();
-      Serial.println("Leitura dos eletrodos iniciada...");
-      break; 
-      
-    case 'v': // pega valores lidos dos eletrodos
-      pega_leitura_eletrodos();
-      delay(tempo_demodulacao); // aguarda leitura e demodulação; menor possível
-      Serial.println("Valores lidos:");
-      
-      for (byte n = 0; n < num_eletrodos_usados; n++){
-        imprime_uma_medida(amplitudes[n],fases[n]);
-      }
-      Serial.println();
-      break; 
 
-    case 'f': // pega 1 frame
-      inicia_leitura_um_frame(pula);
-      for (byte n = 0; n < num_eletrodos_usados*num_eletrodos_usados; n++){
-        imprime_uma_medida(amplitudes_frame[n],fases_frame[n]);
+    case 't': // diminui nro de pontos
+      if(n_pontos_mult>1){
+        n_pontos_mult = n_pontos_mult-1;
+        envia_comando_todos('t');
+        tempo_demodulacao = 1+(n_pontos_base*n_pontos_mult)/4;
       }
-      Serial.println();      
-      break;
-     
-    case 'm': // pega 1 frame e mostra a matriz
-      inicia_leitura_um_frame(pula);
-      for (byte n = 0; n < num_eletrodos_usados*num_eletrodos_usados; n++){
-        if( (n%num_eletrodos_usados)== 0) Serial.println();
-        imprime_uma_medida(amplitudes_frame[n],fases_frame[n]);
-      }
-      Serial.println();      
-      Serial.println();      
-      for (byte n = 0; n < num_eletrodos_usados; n++){
-        imprime_uma_medida(ampli_corrente[n],fase_corrente[n]);    
-      }
-      Serial.println(" [mA]"); 
+      else Serial.print("Nro de pontos minimo atingido. ");
+      Serial.print("Npontos = ");
+      Serial.print(n_pontos_base*n_pontos_mult);
+      Serial.print("; npontos_base = ");
+      Serial.print(n_pontos_base);
+      Serial.print("; n_pontos_mult = ");
+      Serial.print(n_pontos_mult);
+      Serial.print("; tempo_demodulacao = ");
+      Serial.println(tempo_demodulacao);
       break;
 
+    case 'u': // aumenta nro de pontosNUM_SAMPLES_MAX
+      if(((n_pontos_mult+1)*n_pontos_base) < NUM_SAMPLES_MAX){
+        n_pontos_mult = n_pontos_mult+1;
+        envia_comando_todos('y');
+        tempo_demodulacao = 1+(n_pontos_base*n_pontos_mult)/4;
+      }
+      else Serial.print("Nro de pontos maximo atingido. ");
+      Serial.print("Npontos = ");
+      Serial.print(n_pontos_base*n_pontos_mult);
+      Serial.print("; npontos_base = ");
+      Serial.print(n_pontos_base);
+      Serial.print("; n_pontos_mult = ");
+      Serial.print(n_pontos_mult);
+      Serial.print("; tempo_demodulacao = ");
+      Serial.println(tempo_demodulacao);
+      break;
+////-----------------------------------------------------------------------------------------------------////
 
-      //// DEBUG MUX inicio
+//////////////////////////////////////////// controle de eletrodos //////////////////////////////////////////
+//// DEBUG MUX inicio
     case 'd':
       wire_envia_byte(0X60, 1);
       Serial.println("DEBUG Injetando no eletrodo 1");
@@ -246,7 +237,7 @@ void processacomandoserial(){
     wire_envia_byte(0X60, 0X80+2);
       Serial.println("DEBUG Drenando no eletrodo 2");
       break;
-   //// DEBUG MUX fim
+//// DEBUG MUX fim
 
     case 'a':
       /*  //altear mux para padrão de injeção 1-2
@@ -281,6 +272,64 @@ void processacomandoserial(){
       Serial.println("Injetando nos eletrodos 2 e 3");
       break;
 
+    case 'w': // diminui padrao de injecao
+      if( pula > 1 ){
+        pula = pula-1;
+        Serial.print("Usando padrao pula ");
+        Serial.println(pula);
+      }
+      else Serial.println("Padrao pula no limite");
+      break;
+
+    case 'z': // aumenta padrao de injecao
+      if( (pula+1) < num_eletrodos_usados){
+        pula = pula+1;
+        Serial.print("Usando padrao pula ");
+        Serial.println(pula);
+      }
+      else Serial.println("Padrao pula no limite");
+      break;
+////-----------------------------------------------------------------------------------------------------////
+
+///////////////////////////////////////////// modos de leitura //////////////////////////////////////////////
+    case 'i': // inicia medidas nos eletrodos
+      inicia_leitura_eletrodos();
+      Serial.println("Leitura dos eletrodos iniciada...");
+      break;
+
+    case 'v': // pega valores lidos dos eletrodos
+      pega_leitura_eletrodos();
+      delay(tempo_demodulacao); // aguarda leitura e demodulação; menor possível
+      Serial.println("Valores lidos:");
+
+      for (byte n = 0; n < num_eletrodos_usados; n++){
+        imprime_uma_medida(amplitudes[n],fases[n]);
+      }
+      Serial.println();
+      break;
+
+    case 'f': // pega 1 frame
+      inicia_leitura_um_frame(pula);
+      for (byte n = 0; n < num_eletrodos_usados*num_eletrodos_usados; n++){
+        imprime_uma_medida(amplitudes_frame[n],fases_frame[n]);
+      }
+      Serial.println();
+      break;
+
+    case 'm': // pega 1 frame e mostra a matriz
+      inicia_leitura_um_frame(pula);
+      for (byte n = 0; n < num_eletrodos_usados*num_eletrodos_usados; n++){
+        if( (n%num_eletrodos_usados)== 0) Serial.println();
+        imprime_uma_medida(amplitudes_frame[n],fases_frame[n]);
+      }
+      Serial.println();
+      Serial.println();
+      for (byte n = 0; n < num_eletrodos_usados; n++){
+        imprime_uma_medida(ampli_corrente[n],fase_corrente[n]);
+      }
+      Serial.println(" [mA]");
+      break;
+
     case 'j': // leitura continua dividindo pela corrente (envia impedancias)
       flag_leitura_continua_limpa = true;
       flag_envia_impedancia = true;
@@ -295,93 +344,42 @@ void processacomandoserial(){
       flag_envia_impedancia = false;
       break;
 
-    case 'p': // interromper leitura continua
+    case 's': // interromper leitura continua
       flag_leitura_continua = false;
       flag_leitura_continua_limpa = false;
       flag_envia_impedancia = false;
       break;
-      
-    case 'w': // diminui padrao de injecao
-      if( pula > 1 ){
-        pula = pula-1;
-        Serial.print("Usando padrao pula ");
-        Serial.println(pula);
-      }
-      else Serial.println("Padrao pula no limite");
-      break;
-      
-    case 'z': // aumenta padrao de injecao
-      if( (pula+1) < num_eletrodos_usados){
-        pula = pula+1;
-        Serial.print("Usando padrao pula ");
-        Serial.println(pula);
-      }
-      else Serial.println("Padrao pula no limite");
-      break;
-      
-    case 't': // diminui nro de pontos
-      if(n_pontos_mult>1){
-        n_pontos_mult = n_pontos_mult-1;
-        envia_comando_todos('t');
-        tempo_demodulacao = 1+(n_pontos_base*n_pontos_mult)/4;
-      }
-      else Serial.print("Nro de pontos minimo atingido. ");
-      Serial.print("Npontos = ");
-      Serial.print(n_pontos_base*n_pontos_mult);
-      Serial.print("; npontos_base = ");
-      Serial.print(n_pontos_base);
-      Serial.print("; n_pontos_mult = ");
-      Serial.print(n_pontos_mult);
-      Serial.print("; tempo_demodulacao = ");
-      Serial.println(tempo_demodulacao);
-      break;
-      
-    case 'y': // aumenta nro de pontosNUM_SAMPLES_MAX
-      if(((n_pontos_mult+1)*n_pontos_base) < NUM_SAMPLES_MAX){
-        n_pontos_mult = n_pontos_mult+1;
-        envia_comando_todos('y');
-        tempo_demodulacao = 1+(n_pontos_base*n_pontos_mult)/4;
-      }
-      else Serial.print("Nro de pontos maximo atingido. ");
-      Serial.print("Npontos = ");
-      Serial.print(n_pontos_base*n_pontos_mult);
-      Serial.print("; npontos_base = ");
-      Serial.print(n_pontos_base);
-      Serial.print("; n_pontos_mult = ");
-      Serial.print(n_pontos_mult);
-      Serial.print("; tempo_demodulacao = ");
-      Serial.println(tempo_demodulacao);
+////-----------------------------------------------------------------------------------------------------////
+
+/////////////////////////////////// DIGPOT - Controle da amplitude do sinal /////////////////////////////////
+    case 'L': // diminui a amplitude do sinal (wiper up)
+      diminui_ganho();
       break;
 
+    case 'U': // aumenta a amplitude do sinal (wiper down)
+      aumenta_ganho();
+      break;
 
-      ////////////DIGPOT - Controle da amplitude do sinal ////////////
-// Saidas digitais
-      case 'L': // diminui a amplitude do sinal (wiper up)
-        digitalWrite(ud_outPin, HIGH);
-        delay(loopPeriod);
-        digitalWrite(inc_outPin, LOW);
-        delay(loopPeriod);
-        digitalWrite(inc_outPin, HIGH);
-        delay(loopPeriod);
-        break;
+    case 'S': // Salva a resistencia
+      digitalWrite(cs_digpot1, HIGH);
+      delay(loopPeriod);
+      digitalWrite(cs_digpot1, LOW);
+      break;
 
-      case 'U': // aumenta a amplitude do sinal (wiper down)
-        digitalWrite(ud_outPin, LOW);
-        delay(loopPeriod);
-        digitalWrite(inc_outPin, LOW);
-        delay(loopPeriod);
-        digitalWrite(inc_outPin, HIGH);
-        delay(loopPeriod);
-        digitalWrite(ud_outPin, HIGH);
-        break;
+    case 'x':
+      ganho_minimo();
+      break;
 
-      case 'S': // Salva a resistencia
-        digitalWrite(cs_digpot1, HIGH);
-        delay(loopPeriod);
-        digitalWrite(cs_digpot1, LOW);
-        break;
-////////////////////////////////////////////////////////////////
+    case 'y':
+      ganho_maximo();
+      break;
 
+    case 'p':
+      printa_dados();
+      break;
+////-----------------------------------------------------------------------------------------------------////
+
+/////////////////////////////////// xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx /////////////////////////////////
       case 'P':
         envia_comando_todos('P');
         break;
@@ -398,7 +396,6 @@ void wire_envia_byte(byte endereco, byte com) {
     Wire.endTransmission();    
 }
 
-
 void setup(){
   disableDebugPorts();// permite utilizar os pinos B3, B4 e A15 como GPIO, mover BOOT0 para 1 para poder gravar
   Wire.begin(); // join i2c bus (address optional for master)
@@ -408,18 +405,13 @@ void setup(){
   n_pontos_mult = 2;  // por que iniciar essas variaveis com estes valores ??????
   tempo_demodulacao = 2;  // por que iniciar essas variaveis com estes valores ??????
   Serial.begin(9600);
+  delay(1000);
+  Serial.println("Aguarde a configuracao do sistema");
 
 ad9850_setup();
-////////////DIGPOT - Controle da amplitude do sinal ////////////
-// Saidas digitais
-pinMode(inc_outPin, OUTPUT);
-pinMode(ud_outPin, OUTPUT);
-pinMode(cs_digpot1, OUTPUT);
-
-digitalWrite(inc_outPin, HIGH);
-digitalWrite(ud_outPin, HIGH);
-digitalWrite(cs_digpot1, LOW);
-  ///////////////////////////////////////////////////////////////
+gerador_setup();
+delay(1000);
+Serial.println("Configuracao encerrada");
 }
 
 void loop(){
