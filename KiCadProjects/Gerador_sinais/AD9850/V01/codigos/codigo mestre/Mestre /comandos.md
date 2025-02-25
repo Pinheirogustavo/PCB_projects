@@ -1,3 +1,4 @@
+Lista de comandos para o programa de controle mestre EIT "Mestre.ino"
 # Comandos de seleção de frequências
 
 - **1**: altera a frequência do sinal para **200 kHz**; n_pontos_base = 3; n_pontos_mult = 2 (= 2 ciclos); tempo de demodulacao = 2.
