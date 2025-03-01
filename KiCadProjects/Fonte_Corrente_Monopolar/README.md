@@ -1,5 +1,7 @@
 # Fonte de corrente monopolar
 
+## Versão atualmente implementada no tomógrafo: V02
+
 ## Descrição Geral do projeto
 
 Fonte de corrente controlada por tensão monopolar do tipo Howoland aperfeiçoada. O Sistema é excitado por um sinal senoidal e fornece uma corrente alternada de amplitude constante frente uma banda de resistências. Há um sistema de monitoramento da amplitude da corrente (Ampl1) que é implementado com um circuito de condicionamento dedicado.
