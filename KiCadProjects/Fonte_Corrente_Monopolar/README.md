@@ -6,7 +6,7 @@ Fonte de corrente controlada por tensão monopolar do tipo Howoland aperfeiçoad
 
 Estágios Fonte de Corrente: Sinal de entrada(Sin1 ou SinA) &rarr; buffer &rarr; arquitetura fonte Howland &rarr; Resistor Sentinela//Amplificador de Instrumentação &rarr;  corrente I1.
 
-Estágios monitoramento: Amplificador de Instrumentação &rarr; AmpOp &arrar; circuito de condicionamento &rarr; amplitude da corrente Ampl1.
+Estágios monitoramento: Amplificador de Instrumentação &rarr; AmpOp &rarr; circuito de condicionamento &rarr; amplitude da corrente Ampl1.
 
 ## Componentes do circuito:
 
@@ -51,15 +51,15 @@ Fonte monopolar do tipo Howland aperfeiçoada.
 
 ## Esquemático
 
-![Fonte de corrente howland aperfeiçoada monopolar - Kicad](https://github.com/Pinheirogustavo/PCB_projects/blob/main/KiCadProjects/Fonte_Corrente_Monopolar/prints/Fonte_corrente_monopolar_esquematico.png)
+![Fonte de corrente howland aperfeiçoada monopolar - Kicad](https://github.com/Pinheirogustavo/PCB_projects/blob/main/KiCadProjects/Fonte_Corrente_Monopolar/V02/print/Fonte_corrente_mono_V02.pdf)
 
 ## PCB
 
-![Fonte de corrente howland aperfeiçoada monopolar PCB - Kicad](https://github.com/Pinheirogustavo/PCB_projects/blob/main/KiCadProjects/Fonte_Corrente_Monopolar/prints/Fonte_corrente_monopolar_esquematico_PCB.png)
+![Fonte de corrente howland aperfeiçoada monopolar PCB - Kicad](https://github.com/Pinheirogustavo/PCB_projects/blob/main/KiCadProjects/Fonte_Corrente_Monopolar/V02/print/Fonte_corrente_mono_V02_PCB.pdf)
 
 ## PCB-3D
 
-![Fonte de corrente howland aperfeiçoada monopolar - PCB 3D Kicad](https://github.com/Pinheirogustavo/PCB_projects/blob/main/KiCadProjects/Fonte_Corrente_Monopolar/prints/Fonte_corrente_mono_3D.png)
+![Fonte de corrente howland aperfeiçoada monopolar - PCB 3D Kicad](https://github.com/Pinheirogustavo/PCB_projects/blob/main/KiCadProjects/Fonte_Corrente_Monopolar/V02/print/Fonte_corrente_mono_3D.png)
 
 ## PCB máscara
 
