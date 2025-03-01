@@ -1,7 +1,7 @@
 
 ## Esquemático
 
-![Fonte de corrente howland aperfeiçoada monopolar - Kicad](https://github.com/Pinheirogustavo/PCB_projects/blob/main/KiCadProjects/Fonte_Corrente_Monopolar/V02/print/Fonte_corrente_mono_V02.pdf)
+![Fonte de corrente howland aperfeiçoada monopolar - Kicad](https://github.com/Pinheirogustavo/PCB_projects/blob/main/KiCadProjects/Fonte_Corrente_Monopolar/V02/print/Fonte_corrente_mono_V02.ps)
 
 ## PCB
 
