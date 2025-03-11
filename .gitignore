@@ -1,1 +1,2 @@
 *.zip
+!jlcpcb.zip #Except for jlcpcb production
