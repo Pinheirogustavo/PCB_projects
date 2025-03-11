@@ -5242,16 +5242,6 @@
 	)
 	(wire
 		(pts
-			(xy 137.033 42.037) (xy 137.033 40.894)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "24dbff26-04e5-4fd3-ae3c-55f603e16c4a")
-	)
-	(wire
-		(pts
 			(xy 30.226 176.53) (xy 30.226 183.134)
 		)
 		(stroke
@@ -5362,16 +5352,6 @@
 	)
 	(wire
 		(pts
-			(xy 130.429 54.61) (xy 131.953 54.61)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4f9c264b-66e3-41ae-9644-6be7571d8414")
-	)
-	(wire
-		(pts
 			(xy 130.429 62.23) (xy 158.242 62.23)
 		)
 		(stroke
@@ -5399,16 +5379,6 @@
 			(type default)
 		)
 		(uuid "5d8a6586-78cb-49fd-87c3-68443a77b7a2")
-	)
-	(wire
-		(pts
-			(xy 131.953 54.61) (xy 131.953 42.037)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5fbbca6d-29c9-4a95-b1bd-e52b77a1966a")
 	)
 	(wire
 		(pts
@@ -5599,16 +5569,6 @@
 			(type default)
 		)
 		(uuid "9e40c07d-533a-44d9-97f7-9657f470fed3")
-	)
-	(wire
-		(pts
-			(xy 131.953 42.037) (xy 134.493 42.037)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a88fa8aa-9382-4b31-98b6-cbd55e2bbf8e")
 	)
 	(wire
 		(pts
@@ -5948,7 +5908,7 @@
 			)
 		)
 	)
-	(global_label "Sin2_PA"
+	(global_label "Sin2"
 		(shape input)
 		(at 211.201 73.66 0)
 		(fields_autoplaced yes)
@@ -5960,7 +5920,7 @@
 		)
 		(uuid "161500bf-a0ae-49fa-92e5-8f98071ffbcd")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 221.6852 73.66 0)
+			(at 218.359 73.66 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6102,7 +6062,7 @@
 			)
 		)
 	)
-	(global_label "Sin1_PA"
+	(global_label "Sin1"
 		(shape input)
 		(at 197.231 73.787 0)
 		(fields_autoplaced yes)
@@ -6114,7 +6074,7 @@
 		)
 		(uuid "4e9fbfb0-476d-4b4f-a273-5e7b62b940f0")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 207.7152 73.787 0)
+			(at 204.389 73.787 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9176,71 +9136,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:+5V")
-		(at 137.033 40.894 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "98212944-f9a8-4ad2-b3a2-742a4b560ac4")
-		(property "Reference" "#PWR042"
-			(at 137.033 44.704 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+5V"
-			(at 136.9789 38.3455 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 137.033 40.894 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 137.033 40.894 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 137.033 40.894 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "5e68fab5-4d15-44ae-a7a7-326981285169")
-		)
-		(instances
-			(project "Gerador_Sinais_AD9850"
-				(path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
-					(reference "#PWR042")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:Earth")
 		(at 121.9171 180.9886 180)
 		(unit 1)
@@ -9693,75 +9588,6 @@
 			(project "Gerador_Sinais_AD9850"
 				(path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
 					(reference "#PWR048")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector_Generic:Conn_01x02")
-		(at 137.033 47.117 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "b80e4cf3-44c4-4017-a4e7-c92e3d2b32e3")
-		(property "Reference" "J5"
-			(at 139.065 45.847 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "5.0V STM32"
-			(at 139.065 48.387 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
-			(at 137.033 47.117 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 137.033 47.117 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 137.033 47.117 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "ea43f230-9290-4256-a979-0dba6f86acb5")
-		)
-		(pin "1"
-			(uuid "a864200c-06d8-40a7-951d-dfde66b84afb")
-		)
-		(instances
-			(project "Gerador_Sinais_AD9850"
-				(path "/f0ff92cf-26e5-4ab9-977d-5f9689e8a5d0"
-					(reference "J5")
 					(unit 1)
 				)
 			)

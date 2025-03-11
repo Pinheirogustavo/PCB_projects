@@ -58,7 +58,7 @@
     "ssh_key": ""
   },
   "meta": {
-    "filename": "Gerador_Sinais_AD9850_V01b.kicad_prl",
+    "filename": "Signal_generator_AD9850_V01a.kicad_prl",
     "version": 5
   },
   "net_inspector_panel": {
