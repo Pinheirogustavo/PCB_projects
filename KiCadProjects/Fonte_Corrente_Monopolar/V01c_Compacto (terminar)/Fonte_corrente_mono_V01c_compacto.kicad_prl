@@ -50,7 +50,7 @@
       "shapes"
     ],
     "visible_layers": "ffffffff_ffffffff_ffffffff_ffffffff",
-    "zone_display_mode": 1
+    "zone_display_mode": 0
   },
   "git": {
     "repo_type": "",
@@ -58,7 +58,7 @@
     "ssh_key": ""
   },
   "meta": {
-    "filename": "Fonte_corrente_mono_V01b_compacto.kicad_prl",
+    "filename": "Fonte_corrente_mono_V01c_compacto.kicad_prl",
     "version": 5
   },
   "net_inspector_panel": {
