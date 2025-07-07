@@ -67,6 +67,6 @@ Lista de comandos para o programa de controle mestre EIT "Mestre.ino"
 
 # xxxxx
 
-- **P**:
+- **adicionar enderecos dos dispositivos**:
 
 

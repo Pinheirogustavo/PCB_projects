@@ -4,6 +4,42 @@
 #include "ad9850.h"
 #include "gerador.h"
 
+// add vetor posicoes eletrodos
+
+/*
+
+VERSAO 0: da qualif
+
+setup:
+ - configura 200kHz e 6 pontos
+
+loop:
+ - verifica se chegou comando... se chegou, trata (por enquanto, ignora comando)
+ - for padrão de 1 a 8:
+    - configura injeção do padrão -> I2C para/de o MUX
+    - lê 8 eletrodos e guarda em vetor tam 64 -> I2C para/de canais de medição
+    - se erro, termina for
+ - se não erro, envia 64 valores pela Serial
+
+VERSAO 1:
+setup:
+ - configura 200kHz e 6 pontos
+
+loop:
+ - verifica se chegou comando... se chegou, trata
+ - for padrão de 1 a 8:
+    - configura injeção do padrão -> I2C para/de o MUX
+    - avisar canais qual padrão é o atual
+    - lê 8 eletrodos e guarda em vetor tam 64 -> I2C para/de canais de medição
+    - se erro, termina for
+ - se não erro, envia 64 valores pela Serial
+
+----- no código do canal:
+ - na 1a vez, só lê...
+ - da 2a em diante, ajusta ganho ótimo para aquele padrão
+ - dependendo do padrão, altera ganho..
+
+*/
 #define NUM_ELETRODOS 4 
 byte num_eletrodos_usados = NUM_ELETRODOS; // mudar para: int num_eletrodos_usados = NUM_ELETRODOS
 
