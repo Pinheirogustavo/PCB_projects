@@ -1,30 +1,34 @@
 //Baseado em: https://github.com/Silvio8989/Equipamento-de-tomografia-por-impedancia-eletrica-escalavel-e-de-baixo-custo-para-uso-didatico/tree/main/C%C3%B3digos/Seguidor/Mux_Entrada/Mux_Entrada.ino
 
+#define DEBUG
+
 #include <Wire_slave.h>
 #include "demux.h"
 //#include <stm32f1xx_hal_rcc.h>
 
-#define MEU_ENDERECO 0x60 //define endereco i2c do uC que controla o grupo de muxs
+#define MEU_ENDERECO 0x10 //define endereco i2c do uC que controla o grupo de muxs
 #define LED PC13 //Led verde do uC stm32, usado para indicar determinadas acoes do uC
+
 
 byte comando = 0;
 long int contador = 0;
 
 void dadorecebido(int howmany){
   comando = Wire.read();  
-  if(comando == 0) comando = 0xFF;
-  configura_pinos_mux(); //chama a funcao para desligar todos os mux entre cada comando; depois implementar: nova funcao que apenas desabilita os muxs
 }
 
 //avalia o comando recebido pelo i2c
-    //se 'comando' entre 0 e 127 -> indica o eletrodo de injecao de corrente
-    //se 'comando' entre 128 e 255 -> indica o eletrodo de drenagem de corrente
+    //se 'comando' entre 1 e 127 -> indica o eletrodo de injecao de corrente
+    //se 'comando' entre 129 (0x81) e 254 (0xFE) -> indica o eletrodo de drenagem de corrente
 void processacomando(){
   contador = 0;
-  Serial.print("recebi comando "); //debug
-  Serial.println(comando, HEX);  //debug
+  digitalWrite(LED, LOW); // Verificação de funcionamento
+  #ifdef DEBUG
+    Serial.print("recebi comando "); //debug
+    Serial.println(comando, HEX);  //debug
+  #endif
   if(comando <= 0x7F){
-    seleciona_canal_in(comando);
+    seleciona_canal_in(comando); // Eletrodo 1 é o arg 1
   }
   if (comando > 0x7F && comando < 0xFF ){
     comando = comando-0x80;
@@ -37,12 +41,14 @@ void setup() {
   disableDebugPorts();// permite utilizar os pinos B3, B4 e A15 como GPIO, mover BOOT0 para 1 para poder gravar
   Wire.begin(MEU_ENDERECO); //Endereço do MUX
   Wire.onReceive(dadorecebido);    // chama uma funcao qualquer quando algum dado eh recebido pelo i2c
-  pinMode(LED, OUTPUT);
-  delay (3000);
-  digitalWrite(LED, HIGH);
   configura_pinos_mux();
-  Serial.begin(9600);
-  Serial.println("Demux ok");
+  pinMode(LED, OUTPUT);
+  delay (100);
+  digitalWrite(LED, HIGH);
+  #ifdef DEBUG
+    Serial.begin(115200);
+    Serial.println("Demux ok");
+  #endif
 }
 
 /* Sobre habilitar os pinos B3, B4 e A15 para uso como GPIO:
@@ -55,10 +61,9 @@ void setup() {
  */
 
 void loop() {
-  contador = contador+1;
   if(comando!=0) processacomando();
+  contador = contador+1;
   if(contador>10000) digitalWrite(LED, HIGH); // Verificação de funcionamento
-  else digitalWrite(LED, LOW); // Verificação de funcionamento
 }
 
 /*
@@ -79,4 +84,3 @@ void testa(){
   }
 }
 */
-

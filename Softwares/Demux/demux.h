@@ -55,35 +55,40 @@ void prepara_mux_out(){
     //A partir do numero desse eletrodo (0-127)
 void seleciona_canal_in(int canal){
   prepara_mux_in();
+  canal = canal-1;
   //canais iniciam no num 0
-  byte A = bitRead(canal,0); //LSB canal
-  byte B = bitRead(canal,1);
-  byte C = bitRead(canal,2);
-  byte D = bitRead(canal,3);
-  byte E = bitRead(canal,4); //MSB canal
+  if (canal >= 0 && canal < 126){
+    byte A = bitRead(canal,0); //LSB canal
+    byte B = bitRead(canal,1);
+    byte C = bitRead(canal,2);
+    byte D = bitRead(canal,3);
+    byte E = bitRead(canal,4); //MSB canal
 
-  Serial.print("canal ");
-  Serial.println(canal);
-  Serial.print(A);
-  Serial.print(B);
-  Serial.print(C);
-  Serial.print(D);
-  Serial.println(E);
-
-  digitalWrite(A_S0, A); // B5
-  digitalWrite(A_S1, B); // B4
-  digitalWrite(A_S2, C); // B3
-  digitalWrite(A_S3, D); // A15
-  digitalWrite(A_S4, E); // B9
-
-  if (canal<8){ // liga apenas o mux A1
-      digitalWrite(Enable_A1,0);
-  } else if(canal<16){ //liga apenas o mux A2
-      digitalWrite(Enable_A2,0);
-  } else if(canal<24){ //liga apenas o mux A3
-      digitalWrite(Enable_A3,0);
-  } else if(canal<32){ //liga apenas o mux A4
-      digitalWrite(Enable_A4,0);
+    #ifdef DEBUG
+      Serial.print("canal ");
+      Serial.println(canal);
+      Serial.print(A);
+      Serial.print(B);
+      Serial.print(C);
+      Serial.print(D);
+      Serial.println(E);
+    #endif
+  
+    digitalWrite(A_S0, A); // B5
+    digitalWrite(A_S1, B); // B4
+    digitalWrite(A_S2, C); // B3
+    digitalWrite(A_S3, D); // A15
+    digitalWrite(A_S4, E); // B9
+  
+    if (canal<8){ // liga apenas o mux A1
+        digitalWrite(Enable_A1,0);
+    } else if(canal<16){ //liga apenas o mux A2
+        digitalWrite(Enable_A2,0);
+    } else if(canal<24){ //liga apenas o mux A3
+        digitalWrite(Enable_A3,0);
+    } else if(canal<32){ //liga apenas o mux A4
+        digitalWrite(Enable_A4,0);
+    }
   }
 }
 
@@ -91,36 +96,41 @@ void seleciona_canal_in(int canal){
     //A partir do numero desse eletrodo (128-255)
 void seleciona_canal_out(int canal){
   prepara_mux_out();
-  //canais iniciam no num 0
-  int A = bitRead(canal,0); //LSB canal
-  int B = bitRead(canal,1);
-  int C = bitRead(canal,2);
-  int D = bitRead(canal,3);
-  int E = bitRead(canal,4); //MSB canal
+  canal = canal-1;
+  if (canal >= 0 && canal < 126){
+    //canais iniciam no num 0
+    int A = bitRead(canal,0); //LSB canal
+    int B = bitRead(canal,1);
+    int C = bitRead(canal,2);
+    int D = bitRead(canal,3);
+    int E = bitRead(canal,4); //MSB canal
 
-  Serial.print("canal ");
-  Serial.println(canal);
-  Serial.print(A);
-  Serial.print(B);
-  Serial.print(C);
-  Serial.print(D);
-  Serial.println(E);
-
-  digitalWrite(B_S0, A);
-  digitalWrite(B_S1, B);
-  digitalWrite(B_S2, C);
-  digitalWrite(B_S3, D);
-  digitalWrite(B_S4, E);
-
-  if (canal<8){ //liga apenas o mux B1
-      digitalWrite(Enable_B1,0);
+    #ifdef DEBUG
+      Serial.print("canal ");
+      Serial.println(canal);
+      Serial.print(A);
+      Serial.print(B);
+      Serial.print(C);
+      Serial.print(D);
+      Serial.println(E);
+    #endif
+  
+    digitalWrite(B_S0, A);
+    digitalWrite(B_S1, B);
+    digitalWrite(B_S2, C);
+    digitalWrite(B_S3, D);
+    digitalWrite(B_S4, E);
+  
+    if (canal<8){ //liga apenas o mux B1
+        digitalWrite(Enable_B1,0);
     } else if(canal<16){ //liga apenas o mux B2
-      digitalWrite(Enable_B2,0);
+        digitalWrite(Enable_B2,0);
     } else if(canal<24){ //liga apenas o mux B3
-      digitalWrite(Enable_B3,0);
+        digitalWrite(Enable_B3,0);
     } else if(canal<32){ //liga apenas o mux B4
-      digitalWrite(Enable_B,0);
+        digitalWrite(Enable_B,0);
     }
+  }
 }
 
 //Funcao define a GPIO do uC relacionada com controle do mux
