@@ -12,6 +12,10 @@
 
 */
 
+#ifndef AD9850_H
+
+#define AD9850_H
+
 #define W_CLK PC14   //  - connect to AD9850 module word load clock pin (CLK)
 #define FQ_UD PC15   //  - connect to freq update pin (FQ)
 #define DATA  PA0   //  - connect to serial data load pin (DATA)
@@ -48,3 +52,5 @@ void ad9850_setup() {
     _pulseHigh(W_CLK);
     _pulseHigh(FQ_UD); // this pulse enables serial mode - Datasheet page 12 figure 10
 }
+
+#endif

@@ -1,10 +1,87 @@
 
 
+//#define DEBUG
+
 #include <Wire.h>
 #include "ad9850.h"
 #include "gerador.h"
+#include "stm32_adc_dual_mode.h"
+#include "dft.h"
 
-// add vetor posicoes eletrodos
+
+#define NUM_ELETRODOS 8
+#define R_SENT_INA 10       // 10ohms, em algumas placas está 47 ohms
+#define GANHO_INA  16.1976  // G_ina = 1+(50k/3,29k)
+#define GANHO_CORRENTE (1000.0/(R_SENT_INA*GANHO_INA)) // Para corrente em mA (R_sent = 10ohm; G_ina = 1+(50k/3,29k) )
+                                                       // Vina= Vrs.G --> Vrs = Vina/G ; I = Vrs/rs --> I = Vina/(G.rs)
+
+#define F5K     5000
+#define F50K   50000
+#define F100K 100000
+#define F125K 125000
+#define F200K 200000
+
+#define CHANNELS_PER_ADC  1                      // number of channels for each ADC. Must match values in ADCx_Sequence array below
+#define ADC_SMPR          ADC_SMPR_7_5           // when using dual mode, each pair of channels must have same rate. Here all channels have the same
+#define NUM_SAMPLES_MAX   500                    // number of samples for each ADCx. Each channel will be sampled NUM_SAMPLES/CHANNELS_PER_ADC
+#define PRE_SCALER        RCC_ADCPRE_PCLK_DIV_6  // Prescaler do ADC
+#define FAST_INTERLEAVED  false                  // Fast Interleave Mode Flag. Para "dobrar" taxa de amostragem medindo o mesmo canal dos 2 ADCs.
+
+#define LED PC13
+
+typedef union{
+  float floatingPoint;
+  byte binary[4];
+} binaryFloat;
+
+//////////////// Variáveis relacionadas à amostragem
+
+uint32 adcbuf[NUM_SAMPLES_MAX+1];  // buffer to hold samples, ADC1 16bit, ADC2 16 bit
+uint16_t datav1[NUM_SAMPLES_MAX+1];
+uint16_t datav2[NUM_SAMPLES_MAX+1];
+
+float freq_sinal = 200000;  // 200kHz
+int n_pontos_base = 3;
+int n_pontos_mult = 2;
+int num_samples = n_pontos_base*n_pontos_mult;
+
+
+
+float amplitudes[NUM_ELETRODOS]; //vetor de amplitudes vistas pelos eletrodos
+float fases[NUM_ELETRODOS];      //vetor de fases (em relacao a ?????) vistas pelos eletrodos
+
+float amplitudes_frame[NUM_ELETRODOS*NUM_ELETRODOS];
+float fases_frame[NUM_ELETRODOS*NUM_ELETRODOS];
+
+float ampli_corrente[NUM_ELETRODOS], fase_corrente[NUM_ELETRODOS];
+
+
+
+float phase1, phase2, amplit1, amplit2;
+
+byte comando = 0;
+boolean mediu = false;
+
+
+//////////////// Configuração do ADC
+
+// O STM32F103 possui 10 pinos do ADC disponíveis:
+// pino A0 (PA0) -> 0 (ADC0)
+// ...
+// pino A7 (PA7) -> 7 (ADC7)
+// pino B0 (PB0) -> 8 (ADC8)
+// pino B1 (PB1) -> 9 (ADC9)
+// Para "dobrar" taxa de amostragem (FAST_INTERLEAVED true), medir o mesmo canal dos 2 ADCs.
+
+//uint8 ADC1_Sequence[]={8,0,0,0,0,0};   // ADC1 channels sequence, left to right. Unused values must be 0. Note that these are ADC /channels, not pins
+//uint8 ADC2_Sequence[]={9,0,0,0,0,0};   // ADC2 channels sequence, left to right. Unused values must be 0
+
+// CASO 2: lê canal X e canal Y
+uint8 ADC1_Sequence[]={4,0,0,0,0,0}; // Amplitude da corrente está ligada no PA4
+uint8 ADC2_Sequence[]={8,0,0,0,0,0}; // PB0 não está sendo usado, vamos ignorar a medida
+
+const float referenceVolts= 3.3;
+float sample_freq =  (72e6 / 6.0 / 20.0); // = 600kHz
 
 /*
 
@@ -40,37 +117,156 @@ loop:
  - dependendo do padrão, altera ganho..
 
 */
-#define NUM_ELETRODOS 4 
+
 byte num_eletrodos_usados = NUM_ELETRODOS; // mudar para: int num_eletrodos_usados = NUM_ELETRODOS
 
-//#define GANHO_CORRENTE (1000.0/(47*2.8)) // Para corrente em mA (R_sent = 47ohm; G_ina = 2.8)
-#define GANHO_CORRENTE (1000.0/(10*16.2)) // Para corrente em mA (R_sent = 10ohm; G_ina = 1+(50k/3,29k) )
-  // Vina= Vrs.G --> Vrs = Vina/G ; I = Vrs/rs --> I = Vina/(G.rs)
+
 int tempo_demodulacao = 2; // tempo em ms que demora a leitura e demodulacao
 
-byte pula = 1;
+byte pula = 0;
 
 byte flag_leitura_continua = false;
 byte flag_leitura_continua_limpa = false;
 byte flag_envia_impedancia = false;
 
 
-#define NUM_SAMPLES_MAX   500
-int n_pontos_base, n_pontos_mult;
-
-typedef union{
-  float floatingPoint;
-  byte binary[4];
-} binaryFloat;
 
 
-float amplitudes[NUM_ELETRODOS]; //vetor de amplitudes vistas pelos eletrodos
-float fases[NUM_ELETRODOS];      //vetor de fases (em relacao a ?????) vistas pelos eletrodos
+void mede_ADC(){
+  //Realiza a medicao das amplitudes vistas nos ADCs e calcula sinais medios;
+  //retorna o calculo de amplitude e fase
+  digitalWrite(LED, LOW); // Verificação de funcionamento
+  // medindo valores:
+  start_convertion_dual_channel(adcbuf, num_samples);
+  wait_convertion_dual_channel();
 
-float amplitudes_frame[NUM_ELETRODOS*NUM_ELETRODOS];
-float fases_frame[NUM_ELETRODOS*NUM_ELETRODOS];
+  // separando valores lidos nos 2 ADCs:
+  for(int i=0;i<(num_samples);i++) {
+    //datav1[i] = ((adcbuf[i] & 0xFFFF0000) >>16);
+    //datav2[i] = (adcbuf[i] & 0xFFFF);
+    datav2[i] = ((adcbuf[i] & 0xFFFF0000) >>16);
+  }
 
-float ampli_corrente[NUM_ELETRODOS], fase_corrente[NUM_ELETRODOS];
+  // calculando amplitudes e fases
+  float media1 = sinal_medio (datav1, num_samples);
+  phase1 = 0, amplit1=0;
+ // amplit1 =   calc_dft_singfreq(datav1, freq_sinal, sample_freq, media1, 10000, num_samples, &phase1);
+  calc_dft_singfreq(datav1, freq_sinal, sample_freq, media1, amplit1, phase1, 1000, num_samples);
+    //verificar essa funcao no programa TG, pois retornava amplitude e fase
+
+  float media2 = sinal_medio (datav2, num_samples);
+  phase2 = 0;
+//  amplit2 =   calc_dft_singfreq(datav2, freq_sinal, sample_freq, media2, 10000, num_samples, &phase2);
+  calc_dft_singfreq(datav2, freq_sinal, sample_freq, media2, amplit2, phase2, 1000, num_samples);
+    //verificar essa funcao no programa TG, pois retornava amplitude e fase
+
+  mediu = true;
+  digitalWrite(LED, HIGH); // Verificação de funcionamento
+}
+
+
+
+
+/* Processa comandos enviados pela I2C:
+ * - 'P': imprime valores medidos na serial
+ * - '1': 200Khz 6 pontos (6 pts = 2 ciclos)
+ * - '2': 125Khz 24 pontos (24pts = 5 ciclos)
+ * - '3': 100Khz 12 pontos (12 pts = 2 ciclos)
+ * - '4': 50Khz 24 pontos (24 pts = 2 ciclos)
+ * - '5': 5Khz 240 pontos (240 pts = 2 ciclos)
+ * - 'i': inicia conversão AD
+ * - 't': decrementa o numero de pontos amostrados (diminui o fator de multiplicacao de ciclos amostrados)
+ * - 'y': incrementa o numero de pontos amostrados (aumenta o fator de multiplicacao de ciclos amostrados)
+ */
+void processacomando(){
+  //Define a frequencia do sinal lido e o n de amostras - em funcao do comando recebido do master
+  switch (comando) {
+
+#ifdef DEBUG
+    case 'P':
+      // imprimindo valores lidos:
+      for(int i=0;i<(num_samples);i++) {
+        float volts= ((adcbuf[i] & 0xFFFF) / 4095.0)* referenceVolts;
+        float voltss=  (((adcbuf[i] & 0xFFFF0000) >>16) / 4095.0)* referenceVolts;
+
+        if(FAST_INTERLEAVED){ // Fast interleaved mode, não utilizado ainda
+          /*Serial.print("ADC:");
+          Serial.println(voltss); //ADC2 é convertido primeiro... Ver [2], pág 10.
+          Serial.print("ADC:");
+          Serial.println(volts);*/
+        }
+        else{ // Regular simultaneous mode
+          Serial.print("adc1:");
+          Serial.print(volts);
+          Serial.print("\tadc2:");
+          Serial.println(voltss);
+        }
+      }
+      Serial.print("\tamplitude 1: ");
+      Serial.print(amplit1);
+      Serial.print("\tamplitude 2: ");
+      Serial.println(amplit2);
+      Serial.println();
+      break;
+#endif
+
+    case 1: // 200Khz 6 pontos (6 pts = 2 ciclos)
+      freq_sinal = 200000;
+      n_pontos_base = 3; // sample_freq/freq_sinal
+      n_pontos_mult = 2;
+      num_samples = n_pontos_base*n_pontos_mult;
+      break;
+
+    case 2: // 125Khz 24 pontos (24pts = 5 ciclos)
+      freq_sinal = 125000;
+      n_pontos_base = 24;  // (sample_freq/freq_sinal)*5
+      n_pontos_mult = 1;
+      num_samples = n_pontos_base*n_pontos_mult;
+      break;
+
+    case 3: // 100Khz 12 pontos (12 pts = 2 ciclos)
+      freq_sinal = 100000;
+      n_pontos_base = 6; // sample_freq/freq_sinal
+      n_pontos_mult = 2;
+      num_samples = n_pontos_base*n_pontos_mult;
+      break;
+
+    case 4: // 50Khz 24 pontos (24 pts = 2 ciclos)
+      freq_sinal = 50000;
+      n_pontos_base = 12; //sample_freq/freq_sinal
+      n_pontos_mult = 2;
+      num_samples = n_pontos_base*n_pontos_mult;
+      break;
+
+       case 5: // 5Khz 240 pontos (240 pts = 2 ciclos)
+      freq_sinal = 5000;
+      n_pontos_base = 120; //sample_freq/freq_sinal
+      n_pontos_mult = 2;
+      num_samples = n_pontos_base*n_pontos_mult;
+      break;
+
+    case 'i': // inicializa as medidas dos eletrodos
+      mede_ADC();
+      break;
+
+    case 't': // decrementa o numero de pontos amostrados (diminui o fator de multiplicacao de ciclos amostrados)
+      n_pontos_mult = n_pontos_mult-1;
+      if (n_pontos_mult<1) n_pontos_mult = 1;
+      num_samples = n_pontos_base*n_pontos_mult;
+      break;
+
+    case 'y': // incrementa o numero de pontos amostrados (aumenta o fator de multiplicacao de ciclos amostrados)
+      n_pontos_mult = n_pontos_mult+1;
+      if (n_pontos_base*n_pontos_mult >= NUM_SAMPLES_MAX) n_pontos_mult = n_pontos_mult-1;
+      num_samples = n_pontos_base*n_pontos_mult;
+      break;
+
+    default:
+      break;
+  }
+  comando = 0; // depois que processa, volta para comando = 0
+}
+
 
 //funcao para enviar o mesmo comando para todos perifericos de um mesmo conjunto (eletrodos, gerador, mux)
 void envia_comando_todos(byte comando){
@@ -237,7 +433,7 @@ void processacomandoserial(){
       else Serial.print("Nro de pontos minimo atingido. ");
       Serial.print("Npontos = ");
       Serial.print(n_pontos_base*n_pontos_mult);
-      Serial.print("; npontos_base = ");
+      Serial.print("; n_pontos_base = ");
       Serial.print(n_pontos_base);
       Serial.print("; n_pontos_mult = ");
       Serial.print(n_pontos_mult);
@@ -254,7 +450,7 @@ void processacomandoserial(){
       else Serial.print("Nro de pontos maximo atingido. ");
       Serial.print("Npontos = ");
       Serial.print(n_pontos_base*n_pontos_mult);
-      Serial.print("; npontos_base = ");
+      Serial.print("; n_pontos_base = ");
       Serial.print(n_pontos_base);
       Serial.print("; n_pontos_mult = ");
       Serial.print(n_pontos_mult);
@@ -412,7 +608,7 @@ void processacomandoserial(){
       break;
 
     case 'p':
-      printa_dados();
+      //printa_dados();
       break;
 ////-----------------------------------------------------------------------------------------------------////
 
