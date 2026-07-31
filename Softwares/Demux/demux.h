@@ -52,7 +52,7 @@ void prepara_mux_out(){
 }
 
 // Funcao para acionar determinado eletrodo de injecao de corrente
-    //A partir do numero desse eletrodo (0-127)
+    //A partir do numero desse eletrodo (1-127)
 void seleciona_canal_in(int canal){
   prepara_mux_in();
   canal = canal-1;
