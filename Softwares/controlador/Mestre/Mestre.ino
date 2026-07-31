@@ -2,6 +2,9 @@
 
 //#define DEBUG
 
+#define ENDERECO_MUX 0x10
+#define ENDERECO_ELET1 0x51
+
 #include <Wire.h>
 #include "ad9850.h"
 #include "gerador.h"
@@ -61,6 +64,7 @@ float phase1, phase2, amplit1, amplit2;
 
 byte comando = 0;
 boolean mediu = false;
+boolean ajustado = false;
 
 
 //////////////// Configuração do ADC
@@ -121,7 +125,7 @@ loop:
 byte num_eletrodos_usados = NUM_ELETRODOS; // mudar para: int num_eletrodos_usados = NUM_ELETRODOS
 
 
-int tempo_demodulacao = 2; // tempo em ms que demora a leitura e demodulacao
+int tempo_demodulacao; // tempo em ms que demora a leitura e demodulacao
 
 byte pula = 0;
 
@@ -131,7 +135,7 @@ byte flag_envia_impedancia = false;
 
 
 
-
+// Função para medir a corrente pelo próprio Controlador
 void mede_ADC(){
   //Realiza a medicao das amplitudes vistas nos ADCs e calcula sinais medios;
   //retorna o calculo de amplitude e fase
@@ -148,15 +152,15 @@ void mede_ADC(){
   }
 
   // calculando amplitudes e fases
-  float media1 = sinal_medio (datav1, num_samples);
-  phase1 = 0, amplit1=0;
- // amplit1 =   calc_dft_singfreq(datav1, freq_sinal, sample_freq, media1, 10000, num_samples, &phase1);
-  calc_dft_singfreq(datav1, freq_sinal, sample_freq, media1, amplit1, phase1, 1000, num_samples);
-    //verificar essa funcao no programa TG, pois retornava amplitude e fase
+     //float media1 = sinal_medio (datav1, num_samples);
+     //phase1 = 0, amplit1=0;
+     //amplit1 =   calc_dft_singfreq(datav1, freq_sinal, sample_freq, media1, 10000, num_samples, &phase1);
+     //calc_dft_singfreq(datav1, freq_sinal, sample_freq, media1, amplit1, phase1, 1000, num_samples);
+     //verificar essa funcao no programa TG, pois retornava amplitude e fase
 
   float media2 = sinal_medio (datav2, num_samples);
   phase2 = 0;
-//  amplit2 =   calc_dft_singfreq(datav2, freq_sinal, sample_freq, media2, 10000, num_samples, &phase2);
+     //amplit2 =   calc_dft_singfreq(datav2, freq_sinal, sample_freq, media2, 10000, num_samples, &phase2);
   calc_dft_singfreq(datav2, freq_sinal, sample_freq, media2, amplit2, phase2, 1000, num_samples);
     //verificar essa funcao no programa TG, pois retornava amplitude e fase
 
@@ -178,6 +182,7 @@ void mede_ADC(){
  * - 't': decrementa o numero de pontos amostrados (diminui o fator de multiplicacao de ciclos amostrados)
  * - 'y': incrementa o numero de pontos amostrados (aumenta o fator de multiplicacao de ciclos amostrados)
  */
+/* 
 void processacomando(){
   //Define a frequencia do sinal lido e o n de amostras - em funcao do comando recebido do master
   switch (comando) {
@@ -194,7 +199,7 @@ void processacomando(){
           Serial.println(voltss); //ADC2 é convertido primeiro... Ver [2], pág 10.
           Serial.print("ADC:");
           Serial.println(volts);*/
-        }
+ /*       }
         else{ // Regular simultaneous mode
           Serial.print("adc1:");
           Serial.print(volts);
@@ -238,7 +243,7 @@ void processacomando(){
       num_samples = n_pontos_base*n_pontos_mult;
       break;
 
-       case 5: // 5Khz 240 pontos (240 pts = 2 ciclos)
+    case 5: // 5Khz 240 pontos (240 pts = 2 ciclos)
       freq_sinal = 5000;
       n_pontos_base = 120; //sample_freq/freq_sinal
       n_pontos_mult = 2;
@@ -265,14 +270,14 @@ void processacomando(){
       break;
   }
   comando = 0; // depois que processa, volta para comando = 0
-}
+}*/
 
 
-//funcao para enviar o mesmo comando para todos perifericos de um mesmo conjunto (eletrodos, gerador, mux)
+//funcao para enviar o mesmo comando para todos perifericos de um mesmo conjunto (eletrodos)
 void envia_comando_todos(byte comando){
-  for (byte n = 0; n < num_eletrodos_usados; n++) wire_envia_byte(0X51+n,comando); // envia para eletrodos
+  for (byte n = 0; n < num_eletrodos_usados; n++) wire_envia_byte(ENDERECO_ELET1+n,comando); // envia para eletrodos
   //wire_envia_byte(0X40,comando); // Envia para gerador de onda
-  wire_envia_byte(0X60,comando); // Envia para controlador do mux
+  //wire_envia_byte(0X60,comando); // Envia para controlador do mux
 }
 
 //imprime os valores de duas medidas, m1 e m2:
@@ -296,26 +301,32 @@ void imprime_uma_medida_limpa(float m1, float m2){
 // avisa aos eletrodos para iniciar nova leitura. Envia comando 'i' para todos os uC dos eletrodos
   //i: inicia_leitura_eletrodos();
 void inicia_leitura_eletrodos(){
-  for (byte n = 0; n < num_eletrodos_usados; n++) wire_envia_byte(0X51+n,'i');
+  for (byte n = 0; n < num_eletrodos_usados; n++) wire_envia_byte(ENDERECO_ELET1+n,'i');
 }
 
 // altera a injecao de corrente percorrendo todos os eletrodos; realiza medida de amp e fase a cada iteracao
 void inicia_leitura_um_frame(byte padrao){
-  for (byte n = 0; n < num_eletrodos_usados; n++){ 
+  for (byte n = 0; n < num_eletrodos_usados; n++){ // para cada padrão de corrente...
+    
     // Passo 1: define as saidas acionadas pelos muxs com base no num de eletrodos usados e padrao de injecao
-    wire_envia_byte(0X60, 1 + n);
-    wire_envia_byte(0X61, 1 + ( (n+padrao)%num_eletrodos_usados) );
+    //   - se 'comando' entre 1 e 127 -> indica o eletrodo de injecao de corrente
+    //   - se 'comando' entre 129 (0x81) e 254 (0xFE) -> indica o eletrodo de drenagem de corrente
+    wire_envia_byte(ENDERECO_MUX, 1 + n);
+    wire_envia_byte(ENDERECO_MUX, 0x81 + ( (n+padrao)%num_eletrodos_usados) );
 
     // Passo 2: Dispara leitura nos eletrodos
     envia_comando_todos('i'); // i:inicia_leitura_eletrodos();
 
-    // Passo 3: Aguarda a leitura e a demodulação
+    // Passo 3: Realiza a leitura da corrente
+    mede_ADC();  // mede corrente e grava amplit2 e phase2
+    ampli_corrente[n] = amplit2;
+    
+    // Passo 4: Aguarda a leitura e a demodulação
     delay(tempo_demodulacao); // deixar o menor possível que nunca dê erro
 
-    // Passo 4: Ler amplitudes e fases
-    pega_leitura_eletrodos();
-    pega_leitura_de_um_eletrodo(0X40, &ampli_corrente[n], &fase_corrente[n]);
+    // Passo 5: Ler amplitudes e fases
     ampli_corrente[n] = ampli_corrente[n]*GANHO_CORRENTE; // calcula corrente
+    pega_leitura_eletrodos();
     for (byte m = 0; m < num_eletrodos_usados; m++){ // copiando valores para matriz
       amplitudes_frame[m+(n*num_eletrodos_usados)] = amplitudes[m];
       fases_frame[m+(n*num_eletrodos_usados)] = fases[m];
@@ -323,7 +334,7 @@ void inicia_leitura_um_frame(byte padrao){
   }
 }
 
-// pega a amplitude e fase da corrente monitorada no ina???
+// pega a amplitude e fase do sinal medido em um eletrodo
 void pega_leitura_de_um_eletrodo(byte endereco, float *amplitude, float *fase){
   Wire.requestFrom(endereco, 8);
 
@@ -340,7 +351,7 @@ void pega_leitura_de_um_eletrodo(byte endereco, float *amplitude, float *fase){
 void pega_leitura_eletrodos(){
   for (byte n = 0; n < num_eletrodos_usados; n++){
     float ampl, pha;
-    pega_leitura_de_um_eletrodo(0X51+n, &ampl, &pha);
+    pega_leitura_de_um_eletrodo(ENDERECO_ELET1+n, &ampl, &pha);
     amplitudes[n] = ampl;
     fases[n] = pha;
   } 
@@ -364,56 +375,62 @@ void processacomandoserial(){
       envia_comando_todos(1);
       n_pontos_base = 3;
       n_pontos_mult = 2;
-      tempo_demodulacao = 2;
+      //tempo_demodulacao = 2;
       Serial.print("200Khz 6 pontos (6 pts = 2 ciclos) e tempo de demod = ");
       Serial.println(tempo_demodulacao);
       ad9850_sendFrequency(200000);
+      ajustado = true;
       break;
    
     case '2': // 125Khz 24 pontos (24pts = 5 ciclos)
       envia_comando_todos(2);
       n_pontos_base = 24;
       n_pontos_mult = 1;
-      tempo_demodulacao = 10;
+      //tempo_demodulacao = 10;
       Serial.print("125Khz 24 pontos (24pts = 5 ciclos) e tempo de demod = ");
       Serial.println(tempo_demodulacao);
       ad9850_sendFrequency(125000);
+      ajustado = true;
       break;
    
     case '3': // 100Khz 12 pontos (12 pts = 2 ciclos)
       envia_comando_todos(3);
       n_pontos_base = 6;
       n_pontos_mult = 2;
-      tempo_demodulacao = 5;
+      //tempo_demodulacao = 5;
       Serial.print("100Khz 12 pontos (12 pts = 2 ciclos) e tempo de demod = ");
       Serial.println(tempo_demodulacao);
       ad9850_sendFrequency(100000);
+      ajustado = true;
       break;
     
     case '4': // 50Khz 24 pontos (24 pts = 2 ciclos)
       envia_comando_todos(4);
       n_pontos_base = 12;
       n_pontos_mult = 2;
-      tempo_demodulacao = 10;
+      //tempo_demodulacao = 10;
       Serial.print("50Khz 24 pontos (24 pts = 2 ciclos) e tempo de demod = ");
       Serial.println(tempo_demodulacao);
       ad9850_sendFrequency(50000);
+      ajustado = true;
       break; 
 
     case '5': // 5Khz 120 pontos (240 pts = 2 ciclos)
       envia_comando_todos(5);
       n_pontos_base = 120;
       n_pontos_mult = 2;
-      tempo_demodulacao = 10;
+      //tempo_demodulacao = 10;
       Serial.print("5Khz 240 pontos (240 pts = 2 ciclos) e tempo de demod = ");
       Serial.println(tempo_demodulacao);
       ad9850_sendFrequency(5000);
+      ajustado = true;
       break;
 ////-----------------------------------------------------------------------------------------------------////
 
 ////////////////////////////////////////// parametros de demodulacao ////////////////////////////////////////
     case '-': // diminui tempo para medida e demodulação
       tempo_demodulacao = tempo_demodulacao - 1;
+      if (tempo_demodulacao < 0) tempo_demodulacao = 0;
       Serial.print("Tempo de demodulacao = ");
       Serial.println(tempo_demodulacao);
       break; 
@@ -425,87 +442,82 @@ void processacomandoserial(){
       break; 
 
     case 't': // diminui nro de pontos
-      if(n_pontos_mult>1){
-        n_pontos_mult = n_pontos_mult-1;
-        envia_comando_todos('t');
-        tempo_demodulacao = 1+(n_pontos_base*n_pontos_mult)/4;
+      if (ajustado){
+        if(n_pontos_mult>1){
+          n_pontos_mult = n_pontos_mult-1;
+          envia_comando_todos('t');
+          //tempo_demodulacao = 1+(n_pontos_base*n_pontos_mult)/4;
+        }
+        else Serial.print("Nro de pontos minimo atingido. ");
+        Serial.print("Npontos = ");
+        Serial.print(n_pontos_base*n_pontos_mult);
+        Serial.print("; n_pontos_base = ");
+        Serial.print(n_pontos_base);
+        Serial.print("; n_pontos_mult = ");
+        Serial.print(n_pontos_mult);
+        Serial.print("; tempo_demodulacao = ");
+        Serial.println(tempo_demodulacao);
       }
-      else Serial.print("Nro de pontos minimo atingido. ");
-      Serial.print("Npontos = ");
-      Serial.print(n_pontos_base*n_pontos_mult);
-      Serial.print("; n_pontos_base = ");
-      Serial.print(n_pontos_base);
-      Serial.print("; n_pontos_mult = ");
-      Serial.print(n_pontos_mult);
-      Serial.print("; tempo_demodulacao = ");
-      Serial.println(tempo_demodulacao);
+      else{
+        Serial.println("ERRO: ainda não ajustado.");
+      }
       break;
 
     case 'u': // aumenta nro de pontosNUM_SAMPLES_MAX
-      if(((n_pontos_mult+1)*n_pontos_base) < NUM_SAMPLES_MAX){
-        n_pontos_mult = n_pontos_mult+1;
-        envia_comando_todos('y');
-        tempo_demodulacao = 1+(n_pontos_base*n_pontos_mult)/4;
+      if (ajustado){
+        if(((n_pontos_mult+1)*n_pontos_base) < NUM_SAMPLES_MAX){
+          n_pontos_mult = n_pontos_mult+1;
+          envia_comando_todos('y');
+          //tempo_demodulacao = 1+(n_pontos_base*n_pontos_mult)/4;
+        }
+        else Serial.print("Nro de pontos maximo atingido. ");
+        Serial.print("Npontos = ");
+        Serial.print(n_pontos_base*n_pontos_mult);
+        Serial.print("; n_pontos_base = ");
+        Serial.print(n_pontos_base);
+        Serial.print("; n_pontos_mult = ");
+        Serial.print(n_pontos_mult);
+        Serial.print("; tempo_demodulacao = ");
+        Serial.println(tempo_demodulacao);
       }
-      else Serial.print("Nro de pontos maximo atingido. ");
-      Serial.print("Npontos = ");
-      Serial.print(n_pontos_base*n_pontos_mult);
-      Serial.print("; n_pontos_base = ");
-      Serial.print(n_pontos_base);
-      Serial.print("; n_pontos_mult = ");
-      Serial.print(n_pontos_mult);
-      Serial.print("; tempo_demodulacao = ");
-      Serial.println(tempo_demodulacao);
+      else{
+        Serial.println("ERRO: ainda não ajustado.");
+      }
       break;
 ////-----------------------------------------------------------------------------------------------------////
 
 //////////////////////////////////////////// controle de eletrodos //////////////////////////////////////////
 //// DEBUG MUX inicio
     case 'd':
-      wire_envia_byte(0X60, 1);
+      wire_envia_byte(ENDERECO_MUX, 1);
       Serial.println("DEBUG Injetando no eletrodo 1");
       break;
 
     case 'D':
-    wire_envia_byte(0X60, 0X80+2);
+      wire_envia_byte(ENDERECO_MUX, 0X80+2);
       Serial.println("DEBUG Drenando no eletrodo 2");
       break;
 //// DEBUG MUX fim
 
-    case 'a':
-      /*  //altear mux para padrão de injeção 1-2
-          //wire_envia_byte(0X60, 1);
-          //wire_envia_byte(0X61, 2);
-          //Serial.println("Injetando nos eletrodos 1 e 2"); */
-      //altear mux para padrão de injeção 0-1
-      wire_envia_byte(0X60, 0);
-      wire_envia_byte(0X60, 0X80+1);
-      Serial.println("Injetando nos eletrodos 0 e 1");
-      break;
-
-    case 'b':
-      /*  // altear mux para padrão de injeção 2-3
-          //wire_envia_byte(0X60, 2);
-          //wire_envia_byte(0X61, 3);
-          //Serial.println("Injetando nos eletrodos 2 e 3");*/
-      // altear mux para padrão de injeção 1-2
-      wire_envia_byte(0X60, 1);
-      wire_envia_byte(0X60, 0X80+2);
+    case 'a':  // alterar mux para padrão de injeção 1-2
+      wire_envia_byte(ENDERECO_MUX, 1);
+      wire_envia_byte(ENDERECO_MUX, 0X80+2);
       Serial.println("Injetando nos eletrodos 1 e 2");
       break;
 
-    case 'c':
-      /*  // altear mux para padrão de injeção 3-4
-          //wire_envia_byte(0X60, 3);
-          //wire_envia_byte(0X61, 4);
-          //Serial.println("Injetando nos eletrodos 3 e 4");*/
-      // altear mux para padrão de injeção 2-3
-      wire_envia_byte(0X60, 2);
-      wire_envia_byte(0X60, 0X80+3);
+    case 'b':  // altear mux para padrão de injeção 2-3
+      wire_envia_byte(ENDERECO_MUX, 2);
+      wire_envia_byte(ENDERECO_MUX, 0X80+3);
       Serial.println("Injetando nos eletrodos 2 e 3");
       break;
 
-    case 'w': // diminui padrao de injecao
+    case 'c':  // altear mux para padrão de injeção 3-4
+      wire_envia_byte(ENDERECO_MUX, 3);
+      wire_envia_byte(ENDERECO_MUX, 0X80+4);
+      Serial.println("Injetando nos eletrodos 2 e 3");
+      break;
+
+    case 'w': // diminui o pula do padrao de injecao
       if( pula > 1 ){
         pula = pula-1;
         Serial.print("Usando padrao pula ");
@@ -514,7 +526,7 @@ void processacomandoserial(){
       else Serial.println("Padrao pula no limite");
       break;
 
-    case 'z': // aumenta padrao de injecao
+    case 'z': // aumenta pula do padrao de injecao
       if( (pula+1) < num_eletrodos_usados){
         pula = pula+1;
         Serial.print("Usando padrao pula ");
@@ -614,7 +626,7 @@ void processacomandoserial(){
 
 /////////////////////////////////// xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx /////////////////////////////////
       case 'P':
-        envia_comando_todos('P');
+        envia_comando_todos('P');  // Cada eletrodo imprime em sua serial os valores medidos
         break;
         
     default:
@@ -641,10 +653,10 @@ void setup(){
   delay(1000);
   Serial.println("Aguarde a configuracao do sistema");
 
-ad9850_setup();
-gerador_setup();
-delay(1000);
-Serial.println("Configuracao encerrada");
+  ad9850_setup();
+  gerador_setup();
+  delay(1000);
+  Serial.println("Configuracao encerrada");
 }
 
 void loop(){
